@@ -9,7 +9,7 @@
 
 @section('content_title', 'Guest Response')
 
-@section('content')
+@section('about_us')
 	<div class="w3-modal" id="confirmation">
 		<div class="w3-modal-content" id="">
 			<form name="" class="" action="" method="POST">

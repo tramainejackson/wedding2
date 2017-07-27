@@ -20,7 +20,7 @@
 	</header>
 @endsection
 
-@section('content')
+@section('about_us')
 	@if (count($foundGuest) > 0)
 		@foreach($foundGuest as $guest)
 			<div class="w3-modal" id="confirmation">

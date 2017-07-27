@@ -48,8 +48,6 @@ class GuestController extends Controller
 		}
 		
 		$guest->save();
-
-		return dd($invitedGuest);
     }
 
     /**
