@@ -24,11 +24,15 @@ class MessageController extends Controller
 			'message' => 'required'
 		]);
 		
-		$userMessage = Message::create(
-			request(['name', 'email', 'message'])
-		);
+		$messageEmail = new Message;
 		
-		Mail::to($userMessage)->send(new MessageReceived($userMessage));
+		$messageEmail->name = $request->name;
+		$messageEmail->email = $request->email;
+		$messageEmail->message = $request->message;
+
+		$messageEmail->save();
+		
+		Mail::to($messageEmail)->send(new MessageReceived($messageEmail));
 		
 		return redirect('/')->with('status', 'Thanks for reaching out. We got your message and will get back to you once one of us checks our email.');
     }
