@@ -34,12 +34,13 @@ div#confirmation_modal {
 <!-- Navbar (sticky bottom) -->
 <div class="w3-bottom w3-hide-small">
 	<div class="w3-bar w3-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
-		<a href="/" style="width:16.6%" class="w3-bar-item w3-button">Home</a>
-		<a href="/#us" style="width:16.6%" class="w3-bar-item w3-button">Our Story</a>
-		<a href="/#wedding" style="width:16.6%" class="w3-bar-item w3-button">Wedding</a>
-		<a href="/party" style="width:16.6%" class="w3-bar-item w3-button w3-hover-black">Dream Team</a>
-		<a href="/party" style="width:16.6%" class="w3-bar-item w3-button w3-hover-black">Photos</a>
-		<a href="/#rsvp" style="width:16.6%" class="w3-bar-item w3-button w3-hover-black">RSVP</a>
+		<a href="/" style="width:14.2%" class="w3-bar-item w3-button">Home</a>
+		<a href="/#us" style="width:14.2%" class="w3-bar-item w3-button">Our Story</a>
+		<a href="/#wedding" style="width:14.2%" class="w3-bar-item w3-button">Wedding</a>
+		<a href="/party" style="width:14.2%" class="w3-bar-item w3-button">Dream Team</a>
+		<a href="/photos" style="width:14.2%" class="w3-bar-item w3-button">Photos</a>
+		<a href="/registry" style="width:14.2%" class="w3-bar-item w3-button">Registry</a>
+		<a href="/#rsvp" style="width:14.2%" class="w3-bar-item w3-button">RSVP</a>
 	</div>
 </div>
 

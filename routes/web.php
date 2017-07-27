@@ -19,6 +19,14 @@ Route::get('/party', 'BridalPartyController@index');
 
 Route::get('/guest_list', 'GuestController@index');
 
+Route::get('/photos', function() {
+	return view('photos');
+})->name('photos');
+
+Route::get('/registry', function() {
+	return view('registry');
+})->name('registry');
+
 Route::patch('/confirmed', 'GuestController@update');
 
 Route::post('/confirmed/{id}', 'AddtGuestController@store');
