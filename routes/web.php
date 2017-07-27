@@ -35,5 +35,6 @@ Route::patch('/confirmed/{id}', 'AddtGuestController@update');
 
 Route::post('/new_message', 'MessageController@store');
 
+Auth::routes();
 
-// Route::resource('/', 'GuestController');
+Route::get('/home', 'HomeController@index')->name('home');
