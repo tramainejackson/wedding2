@@ -25,6 +25,7 @@
 			<div class="w3-left w3-padding" style="max-width:33.3%;">
 				<img src="images/paypal_icon.png" class="w3-circle" style="width:100%" />
 				<p class="w3-center w3-padding">This will be for PayPal</p>
+				<a href="{{ route('paypal') }}" class="">Click here</a>
 			</div>
 			<div class="w3-left w3-padding" style="max-width:33.3%">
 				<img src="images/venmo.png" class="w3-circle" style="width:100%" />

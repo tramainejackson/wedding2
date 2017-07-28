@@ -19,6 +19,10 @@ Route::get('/registry', function() {
 	return view('registry');
 })->name('registry');
 
+Route::get('/donations/paypal', function() {
+	return view('/');
+})->name('paypal');
+
 Route::get('/party', 'BridalPartyController@index');
 
 Route::get('/guest_list', 'GuestController@index')->middleware('auth');
