@@ -17,14 +17,16 @@
 @endsection
 
 @section('about_us')
+	
 	<!-- About / Tramaine & Ashley -->
 	<div class="w3-container w3-padding-24 w3-pale-red w3-grayscale-min" id="us">
 		<div class="w3-content w3-section" style="max-width:500px">
 			<h2 class="w3-center">SQUAD GOALS</h2>
-			<img class="mySlides w3-animate-fading" src="images/at1.jpg" style="width:100%">
-			<img class="mySlides w3-animate-fading" src="images/at2.jpg" style="width:100%">
-			<img class="mySlides w3-animate-fading" src="images/at3.jpg" style="width:100%">
-			<img class="mySlides w3-animate-fading" src="images/at4.jpg" style="width:100%">
+			
+			@foreach ($photos as $photo)
+				<img class="mySlides w3-animate-fading" src="{{ $photo->name }}" style="width:100%">
+			@endforeach
+			
 		</div>
 	</div>
 	<script>
