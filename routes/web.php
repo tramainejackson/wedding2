@@ -21,7 +21,7 @@ Route::get('/registry', function() {
 
 Route::get('/party', 'BridalPartyController@index');
 
-Route::get('/guest_list', 'GuestController@index');
+Route::get('/guest_list', 'GuestController@index')->middleware('auth');
 
 Route::get('/photos', 'PhotoController@index')->name('photos');
 

@@ -1,16 +1,6 @@
 @extends('app')
 
 @section('header')
-	@if(session('status'))
-		<!-- RSVP Confirmation modal -->
-		  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="padding:32px;max-width:600px" id="confirmation_modal">
-			<div class="w3-container w3-white w3-center">
-			  <h1 class="w3-wide">{{ session('status') }}</h1>
-			</div>
-			<span onclick="document.getElementById('confirmation_modal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-		  </div>
-	@endif
-	
 	<!-- Header / Home-->
 	<header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
 	  <div class="w3-display-middle w3-text-white w3-center headerContent">
@@ -25,142 +15,31 @@
 @section('about_us')
 	<!-- About / Tramaine & Ashley -->
 	<div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min" id="us">
-	  <div class="w3-content">
-		<h1 class="w3-center w3-text-grey"><b>Ashley & Tramaine</b></h1>
-		<img class="w3-round w3-grayscale-min" src="/images/at3.jpg" style="width:100%;margin:32px 0">
-		<p><i>You all know us. And we all know you. We are getting married lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-		  occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-		  laboris nisi ut aliquip ex ea commodo consequat.</i>
-		</p><br>
-		<p class="w3-center"><a href="#wedding" class="w3-button w3-black w3-round w3-padding-large w3-large">Wedding Details</a></p>
-	  </div>
+		<div class="w3-content">			
+			<h1 class="w3-jumbo w3-center">Registry</h1>
+			<p class="w3-padding-16">We are lucky enough to already have a home filled with everything we need. But some of you have asked about gifts, and so instead of a traditional registry, we will be accepting monitary gift via PayPal. 
+
+			If you wish, you can contribute towards our honeymoon and new life together as Mr & Mrs, please select one of the options below. </p>
+		</div>
+		<div class="w3-content">
+			<div class="w3-left w3-padding" style="max-width:33.3%;">
+				<img src="images/paypal_icon.png" class="w3-circle" style="width:100%" />
+				<p class="w3-center w3-padding">This will be for PayPal</p>
+			</div>
+			<div class="w3-left w3-padding" style="max-width:33.3%">
+				<img src="images/venmo.png" class="w3-circle" style="width:100%" />
+				<p class="w3-center w3-padding">This will be for Option B</p>
+			</div>
+			<div class="w3-left w3-padding" style="max-width:33.3%">
+				<img src="images/dino.jpg" class="w3-circle" style="width:100%" />
+				<p class="w3-center w3-padding">This will be for Option C</p>
+			</div>
+		</div>
 	</div>
 @endsection
 
 @section('wedding_information')
-	<!-- Wedding information -->
-	<!-- Background photo -->
-	<div class="w3-display-container bgimg2">
-	  <div class="w3-display-middle w3-text-white w3-center">
-		<h1 class="w3-jumbo">You Are Invited</h1><br>
-		<h2>Of course..</h2>
-	  </div>
-	</div>
-
-	<!-- Wedding information content -->
-	<div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min w3-center" id="wedding">
-	  <div class="w3-content">
-		<h1 class="w3-text-grey"><b>THE WEDDING</b></h1>
-		<img class="w3-round-large w3-grayscale-min" src="/images/wedding_location.jpg" style="width:100%;margin:64px 0">
-		<div class="w3-row">
-		  <div class="w3-half">
-			<h2>When</h2>
-			<p>Wedding Ceremony - 2:00pm</p>
-			<p>Reception & Dinner - 5:00pm</p>
-		  </div>
-		  <div class="w3-half">
-			<h2>Where</h2>
-			<p>Some place, an address</p>
-			<p>Some where, some address</p>
-		  </div>
-		</div>
-	  </div>
-	</div>
 @endsection
 
 @section('rsvp_information')
-	<!-- RSVP section -->
-	<div class="w3-container w3-padding-64 w3-pale-red w3-center w3-wide" id="rsvp">
-	  <h1>HOPE YOU CAN MAKE IT!</h1>
-	  <p class="w3-large">Kindly Respond By January, 2017</p>
-	  <p class="w3-xlarge">
-		<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round w3-red w3-opacity w3-hover-opacity-off" style="padding:8px 60px">RSVP</button>
-	  </p>
-	</div>
-
-	<!-- RSVP modal -->
-	<div id="id01" class="w3-modal">
-	  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="padding:32px;max-width:600px">
-		<div class="w3-container w3-white w3-center row">
-		  
-		  <h1 class="w3-wide col s12">CAN YOU COME?</h1>
-		  <p class="col s12">We really hope you can make it.</p>
-		  
-		  <form class="col s12" action="/confirmed" method="POST">
-			<div class="row">
-				{{ csrf_field() }}
-				{{ method_field('PATCH') }}
-				<div class="input-field col s6">
-					<input id="first" class="w3-large" type="text" name="first">
-					<label for="first" class="active">First Name</label>
-				</div>
-				<div class="input-field col s6">
-					<input id="last" class="w3-large" type="text" name="last">
-					<label for="last" class="active">Last Name</label>
-				</div>
-			  <p class="w3-center"><i>Sincerely, Tramaine & Ashley</i></p>
-			  <div class="w3-row">
-				<div class="w3-half">
-				  <input type="submit" name="rsvp" value="Going" class="w3-button w3-block w3-green" />
-				</div>
-				<div class="w3-half">
-				  <input type="submit" name="rsvp" value="Cant come" class="w3-button w3-block w3-red" />
-				</div>
-			  </div>
-			</div>
-		  </form>
-		</div>
-		<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-	  </div>
-	</div>
-@endsection
-
-@section('footer')
-	<!-- Footer -->
-	<footer class="w3-center w3-black w3-padding-16">
-		<div class="container">
-			<div class="row">
-				<div class="col s8">
-					<h4 class="w3-left-align" style="padding-left:5px">I think we covered everything but if you still want to contact us then you can leave a message at the BEEEEEEEPPPPPPPP.....</h4>
-				</div>
-				<div class="col s4">
-					<h4 class="w3-center" style="padding-left:5px">Instagram With Us</h4>
-				</div>
-				<div class="col s8">
-					{!! Form::open([ 'action' => 'MessageController@store', 'class' => '']) !!}
-						<div class="input-field col s6">
-							<input id="first" class="w3-large validate" type="text" name="name">
-							<label for="name" class="active">Full Name</label>
-						</div>
-						<div class="input-field col s6">
-							<input id="last" class="w3-large validate" type="email" name="email">
-							<label for="email" class="active">Email Address</label>
-						</div>
-						<div class="input-field col s12">
-							<textarea id="message" class="w3-large materialize-textarea validate" name="message"></textarea>
-							<label for="message" class="active">Message</label>
-						</div>
-						<div class="input-field col s12">
-							{!! Form::submit('Send Message', ['name' => 'submit', 'class' => 'btn waves-effect waves-light red accent-2 w3-left']) !!}
-						</div>
-					{!! Form::close() !!}
-				</div>
-				<div class="col s4">
-					<div class="w3-display-container">
-						<img src="images/at3.jpg" class="responsive-img w3-center" />
-					</div>
-				</div>
-				<div class="col s8"></div>
-				<div class="col s4">
-					<h5 class="">#jouney2jackson</h5>
-				</div>
-			</div>
-		</div>
-		<div class="w3-display-container">
-			<div class="grey darken-4 comporation">
-				<h5 class="w3-align-left">&copy;&nbsp;Copyright by Tramaine & &reg;&nbsp;Registered by Tramaine</h5>
-			</div>
-		</div>
-	</footer>
-	<div class="w3-hide-small" style="margin-bottom:32px"> </div>
 @endsection

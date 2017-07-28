@@ -28,39 +28,43 @@
 
 @section('about_us')
 	@if(count($guests) > 0)
-		<ul class="w3-ul guestList">
-			<li class="" style="opacity:0;">
-				<span>Name</span>
-				<span>Responded</span>
-				<span>Going?</span>
-			</li>
-			@foreach($guests as $guest)
-				<li class="" style="opacity:0;">
-					<span>{{ $guest->name }}</span>
-					<span>{{ $guest->responded }}</span>
-					
-					@if($guest->rsvp == 'Y')
-						<i class="fa fa-check-circle fa-lg" style="color:green;"></i>
-					@else
-						<i class="fa fa-times-circle fa-lg" style="color:red;"></i>
-					@endif
-					
-					@if($guest->plusOne)
-						<ul class="">
-							<li class="">
-								{{ $guest->plusOne()->pluck('name')->first() }}
-								
-								@if($guest->rsvp == 'Y')
-									<i class="fa fa-check-circle fa-lg" style="color:green;"></i>
-								@else
-									<i class="fa fa-times-circle fa-lg" style="color:red;"></i>
-								@endif
-							</li>
-						</ul>
-					@endif
-				</li>
-			@endforeach
-		</ul>
+		<div class="container">
+			<div class="w3-row">
+				<ul class="w3-ul guestList">
+					<li class="" style="opacity:0;">
+						<p class="w3-center" style="width:33%; display:inline-block;">Names&nbsp;<span class="w3-badge">{{ count($guests) }}</span></p>
+						<p class="w3-center" style="width:33%; display:inline-block;">Responded<span></span></p>
+						<p class="w3-center" style="width:33%; display:inline-block;">Going?<span></span></p>
+					</li>
+					@foreach($guests as $guest)
+						<li class="" style="opacity:0;">
+							<span class="w3-center" style="width:33%; display:inline-block;">{{ $guest->name }}</span>
+							<span class="w3-center" style="width:33%; display:inline-block;">{{ $guest->responded }}</span>
+							
+							@if($guest->rsvp == 'Y')
+								<span class="w3-center" style="width:33%; display:inline-block;"><i class="fa fa-check-circle fa-lg w3-center" style="color:green;"></i></span>
+							@else
+								<span class="w3-center" style="width:33%; display:inline-block;"><i class="fa fa-times-circle fa-lg w3-center" style="color:red;"></i></span>
+							@endif
+							
+							@if($guest->plusOne)
+								<ul class="">
+									<li class="">
+										<span class="w3-center" style="width:33%; display:inline-block;"><i class="fa fa-plus"></i>&nbsp;{{ $guest->plusOne()->pluck('name')->first() }}</span>
+										<span class="w3-center" style="width:33%; display:inline-block;"></span>
+										@if($guest->rsvp == 'Y')
+											<span class="w3-center" style="width:33%; display:inline-block;"><i class="fa fa-check-circle fa-lg w3-center" style="color:green;"></i></span>
+										@else
+											<span class="w3-center" style="width:33%; display:inline-block;"><i class="fa fa-times-circle fa-lg w3-center" style="color:red;"></i></span>
+										@endif
+									</li>
+								</ul>
+							@endif
+						</li>
+					@endforeach
+				</ul>
+			</div>
+		</div>
 	@else
 		{{ count($guests) }}
 	@endif
@@ -68,12 +72,14 @@
 
 @section('footer')
 	<!-- Footer -->
+	<script src="js/app.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="js/materialize.min.js"></script>
 	<script type="text/javascript">
 		//ScrollFire plugin init
 		var options = [
-		  {selector: '.guestList li', offset: 0, callback: function(el) {
+		  {selector: '.guestList li', offset: 100, callback: function(el) {
 			$(el).fadeTo("slow", 1);
 		  } }
 		];
@@ -84,7 +90,7 @@
 			$('.guestList > li').eq(x).addClass('guestNum'+x);
 			listItem = {
 				selector: '.guestNum'+x,
-				offset: 0,
+				offset: 100,
 				callback: function(el) {
 					$(el).fadeTo("slow", 1);
 				}
@@ -92,7 +98,6 @@
 			
 			options.push(listItem);
 		}
-		console.log(options);
 		Materialize.scrollFire(options);
 	</script>
 @endsection

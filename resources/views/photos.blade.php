@@ -44,55 +44,6 @@
 			x[myIndex-1].style.display = "block";  
 			setTimeout(carousel, 9000);    
 		}
-</script>
-@endsection
+	</script>
 
-@section('footer')
-	<!-- Footer -->
-	<footer class="w3-center w3-black w3-padding-16">
-		<div class="container">
-			<div class="row">
-				<div class="col s8">
-					<h4 class="w3-left-align" style="padding-left:5px">I think we covered everything but if you still want to contact us then you can leave a message at the BEEEEEEEPPPPPPPP.....</h4>
-				</div>
-				<div class="col s4">
-					<h4 class="w3-center" style="padding-left:5px">Instagram With Us</h4>
-				</div>
-				<div class="col s8">
-					{!! Form::open([ 'action' => 'MessageController@store', 'class' => '']) !!}
-						<div class="input-field col s6">
-							<input id="first" class="w3-large validate" type="text" name="name">
-							<label for="name" class="active">Full Name</label>
-						</div>
-						<div class="input-field col s6">
-							<input id="last" class="w3-large validate" type="email" name="email">
-							<label for="email" class="active">Email Address</label>
-						</div>
-						<div class="input-field col s12">
-							<textarea id="message" class="w3-large materialize-textarea validate" name="message"></textarea>
-							<label for="message" class="active">Message</label>
-						</div>
-						<div class="input-field col s12">
-							{!! Form::submit('Send Message', ['name' => 'submit', 'class' => 'btn waves-effect waves-light red accent-2 w3-left']) !!}
-						</div>
-					{!! Form::close() !!}
-				</div>
-				<div class="col s4">
-					<div class="w3-display-container">
-						<img src="images/at3.jpg" class="responsive-img w3-center" />
-					</div>
-				</div>
-				<div class="col s8"></div>
-				<div class="col s4">
-					<h5 class="">#jouney2jackson</h5>
-				</div>
-			</div>
-		</div>
-		<div class="w3-display-container">
-			<div class="grey darken-4 comporation">
-				<h5 class="w3-align-left">&copy;&nbsp;Copyright by Tramaine & &reg;&nbsp;Registered by Tramaine</h5>
-			</div>
-		</div>
-	</footer>
-	<div class="w3-hide-small" style="margin-bottom:32px"> </div>
 @endsection
