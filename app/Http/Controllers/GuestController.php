@@ -16,8 +16,20 @@ class GuestController extends Controller
     public function index()
     {
         $guests = Guests::orderBy('name', 'asc')->get();
+		$plusOnes = AddtGuest::all();
+        $confirmedCount = 0;
 	
-		return view('guest_list', compact('guests'));
+		foreach($guests as $guest) {
+			if($guest->rsvp == "Y") {
+				$confirmedCount++;
+				
+				if($guest->plusOne) {
+					$confirmedCount++;
+				}
+			}
+		}
+
+		return view('guest_list', compact('guests', 'plusOnes', 'confirmedCount'));
     }
 
     /**
@@ -38,16 +50,7 @@ class GuestController extends Controller
      */
     public function store(Request $request)
     {
-		$guest->name = $first . $last;
-		$guest->rsvp = request('rsvp', 'required');
-		
-		if(request('rsvp') == "Going") {
-			$guest->rsvp = "Y";
-		} else {
-			$guest->rsvp = "N";
-		}
-		
-		$guest->save();
+
     }
 
     /**

@@ -1,5 +1,11 @@
 @extends('app')
 
+@section('addt_style')
+	.bgimg, .bgimg2 {
+		min-height: 30%;
+	}
+@endsection
+
 @section('content_title', 'Guest List')
 
 @section('nav')
@@ -19,9 +25,8 @@
 	<!-- Header / Home-->
 	<header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
 	  <div class="w3-display-middle w3-text-white w3-center headerContent">
-		<h1 class="w3-jumbo">Ashley & Tramaine</h1>
-		<h2>Are getting married</h2>
-		<h2><b>17.07.2017</b></h2>
+		<h1 class="w3-jumbo">The Guest List</h1>
+		<span></span>
 	  </div>
 	</header>
 @endsection
@@ -32,9 +37,9 @@
 			<div class="w3-row">
 				<ul class="w3-ul guestList">
 					<li class="" style="opacity:0;">
-						<p class="w3-center" style="width:33%; display:inline-block;">Names&nbsp;<span class="w3-badge">{{ count($guests) }}</span></p>
+						<p class="w3-center" style="width:33%; display:inline-block;">Names&nbsp;<span class="w3-badge">{{ count($guests) + count($plusOnes) }}</span></p>
 						<p class="w3-center" style="width:33%; display:inline-block;">Responded<span></span></p>
-						<p class="w3-center" style="width:33%; display:inline-block;">Going?<span></span></p>
+						<p class="w3-center" style="width:33%; display:inline-block;">Going?&nbsp;<span class="w3-badge">{{ $confirmedCount }}</span></p>
 					</li>
 					@foreach($guests as $guest)
 						<li class="" style="opacity:0;">
@@ -66,7 +71,11 @@
 			</div>
 		</div>
 	@else
-		{{ count($guests) }}
+		<div class="container">
+			<div class="w3-row">
+				<h2 class="">You don't have anybody on your guest list. Where's the love?</h2>
+			</div>
+		</div>
 	@endif
 @endsection
 

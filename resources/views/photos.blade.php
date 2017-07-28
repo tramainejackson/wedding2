@@ -11,7 +11,7 @@
 	<header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
 		<div class="w3-display-middle w3-text-white w3-center headerContent">
 			<h1 class="w3-jumbo">Photo Gallery</h1>
-			<span class="w3-text-white w3-display-bottommiddle"><i>- no new faces, same entourage</i></span>
+			<span class="w3-text-white w3-display-bottommiddle"><i>- same entourage no extra faces</i></span>
 		</div>
 	</header>
 @endsection
