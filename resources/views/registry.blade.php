@@ -14,7 +14,7 @@
 	<div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min" id="us" style="background: linear-gradient(#f5f8fa, #ffdddd, #ffdddd, #ffdddd);">
 		<div class="w3-content">			
 			<h1 class="w3-jumbo w3-center">Registry</h1>
-			<p class="w3-padding-16">We are lucky enough to already have a home filled with everything we need. But some of you have asked about gifts, and so instead of a traditional registry, we will be accepting monitary gift via PayPal, Venmo, or Check.<br/><br/>If you wish, you can contribute towards our honeymoon and new life together as Mr & Mrs, please select one of the options below. Please feel free to bring a card to the wedding if you don't want to select on of the following options.</p>
+			<p class="w3-padding-16">We are lucky enough to already have a home filled with everything we need. But some of you have asked about gifts, and so instead of a traditional registry, we will be accepting monetary gift via PayPal, Venmo, Cash, Money Order, or Check.<br/><br/>If you wish, you can contribute towards our honeymoon and new life together as Mr & Mrs, please select one of the options below. Please feel free to bring a card to the wedding if you don't want to select one of the following options.</p>
 		</div>
 		<div class="w3-content">
 			<div class="w3-left w3-padding" style="max-width:33.3%;">

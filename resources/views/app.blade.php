@@ -18,8 +18,13 @@ p {line-height: 2}
     background-position: 100% 85%;
     background-size: cover;
 }
-.bgimg {background-image: url("/images/at2.jpg")}
-.bgimg2 {background-image: url("/images/flowers.jpg")}
+.bgimg { background-image: url("/images/at2.jpg")}
+.bgimg2 { 
+	background-image: url("/images/flowers.jpg"); 
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
 div#confirmation_modal {
     position: absolute;
     z-index: 1;
@@ -27,6 +32,14 @@ div#confirmation_modal {
     margin: 0% 25%;
     background: rgba(255, 255, 255, 0.8);
 }
+#us.w3-container, #test1 {
+    color: #000!important;
+    background-image: url("/images/gb4.jpg"); 
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
 @yield('addt_style')
 </style>
 <body>
