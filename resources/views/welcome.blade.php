@@ -88,7 +88,7 @@
 		  </div>
 		</div>
 	  </div>
-	<div class="w3-container w3-padding-64 w3-pale-red w3-center w3-wide" id="rsvp">
+	<div class="w3-container w3-padding-64 w3-center w3-wide" id="rsvp">
 	  <h1>HOPE YOU CAN MAKE IT!</h1>
 	  <p class="w3-large">Kindly Respond By January, 2018</p>
 	  <p class="w3-xlarge">
