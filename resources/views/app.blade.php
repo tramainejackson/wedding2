@@ -34,7 +34,7 @@ div#confirmation_modal {
 }
 #us.w3-container, #test1 {
     color: #000!important;
-    background-image: url("/images/gb4.jpg"); 
+    background-image: url("/images/gb3.jpg"); 
 	background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
