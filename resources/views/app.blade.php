@@ -7,8 +7,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-<link rel="stylesheet" href="css/app.css" media="screen,projection" />
+<link rel="stylesheet" href="/css/materialize.min.css" media="screen,projection" />
+<link rel="stylesheet" href="/css/app.css" media="screen,projection" />
 <style>
 body,h1,h2{font-family: "Raleway", sans-serif}
 body, html {height: 100%}
@@ -92,7 +92,7 @@ div#confirmation_modal {
 				<h4 class="w3-center" style="padding-left:5px">Instagram With Us</h4>
 
 				<div class="w3-display-container">
-					<img src="images/at3.jpg" class="responsive-img w3-center" />
+					<img src="/images/at3.jpg" class="responsive-img w3-center" />
 				</div>
 
 				<div class="w3-center">
@@ -108,6 +108,10 @@ div#confirmation_modal {
 	</div>
 </footer>
 <div class="w3-hide-small" style="margin-bottom:32px"> </div>
+<script src="/js/app.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.min.js"></script>
 @yield('footer')
 </body>
 </html>

@@ -33,7 +33,7 @@
 	<div class="section white" style="background: linear-gradient(#f5f8fa, white, white, white);">
 		<div class="row container">
 			<h2 class="header">Gifts</h2>
-			<p class="grey-text text-darken-3 lighten-3">We will be taking gifts through PayPal....</p>
+			<p class="grey-text text-darken-3 lighten-3">We will be taking gifts through Venmo....</p>
 		</div>
 	</div>
 	<div class="parallax-container">

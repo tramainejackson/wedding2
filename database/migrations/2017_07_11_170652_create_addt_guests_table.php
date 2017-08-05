@@ -17,6 +17,7 @@ class CreateAddtGuestsTable extends Migration
             $table->increments('id');
             $table->integer('guests_id');
             $table->string('name', 50);
+			$table->timestamps();
         });
     }
 

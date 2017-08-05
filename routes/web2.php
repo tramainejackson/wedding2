@@ -20,8 +20,12 @@ Route::get('/registry', function() {
 })->name('registry');
 
 Route::get('/donations/paypal', function() {
-	return view('/');
+	return view('donations.paypal');
 })->name('paypal');
+
+Route::get('/donations/venmo', function() {
+	return view('donations.venmo');
+})->name('venmo');
 
 Route::get('/party', 'BridalPartyController@index');
 
