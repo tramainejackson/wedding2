@@ -48,37 +48,39 @@
 
 	<!--- Into to Party --->
 	<div class="container partyPage">
-		<div class="partyPageBgrd"></div>
+		<div class="partyPageBgrd w3-hide-small"></div>
 
 		@for ($x = 0; $x < count($bridalParty); $x+=2)
 		
 			<!--- Matchup cards --->
 			<div class="">
 				<div class="row scrollfire{{$x}}" style="opacity:0;">
-					<div class="col s5 m5 l5">
+					<div class="col s15 m5 l5 w3-hide-small">
 						<h2 class="center-align">{{ $bridalParty[$x]->title }}</h2>
 					</div>
-					<div class="col s2 m2 l2"><span>&nbsp;</span></div>
-					<div class="col s5 m5 l5">
+					<div class="col s2 m2 l2 w3-hide-small"><span>&nbsp;</span></div>
+					<div class="col s5 m5 l5 w3-hide-small">
 						<h2 class="center-align">{{ $bridalParty[$x+1]->title }}</h2>
 					</div>
-					<div class="col s5 m5 l5">
+					<div class="col s12 m5 l5">
 						<div class="card">
 							<div class="card-image">
 								<img src="{{ $bridalParty[$x]->image }}" class="responsive-image" />
-								<span class="card-title">{{ $bridalParty[$x]->name }}</span>
+								<span class="card-title w3-mobile">{{ $bridalParty[$x]->title }}</span>
+								<span class="card-title w3-mobile" style="text-align:right;">{{ $bridalParty[$x]->name }}</span>
 							</div>
 							<div class="card-content">
 								<p class="">{{ $bridalParty[$x]->blurb }}</p>
 							</div>
 						</div>
 					</div>
-					<div class="col s2 m2 l2"><img src="images/design5.png" class="middeleImg valign-wrapper" /><img src="images/design4.png" class="middeleImg valign-wrapper" /></div>
-					<div class="col s5 m5 l5">
+					<div class="col s2 m2 l2"><img src="images/design5.png" class="middeleImg valign-wrapper w3-hide-small" /><img src="images/design4.png" class="middeleImg valign-wrapper w3-hide-small" /></div>
+					<div class="col s12 m5 l5">
 						<div class="card">
 							<div class="card-image">
 								<img src="{{ $bridalParty[$x+1]->image }}" class="responsive-image" />
-								<span class="card-title">{{ $bridalParty[$x+1]->name }}</span>
+								<span class="card-title w3-mobile">{{ $bridalParty[$x+1]->name }}</span>
+								<span class="card-title w3-mobile" style="text-align:right;">{{ $bridalParty[$x+1]->title }}</span>
 							</div>
 							<div class="card-content">
 								<p class="">{{ $bridalParty[$x+1]->blurb }}</p>

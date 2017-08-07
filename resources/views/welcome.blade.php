@@ -12,7 +12,7 @@
 	@endif
 	
 	@unless (Auth::check())
-		<a href="/login" style="position:absolute;z-index:2;background:transparent;" class="w3-btn w3-large">Login</a>
+		<a href="/login" style="position:absolute;z-index:2;background:transparent;right:20px;" class="w3-btn w3-large w3-hide-small">Login</a>
 	@endif
 
 	<!-- Header / Home-->
@@ -55,7 +55,7 @@
 @section('wedding_information')
 	<!-- Wedding information -->
 	<!-- Background photo -->
-	<div class="w3-display-container bgimg2">
+	<div class="w3-display-container bgimg2 w3-hide-small">
 	  <div class="w3-display-middle w3-text-white w3-center">
 		<h1 class="w3-jumbo">You Are Invited</h1><br>
 		<h2>Of course..</h2>
@@ -66,7 +66,7 @@
 	<div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min w3-center" id="wedding">
 	  <div class="w3-content">
 		<h1 class="w3-text-grey"><b>THE WEDDING</b></h1>
-		<img class="w3-round-large w3-grayscale-min" src="http://luciensmanor.com/wp-content/uploads/2016/07/Versailles-2016.jpg">
+		<img class="w3-round-large w3-mobile" src="http://luciensmanor.com/wp-content/uploads/2016/07/Versailles-2016.jpg">
 		<div class="w3-row">
 		  <div class="w3-half">
 			<h2>When</h2>

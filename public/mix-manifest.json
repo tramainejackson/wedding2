@@ -1,6 +1,6 @@
 {
-    "/C:/js/app.js": "/C:/js/app.js",
-    "/../../../css/app.css": "/../../../css/app.css",
-    "/C:/js/materialize.min.js": "/C:/js/materialize.min.js",
-    "/C:/js/jquery.min.js": "/C:/js/jquery.min.js"
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/materialize.min.js": "/js/materialize.min.js",
+    "/js/jquery.min.js": "/js/jquery.min.js"
 }
