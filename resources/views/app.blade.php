@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="/css/materialize.min.css" media="screen,projection" />
 <link rel="stylesheet" href="/css/app.css" media="screen,projection" />
+<link rel="stylesheet" href="/css/mycss.css" media="screen,projection" />
 <style>
 body,h1,h2{font-family: "Raleway", sans-serif}
 body, html {height: 100%}
@@ -57,7 +58,7 @@ div#confirmation_modal {
 </div>
 
 <!-- Navbar (mobile) -->
-<a href="#" onclick="w3_open()" class="w3-hide-medium w3-hide-large w3-padding" style="position:fixed;z-index: 1"><i class="material-icons">menu</i></a>
+<a href="#" onclick="w3_open()" class="w3-hide-medium w3-hide-large w3-padding w3-margin btn circle" style="position:fixed;z-index: 1;"><i class="material-icons">menu</i></a>
 <div class="w3-sidebar w3-hide-medium w3-hide-large" style="display:none;z-index:2;" id="mySidebar">
 	<ul>
 		<li>
@@ -104,7 +105,7 @@ div#confirmation_modal {
 <footer class="w3-center w3-black w3-padding-16">
 	<div class="container">
 		<div class="row">
-			<div class="col s8">
+			<div class="col s12 m8 l8">
 				<h4 class="w3-left-align w3-padding-24" style="padding-left:5px">I think we covered everything but if you still want to contact us then you can leave a message at the BEEEEEEEPPPPPPPP.....</h4>
 
 				{!! Form::open([ 'action' => 'MessageController@store', 'class' => '']) !!}
@@ -120,12 +121,12 @@ div#confirmation_modal {
 						<textarea id="message" class="w3-large materialize-textarea validate" name="message"></textarea>
 						<label for="message" class="active">Message</label>
 					</div>
-					<div class="input-field col s12">
+					<div class="input-field col offset-s4 s4">
 						{!! Form::submit('Send Message', ['name' => 'submit', 'class' => 'btn waves-effect waves-light red accent-2 w3-left']) !!}
 					</div>
 				{!! Form::close() !!}
 			</div>
-			<div class="col s4">
+			<div class="col offset-s2 s8 m4 l4" id="instagram_us">
 				<h4 class="w3-center" style="padding-left:5px">Instagram With Us</h4>
 
 				<div class="w3-display-container">
@@ -146,7 +147,6 @@ div#confirmation_modal {
 </footer>
 <div class="w3-hide-small" style="margin-bottom:32px"> </div>
 <script src="/js/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/materialize.min.js"></script>
 <script type="text/javascript">

@@ -48,7 +48,7 @@
 
 	<!--- Into to Party --->
 	<div class="container partyPage">
-		<div class="partyPageBgrd w3-hide-small"></div>
+		<div class="partyPageBgrd"></div>
 
 		@for ($x = 0; $x < count($bridalParty); $x+=2)
 		
@@ -66,10 +66,11 @@
 						<div class="card">
 							<div class="card-image">
 								<img src="{{ $bridalParty[$x]->image }}" class="responsive-image" />
-								<span class="card-title w3-mobile">{{ $bridalParty[$x]->title }}</span>
-								<span class="card-title w3-mobile" style="text-align:right;">{{ $bridalParty[$x]->name }}</span>
+								<span class="card-title w3-mobile">{{ $bridalParty[$x]->name }}</span>
+								<span class="card-title-top w3-mobile">{{ $bridalParty[$x]->title }}</span>
+								<span class="w3-right btn btn-floating pulse" style="width: initial;height: initial;padding: 2px 5px;margin-top: -50px;margin-right: 15px;"><i class="material-icons">more_vert</i></span>
 							</div>
-							<div class="card-content">
+							<div class="card-content hide-on-small-only">
 								<p class="">{{ $bridalParty[$x]->blurb }}</p>
 							</div>
 						</div>
@@ -80,9 +81,10 @@
 							<div class="card-image">
 								<img src="{{ $bridalParty[$x+1]->image }}" class="responsive-image" />
 								<span class="card-title w3-mobile">{{ $bridalParty[$x+1]->name }}</span>
-								<span class="card-title w3-mobile" style="text-align:right;">{{ $bridalParty[$x+1]->title }}</span>
+								<span class="card-title-top w3-mobile">{{ $bridalParty[$x+1]->title }}</span>
+								<span class="w3-right btn btn-floating pulse" style="width: initial;height: initial;padding: 2px 5px;margin-top: -50px;margin-right: 15px;"><i class="material-icons">more_vert</i></span>
 							</div>
-							<div class="card-content">
+							<div class="card-content hide-on-small-only">
 								<p class="">{{ $bridalParty[$x+1]->blurb }}</p>
 							</div>
 						</div>
@@ -104,8 +106,18 @@
 @endsection
 
 @section('footer')
-	<script src="js/app.js"></script>
-	<script src="js/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="js/materialize.min.js"></script>
+	<script type="text/javascript">
+		$("body").on("click", ".material-icons", function(e) {
+			var $this = $(this);
+			var card = $this.parents(".card");
+			
+			if(card.find('.card-content').hasClass('hide-on-small-only')) {
+				card.find('.card-content').removeClass('hide-on-small-only').slideDown();
+			} else {
+				card.find('.card-content').slideUp(function() {
+					card.find('.card-content').addClass('hide-on-small-only')
+				});				
+			}
+		});
+	</script>
 @endsection
