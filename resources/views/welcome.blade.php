@@ -66,7 +66,7 @@
 	<div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min w3-center" id="wedding">
 	  <div class="w3-content">
 		<h1 class="w3-text-grey"><b>THE WEDDING</b></h1>
-		<img class="w3-round-large w3-grayscale-min" src="/images/wedding_location.jpg" style="width:100%;margin:64px 0">
+		<img class="w3-round-large w3-grayscale-min" src="http://luciensmanor.com/wp-content/uploads/2016/07/Versailles-2016.jpg">
 		<div class="w3-row">
 		  <div class="w3-half">
 			<h2>When</h2>

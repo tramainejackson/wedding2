@@ -27,6 +27,7 @@
 				<img class="mySlides w3-animate-fading" src="{{ $photo->name }}" style="width:100%">
 			@endforeach
 			
+			{{ $photos->links() }}
 		</div>
 	</div>
 	<script>
