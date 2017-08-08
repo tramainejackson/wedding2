@@ -17,10 +17,6 @@
 		top: 50%;
 		background: radial-gradient(circle, whitesmoke, rgba(245, 245, 245, 0.85), transparent 65%);
 	}
-	.section {
-		padding-left: 15%;
-		padding-right: 15%;
-	}
 @endsection
 
 @section('header')

@@ -1,3 +1,95 @@
+.parallax-container {
+	height: 500px;
+}
+
+html, body, .block {
+	height: 105%;
+}
+
+.partyNav {
+	top: 0px;
+}
+
+.divider {
+	margin: 10% 0%;
+}
+
+.card .card-image img {
+    /* max-height: 450px; */
+}
+
+.partyPageBgrd {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.11);
+    top: 0;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+}
+
+.w3-top, .w3-bottom {
+    z-index: 2;
+}
+
+.comporation.grey.darken-4 h3 {
+    margin: 0px;
+}
+
+.comporation.grey.darken-4 {
+    margin: -16px;
+    padding: 5px 0px;
+}
+
+.mySlides {
+	max-height: 500px;
+}
+
+.middeleImg {
+	max-width: 100%;
+	padding: 50% 0%;
+	position: relative;
+}
+
+.headerContent {
+    background: radial-gradient(rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 50%);
+    padding: 30px;
+}
+
+.w3-display-bottommiddle {
+    margin-left: -20px;
+}
+
+.partyHeader span {
+	display: inline-block;
+}
+
+/* .pin-bottom, .pin-top {
+	position: relative;
+}
+
+.pinned {
+	position: fixed !important;
+} */
+
+.card .card-image .card-title-top {
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    padding: 24px;
+}
+
+.card .card-title-top {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.section {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
 @media (max-width: 600px) {
 
 #wedding {
@@ -37,5 +129,10 @@ p.w3-center.w3-padding.regOptionP {
     font-size: 140%;
     margin: 0% -50%;
 	color: black;
+}
+
+.section {
+    padding-left: 5%;
+    padding-right: 5%;
 }
 }
