@@ -2,30 +2,25 @@
 
 @section('addt_style')
 	.bgimg {
-		background-image: url("/images/bridalparty1.png");
 		min-height: 30%;
-	}
-	.parallax-text {
-		position: absolute;
-		width: 100%;
-	}
-	h1.parallax-text {
-		top: 20%;
-		background: radial-gradient(circle, whitesmoke, rgba(245, 245, 245, 0.85), transparent 65%);
-	}
-	h3.parallax-text{
-		top: 50%;
-		background: radial-gradient(circle, whitesmoke, rgba(245, 245, 245, 0.85), transparent 65%);
 	}
 @endsection
 
 @section('header')
 	<!-- Header / Home-->	
-	<div class="w3-display-container" style="height:300px;">
+	<!--- <header class="w3-display-container" style="height:300px;">
 		<h1 class="w3-jumbo w3-display-topmiddle">Ashley</h1>
 		<img class="w3-image w3-display-middle" src="/images/infinity1.png" style="max-height:150px">
 		<h1 class="w3-jumbo w3-display-bottommiddle">Tramaine</h1>
-	</div>
+	</header> --->
+	<header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
+		<div class="w3-display-middle w3-text-white w3-center headerContent">
+			<h1 class="w3-jumbo">Gifts</h1>
+			<span class="w3-text-white w3-display-bottommiddle w3-hide-small"><i></i></span>
+		</div>
+	</header>
+	
+	<!-- Gift ideas -->
 	<div class="section white" style="background: linear-gradient(#f5f8fa, white, white, white);">
 		<div class="row container">
 			<h2 class="header">Gifts</h2>
@@ -33,7 +28,12 @@
 		</div>
 	</div>
 	<div class="parallax-container">
-		<div class="parallax">
+		<div class="parallax hide-on-small-only">
+			<img src="/images/gift_dinner.jpg">
+			<h1 class="parallax-text w3-center w3-jumbo">Nice Dinner</h1>
+			{{-- <h3 class="parallax-text w3-center w3-xlarge">Fiji</h3> --}}
+		</div>
+		<div class="hide-on-med-and-up">
 			<img src="/images/gift_dinner.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">Nice Dinner</h1>
 			{{-- <h3 class="parallax-text w3-center w3-xlarge">Fiji</h3> --}}
@@ -46,7 +46,11 @@
 		</div>
 	</div>
 	<div class="parallax-container">
-		<div class="parallax">
+		<div class="parallax hide-on-small-only">
+			<img src="/images/gift_toronto.jpg">
+			<h1 class="parallax-text w3-center w3-jumbo">Trip To Toronto</h1>
+		</div>
+		<div class="hide-on-med-and-up">
 			<img src="/images/gift_toronto.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">Trip To Toronto</h1>
 		</div>
@@ -57,7 +61,11 @@
 		</div>
 	</div>
 	<div class="parallax-container">
-		<div class="parallax">
+		<div class="parallax hide-on-small-only">
+			<img src="/images/gift_greece.jpg">
+			<h1 class="parallax-text w3-center w3-jumbo">Trip To Greece</h1>
+		</div>
+		<div class="hide-on-med-and-up">
 			<img src="/images/gift_greece.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">Trip To Greece</h1>
 		</div>
@@ -68,8 +76,10 @@
 			<p class="grey-text text-darken-3 lighten-3">I would like to donate to this cause for $75 <a href="https://www.paypal.me/actionjack/75" target="_blank" class="">Click Here</a></p>
 		</div>
 	</div>
-	<div class="parallax-container">
-		<div class="parallax"><img src="/images/at3.jpg"></div>
+	<div class="parallax-container hide-on-small-only">
+		<div class="parallax">
+			<img src="/images/at3.jpg" />
+		</div>
 	</div>
 @endsection
 

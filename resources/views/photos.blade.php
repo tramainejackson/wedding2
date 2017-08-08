@@ -19,32 +19,39 @@
 @section('about_us')
 	
 	<!-- About / Tramaine & Ashley -->
-	<div class="w3-container w3-padding-24 w3-pale-red w3-grayscale-min" id="us">
-		<div class="w3-content w3-section" style="max-width:500px">
-			<h2 class="w3-center">SQUAD GOALS</h2>
-			
+		<div class="w3-display-container" style="max-height:450px; min-height:250px;">
 			@foreach ($photos as $photo)
-				<img class="mySlides w3-animate-fading" src="{{ $photo->name }}" style="width:100%">
+				<img class="mySlides w3-animate-fading w3-mobile rot{{ $photo->description }}" src="{{ $photo->name }}" style="height:inherit; max-width:100%; margin-bottom:0px; z-index:-999; position:relative">
 			@endforeach
-			
-			{{ $photos->links() }}
+			<button class="w3-button w3-black w3-display-left" onclick="plusPic(-1)">&#10094;</button>
+			<button class="w3-button w3-black w3-display-right" onclick="plusPic(1)" style="">&#10095;</button>
+			<div class="w3-display-bottommiddle" style="left:50%;width:100%;margin-left:0px;">
+				{{ $photos->links() }}
+			</div>
 		</div>
-	</div>
 	<script>
-		var myIndex = 0;
-		carousel();
-
-		function carousel() {
+		var myIndex = 1;
+		showPic(myIndex);
+		
+		function plusPic(n) {
+			showPic(myIndex += n);
+		}
+	
+		function showPic(n) {
 			var i;
 			var x = document.getElementsByClassName("mySlides");
+			var rotate = x[myIndex-1].className.substr(40);
+			
+			if(n > x.length) { myIndex == 1 }
+			if(n < 1) { myIndex == x.length }
+			
 			for (i = 0; i < x.length; i++) {
 			   x[i].style.display = "none";  
 			}
-			myIndex++;
-			if (myIndex > x.length) {myIndex = 1}    
-			x[myIndex-1].style.display = "block";  
-			setTimeout(carousel, 9000);    
-		}
+			
+			x[myIndex-1].style.transform = 'rotate(' + rotate + 'deg)';
+			x[myIndex-1].style.display = "block";   
+		} 
 	</script>
 
 @endsection

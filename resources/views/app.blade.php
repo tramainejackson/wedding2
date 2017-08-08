@@ -66,8 +66,8 @@ div#confirmation_modal {
 			  <div class="background">
 				<img class="w3-mobile" src="/images/at1.jpg">
 			  </div>
-			  <a href="#!user" class="w3-display-middle" style="max-height:50%;"><img class="circle w3-mobile" src="/images/at2.jpg"></a>
-			  <a href="#!name" class="w3-display-bottomleft"><span class="white-text w3-mobile">Check us out</span><span class="white-text w3-mobile">Take a look around</span></a>
+			  <!-- <a href="#!user" class="w3-display-middle" style="max-height:50%;"><img class="circle w3-mobile" src="/images/img42.jpg"></a>
+			  <a href="#!name" class="w3-display-bottomleft"><span class="white-text w3-mobile">Check us out</span><span class="white-text w3-mobile">Take a look around</span></a> -->
 			</div>
 			<a href="#" class="w3-display-topright"><i onclick="w3_close()" class="material-icons">clear</i></a>
 		</li>
@@ -81,12 +81,12 @@ div#confirmation_modal {
 			</form>
 		@else
 			<li><a href="/" class="w3-mobile w3-bar-item w3-button waves-effect">Home</a></li>
-			<li><a href="/#us" class="w3-mobile w3-bar-item waves-effect w3-button">Our Story</a></li>
-			<li><a href="/#wedding" class="w3-mobile w3-bar-item w3-button waves-effect">Wedding</a></li>
+			<li><a href="/#us" class="w3-mobile w3-bar-item waves-effect w3-button" onclick="w3_close()">Our Story</a></li>
+			<li><a href="/#wedding" class="w3-mobile w3-bar-item w3-button waves-effect" onclick="w3_close()">Wedding</a></li>
 			<li><a href="/party" class="w3-mobile w3-bar-item w3-button">Dream Team</a></li>
 			<li><a href="/photos" class="w3-mobile w3-bar-item w3-button">Photos</a></li>
 			<li><a href="/registry" class="w3-mobile w3-bar-item w3-button">Registry</a></li>
-			<li><a href="/#rsvp" class="w3-mobile w3-bar-item w3-button">RSVP</a></li>
+			<li><a href="/#rsvp" class="w3-mobile w3-bar-item w3-button" onclick="w3_close()">RSVP</a></li>
 			<li><div class="divider"></div></li>
 			<li><a href="/login" class="w3-mobile w3-bar-item w3-button">Login</a></li>
 		@endif
@@ -121,7 +121,7 @@ div#confirmation_modal {
 						<textarea id="message" class="w3-large materialize-textarea validate" name="message"></textarea>
 						<label for="message" class="active">Message</label>
 					</div>
-					<div class="input-field col offset-s4 s4">
+					<div class="input-field col offset-s3 s4">
 						{!! Form::submit('Send Message', ['name' => 'submit', 'class' => 'btn waves-effect waves-light red accent-2 w3-left']) !!}
 					</div>
 				{!! Form::close() !!}
@@ -149,6 +149,7 @@ div#confirmation_modal {
 <script src="/js/jquery.min.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/materialize.min.js"></script>
+<script type="text/javascript"></script>
 <script type="text/javascript">
 	function w3_open() {
 		document.getElementById("mySidebar").style.display = "block";

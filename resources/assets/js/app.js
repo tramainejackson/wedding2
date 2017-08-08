@@ -57,4 +57,11 @@ $(document).ready(function() {
       } }
     ];
     Materialize.scrollFire(options);
+	
+	// Slideshow for squad goals
+	// var $slides = $('img.mySlides');
+	// $slides.each(function() {
+		// var rotate = $(this).attr('class').substr(30);
+		// $(this).css({transform:'rotate(' + rotate + 'deg)', height:'inherit', width:'inherit'});
+	// });
 });
