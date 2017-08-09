@@ -40,16 +40,23 @@
 		function showPic(n) {
 			var i;
 			var x = document.getElementsByClassName("mySlides");
-			var rotate = x[myIndex-1].className.substr(40);
 			
-			if(n > x.length) { myIndex == 1 }
-			if(n < 1) { myIndex == x.length }
+			console.log("N = " + n);
+			console.log("Length = " + x.length);
+			if(n > x.length) { 
+				myIndex == 1; 
+			} else if(n < 1) { 
+				myIndex == x.length;
+			} else {
+				console.log("Its getting here for some reason");
+			}
 			
 			for (i = 0; i < x.length; i++) {
 			   x[i].style.display = "none";  
 			}
 			
-			x[myIndex-1].style.transform = 'rotate(' + rotate + 'deg)';
+			console.log("MyIndex Before Transition = " + myIndex);
+			
 			x[myIndex-1].style.display = "block";   
 		} 
 	</script>
