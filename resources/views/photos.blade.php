@@ -21,7 +21,7 @@
 	<!-- About / Tramaine & Ashley -->
 		<div class="w3-display-container" style="max-height:450px; min-height:250px;">
 			@foreach ($photos as $photo)
-				<img class="mySlides w3-animate-fading w3-mobile rot{{ $photo->description }}" src="{{ $photo->name }}" style="height:inherit; max-width:100%; margin-bottom:0px; z-index:-999; position:relative">
+				<img class="mySlides w3-animate-zoom w3-mobile rot{{ $photo->description }}" src="{{ $photo->name }}" style="height:inherit; max-width:100%; margin-bottom:0px; z-index:-999; position:relative">
 			@endforeach
 			<button class="w3-button w3-black w3-display-left" onclick="plusPic(-1)">&#10094;</button>
 			<button class="w3-button w3-black w3-display-right" onclick="plusPic(1)" style="">&#10095;</button>
