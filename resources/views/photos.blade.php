@@ -17,18 +17,21 @@
 @endsection
 
 @section('about_us')
-	
 	<!-- About / Tramaine & Ashley -->
-		<div class="w3-display-container" style="max-height:450px; min-height:250px;">
-			@foreach ($photos as $photo)
-				<img class="mySlides w3-animate-zoom w3-mobile rot{{ $photo->description }}" src="{{ $photo->name }}" style="height:inherit; max-width:100%; margin-bottom:0px; z-index:-999; position:relative">
-			@endforeach
-			<button class="w3-button w3-black w3-display-left" onclick="plusPic(-1)">&#10094;</button>
-			<button class="w3-button w3-black w3-display-right" onclick="plusPic(1)" style="">&#10095;</button>
-			<div class="w3-display-bottommiddle" style="left:50%;width:100%;margin-left:0px;">
-				{{ $photos->links() }}
-			</div>
+	<div class="w3-display-container" style="max-height:450px; min-height:250px;">
+		@foreach ($photos as $photo)
+			<img class="mySlides w3-animate-zoom w3-mobile rot{{ $photo->description }}" src="{{ $photo->name }}" style="max-height:inherit; height:inherit; max-width:100%; margin-bottom:0px; position:relative">
+		@endforeach
+		<button class="w3-button w3-black w3-display-left" onclick="plusPic(-1)">&#10094;</button>
+		<button class="w3-button w3-black w3-display-right" onclick="plusPic(1)" style="">&#10095;</button>
+		<div class="w3-display-bottomleft">
+			<span id="imgCount" class="w3-black w3-text-whitesmoke"></span>
 		</div>
+	</div>
+	<div class="" style="text-align:center;">
+		{{ $photos->links() }}
+	</div>
+	
 	<script>
 		var myIndex = 1;
 		showPic(myIndex);
@@ -40,24 +43,18 @@
 		function showPic(n) {
 			var i;
 			var x = document.getElementsByClassName("mySlides");
-			
-			console.log("N = " + n);
-			console.log("Length = " + x.length);
+
 			if(n > x.length) { 
-				myIndex == 1; 
+				myIndex = 1; 
 			} else if(n < 1) { 
-				myIndex == x.length;
-			} else {
-				console.log("Its getting here for some reason");
+				myIndex = x.length;
 			}
 			
 			for (i = 0; i < x.length; i++) {
 			   x[i].style.display = "none";  
 			}
 			
-			console.log("MyIndex Before Transition = " + myIndex);
-			
-			x[myIndex-1].style.display = "block";   
+			x[myIndex-1].style.display = "block";
 		} 
 	</script>
 

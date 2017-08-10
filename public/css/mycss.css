@@ -160,7 +160,14 @@ h1.parallax-text {
 	background: radial-gradient(circle, whitesmoke, rgba(245, 245, 245, 0.85), transparent 90%);
 }
 .pagination {
-    margin: 22px 0 5px;
+    margin: 22px auto;
+    display: inline-table;
+}
+.pagination li.active {
+    background-color: initial;
+}
+.pagination > li {
+	display: inline-block;
 }
 .pagination > li > span {
 	font-size: 40%;

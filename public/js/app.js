@@ -11063,12 +11063,14 @@ $(document).ready(function () {
 				} }];
 		Materialize.scrollFire(options);
 
-		// Slideshow for squad goals
-		// var $slides = $('img.mySlides');
-		// $slides.each(function() {
-		// var rotate = $(this).attr('class').substr(30);
-		// $(this).css({transform:'rotate(' + rotate + 'deg)', height:'inherit', width:'inherit'});
-		// });
+		// Add image count to the bottom of the display container
+		var images = $('.mySlides').length;
+		var imagesPage = Number($('li.active span').text());
+		var imagesPagination = imagesPage * 15 - 14;
+		var imagesTo = imagesPagination + images - 1;
+		var total = 150;
+
+		$('#imgCount').text('#' + imagesPagination + ' - ' + imagesTo + ' of ' + total);
 });
 
 /***/ }),
