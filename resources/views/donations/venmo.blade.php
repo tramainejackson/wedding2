@@ -2,40 +2,29 @@
 
 @section('addt_style')
 	.bgimg {
-		background-image: url("/images/bridalparty1.png");
 		min-height: 30%;
-	}
-	.parallax-text {
-		position: absolute;
-		width: 100%;
-	}
-	h1.parallax-text {
-		top: 20%;
-		background: radial-gradient(circle, whitesmoke, rgba(245, 245, 245, 0.85), transparent 65%);
-	}
-	h3.parallax-text{
-		top: 50%;
-		background: radial-gradient(circle, whitesmoke, rgba(245, 245, 245, 0.85), transparent 65%);
-	}
-	.section {
-		padding-left: 15%;
-		padding-right: 15%;
 	}
 @endsection
 
 @section('header')
 	<!-- Header / Home-->	
-	<div class="w3-display-container" style="height:300px;">
+	<header class="w3-display-container" style="height:300px;">
 		<h1 class="w3-jumbo w3-display-topmiddle">Ashley</h1>
 		<img class="w3-image w3-display-middle" src="/images/infinity1.png" style="max-height:150px">
 		<h1 class="w3-jumbo w3-display-bottommiddle">Tramaine</h1>
-	</div>
+	</header>
+	<!-- <header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
+		<div class="w3-display-middle w3-text-white w3-center headerContent">
+			<h1 class="w3-jumbo">Gifts</h1>
+			<span class="w3-text-white w3-display-bottommiddle w3-hide-small"><i></i></span>
+		</div>
+	</header> -->
 	
 	<!-- Gift ideas -->
 	<div class="section white" style="background: linear-gradient(#f5f8fa, white, white, white);">
 		<div class="row container">
 			<h2 class="header">Gifts</h2>
-			<p class="grey-text text-darken-3 lighten-3">We will be accepting gifts through Venmo</p>
+			<p class="grey-text text-darken-3 lighten-3">We will be accepting gifts through PayPal</p>
 		</div>
 	</div>
 	<div class="parallax-container">
@@ -52,10 +41,10 @@
 	</div>
 	<div class="section white">
 		<div class="row container">
-			<div class="col s6">
+			<div class="col s6 m4 l4">
 				<h2 class="header">Nice Dinner</h2>
 			</div>
-			<div class="col s6" style="margin:20px 0px;">
+			<div class="col s6 m4 l4" style="margin:20px 0px;">
 				<div class="input-field" style="">
 					<select class="giftTotal" name="">
 						<option value="1">1</option>
@@ -84,10 +73,10 @@
 	</div>
 	<div class="section white">
 		<div class="row container">
-			<div class="col s6">
+			<div class="col s6 m4 l4">
 				<h2 class="header">Trip To Toronto</h2>
 			</div>
-			<div class="col s6" style="margin:20px 0px;">
+			<div class="col s6 m4 l4" style="margin:20px 0px;">
 				<div class="input-field" style="">
 					<select class="giftTotal" name="">
 						<option value="1">1</option>
@@ -116,10 +105,10 @@
 	</div>
 	<div class="section white">
 		<div class="row container">
-			<div class="col s6" style="margin:20px 0px;">
+			<div class="col s6 m4 l4" style="margin:20px 0px;">
 				<h2 class="header" style="margin:0">Trip To Greece</h2>
 			</div>
-			<div class="col s6" style="margin:20px 0px;">
+			<div class="col s6 m4 l4" style="margin:20px 0px;">
 				<div class="input-field" style="">
 					<select class="giftTotal" name="">
 						<option value="1">1</option>
