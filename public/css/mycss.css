@@ -182,4 +182,10 @@ h1.parallax-text {
 .hisStory {
 	background: radial-gradient(circle, transparent 97%, gray, blue) !important;
 }
+.w3-modal-content {
+    margin: 0px 8% 0px 3%;
+}
+.comporation.grey.darken-4 {
+    margin: 0px 0px -16px;
+}
 }

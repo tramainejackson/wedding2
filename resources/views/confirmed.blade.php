@@ -36,7 +36,7 @@
 						<div class="w3-container w3-center">
 							@if ($guest->plusOne)
 								{!! Form::open([ 'action' => ['AddtGuestController@update', $guest->id], 'method' => 'PATCH' ]) !!}
-									<p class="">We have <input type="text" name="addt_guest" id="plusOneInput" value="{{ $guest->plusOne()->pluck('name')->first() }}" onkeyup="document.getElementById('nameChange').innerHTML = this.value;" disabled /> as your plus one. Is it okay to confirm <span id="nameChange">{{ $guest->plusOne()->pluck('name')->first() }}</span> as well?</p>
+									<p class="">We have <input type="text" name="addt_guest" id="plusOneInput" value="{{ $guest->plusOne()->pluck('name')->first() }}" onkeyup="document.getElementById('nameChange').innerHTML = this.value;" style="display:-webkit-inline-box; display:inline-block; width:initial; font-size:inherit; text-align:center;" disabled /> as your plus one. Is it okay to confirm <span id="nameChange">{{ $guest->plusOne()->pluck('name')->first() }}</span> as well?</p>
 								
 									<div class="w3-center w3-container">
 										<div class="w3-bar">

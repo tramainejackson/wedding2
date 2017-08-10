@@ -74,7 +74,7 @@ $(document).ready(function() {
 	// Increase gift amount by total selected gifts for PayPal
 	$('body').on('change', '.giftTotal', function() {
 		$this = $(this);
-		var a = $this.parent().next().find('a');
+		var a = $this.parent().parent().next().find('a');
 
 		if(a.length > 0){
 			var newTotal = Number(a.attr('href').substring(33)) * Number($this.find('option:selected').val());

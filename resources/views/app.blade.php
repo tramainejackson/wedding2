@@ -141,7 +141,7 @@ div#confirmation_modal {
 	</div>
 	<div class="w3-display-container">
 		<div class="grey darken-4 comporation">
-			<h5 class="w3-align-left">&copy;&nbsp;Copyright by Tramaine & &reg;&nbsp;Registered by Tramaine</h5>
+			<h5 class="w3-align-left">&copy;&nbsp; & &reg;&nbsp; by Tramaine</h5>
 		</div>
 	</div>
 </footer>

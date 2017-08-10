@@ -8,17 +8,17 @@
 
 @section('header')
 	<!-- Header / Home-->	
-	<!--- <header class="w3-display-container" style="height:300px;">
+	<header class="w3-display-container" style="height:300px;">
 		<h1 class="w3-jumbo w3-display-topmiddle">Ashley</h1>
 		<img class="w3-image w3-display-middle" src="/images/infinity1.png" style="max-height:150px">
 		<h1 class="w3-jumbo w3-display-bottommiddle">Tramaine</h1>
-	</header> --->
-	<header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
+	</header>
+	<!-- <header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
 		<div class="w3-display-middle w3-text-white w3-center headerContent">
 			<h1 class="w3-jumbo">Gifts</h1>
 			<span class="w3-text-white w3-display-bottommiddle w3-hide-small"><i></i></span>
 		</div>
-	</header>
+	</header> -->
 	
 	<!-- Gift ideas -->
 	<div class="section white" style="background: linear-gradient(#f5f8fa, white, white, white);">
@@ -44,8 +44,8 @@
 			<div class="col s6">
 				<h2 class="header">Nice Dinner</h2>
 			</div>
-			<div class="col s6">
-				<div class="input-field">
+			<div class="col s6" style="margin:20px 0px;">
+				<div class="input-field" style="">
 					<select class="giftTotal" name="">
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -53,6 +53,7 @@
 						<option value="4">4</option>
 						<option value="5">5</option>
 					</select>
+					<label>Total Gifts</label>
 				</div>
 			</div>
 			<div class="col s12">
@@ -75,14 +76,17 @@
 			<div class="col s6">
 				<h2 class="header">Trip To Toronto</h2>
 			</div>
-			<div class="col s6 input-field">
-				<select class="giftTotal" name="">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
+			<div class="col s6" style="margin:20px 0px;">
+				<div class="input-field" style="">
+					<select class="giftTotal" name="">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+					<label>Total Gifts</label>
+				</div>
 			</div>
 			<div class="col s12">
 				<p class="grey-text text-darken-3 lighten-3">I would like to add to this gift for $50 <a href="https://www.paypal.me/actionjack/50" target="_blank" class="payPalAmount">Click Here</a></p>
