@@ -31,6 +31,25 @@ html, body, .block {
     z-index: 2;
 }
 
+.photosPageContainer {
+	max-height:500px; 
+}
+
+.photosPageContainer button.w3-display-left, .photosPageContainer div.w3-display-bottomleft {
+	left: 5%
+}
+
+.photosPageContainer button.w3-display-right {
+	right: 5%
+}
+
+.photosPageContainer img {
+	max-height:inherit; 
+	height:inherit; 
+	max-width:100%; 
+	margin:0 auto;
+}
+
 .comporation.grey.darken-4 h3 {
     margin: 0px;
 }
@@ -187,5 +206,17 @@ h1.parallax-text {
 }
 .comporation.grey.darken-4 {
     margin: 0px 0px -16px;
+}
+.photosPageContainer {
+	max-height:450px; 
+	min-height:250px;
+}
+
+.photosPageContainer button.w3-display-left, .photosPageContainer div.w3-display-bottomleft {
+	left:0;
+}
+
+.photosPageContainer button.w3-display-right {
+	right:0;
 }
 }

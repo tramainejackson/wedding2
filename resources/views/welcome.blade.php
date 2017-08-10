@@ -22,7 +22,7 @@
 		<h2>Are getting married</h2>
 		<h2><b>08.26.2018</b></h2>
 	  </div>
-	<span class="w3-text-white w3-display-bottommiddle w3-hide-small"><i>- is it unconditional when the rarri don't start</i></span>
+	<span class="w3-text-white w3-display-bottommiddle w3-hide-small"><i>- I'm only asking for a couple of forevers</i></span>
 	</header>
 @endsection
 

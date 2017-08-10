@@ -67,22 +67,22 @@
 							<div class="card-image">
 								<img src="{{ $bridalParty[$x]->image }}" class="responsive-image" />
 								<span class="card-title w3-mobile">{{ $bridalParty[$x]->name }}</span>
-								<span class="card-title-top w3-mobile">{{ $bridalParty[$x]->title }}</span>
-								<span class="w3-right btn btn-floating pulse" style="width: initial;height: initial;padding: 2px 5px;margin-top: -50px;margin-right: 15px;"><i class="material-icons">more_vert</i></span>
+								<span class="card-title-top w3-mobile hide-on-med-and-up">{{ $bridalParty[$x]->title }}</span>
+								<span class="w3-right btn btn-floating pulse hide-on-med-and-up" style="width: initial;height: initial;padding: 2px 5px;margin-top: -50px;margin-right: 15px;"><i class="material-icons">more_vert</i></span>
 							</div>
 							<div class="card-content hide-on-small-only">
 								<p class="">{{ $bridalParty[$x]->blurb }}</p>
 							</div>
 						</div>
 					</div>
-					<div class="col s2 m2 l2"><img src="images/design5.png" class="middeleImg valign-wrapper w3-hide-small" /><img src="images/design4.png" class="middeleImg valign-wrapper w3-hide-small" /></div>
+					<div class="col s2 m2 l2"><img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /><img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /></div>
 					<div class="col s12 m5 l5">
 						<div class="card">
 							<div class="card-image">
 								<img src="{{ $bridalParty[$x+1]->image }}" class="responsive-image" />
 								<span class="card-title w3-mobile">{{ $bridalParty[$x+1]->name }}</span>
-								<span class="card-title-top w3-mobile">{{ $bridalParty[$x+1]->title }}</span>
-								<span class="w3-right btn btn-floating pulse" style="width: initial;height: initial;padding: 2px 5px;margin-top: -50px;margin-right: 15px;"><i class="material-icons">more_vert</i></span>
+								<span class="card-title-top w3-mobile hide-on-med-and-up">{{ $bridalParty[$x+1]->title }}</span>
+								<span class="w3-right btn btn-floating pulse hide-on-med-and-up" style="width: initial;height: initial;padding: 2px 5px;margin-top: -50px;margin-right: 15px;"><i class="material-icons">more_vert</i></span>
 							</div>
 							<div class="card-content hide-on-small-only">
 								<p class="">{{ $bridalParty[$x+1]->blurb }}</p>

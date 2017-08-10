@@ -18,9 +18,9 @@
 
 @section('about_us')
 	<!-- About / Tramaine & Ashley -->
-	<div class="w3-display-container" style="max-height:450px; min-height:250px;">
+	<div class="w3-display-container photosPageContainer">
 		@foreach ($photos as $photo)
-			<img class="mySlides w3-animate-zoom w3-mobile rot{{ $photo->description }}" src="{{ $photo->name }}" style="max-height:inherit; height:inherit; max-width:100%; margin-bottom:0px; position:relative">
+			<img class="mySlides w3-animate-zoom w3-mobile rot{{ $photo->description }}" src="{{ $photo->name }}">
 		@endforeach
 		<button class="w3-button w3-black w3-display-left" onclick="plusPic(-1)">&#10094;</button>
 		<button class="w3-button w3-black w3-display-right" onclick="plusPic(1)" style="">&#10095;</button>

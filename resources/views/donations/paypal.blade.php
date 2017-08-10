@@ -41,10 +41,10 @@
 	</div>
 	<div class="section white">
 		<div class="row container">
-			<div class="col s6">
+			<div class="col s6 m4 l4">
 				<h2 class="header">Nice Dinner</h2>
 			</div>
-			<div class="col s6" style="margin:20px 0px;">
+			<div class="col s6 m4 l4" style="margin:20px 0px;">
 				<div class="input-field" style="">
 					<select class="giftTotal" name="">
 						<option value="1">1</option>
@@ -73,10 +73,10 @@
 	</div>
 	<div class="section white">
 		<div class="row container">
-			<div class="col s6">
+			<div class="col s6 m4 l4">
 				<h2 class="header">Trip To Toronto</h2>
 			</div>
-			<div class="col s6" style="margin:20px 0px;">
+			<div class="col s6 m4 l4" style="margin:20px 0px;">
 				<div class="input-field" style="">
 					<select class="giftTotal" name="">
 						<option value="1">1</option>
@@ -105,10 +105,10 @@
 	</div>
 	<div class="section white">
 		<div class="row container">
-			<div class="col s6" style="margin:20px 0px;">
+			<div class="col s6 m4 l4" style="margin:20px 0px;">
 				<h2 class="header" style="margin:0">Trip To Greece</h2>
 			</div>
-			<div class="col s6" style="margin:20px 0px;">
+			<div class="col s6 m4 l4" style="margin:20px 0px;">
 				<div class="input-field" style="">
 					<select class="giftTotal" name="">
 						<option value="1">1</option>

@@ -4,6 +4,11 @@
 	.bgimg, .bgimg2 {
 		min-height: 30%;
 	}
+	.row {
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 20px;
+	}
 @endsection
 
 @section('header')
