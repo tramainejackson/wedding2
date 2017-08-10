@@ -11,6 +11,9 @@ $(document).ready(function() {
 	// Parallax plugin init
 	$('.parallax').parallax();
 	
+	// Materialize Select Plugin Init
+	$('select').material_select();
+	
 	// Pushpin plugin init
 	$('.partyNav').each(function() {
 		
@@ -66,4 +69,21 @@ $(document).ready(function() {
 	var total = 150;
 	
 	$('#imgCount').text('#' + imagesPagination + ' - ' + imagesTo + ' of ' + total);
+	
+	
+	// Increase gift amount by total selected gifts for PayPal
+	$('body').on('change', '.giftTotal', function() {
+		$this = $(this);
+		var a = $this.parent().next().find('a');
+
+		if(a.length > 0){
+			var newTotal = Number(a.attr('href').substring(33)) * Number($this.find('option:selected').val());
+			var newLink = 'https://www.paypal.me/actionjack/' + newTotal;
+			
+			a.attr('href', newLink);
+		
+			console.log($this.find('option:selected').val());
+			console.log(newTotal);
+		}
+	});
 });

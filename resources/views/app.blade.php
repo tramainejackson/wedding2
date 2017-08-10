@@ -26,7 +26,7 @@ div#confirmation_modal {
     position: absolute;
     z-index: 1;
     top: 20px;
-    margin: 0% 25%;
+    margin: 0% auto;
     background: rgba(255, 255, 255, 0.8);
 }
 @yield('addt_style')
