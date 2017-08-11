@@ -73,7 +73,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col s2 m2 l2"><img src="images/design5.png" class="middeleImg valign-wrapper" /><img src="images/design4.png" class="middeleImg valign-wrapper" /></div>
+					<div class="col s2 m2 l2"><img src="images/flower2.png" class="middeleImg valign-wrapper" /><img src="images/flower2.png" class="middeleImg valign-wrapper" style="transform:rotate(180deg)" /></div>
 					<div class="col s5 m5 l5">
 						<div class="card">
 							<div class="card-image">
