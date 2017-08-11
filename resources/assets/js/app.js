@@ -57,4 +57,31 @@ $(document).ready(function() {
       } }
     ];
     Materialize.scrollFire(options);
+	
+	$(document).ready(function() {
+		$('select').material_select();
+	});
+	
+	// Add image count to the bottom of the display container
+	var images = $('.mySlides').length;
+	var imagesPage = Number($('li.active span').text());
+	var imagesPagination = (imagesPage * 15) - 14;
+	var imagesTo = (imagesPagination + images) - 1;
+	var total = 150;
+
+	$('#imgCount').text('#' + imagesPagination + ' - ' + imagesTo + ' of ' + total);
+
+
+	// Increase gift amount by total selected gifts for PayPal
+	$('body').on('change', '.giftTotal', function() {
+		$this = $(this);
+		var a = $this.parent().parent().next().find('a');
+
+		if(a.length > 0){
+			var newTotal = Number(a.attr('href').substring(33)) * Number($this.find('option:selected').val());
+			var newLink = 'https://www.paypal.me/actionjack/' + newTotal;
+
+			a.attr('href', newLink);
+		}
+	});
 });

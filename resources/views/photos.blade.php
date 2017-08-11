@@ -11,39 +11,52 @@
 	<header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
 		<div class="w3-display-middle w3-text-white w3-center headerContent">
 			<h1 class="w3-jumbo">Photo Gallery</h1>
-			<span class="w3-text-white w3-display-bottommiddle"><i>- same entourage no extra faces</i></span>
+			<span class="w3-text-white w3-display-bottommiddle w3-hide-small"><i>- same entourage no extra faces</i></span>
 		</div>
 	</header>
 @endsection
 
 @section('about_us')
-	
 	<!-- About / Tramaine & Ashley -->
-	<div class="w3-container w3-padding-24 w3-pale-red w3-grayscale-min" id="us">
-		<div class="w3-content w3-section" style="max-width:500px">
-			<h2 class="w3-center">SQUAD GOALS</h2>
-			
-			@foreach ($photos as $photo)
-				<img class="mySlides w3-animate-fading" src="{{ $photo->name }}" style="width:100%">
-			@endforeach
-			
+	<div class="section white"></div>
+	<div class="w3-display-container photosPageContainer" style="background:url('/images/gb4.jpg');">
+		@foreach ($photos as $photo)
+			<img class="mySlides w3-animate-zoom w3-mobile rot{{ $photo->description }}" src="{{ $photo->name }}">
+		@endforeach
+		<button class="w3-button w3-black w3-display-left" onclick="plusPic(-1)">&#10094;</button>
+		<button class="w3-button w3-black w3-display-right" onclick="plusPic(1)" style="">&#10095;</button>
+		<div class="w3-display-bottomleft">
+			<span id="imgCount" class="w3-black w3-text-whitesmoke"></span>
 		</div>
 	</div>
+	<div class="" style="text-align:center;">
+		{{ $photos->links() }}
+	</div>
+	
 	<script>
-		var myIndex = 0;
-		carousel();
-
-		function carousel() {
+		var myIndex = 1;
+		showPic(myIndex);
+		
+		function plusPic(n) {
+			showPic(myIndex += n);
+		}
+	
+		function showPic(n) {
 			var i;
 			var x = document.getElementsByClassName("mySlides");
+
+			if(n > x.length) { 
+				myIndex = 1; 
+			} else if(n < 1) { 
+				myIndex = x.length;
+			}
+			
 			for (i = 0; i < x.length; i++) {
 			   x[i].style.display = "none";  
 			}
-			myIndex++;
-			if (myIndex > x.length) {myIndex = 1}    
-			x[myIndex-1].style.display = "block";  
-			setTimeout(carousel, 9000);    
-		}
+			
+			x[myIndex-1].style.display = "block";
+		} 
 	</script>
 
 @endsection

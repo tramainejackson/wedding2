@@ -30,7 +30,8 @@
 @section('about_us')
 	<!-- About / Tramaine & Ashley -->
 	<div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min" id="us">
-	  <div class="w3-content">
+	  <div class="w3-content w3-text-white" style="position:relative">
+		<div class="contentBgrd"></div>
 		<h1 class="w3-center w3-padding">Let me tell you how it all got started!</h1>
 		<h2 class="w3-center w3-padding">Pick a story</h2>
 		<ul class="hisAndHers w3-margin" style="display:flex">
@@ -58,8 +59,8 @@
 	
 	<!-- Wedding information -->
 	<!-- Background photo -->
-	<div class="w3-display-container bgimg2">
-		<div id="wedding" class="w3-display-middle w3-text-white w3-center">
+	<div id="wedding" class="w3-display-container bgimg2">
+		<div class="w3-display-middle w3-text-white w3-center">
 			<h1 class="w3-jumbo w3-center w3-padding"><b>THE WEDDING</b></h1><br>
 			<h2 class="w3-xlarge">You Are Invited</h2><br>
 			<h3>Of course..</h3>
@@ -69,9 +70,10 @@
 	<!-- Wedding information content -->
 	<div class="section white"></div>
 	<div id="test1" class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min w3-center">
-	  <div class="w3-content">
+	  <div class="w3-content" style="position:relative;">
 		<!--- <img class="w3-round-large w3-grayscale-min" src="http://luciensmanor.com/wp-content/uploads/2016/07/Versailles-2016.jpg" style="width:100%;margin:64px 0"> --->
-		<div class="w3-row">
+		<div class="contentBgrd"></div>
+		<div class="w3-row w3-text-white">
 		  <div class="w3-half">
 			<h2>When</h2>
 			<p>August 26, 2018</p>
@@ -84,16 +86,17 @@
 			<p>Lucien's Manor</p>
 			<p>81 W. White Horse Pike</p>
 			<p>Berlin, NJ 08009</p>
-			<p><a href="http://www.luciensmanor.com" target="_blank">luciensmanor.com</a></p>
+			<p><a href="http://www.luciensmanor.com" target="_blank" class="w3-text-white">luciensmanor.com</a></p>
 		  </div>
 		</div>
 	  </div>
-	<div class="w3-container w3-padding-64 w3-center w3-wide" id="rsvp">
-	  <h1>HOPE YOU CAN MAKE IT!</h1>
-	  <p class="w3-large">Kindly Respond By January, 2018</p>
-	  <p class="w3-xlarge">
-		<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round w3-red w3-opacity w3-hover-opacity-off" style="padding:8px 60px">RSVP</button>
-	  </p>
+	<div class="w3-content w3-text-white w3-center w3-wide" id="rsvp" style="position:relative;">
+		<div class="contentBgrd"></div>
+		<h1>HOPE YOU CAN MAKE IT!</h1>
+		<p class="w3-large">Kindly Respond By January, 2018</p>
+		<p class="w3-xlarge">
+		<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round w3-red w3-hover-opacity-off" style="padding:8px 60px">RSVP</button>
+		</p>
 	</div>
 	</div>
 @endsection

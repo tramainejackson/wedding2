@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="/css/materialize.min.css" media="screen,projection" />
 <link rel="stylesheet" href="/css/app.css" media="screen,projection" />
+<link rel="stylesheet" href="/css/mycss.css" media="screen,projection" />
 <style>
 body,h1,h2{font-family: "Raleway", sans-serif}
 body, html {height: 100%}

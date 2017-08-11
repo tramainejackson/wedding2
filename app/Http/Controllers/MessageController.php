@@ -32,7 +32,7 @@ class MessageController extends Controller
 
 		$messageEmail->save();
 		
-		Mail::to($messageEmail)->send(new MessageReceived($messageEmail));
+		\Mail::to($messageEmail)->send(new MessageReceived($messageEmail));
 		
 		return redirect('/')->with('status', 'Thanks for reaching out. We got your message and will get back to you once one of us checks our email.');
     }
