@@ -10,11 +10,20 @@
 @endsection
 
 @section('about_us')
-	<!-- About / Tramaine & Ashley -->
 	<div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min" id="us" style="background: linear-gradient(#f5f8fa, #ffdddd, #ffdddd, #ffdddd);">
 		<div class="w3-content">			
 			<h1 class="w3-jumbo w3-center">Registry</h1>
-			<p class="w3-padding-16">We are lucky enough to already have a home filled with everything we need. But some of you have asked about gifts, and so instead of a traditional registry, we will be accepting monetary gift via PayPal, Venmo, Cash, Money Order, or Check.<br/><br/>If you wish, you can contribute towards our honeymoon and new life together as Mr & Mrs, please select one of the options below. Please feel free to bring a card to the wedding if you don't want to select one of the following options.</p>
+		</div>
+		<div class="w3-content">
+			<blockquote class="w3-leftbar w3-panel w3-light-grey">
+				<i class="fa fa-quote-right w3-xxlarge"></i>
+				<p class=""><i>We know its not traditional and not the way its done, but rather than a wedding list we'd love a bit of sun. So if you'd like to give a gift and send us on our way a donation to our honeymoon would really make our day.</i></p>
+			</blockquote>
+			<blockquote class="w3-leftbar w3-panel w3-light-grey">
+				<i class="fa fa-quote-right w3-xxlarge"></i>
+				<p class=""><i>Our house has been filled with love and care, and is now full to the brim with no room to spare. If you were thinking of giving a gift, to help us on our way, A monetary gift towards our new home, would really make our day.</i></p>
+			</blockquote>
+			<p class="w3-padding-16"><br/>If you wish, you can contribute towards our honeymoon and new life together as Mr & Mrs, please select one of the options below. For the millineials who likes to do things virtually, you can use PayPal or Venmo to send a gift. But if you are more traditional please feel free to bring a card to the wedding if you don't want to select one of the following options.</p><br/>
 		</div>
 		<div class="w3-content">
 			<div class="w3-left w3-padding" style="max-width:33.3%;">

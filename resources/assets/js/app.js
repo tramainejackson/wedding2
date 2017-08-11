@@ -11,6 +11,9 @@ $(document).ready(function() {
 	// Parallax plugin init
 	$('.parallax').parallax();
 	
+	//Materialize text fields
+	Materialize.updateTextFields();
+	
 	// Pushpin plugin init
 	$('.partyNav').each(function() {
 		
@@ -73,14 +76,16 @@ $(document).ready(function() {
 
 
 	// Increase gift amount by total selected gifts for PayPal
-	$('body').on('change', '.giftTotal', function() {
+	$('body').on('change keyup mouseup', '.giftTotal', function() {
 		$this = $(this);
 		var a = $this.parent().parent().next().find('a');
+		var span = $this.parent().parent().next().find('.amountDisplay');
+		var newLink = 'https://www.paypal.me/actionjack/' + $this.val();
+
+		span.text($this.val());
+		a.attr('href', newLink);
 
 		if(a.length > 0){
-			var newTotal = Number(a.attr('href').substring(33)) * Number($this.find('option:selected').val());
-			var newLink = 'https://www.paypal.me/actionjack/' + newTotal;
-
 			a.attr('href', newLink);
 		}
 	});
