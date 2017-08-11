@@ -8,10 +8,10 @@
 
 @section('header')
 	<!-- Header / Home-->	
-	<header class="w3-display-container" style="height:300px;">
-		<h1 class="w3-jumbo w3-display-topmiddle">Ashley</h1>
+	<header class="w3-display-container" style="height:250px;">
+		<h1 class="w3-jumbo w3-display-left" style="left:10%">Ashley</h1>
 		<img class="w3-image w3-display-middle" src="/images/infinity1.png" style="max-height:150px">
-		<h1 class="w3-jumbo w3-display-bottommiddle">Tramaine</h1>
+		<h1 class="w3-jumbo w3-display-right" style="right:10%">Tramaine</h1>
 	</header>
 	<!-- <header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
 		<div class="w3-display-middle w3-text-white w3-center headerContent">

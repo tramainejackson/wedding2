@@ -59,8 +59,8 @@
 	
 	<!-- Wedding information -->
 	<!-- Background photo -->
-	<div class="w3-display-container bgimg2">
-		<div id="wedding" class="w3-display-middle w3-text-white w3-center">
+	<div id="wedding" class="w3-display-container bgimg2">
+		<div class="w3-display-middle w3-text-white w3-center">
 			<h1 class="w3-jumbo w3-center w3-padding"><b>THE WEDDING</b></h1><br>
 			<h2 class="w3-xlarge">You Are Invited</h2><br>
 			<h3>Of course..</h3>

@@ -18,6 +18,7 @@
 
 @section('about_us')
 	<!-- About / Tramaine & Ashley -->
+	<div class="section white"></div>
 	<div class="w3-display-container photosPageContainer" style="background:url('images/gb3.jpg');">
 		@foreach ($photos as $photo)
 			<img class="mySlides w3-animate-zoom w3-mobile rot{{ $photo->description }}" src="{{ $photo->name }}">

@@ -44,7 +44,11 @@ html, body, .block {
 }
 
 .photosPageContainer {
-	max-height:500px; 
+	max-height:500px;
+	background-attachment: fixed !important;
+	background-position: center center !important;
+	background-size: 100% 100% !important;
+	background-repeat: no-repeat !important;
 }
 
 .photosPageContainer button.w3-display-left, .photosPageContainer div.w3-display-bottomleft {
