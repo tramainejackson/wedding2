@@ -86,7 +86,7 @@
 			<p>Lucien's Manor</p>
 			<p>81 W. White Horse Pike</p>
 			<p>Berlin, NJ 08009</p>
-			<p><a href="http://www.luciensmanor.com" target="_blank">luciensmanor.com</a></p>
+			<p><a href="http://www.luciensmanor.com" target="_blank" class="w3-text-white">luciensmanor.com</a></p>
 		  </div>
 		</div>
 	  </div>
@@ -95,7 +95,7 @@
 		<h1>HOPE YOU CAN MAKE IT!</h1>
 		<p class="w3-large">Kindly Respond By January, 2018</p>
 		<p class="w3-xlarge">
-		<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round w3-red w3-opacity w3-hover-opacity-off" style="padding:8px 60px">RSVP</button>
+		<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round w3-red w3-hover-opacity-off" style="padding:8px 60px">RSVP</button>
 		</p>
 	</div>
 	</div>
