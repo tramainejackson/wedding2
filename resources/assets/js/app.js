@@ -12,6 +12,7 @@ $(document).ready(function() {
 	$('.parallax').parallax();
 	
 	//Materialize text fields
+	$('select').material_select();
 	Materialize.updateTextFields();
 	
 	// Pushpin plugin init
@@ -61,9 +62,6 @@ $(document).ready(function() {
     ];
     Materialize.scrollFire(options);
 	
-	$(document).ready(function() {
-		$('select').material_select();
-	});
 	
 	// Add image count to the bottom of the display container
 	var images = $('.mySlides').length;

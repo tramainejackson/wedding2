@@ -12,7 +12,7 @@
 	@endif
 	
 	@unless (Auth::check())
-		<a href="/login" style="position:absolute;z-index:2;background:transparent;" class="w3-btn w3-large">Login</a>
+		<a href="/login" style="position:absolute;z-index:2;background:transparent;" class="w3-btn w3-large hide-on-small-only">Login</a>
 	@endif
 
 	<!-- Header / Home-->

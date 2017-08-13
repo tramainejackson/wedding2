@@ -1,5 +1,6 @@
 .parallax-container {
 	height: 500px;
+	background: white;
 }
 
 html, body, .block {
@@ -212,9 +213,6 @@ h1.parallax-text {
 .hisStory {
 	background: radial-gradient(circle, transparent 97%, gray, blue) !important;
 }
-.w3-modal-content {
-    margin: 0px 8% 0px 3%;
-}
 .comporation.grey.darken-4 {
     margin: 0px 0px -16px;
 }
@@ -229,5 +227,13 @@ h1.parallax-text {
 
 .photosPageContainer button.w3-display-right {
 	right:0;
+}
+
+.header {
+	text-align: center;
+}
+
+h5.header {
+	margin-bottom: 25px;
 }
 }

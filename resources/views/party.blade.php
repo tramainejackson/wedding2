@@ -55,32 +55,36 @@
 			<!--- Matchup cards --->
 			<div class="">
 				<div class="row scrollfire{{$x}}" style="opacity:0;">
-					<div class="col s5 m5 l5">
-						<h2 class="center-align w3-xxxlarge" style="background: linear-gradient(transparent, white, transparent);">{{ $bridalParty[$x]->title }}</h2>
+					<div class="col s15 m5 l5 w3-hide-small">
+						<h2 class="center-align">{{ $bridalParty[$x]->title }}</h2>
 					</div>
-					<div class="col s2 m2 l2"><span>&nbsp;</span></div>
-					<div class="col s5 m5 l5">
-						<h2 class="center-align w3-xxxlarge" style="background: linear-gradient(transparent, white, transparent);">{{ $bridalParty[$x+1]->title }}</h2>
+					<div class="col s2 m2 l2 w3-hide-small"><span>&nbsp;</span></div>
+					<div class="col s5 m5 l5 w3-hide-small">
+						<h2 class="center-align">{{ $bridalParty[$x+1]->title }}</h2>
 					</div>
-					<div class="col s5 m5 l5">
+					<div class="col s12 m5 l5">
 						<div class="card">
 							<div class="card-image">
 								<img src="{{ $bridalParty[$x]->image }}" class="responsive-image" />
-								<span class="card-title">{{ $bridalParty[$x]->name }}</span>
+								<span class="card-title w3-mobile">{{ $bridalParty[$x]->name }}</span>
+								<span class="card-title-top w3-mobile hide-on-med-and-up">{{ $bridalParty[$x]->title }}</span>
+								<span class="w3-right btn btn-floating pulse hide-on-med-and-up" style="width: initial;height: initial;padding: 2px 5px;margin-top: -50px;margin-right: 15px;"><i class="material-icons">more_vert</i></span>
 							</div>
-							<div class="card-content">
+							<div class="card-content hide-on-small-only">
 								<p class="">{{ $bridalParty[$x]->blurb }}</p>
 							</div>
 						</div>
 					</div>
-					<div class="col s2 m2 l2"><img src="images/flower2.png" class="middeleImg valign-wrapper" /><img src="images/flower2.png" class="middeleImg valign-wrapper" style="transform:rotate(180deg)" /></div>
-					<div class="col s5 m5 l5">
+					<div class="col s2 m2 l2"><img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /><img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /></div>
+					<div class="col s12 m5 l5">
 						<div class="card">
 							<div class="card-image">
 								<img src="{{ $bridalParty[$x+1]->image }}" class="responsive-image" />
-								<span class="card-title">{{ $bridalParty[$x+1]->name }}</span>
+								<span class="card-title w3-mobile">{{ $bridalParty[$x+1]->name }}</span>
+								<span class="card-title-top w3-mobile hide-on-med-and-up">{{ $bridalParty[$x+1]->title }}</span>
+								<span class="w3-right btn btn-floating pulse hide-on-med-and-up" style="width: initial;height: initial;padding: 2px 5px;margin-top: -50px;margin-right: 15px;"><i class="material-icons">more_vert</i></span>
 							</div>
-							<div class="card-content">
+							<div class="card-content hide-on-small-only">
 								<p class="">{{ $bridalParty[$x+1]->blurb }}</p>
 							</div>
 						</div>
@@ -102,8 +106,18 @@
 @endsection
 
 @section('footer')
-	<script src="js/app.js"></script>
-	<script src="js/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="js/materialize.min.js"></script>
+	<script type="text/javascript">
+		$("body").on("click", ".material-icons", function(e) {
+			var $this = $(this);
+			var card = $this.parents(".card");
+			
+			if(card.find('.card-content').hasClass('hide-on-small-only')) {
+				card.find('.card-content').removeClass('hide-on-small-only').slideDown();
+			} else {
+				card.find('.card-content').slideUp(function() {
+					card.find('.card-content').addClass('hide-on-small-only')
+				});				
+			}
+		});
+	</script>
 @endsection
