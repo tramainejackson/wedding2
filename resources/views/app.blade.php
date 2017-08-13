@@ -40,6 +40,7 @@ div#confirmation_modal {
 	background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+	background-attachment: fixed;
 }
 
 @yield('addt_style')
@@ -62,10 +63,10 @@ div#confirmation_modal {
 			<a href="/" style="width:14.2%" class="w3-bar-item w3-button">Home</a>
 			<a href="/#us" style="width:14.2%" class="w3-bar-item w3-button">Our Story</a>
 			<a href="/#wedding" style="width:14.2%" class="w3-bar-item w3-button">Wedding</a>
+			<a href="/#rsvp" style="width:14.2%" class="w3-bar-item w3-button">RSVP</a>
 			<a href="/party" style="width:14.2%" class="w3-bar-item w3-button">Dream Team</a>
 			<a href="/photos" style="width:14.2%" class="w3-bar-item w3-button">Photos</a>
 			<a href="/registry" style="width:14.2%" class="w3-bar-item w3-button">Registry</a>
-			<a href="/#rsvp" style="width:14.2%" class="w3-bar-item w3-button">RSVP</a>
 		@endif
 	</div>
 </div>

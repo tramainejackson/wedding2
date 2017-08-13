@@ -37,7 +37,7 @@ html, body, .block {
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.35);
     margin: -16px;
     border-radius: 10px;
 	z-index: -1;
@@ -118,11 +118,6 @@ html, body, .block {
 .card .card-title-top {
     font-size: 24px;
     font-weight: 300;
-}
-
-.section {
-    padding-left: 15%;
-    padding-right: 15%;
 }
 
 .parallax-text {
