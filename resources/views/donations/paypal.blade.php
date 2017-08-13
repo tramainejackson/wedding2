@@ -24,7 +24,7 @@
 	<div class="section white" style="background: linear-gradient(#f5f8fa, white, white, white);">
 		<div class="row container">
 			<h2 class="col offset-s1 offset-m1 offset-l1 s11 m11 l11 header">Gifts</h2>
-			<p class="col offset-s1 offset-m1 offset-l1 s8 m5 l5 grey-text text-darken-3 lighten-3">We will be accepting gifts through Venmo. Please choose one of the gift options to contribute to and enter an amount. We are extremely thankful and appreciative of any and every blessing that comes our way.</p>
+			<p class="col offset-s1 offset-m1 offset-l1 s8 m5 l5 grey-text text-darken-3 lighten-3">We will be accepting gifts through PayPal. Please choose one of the gift options to contribute to and enter an amount. We are extremely thankful and appreciative of any and every blessing that comes our way.</p>
 		</div>
 	</div>
 	<div class="parallax-container">

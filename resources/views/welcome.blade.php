@@ -22,7 +22,7 @@
 			<h2>Are getting married</h2>
 			<h2><b>08.26.2018</b></h2>
 		</div>
-		<span class="w3-text-white w3-display-bottommiddle"><i>- Unconditional love is the passport to all of lifes journey</i></span>
+		<span class="w3-text-white w3-display-bottommiddle hide-on-small-only"><i>- Unconditional love is the passport to all of lifes journey</i></span>
 	</header>
 	<div class="section white"></div>
 @endsection

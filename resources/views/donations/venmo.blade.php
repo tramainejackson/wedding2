@@ -23,8 +23,8 @@
 	<!-- Gift ideas -->
 	<div class="section white" style="background: linear-gradient(#f5f8fa, white, white, white);">
 		<div class="row container">
-			<h2 class="header">Gifts</h2>
-			<p class="grey-text text-darken-3 lighten-3">We will be accepting gifts through Venmo. Please choose one of the gift options to contribute to and enter an amount. We are extremely thankful and appreciative of any and every blessing that comes our way.</p>
+			<h2 class="col offset-s1 offset-m1 offset-l1 s11 m11 l11 header">Gifts</h2>
+			<p class="col offset-s1 offset-m1 offset-l1 s8 m5 l5 grey-text text-darken-3 lighten-3">We will be accepting gifts through Venmo. Please choose one of the gift options to contribute to and enter an amount. We are extremely thankful and appreciative of any and every blessing that comes our way.</p>
 		</div>
 	</div>
 	<div class="parallax-container">
@@ -41,7 +41,7 @@
 	</div>
 	<div class="section white">
 		<div class="row container">
-			<div class="col s6 m4 l4">
+			<div class="col offset-s1 offset-m1 offset-l1 s4 m4 l4">
 				<h2 class="header">Honeymoon</h2>
 				<h5 class="header">(Enter the amount you would like to give)</h5>
 			</div>
@@ -52,7 +52,7 @@
 					<label class="w3-large">Gift Amount</label>
 				</div>
 			</div>
-			<div class="col s12">
+			<div class="col offset-s1 offset-m1 offset-l1 s11 m11 l11">
 				<p class="grey-text text-darken-3 lighten-3" style="">I would like to add to this gift of $<span class="amountDisplay">25</span> towards your honeymoon<br/><a href="https://www.paypal.me/actionjack/25" target="_blank" class="payPalAmount">Click Here To Continue</a></p>
 			</div>
 		</div>
@@ -71,7 +71,7 @@
 	</div>
 	<div class="section white">
 		<div class="row container">
-			<div class="col s6 m4 l4" style="margin:20px 0px;">
+			<div class="col offset-s1 offset-m1 offset-l1 s4 m4 l4">
 				<h2 class="header" style="margin:0">New Home</h2>
 				<h5 class="header">(Enter the amount you would like to give)</h5>
 			</div>
@@ -82,7 +82,7 @@
 					<label class="w3-large">Gift Amount</label>
 				</div>
 			</div>
-			<div class="col s12">
+			<div class="col offset-s1 offset-m1 offset-l1 s11 m11 l11">
 				<p class="grey-text text-darken-3 lighten-3" style="">I would like to add to this gift of $<span class="amountDisplay">25</span> towards a new home<br/><a href="https://www.paypal.me/actionjack/25" target="_blank" class="payPalAmount">Click Here To Continue</a></p>
 			</div>
 		</div>
