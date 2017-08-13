@@ -11029,7 +11029,6 @@ $(document).ready(function () {
 
 	//Materialize text fields
 	$('select').material_select();
-	Materialize.updateTextFields();
 
 	// Pushpin plugin init
 	$('.partyNav').each(function () {

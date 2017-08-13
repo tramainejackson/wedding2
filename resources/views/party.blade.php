@@ -56,11 +56,11 @@
 			<div class="">
 				<div class="row scrollfire{{$x}}" style="opacity:0;">
 					<div class="col s15 m5 l5 w3-hide-small">
-						<h2 class="center-align">{{ $bridalParty[$x]->title }}</h2>
+						<h2 class="center-align" style="background:linear-gradient(transparent, white, transparent)">{{ $bridalParty[$x]->title }}</h2>
 					</div>
 					<div class="col s2 m2 l2 w3-hide-small"><span>&nbsp;</span></div>
 					<div class="col s5 m5 l5 w3-hide-small">
-						<h2 class="center-align">{{ $bridalParty[$x+1]->title }}</h2>
+						<h2 class="center-align" style="background:linear-gradient(transparent, white, transparent)">{{ $bridalParty[$x+1]->title }}</h2>
 					</div>
 					<div class="col s12 m5 l5">
 						<div class="card">

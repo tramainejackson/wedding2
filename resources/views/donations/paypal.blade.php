@@ -32,7 +32,7 @@
 			<img src="/images/gift_toronto.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">Honeymoon</h1>
 		</div>
-		<div class="hide-on-med-and-up">
+		<div class="hide-on-med-and-up" style="background:white;">
 			<img src="/images/gift_toronto.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">Honeymoon</h1>
 		</div>
@@ -60,7 +60,7 @@
 			<img src="https://onepeterfive.com/wp-content/uploads/2014/08/suburb.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">New Home</h1>
 		</div>
-		<div class="hide-on-med-and-up">
+		<div class="hide-on-med-and-up" style="background:white;">
 			<img src="https://onepeterfive.com/wp-content/uploads/2014/08/suburb.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">New Home</h1>
 		</div>

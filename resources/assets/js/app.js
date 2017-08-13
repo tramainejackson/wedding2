@@ -13,7 +13,6 @@ $(document).ready(function() {
 	
 	//Materialize text fields
 	$('select').material_select();
-	Materialize.updateTextFields();
 	
 	// Pushpin plugin init
 	$('.partyNav').each(function() {
@@ -71,7 +70,6 @@ $(document).ready(function() {
 	var total = 150;
 
 	$('#imgCount').text('#' + imagesPagination + ' - ' + imagesTo + ' of ' + total);
-
 
 	// Increase gift amount by total selected gifts for PayPal
 	$('body').on('change keyup mouseup', '.giftTotal', function() {
