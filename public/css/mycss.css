@@ -235,4 +235,7 @@ h1.parallax-text {
 h5.header {
 	margin-bottom: 25px;
 }
+.contentBgrd {
+    border-radius: 0px;
+}
 }

@@ -135,7 +135,7 @@ div#confirmation_modal {
 						<textarea id="message" class="w3-large materialize-textarea validate" name="message"></textarea>
 						<label for="message" class="active">Message</label>
 					</div>
-					<div class="input-field col offset-s3 s4">
+					<div class="input-field col offset-s3 s4 m12 l12">
 						{!! Form::submit('Send Message', ['name' => 'submit', 'class' => 'btn waves-effect waves-light red accent-2 w3-left']) !!}
 					</div>
 				{!! Form::close() !!}
@@ -159,7 +159,7 @@ div#confirmation_modal {
 		</div>
 	</div>
 </footer>
-<div class="w3-hide-small" style="margin-bottom:32px"></div>
+<div class="w3-hide-small" style="margin-bottom: 50px;display: -webkit-inline-box;display: inline-block;"></div>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/materialize.min.js"></script>

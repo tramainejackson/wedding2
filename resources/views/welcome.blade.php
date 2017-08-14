@@ -179,7 +179,5 @@
 				}
 			}
 		}
-		
-		Materialize.updateTextFields();
 	</script>
 @endsection
