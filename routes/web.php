@@ -33,14 +33,6 @@ Route::get('/accommodations', function() {
 	return view('accommodations');
 })->name('accommodations');
 
-Route::get('/message', function() {
-	$messageEmail = new Message();
-	$messageEmail->name = 'Tramaine';
-	$messageEmail->email = 'jackson.tramaine3@yahoo.com';
-	$messageEmail->message = 'Testing testing 1234';
-	return view('emails.new_message', compact('messageEmail'));
-})->name('message');
-
 Route::get('/party', 'BridalPartyController@index');
 
 Route::get('/guest_list', 'GuestController@index')->middleware('auth');

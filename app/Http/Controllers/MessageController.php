@@ -33,7 +33,7 @@ class MessageController extends Controller
 		$messageEmail->save();
 		
 		\Mail::to($messageEmail)
-			->bcc('jackson.tramaine3@gmail.com')
+			->cc('adc0426@gmail.com')
 			->send(new WeddingWebsiteMessage($messageEmail));
 		
 		return redirect('/')->with('status', 'Thanks for reaching out. We got your message and will get back to you once one of us checks our email.');
