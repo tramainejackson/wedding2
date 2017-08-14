@@ -46,12 +46,12 @@
 			<div class="col s12 m4 l4" style="margin:20px 0px;">
 				<div class="input-field" style="">
 					<i class="material-icons prefix">attach_money</i>
-					<input class="giftTotal w3-large" name="" type="number" min="25.00" placeholder="25.00" value="25.00" step="0.01"/>
+					<input class="giftTotal w3-large" name="" type="number" min="0.00" value="0.00" step="0.01"/>
 					<label class="w3-large">Gift Amount</label>
 				</div>
 			</div>
 			<div class="col offset-s1 offset-m1 offset-l1 s11 m11 l11">
-				<p class="grey-text text-darken-3 lighten-3" style="">I would like to add to this gift of $<span class="amountDisplay">25</span> towards your honeymoon<br/><a href="https://www.paypal.me/actionjack/25" target="_blank" class="payPalAmount">Click Here To Continue</a></p>
+				<p class="grey-text text-darken-3 lighten-3" style="">I would like to add to this gift of $<span class="amountDisplay">0.00</span> towards your honeymoon<br/><a href="https://www.paypal.me/actionjack/25" target="_blank" class="payPalAmount">Click Here To Continue</a></p>
 			</div>
 		</div>
 	</div>
@@ -74,12 +74,12 @@
 			<div class="col s12 m4 l4" style="margin:20px 0px;">
 				<div class="input-field" style="">
 					<i class="material-icons prefix">attach_money</i>
-					<input class="giftTotal w3-large" name="" type="number" min="25.00" placeholder="25.00" value="25.00" step="0.01"/>
+					<input class="giftTotal w3-large" name="" type="number" min="0.00" value="0.00" step="0.01"/>
 					<label class="w3-large">Gift Amount</label>
 				</div>
 			</div>
 			<div class="col offset-s1 offset-m1 offset-l1 s11 m11 l11">
-				<p class="grey-text text-darken-3 lighten-3" style="">I would like to add to this gift of $<span class="amountDisplay">25</span> towards a new home<br/><a href="https://www.paypal.me/actionjack/25" target="_blank" class="payPalAmount">Click Here To Continue</a></p>
+				<p class="grey-text text-darken-3 lighten-3" style="">I would like to add to this gift of $<span class="amountDisplay">0.00</span> towards a new home<br/><a href="https://www.paypal.me/actionjack/25" target="_blank" class="payPalAmount">Click Here To Continue</a></p>
 			</div>
 		</div>
 	</div>

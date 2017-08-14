@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\Mail;
 use App\Http\Controllers\Controller;
-use App\Mail\MessageReceived;
+use App\Mail\WeddingWebsiteMessage;
 use App\Message;
 
 class MessageController extends Controller
@@ -32,7 +32,9 @@ class MessageController extends Controller
 
 		$messageEmail->save();
 		
-		\Mail::to($messageEmail)->send(new MessageReceived($messageEmail));
+		\Mail::to($messageEmail)
+			->bcc('jackson.tramaine3@gmail.com')
+			->send(new WeddingWebsiteMessage($messageEmail));
 		
 		return redirect('/')->with('status', 'Thanks for reaching out. We got your message and will get back to you once one of us checks our email.');
     }
