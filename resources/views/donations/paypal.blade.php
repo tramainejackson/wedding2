@@ -56,7 +56,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="parallax-container" style="background-color: white;">
+	<div class="parallax-container" style="background-color:white; z-index: -1;">
 		<div class="parallax hide-on-small-only">
 			<img src="https://onepeterfive.com/wp-content/uploads/2014/08/suburb.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">New Home</h1>

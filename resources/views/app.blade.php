@@ -100,7 +100,8 @@ div#confirmation_modal {
 			<li><a href="/party" class="w3-mobile w3-bar-item w3-button">Dream Team</a></li>
 			<li><a href="/photos" class="w3-mobile w3-bar-item w3-button">Photos</a></li>
 			<li><a href="/registry" class="w3-mobile w3-bar-item w3-button">Registry</a></li>
-			<li><a href="/accommodations" class="w3-mobile w3-bar-item w3-button">Accommodations</a></li>
+			<li><a href="/accommodations" class="w3-mobile w3-bar-item w3-button">Accommodations
+			</a></li>
 			<li><div class="divider"></div></li>
 			<li><a href="/login" class="w3-mobile w3-bar-item w3-button">Login</a></li>
 		@endif
