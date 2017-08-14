@@ -34,8 +34,19 @@
 @section('about_us')
 	<!-- About / Tramaine & Ashley -->
 	<div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min" id="us" style="background: linear-gradient(#f5f8fa, #ffdddd, #ffdddd, #ffdddd);">
+		<div class="w3-content w3-cell-row hide-on-small-only">
+			<div class="w3-container w3-cell w3-mobile">
+				<p class="w3-center"><i><span class="w3-xxlarge">&#10077;</span><br/>We know its not traditional and not the way its done,<br/>but rather than a wedding list we'd love a bit of sun.<br/>So if you'd like to give a gift and send us on our way<br/>a donation to our honeymoon would really make our day.<br/><span class="w3-xxlarge">&#10078;</span></i></p>
+			</div>
+			<div class="w3-container w3-cell w3-cell-middle w3-mobile">
+				<p class="w3-center"><i>OR</i></p>
+			</div>
+			<div class="w3-container w3-cell w3-mobile">
+				<p class="w3-center"><i><span class="w3-xxlarge">&#10077;</span><br/>Our house has been filled with love and care,<br/>and is now full to the brim with no room to spare.<br/>If you were thinking of giving a gift, to help us on our way<br/>a monetary gift towards our new home, would really make our day.<br/><span class="w3-xxlarge">&#10078;</span></i></p>
+			</div>
+		</div>
 		<div class="w3-content">			
-			<p class="w3-padding-16">We are lucky enough to already have a home filled with everything we need. But some of you have asked about gifts, and so instead of a traditional registry, we will be accepting monetary gift via PayPal, Venmo, Cash, Money Order, or Check.<br/><br/>If you wish, you can contribute towards our honeymoon and new life together as Mr & Mrs, please select one of the options below. Please feel free to bring a card to the wedding if you don't want to select one of the following options.</p>
+			<p class="w3-padding-16">If you wish, you can contribute towards our honeymoon and new life together as Mr & Mrs, we will be accepting monetary gift via PayPal, Venmo, Cash, Money Order, or Check. If you're a millenial and prefer to send electronically, please select one of the options below. But if you are more traditional feel free to bring a card to the wedding, there will be a card station</p>
 		</div>
 		<div class="w3-content row">
 			<div class="col offset-s4 s5 m4 l4 w3-padding">

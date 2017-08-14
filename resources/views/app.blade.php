@@ -66,7 +66,7 @@ div#confirmation_modal {
 			<a href="/party" style="width:14.2%" class="w3-bar-item w3-button">Dream Team</a>
 			<a href="/photos" style="width:14.2%" class="w3-bar-item w3-button">Photos</a>
 			<a href="/registry" style="width:14.2%" class="w3-bar-item w3-button">Registry</a>
-			<a href="/#rsvp" style="width:14.2%" class="w3-bar-item w3-button">RSVP</a>
+			<a href="/accommodations" style="width:14.2%" class="w3-bar-item w3-button">Accommodations</a>
 		@endif
 	</div>
 </div>

@@ -27,6 +27,10 @@ Route::get('/donations/venmo', function() {
 	return view('donations.venmo');
 })->name('venmo');
 
+Route::get('/accommodations', function() {
+	return view('accommodations');
+})->name('accommodations');
+
 Route::get('/party', 'BridalPartyController@index');
 
 Route::get('/guest_list', 'GuestController@index')->middleware('auth');
