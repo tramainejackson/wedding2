@@ -75,7 +75,7 @@ html, body, .block {
 }
 
 .w3-display-bottommiddle {
-    margin-left: -20px;
+    /* margin-left: -20px; */
 }
 
 .partyHeader span {
@@ -166,7 +166,7 @@ h3.parallax-text{
 }
 p.w3-center.w3-padding.regOptionP {
     font-size: 140%;
-    margin: 0% -50%;
+    margin: 0% 0%;
 	color: black;
 }
 

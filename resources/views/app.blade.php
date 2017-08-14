@@ -6,8 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="/css/materialize.min.css" media="screen,projection" />
 <link rel="stylesheet" href="/css/app.css" media="screen,projection" />
 <link rel="stylesheet" href="/css/mycss.css" media="screen,projection" />
@@ -20,15 +21,29 @@ p {line-height: 2}
     background-position: 100% 85%;
     background-size: cover;
 }
-.bgimg {background-image: url("/images/at2.jpg")}
-.bgimg2 {background-image: url("/images/flowers.jpg")}
+.bgimg { background-image: url("/images/at2.jpg")}
+.bgimg2 { 
+	background-image: url("/images/flowers.jpg"); 
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
 div#confirmation_modal {
     position: absolute;
     z-index: 1;
     top: 20px;
-    margin: 0% auto;
+    margin: 0% 25%;
     background: rgba(255, 255, 255, 0.8);
 }
+#us.w3-container, #test1 {
+    /* color: #000!important;
+	background-image: url("/images/gb4.jpg"); 
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+	background-attachment: fixed; */
+}
+
 @yield('addt_style')
 </style>
 <body>
@@ -52,7 +67,7 @@ div#confirmation_modal {
 			<a href="/party" style="width:14.2%" class="w3-bar-item w3-button">Dream Team</a>
 			<a href="/photos" style="width:14.2%" class="w3-bar-item w3-button">Photos</a>
 			<a href="/registry" style="width:14.2%" class="w3-bar-item w3-button">Registry</a>
-			<a href="/#rsvp" style="width:14.2%" class="w3-bar-item w3-button">RSVP</a>
+			<a href="/accommodations" style="width:14.2%" class="w3-bar-item w3-button">Accommodations</a>
 		@endif
 	</div>
 </div>
@@ -86,7 +101,7 @@ div#confirmation_modal {
 			<li><a href="/party" class="w3-mobile w3-bar-item w3-button">Dream Team</a></li>
 			<li><a href="/photos" class="w3-mobile w3-bar-item w3-button">Photos</a></li>
 			<li><a href="/registry" class="w3-mobile w3-bar-item w3-button">Registry</a></li>
-			<li><a href="/#rsvp" class="w3-mobile w3-bar-item w3-button" onclick="w3_close()">RSVP</a></li>
+			<li><a href="/accommodations" class="w3-mobile w3-bar-item w3-button">Accommodations</a></li>
 			<li><div class="divider"></div></li>
 			<li><a href="/login" class="w3-mobile w3-bar-item w3-button">Login</a></li>
 		@endif
@@ -121,7 +136,7 @@ div#confirmation_modal {
 						<textarea id="message" class="w3-large materialize-textarea validate" name="message"></textarea>
 						<label for="message" class="active">Message</label>
 					</div>
-					<div class="input-field col offset-s3 s4">
+					<div class="input-field col offset-s3 s4 m12 l12">
 						{!! Form::submit('Send Message', ['name' => 'submit', 'class' => 'btn waves-effect waves-light red accent-2 w3-left']) !!}
 					</div>
 				{!! Form::close() !!}
@@ -145,11 +160,10 @@ div#confirmation_modal {
 		</div>
 	</div>
 </footer>
-<div class="w3-hide-small" style="margin-bottom:32px"> </div>
+<div class="w3-hide-small" style="margin-bottom: 50px;display: -webkit-inline-box;display: inline-block;"></div>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/materialize.min.js"></script>
-<script type="text/javascript"></script>
 <script type="text/javascript">
 	function w3_open() {
 		document.getElementById("mySidebar").style.display = "block";

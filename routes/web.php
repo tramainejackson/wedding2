@@ -11,6 +11,8 @@
 |
 */
 
+use App\Message;
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -26,6 +28,10 @@ Route::get('/donations/paypal', function() {
 Route::get('/donations/venmo', function() {
 	return view('donations.venmo');
 })->name('venmo');
+
+Route::get('/accommodations', function() {
+	return view('accommodations');
+})->name('accommodations');
 
 Route::get('/party', 'BridalPartyController@index');
 
