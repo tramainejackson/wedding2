@@ -49,29 +49,35 @@
 			<p class="w3-padding-16">If you wish, you can contribute towards our honeymoon and new life together as Mr & Mrs, we will be accepting monetary gift via PayPal, Venmo, Cash, Money Order, or Check. If you're a millenial and prefer to send electronically, please select one of the options below. But if you are more traditional feel free to bring a card to the wedding, there will be a card station</p>
 		</div>
 		<div class="w3-content row">
-			<div class="col offset-s4 s5 m4 l4 w3-padding">
-				<div class="" style="height:350px">
-					<img src="images/paypal_icon.png" class="w3-circle" style="width:100%;height:300px" />
-				</div>
+			<div class="col s12 m4 l4 w3-padding">
 				<a href="{{ route('paypal') }}" class="">
-					<p class="w3-center w3-padding regOptionP">If you have a PayPal account and would like to send a gift through PayPal, please click here.</p>
+					<div class="" style="height:350px">
+						<img src="images/paypal_icon.png" class="w3-circle mobLogo" style="width:100%;height:300px" />
+					</div>
+					<div class="">
+						<p class="w3-center w3-padding regOptionP">If you have a PayPal account and would like to send a gift through PayPal, please click here.</p>
+					</div>
 				</a>
 			</div>
 			<div class="col s12 divider hide-on-med-and-up"></div>
-			<div class="col offset-s4 s5 m4 l4 w3-padding">
-				<div class="" style="height:350px">
-					<img src="images/venmo2.png" class="w3-circle" style="width:100%;height:300px" />
-				</div>
+			<div class="col s12 m4 l4 w3-padding">
 				<a href="{{ route('venmo') }}" class="">
-					<p class="w3-center w3-padding regOptionP">If you have a Venmo account and would like to send a gift through Venmo, please click here.</p>
+					<div class="" style="height:350px">
+						<img src="images/venmo2.png" class="w3-circle mobLogo" style="width:100%;height:300px" />
+					</div>
+					<div class="">
+						<p class="w3-center w3-padding regOptionP">If you have a Venmo account and would like to send a gift through Venmo, please click here.</p>
+					</div>
 				</a>
 			</div>
 			<div class="col s12 divider hide-on-med-and-up"></div>
-			<div class="col offset-s4 s5 m4 l4 w3-padding">
+			<div class="col s12 m4 l4 w3-padding">
 				<div class="" style="height:350px">
-					<img src="images/hallmark_envelope1.jpg" class="w3-circle" style="width:100%;height:300px" />
+					<img src="images/hallmark_envelope1.jpg" class="w3-circle mobLogo" style="width:100%;height:300px" />
 				</div>
-				<p class="w3-center w3-padding regOptionP">If you would like to be traditional, we will have a card box station at the wedding and you're free to bring a card with you.</p>
+				<div class="">
+					<p class="w3-center w3-padding regOptionP">If you would like to be traditional, we will have a card box station at the wedding and you're free to bring a card with you.</p>
+				</div>
 			</div>
 		</div>
 	</div>

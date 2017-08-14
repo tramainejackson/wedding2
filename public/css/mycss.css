@@ -177,7 +177,7 @@ h3.parallax-text{
 }
 p.w3-center.w3-padding.regOptionP {
     font-size: 140%;
-    margin: 0% -50%;
+    margin: 0% 0%;
 	color: black;
 }
 
@@ -244,5 +244,11 @@ h5.header {
 .directionsDiv {
 	margin: 0% 0% 5% !important;
     padding: 2% 0% !important;
+}
+.parallax-span {
+	position: absolute;
+    bottom: 2%;
+    left: 2%;
+    background: radial-gradient(circle, whitesmoke, rgba(245, 245, 245, 0.85), transparent 90%);
 }
 }

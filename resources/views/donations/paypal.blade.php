@@ -29,12 +29,13 @@
 	</div>
 	<div class="parallax-container">
 		<div class="parallax hide-on-small-only">
-			<img src="/images/gift_toronto.jpg">
+			<img src="/images/gift_greece.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">Honeymoon</h1>
 		</div>
 		<div class="hide-on-med-and-up" style="background:white;">
-			<img src="/images/gift_toronto.jpg">
+			<img src="/images/gift_greece.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">Honeymoon</h1>
+			<span class="parallax-span">Greece</span>
 		</div>
 	</div>
 	<div class="section white">
@@ -55,12 +56,12 @@
 			</div>
 		</div>
 	</div>
-	<div class="parallax-container">
+	<div class="parallax-container" style="background-color: white;">
 		<div class="parallax hide-on-small-only">
 			<img src="https://onepeterfive.com/wp-content/uploads/2014/08/suburb.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">New Home</h1>
 		</div>
-		<div class="hide-on-med-and-up" style="background:white;">
+		<div class="hide-on-med-and-up" style="">
 			<img src="https://onepeterfive.com/wp-content/uploads/2014/08/suburb.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">New Home</h1>
 		</div>
