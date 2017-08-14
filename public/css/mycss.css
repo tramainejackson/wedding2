@@ -238,4 +238,11 @@ h5.header {
 .contentBgrd {
     border-radius: 0px;
 }
+.guestAccomHeader {
+	font-size: 35px !important;
+}
+.directionsDiv {
+	margin: 0% 0% 5% !important;
+    padding: 2% 0% !important;
+}
 }
