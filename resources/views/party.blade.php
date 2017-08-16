@@ -75,7 +75,10 @@
 							</div>
 						</div>
 					</div>
-					<div class="col s2 m2 l2"><img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /><img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /></div>
+					<div class="col s2 m2 l2">
+						<img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" />
+						<img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" />
+					</div>
 					<div class="col s12 m5 l5">
 						<div class="card">
 							<div class="card-image">

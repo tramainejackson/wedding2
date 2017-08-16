@@ -33,7 +33,7 @@
 
 @section('about_us')
 	<!-- About / Tramaine & Ashley -->
-	<div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min" id="us" style="background: linear-gradient(#f5f8fa, #ffdddd, #ffdddd, #ffdddd);">
+	<div class="w3-container w3-padding-64" id="us" style="background: linear-gradient(#f5f8fa, #ffb07c, #ffdddd);color:black;">
 		<div class="w3-content w3-cell-row hide-on-small-only">
 			<div class="w3-container w3-cell w3-mobile">
 				<p class="w3-center"><i><span class="w3-xxlarge">&#10077;</span><br/>We know its not traditional and not the way its done,<br/>but rather than a wedding list we'd love a bit of sun.<br/>So if you'd like to give a gift and send us on our way<br/>a donation to our honeymoon would really make our day.<br/><span class="w3-xxlarge">&#10078;</span></i></p>

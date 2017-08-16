@@ -42,6 +42,7 @@ div#confirmation_modal {
     background-position: center center;
     background-size: cover;
 	background-attachment: fixed; */
+	position: relative;
 }
 
 @yield('addt_style')

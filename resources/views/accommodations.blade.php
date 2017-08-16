@@ -33,7 +33,7 @@
 
 @section('about_us')
 	<!-- Accommodations -->
-	<div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min" id="us" style="background: linear-gradient(#f5f8fa, #ffdddd, #ffdddd, #ffdddd);">
+	<div class="w3-container w3-padding-64" id="us" style="background: linear-gradient(#f5f8fa, #ffb07c, #f5f8fa);">
 		<div class="w3-content">
 			<h1 class="w3-center w3-jumbo" style="border-bottom: solid 1px; margin: 0% 20% 5%; padding: 2% 0%;">Hotels</h1>
 		</div>
@@ -69,21 +69,21 @@
 
 @section('wedding_information')
 	<!-- Directions -->
-	<div class="w3-container w3-padding-64 w3-pale-red w3-grayscale-min" id="us" style="background: linear-gradient(#f5f8fa, #ffdddd, #ffdddd, #ffdddd);">
+	<div class="w3-container w3-padding-64" id="us" style="background: linear-gradient(#f5f8fa, #c0fa8b, #f5f8fa);">
 		<div class="w3-content directionsDiv" style="border-bottom: solid 1px; margin: 0% 20% 5%; padding: 2% 0%;">
 			<h1 class="w3-center w3-jumbo" style="max-width:100%;">Directions</h1>
 			<h3 class="w3-center">81 West White Horse Pike, Berlin, NJ 08009</h1>
 		</div>
 		<div class="row">	
-			<div class="col s12 m12 l12 w3-padding-24">
+			<div class="col offset-l2 s12 m12 l8 w3-padding-24">
 				<h2 class="w3-center">From Philadelphia:</h2>
 				<h3 class="w3-center"><i>Walt Whitman or Ben Franklin Bridges to Interstate 295 North. Follow Interstate 295 North to Exit 29A (Rte. 30 E). Stay on Route 30 East for approximately 9 miles. Lucien’s Manor is on the right.</i></h4>
 			</div>
-			<div class="col s12 m12 l12 w3-padding-24">
+			<div class="col offset-l2 s12 m12 l8 w3-padding-24">
 				<h2 class="w3-center">From Washington & Points South:</h2>
 				<h3 class="w3-center"><i>195 North to 1295 North. Follow 295 N to Exit 29A (Rt. 30 East). Stay on Route 30 East for approximately 9 miles. Lucien’s manor is on the right.</i></h3>
 			</div>
-			<div class="col s12 m12 l12 w3-padding-24">
+			<div class="col offset-l2 s12 m12 l8 w3-padding-24">
 				<h2 class="w3-center">From New York & Points North:</h2>
 				<h3 class="w3-center"><i>Take the New Jersey Turnpike South to Exit 4. Follow sings to Route 73 South. Follow 73 south for approx 8 miles to Franklin Avenue. Make a right on Franklin Avenue. At the second traffic light make a left onto Route 30 E. Lucien’s Manor is 1/4 mile on the right.</i></h3>
 			</div>

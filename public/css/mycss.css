@@ -32,7 +32,8 @@ html, body, .block {
 }
 
 .photosPageContainer {
-	max-height:500px; 
+	max-height:500px;
+	background: linear-gradient(#ffb07c, #ffb07c, #c0fa8b);
 }
 
 .photosPageContainer button.w3-display-left, .photosPageContainer div.w3-display-bottomleft {
@@ -55,8 +56,12 @@ html, body, .block {
 }
 
 .comporation.grey.darken-4 {
-    margin: -16px;
+    margin: 0px 0px -16px;
     padding: 5px 0px;
+}
+
+p.w3-center.w3-padding.regOptionP {
+	color: black;
 }
 
 .mySlides {

@@ -14,13 +14,13 @@
 			<span class="w3-text-white w3-display-bottommiddle w3-hide-small"><i>- same entourage no extra faces</i></span>
 		</div>
 	</header> --->
-	<header class="w3-display-container" style="height:300px;">
+	<header class="w3-display-container" style="height:300px;background: linear-gradient(white, white, #ffb07c);">
 		<h1 class="w3-jumbo w3-display-topmiddle" style="">Ashley</h1>
 		<img class="w3-image w3-display-middle" src="/images/infinity1.png" style="max-height:150px">
 		<h1 class="w3-jumbo w3-display-bottommiddle" style="">Tramaine</h1>
 	</header>
 	<div class="">
-		<h3 class="w3-center" style="font-family:'Sedgwick Ave Display', cursive;">Squad Goals</h3>
+		<h3 class="w3-center w3-padding-24" style="font-family:'Sedgwick Ave Display', cursive; margin:0;background:#ffb07c;">Squad Goals</h3>
 	</div>
 @endsection
 
@@ -36,7 +36,7 @@
 			<span id="imgCount" class="w3-black w3-text-whitesmoke"></span>
 		</div>
 	</div>
-	<div class="" style="text-align:center;">
+	<div class="" style="text-align:center; background: linear-gradient(#c0fa8b, #c0fa8b, #f5f8fa);">
 		{{ $photos->links() }}
 	</div>
 	
