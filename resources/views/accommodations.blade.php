@@ -41,27 +41,32 @@
 			<div class="col s12 m4 l4 w3-padding">
 				<h2 class="w3-center">Fairfield Inn & Suites by Marriott Mt. Laurel</h2>
 				<h3 class="w3-center"><i>(856) 642-0600</i></h4>
-				<h4 class="w3-center"><a href="www.fairfieldinn.com/phlfm" class="">www.fairfieldinn.com/phlfm</a></h4>
+				<h4 class="w3-center"><a href="http://www.fairfieldinn.com/phlfm" target="_blank" class="">www.fairfieldinn.com/phlfm</a></h4>
+				<h5 class="w3-center">(10.7 miles)</h5>
 			</div>
 			<div class="col s12 m4 l4 w3-padding">
 				<h2 class="w3-center">Hampton Inn Cherry Hill/Voorhees</h2>
 				<h3 class="w3-center"><i>(856) 346-4500</i></h3>
-				<h4 class="w3-center"><a href="www.hamptonvoorhees.com" class="">www.hamptonvoorhees.com</a></h4>
+				<h4 class="w3-center"><a href="http://hamptoninn3.hilton.com/en/hotels/new-jersey/hampton-inn-philadelphia-voorhees-VORHEHX/index.html" target="_blank" class="">www.hamptonvoorhees.com</a></h4>
+				<h5 class="w3-center">(4.3 miles)</h5>
 			</div>
 			<div class="col s12 m4 l4 w3-padding">
 				<h2 class="w3-center">SpringHill Suites by Marriott Voorhees Mt. Laurel Cherry Hill</h2>
 				<h3 class="w3-center"><i>(856) 782-2555</i></h3>
-				<h4 class="w3-center"><a href="www.marriott.com/PHLVO" class="">www.marriott.com/PHLVO</a></h4>
+				<h4 class="w3-center"><a href="http://www.marriott.com/PHLVO" target="_blank" class="">www.marriott.com/PHLVO</a></h4>
+				<h5 class="w3-center">(4.8 miles)</h5>
 			</div>
 			<div class="col s12 offset-m4 m4 offset-l2 l4 w3-padding">
 				<h2 class="w3-center">Staybridge Suites Philadelphia – Mt. Laurel</h2>
 				<h3 class="w3-center"><i>(856) 722-1900</i></h3>
-				<h4 class="w3-center"><a href="www.staybridge.com/mtlaurel" class="">www.staybridge.com/mtlaurel</a></h4>
+				<h4 class="w3-center"><a href="http://www.staybridge.com/mtlaurel" target="_blank" class="">www.staybridge.com/mtlaurel</a></h4>
+				<h5 class="w3-center">(10.1 miles)</h5>
 			</div>
 			<div class="col s12 offset-m4 m4 l4 w3-padding">
 				<h2 class="w3-center w3-padding">Wingate by Wyndham Hotel</h2>
 				<h3 class="w3-center"><i>(856) 627-1000</i></h3>
-				<h4 class="w3-center"><a href="www.wingatehotels.com" class="">www.wingatehotels.com</a></h4>
+				<h4 class="w3-center"><a href="http://www.wingatehotels.com" target="_blank" class="">www.wingatehotels.com</a></h4>
+				<h5 class="w3-center">(4.5 miles)</h5>
 			</div>
 		</div>
 	</div>

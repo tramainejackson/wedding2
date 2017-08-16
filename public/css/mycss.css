@@ -27,6 +27,15 @@ html, body, .block {
     right: 10%;
 }
 
+.bgrdShadow {
+	position: absolute;
+    background: rgba(0, 0, 0, 0.11);
+    top: 0;
+    bottom: 0;
+    left: 0%;
+    right: 0%;
+}
+
 .w3-top, .w3-bottom {
     z-index: 2;
 }
@@ -223,5 +232,8 @@ h1.parallax-text {
 
 .photosPageContainer button.w3-display-right {
 	right:0;
+}
+.directionsDiv {
+    margin: 0% 0% 5% !important;
 }
 }
