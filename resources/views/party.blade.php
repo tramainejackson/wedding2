@@ -6,7 +6,7 @@
 		min-height: 65%;
 	}
 	.container.partyPage {
-		background: url('images/peachbgrd.jpg');
+		background: linear-gradient(to right, #ffb07c 40%, white, #c0fa8b 60%);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
