@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="/css/materialize.min.css" media="screen,projection" />
@@ -35,12 +36,13 @@ div#confirmation_modal {
     background: rgba(255, 255, 255, 0.8);
 }
 #us.w3-container, #test1 {
-    color: #000!important;
-    background-image: url("/images/gb4.jpg"); 
+    /* color: #000!important;
+	background-image: url("/images/gb4.jpg"); 
 	background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-	background-attachment: fixed;
+	background-attachment: fixed; */
+	position: relative;
 }
 
 @yield('addt_style')
@@ -100,8 +102,7 @@ div#confirmation_modal {
 			<li><a href="/party" class="w3-mobile w3-bar-item w3-button">Dream Team</a></li>
 			<li><a href="/photos" class="w3-mobile w3-bar-item w3-button">Photos</a></li>
 			<li><a href="/registry" class="w3-mobile w3-bar-item w3-button">Registry</a></li>
-			<li><a href="/accommodations" class="w3-mobile w3-bar-item w3-button">Accommodations
-			</a></li>
+			<li><a href="/accommodations" class="w3-mobile w3-bar-item w3-button">Accommodations</a></li>
 			<li><div class="divider"></div></li>
 			<li><a href="/login" class="w3-mobile w3-bar-item w3-button">Login</a></li>
 		@endif
@@ -161,9 +162,9 @@ div#confirmation_modal {
 	</div>
 </footer>
 <div class="w3-hide-small" style="margin-bottom: 50px;display: -webkit-inline-box;display: inline-block;"></div>
-<script src="/js/jquery.min.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/materialize.min.js"></script>
+<script src="/js/jquery.countdown.js"></script>
 <script type="text/javascript">
 	function w3_open() {
 		document.getElementById("mySidebar").style.display = "block";

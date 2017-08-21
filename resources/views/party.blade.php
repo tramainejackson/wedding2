@@ -6,7 +6,7 @@
 		min-height: 65%;
 	}
 	.container.partyPage {
-		background: url('images/peachbgrd.jpg');
+		background: linear-gradient(to right, floralwhite, #ffb07c, floralwhite, #c0fa8b, floralwhite);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -56,14 +56,14 @@
 			<div class="">
 				<div class="row scrollfire{{$x}}" style="opacity:0;">
 					<div class="col s15 m5 l5 w3-hide-small">
-						<h2 class="center-align" style="background:linear-gradient(transparent, white, transparent)">{{ $bridalParty[$x]->title }}</h2>
+						<h2 class="center-align">{{ $bridalParty[$x]->title }}</h2>
 					</div>
 					<div class="col s2 m2 l2 w3-hide-small"><span>&nbsp;</span></div>
 					<div class="col s5 m5 l5 w3-hide-small">
-						<h2 class="center-align" style="background:linear-gradient(transparent, white, transparent)">{{ $bridalParty[$x+1]->title }}</h2>
+						<h2 class="center-align">{{ $bridalParty[$x+1]->title }}</h2>
 					</div>
 					<div class="col s12 m5 l5">
-						<div class="card">
+						<div class="card large">
 							<div class="card-image">
 								<img src="{{ $bridalParty[$x]->image }}" class="responsive-image" />
 								<span class="card-title w3-mobile">{{ $bridalParty[$x]->name }}</span>
@@ -73,11 +73,17 @@
 							<div class="card-content hide-on-small-only">
 								<p class="">{{ $bridalParty[$x]->blurb }}</p>
 							</div>
+							<div class="card-action hide-on-small-only">
+								<p class="w3-center readMore">------ Read More ------</p>
+							</div>
 						</div>
 					</div>
-					<div class="col s2 m2 l2"><img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /><img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /></div>
+					<div class="col s2 m2 l2">
+						<img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" />
+						<img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" />
+					</div>
 					<div class="col s12 m5 l5">
-						<div class="card">
+						<div class="card large">
 							<div class="card-image">
 								<img src="{{ $bridalParty[$x+1]->image }}" class="responsive-image" />
 								<span class="card-title w3-mobile">{{ $bridalParty[$x+1]->name }}</span>
@@ -86,6 +92,9 @@
 							</div>
 							<div class="card-content hide-on-small-only">
 								<p class="">{{ $bridalParty[$x+1]->blurb }}</p>
+							</div>
+							<div class="card-action hide-on-small-only">
+								<p class="w3-center readMore">------ Read More ------</p>
 							</div>
 						</div>
 					</div>
@@ -103,6 +112,7 @@
 @endsection
 
 @section('rsvp_information')
+	<div id="getting-started"></div>
 @endsection
 
 @section('footer')
@@ -118,6 +128,22 @@
 					card.find('.card-content').addClass('hide-on-small-only')
 				});				
 			}
+		});
+		
+		$("body").on("click", ".readMore", function(e) {
+			var $this = $(this);
+			var card = $this.parents(".card.large");
+			
+			$this.text("------ Read Less ------").removeClass("readMore").addClass("readLess");
+			card.removeClass("large");
+		});
+		
+		$("body").on("click", ".readLess", function(e) {
+			var $this = $(this);
+			var card = $this.parents(".card");
+			
+			$this.text("------ Read Less ------").addClass("readMore").removeClass("readLess");
+			card.addClass("large");
 		});
 	</script>
 @endsection

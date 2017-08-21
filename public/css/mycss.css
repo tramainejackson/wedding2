@@ -6,6 +6,10 @@ html, body, .block {
 	height: 105%;
 }
 
+img.w3-display-middle {
+    top: 55%;
+}
+
 .partyNav {
 	top: 0px;
 }
@@ -27,28 +31,22 @@ html, body, .block {
     right: 10%;
 }
 
-.w3-top, .w3-bottom {
-    z-index: 2;
+.bgrdShadow {
+	position: absolute;
+    background: rgba(0, 0, 0, 0.11);
+    top: 0;
+    bottom: 0;
+    left: 0%;
+    right: 0%;
 }
 
-.contentBgrd {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.35);
-    margin: -16px;
-    border-radius: 10px;
-	z-index: -1;
+.w3-top, .w3-bottom {
+    z-index: 5;
 }
 
 .photosPageContainer {
 	max-height:500px;
-	background-attachment: fixed !important;
-	background-position: center center !important;
-	background-size: 100% 100% !important;
-	background-repeat: no-repeat !important;
+	background: linear-gradient(#ffb16d, #ffb16d, #a4bf20);
 }
 
 .photosPageContainer button.w3-display-left, .photosPageContainer div.w3-display-bottomleft {
@@ -75,6 +73,10 @@ html, body, .block {
     padding: 5px 0px;
 }
 
+p.w3-center.w3-padding.regOptionP {
+	color: black;
+}
+
 .mySlides {
 	max-height: 500px;
 }
@@ -91,7 +93,7 @@ html, body, .block {
 }
 
 .w3-display-bottommiddle {
-    margin-left: -20px;
+    /* margin-left: -20px; */
 }
 
 .partyHeader span {
@@ -120,6 +122,11 @@ html, body, .block {
     font-weight: 300;
 }
 
+.section {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
 .parallax-text {
 	position: absolute;
 	width: 100%;
@@ -133,6 +140,11 @@ h3.parallax-text{
 	background: radial-gradient(circle, whitesmoke, rgba(245, 245, 245, 0.85), transparent 65%);
 }
 
+.readMore, .readLess {
+	color: darkorange;
+    font-size: large;
+}
+
 /*.rotateN{ transform:rotate(90deg); }
 .rotateS{ transform:rotate(-90deg); } */
 
@@ -140,6 +152,10 @@ h3.parallax-text{
 
 .bgimg, .bgimg2 {
     background-position: 70% 100% !important;
+}
+
+.card.large {
+    height: initial;
 }
 
 #wedding {
@@ -212,6 +228,9 @@ h1.parallax-text {
 .hisStory {
 	background: radial-gradient(circle, transparent 97%, gray, blue) !important;
 }
+.w3-modal-content {
+    margin: 0px 8% 0px 3%;
+}
 .comporation.grey.darken-4 {
     margin: 0px 0px -16px;
 }
@@ -227,28 +246,7 @@ h1.parallax-text {
 .photosPageContainer button.w3-display-right {
 	right:0;
 }
-
-.header {
-	text-align: center;
-}
-
-h5.header {
-	margin-bottom: 25px;
-}
-.contentBgrd {
-    border-radius: 0px;
-}
-.guestAccomHeader {
-	font-size: 35px !important;
-}
 .directionsDiv {
-	margin: 0% 0% 5% !important;
-    padding: 2% 0% !important;
-}
-.parallax-span {
-	position: absolute;
-    bottom: 2%;
-    left: 2%;
-    background: radial-gradient(circle, whitesmoke, rgba(245, 245, 245, 0.85), transparent 90%);
+    margin: 0% 0% 5% !important;
 }
 }
