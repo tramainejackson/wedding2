@@ -6,6 +6,23 @@ html, body, .block {
 	height: 105%;
 }
 
+.scrollImg, .scrollImg2 {
+	background-image: url("/images/scroll2.png"); 
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+	margin: 24px 100px !important;
+	padding: 75px 0px;
+}
+
+.scrolledImg {
+	padding:0px 0px 230px !important;
+}
+
+.scrolledUl {
+	margin-top: 100px !important;
+}
+
 img.w3-display-middle {
     top: 55%;
 }
@@ -46,7 +63,7 @@ img.w3-display-middle {
 
 .photosPageContainer {
 	max-height:500px;
-	background: linear-gradient(#ffb16d, #ffb16d, #a4bf20);
+	background: linear-gradient(rgba(255, 176, 124, 0.9), rgba(255, 176, 124, 0.9), rgba(255, 176, 124, 0.9));
 }
 
 .photosPageContainer button.w3-display-left, .photosPageContainer div.w3-display-bottomleft {
@@ -79,6 +96,10 @@ p.w3-center.w3-padding.regOptionP {
 
 .mySlides {
 	max-height: 500px;
+}
+
+.card.large {
+    height: 700px;
 }
 
 .middeleImg {
@@ -145,6 +166,32 @@ h3.parallax-text{
     font-size: large;
 }
 
+img.countdownCompas {
+    max-height: 200px;
+    position: absolute;
+    left: 1%;
+    top: 1%;
+}
+
+div#getting-started {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    min-height: 200px;
+    height: 200px;
+    width: 200px;
+    text-align: -webkit-center;
+    text-align: center;
+}
+
+span#countdownClock {
+    background: rgba(245, 245, 220, 0.8);
+    padding: 3%;
+	position: absolute;
+    left: 20%;
+    bottom: 45%;
+    border-radius: 15px;
+}
 /*.rotateN{ transform:rotate(90deg); }
 .rotateS{ transform:rotate(-90deg); } */
 
@@ -248,5 +295,11 @@ h1.parallax-text {
 }
 .directionsDiv {
     margin: 0% 0% 5% !important;
+}
+}
+
+@media (min-width: 1400px) {
+.card.large {
+    height: 850px;
 }
 }

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display|Raleway|Lobster+Two|Indie+Flower">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="/css/materialize.min.css" media="screen,projection" />
@@ -164,15 +164,8 @@ div#confirmation_modal {
 <div class="w3-hide-small" style="margin-bottom: 50px;display: -webkit-inline-box;display: inline-block;"></div>
 <script src="/js/app.js"></script>
 <script src="/js/materialize.min.js"></script>
-<script src="/js/jquery.countdown.js"></script>
-<script type="text/javascript">
-	function w3_open() {
-		document.getElementById("mySidebar").style.display = "block";
-	}
-	function w3_close() {
-		document.getElementById("mySidebar").style.display = "none";
-	}
-</script>
+<script src="/js/jquery.countdown/jquery.countdown.min.js"></script>
+<script src="/js/myjs.js"></script>
 @yield('footer')
 </body>
 </html>

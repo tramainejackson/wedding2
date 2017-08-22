@@ -8,10 +8,10 @@
 
 @section('header')
 	<!-- Header / Home-->	
-	<header class="w3-display-container hide-on-small-only" style="height:250px;">
-		<h1 class="w3-jumbo w3-display-left" style="left:10%">Ashley</h1>
+	<header class="w3-display-container" style="height:250px;">
+		<h1 class="w3-jumbo w3-display-left" style="left:15%;color: black;font-family:'Lobster Two', cursive">Ashley</h1>
 		<img class="w3-image w3-display-middle" src="/images/infinity1.png" style="max-height:150px">
-		<h1 class="w3-jumbo w3-display-right" style="right:10%">Tramaine</h1>
+		<h1 class="w3-jumbo w3-display-right" style="right:10%;color: black;font-family:'Lobster Two', cursive">Tramaine</h1>
 	</header>
 	<header class="w3-display-container w3-wide bgimg w3-grayscale-min hide-on-med-and-up" id="home">
 		<div class="w3-display-middle w3-text-white w3-center headerContent">
@@ -21,7 +21,7 @@
 	</header>
 	
 	<!-- Gift ideas -->
-	<div class="section white" style="background: linear-gradient(#f5f8fa, white, white, white);">
+	<div class="section white" style="background: linear-gradient(#f5f8fa, white, white, white); padding: 0%;">
 		<div class="row container">
 			<h2 class="col offset-s1 offset-m1 offset-l1 s11 m11 l11 header">Gifts</h2>
 			<p class="col offset-s1 offset-m1 offset-l1 s11 m5 l5 grey-text text-darken-3 lighten-3">We will be accepting gifts through Venmo. Please choose one of the gift options to contribute to and enter an amount. We are extremely thankful and appreciative of any and every blessing that comes our way.</p>

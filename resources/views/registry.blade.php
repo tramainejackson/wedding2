@@ -12,6 +12,10 @@
 @endsection
 
 @section('header')
+<div class="" style="background: url(/images/map3.jpg); background-repeat: no-repeat; background-position: center center; background-size: 100% 100%; background-attachment: fixed; padding: 0% 5%;">
+	<img src="/images/compass.png" class="countdownCompas" />
+	<div id="getting-started"><span id="countdownClock"></span></div>
+	
 	<!--- Header / Home --->
 	<!--- <header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
 		<div class="w3-display-middle w3-text-white w3-center headerContent">
@@ -19,19 +23,19 @@
 			<span class="w3-text-white w3-display-bottommiddle w3-hide-small"><i></i></span>
 		</div>
 	</header> --->
-	<header class="w3-display-container" style="height:250px;background: url(/images/map3.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;">
-		<h1 class="w3-jumbo w3-display-left" style="left:15%;color: black;">Ashley</h1>
+	<header class="w3-display-container" style="height:250px;">
+		<h1 class="w3-jumbo w3-display-left" style="left:15%;color: black;font-family:'Lobster Two', cursive">Ashley</h1>
 		<img class="w3-image w3-display-middle" src="/images/infinity1.png" style="max-height:150px">
-		<h1 class="w3-jumbo w3-display-right" style="right:10%;color: black;">Tramaine</h1>
+		<h1 class="w3-jumbo w3-display-right" style="right:10%;color: black;font-family:'Lobster Two', cursive">Tramaine</h1>
 	</header>
 @endsection
 
 @section('about_us')
 	<!-- Registry -->
-	<div class="">
-		<h1 class="w3-jumbo w3-center">Registry</h1>
-	</div>
-	<div class="w3-container w3-padding-64" id="us" style="background: linear-gradient(#f5f8fa, #ffb07c, #ffdddd);color:black;">
+	<div class="w3-container w3-padding-64" id="us" style="background: linear-gradient(rgba(245, 248, 250, 0.85), #ffb07c, rgba(245, 248, 250, 0.85));color:black;">
+		<div class="">
+			<h1 class="w3-jumbo w3-center">Registry</h1>
+		</div>
 		<div class="w3-content w3-cell-row hide-on-small-only">
 			<div class="w3-container w3-cell w3-mobile">
 				<p class="w3-center"><i><span class="w3-xxlarge">&#10077;</span><br/>We know its not traditional and not the way its done,<br/>but rather than a wedding list we'd love a bit of sun.<br/>So if you'd like to give a gift and send us on our way<br/>a donation to our honeymoon would really make our day.<br/><span class="w3-xxlarge">&#10078;</span></i></p>

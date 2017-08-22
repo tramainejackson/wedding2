@@ -48,12 +48,12 @@
 
 	<!--- Into to Party --->
 	<div class="container partyPage">
-		<div class="partyPageBgrd"></div>
+		<div id="partyPageBgrd"></div>
 
 		@for ($x = 0; $x < count($bridalParty); $x+=2)
 		
 			<!--- Matchup cards --->
-			<div class="">
+			<div class="w3-text-black">
 				<div class="row scrollfire{{$x}}" style="opacity:0;">
 					<div class="col s15 m5 l5 w3-hide-small">
 						<h2 class="center-align">{{ $bridalParty[$x]->title }}</h2>
@@ -79,8 +79,8 @@
 						</div>
 					</div>
 					<div class="col s2 m2 l2">
-						<img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" />
-						<img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" />
+						<!--- <img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /> 
+						<img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /> --->
 					</div>
 					<div class="col s12 m5 l5">
 						<div class="card large">
@@ -112,38 +112,7 @@
 @endsection
 
 @section('rsvp_information')
-	<div id="getting-started"></div>
 @endsection
 
 @section('footer')
-	<script type="text/javascript">
-		$("body").on("click", ".material-icons", function(e) {
-			var $this = $(this);
-			var card = $this.parents(".card");
-			
-			if(card.find('.card-content').hasClass('hide-on-small-only')) {
-				card.find('.card-content').removeClass('hide-on-small-only').slideDown();
-			} else {
-				card.find('.card-content').slideUp(function() {
-					card.find('.card-content').addClass('hide-on-small-only')
-				});				
-			}
-		});
-		
-		$("body").on("click", ".readMore", function(e) {
-			var $this = $(this);
-			var card = $this.parents(".card.large");
-			
-			$this.text("------ Read Less ------").removeClass("readMore").addClass("readLess");
-			card.removeClass("large");
-		});
-		
-		$("body").on("click", ".readLess", function(e) {
-			var $this = $(this);
-			var card = $this.parents(".card");
-			
-			$this.text("------ Read Less ------").addClass("readMore").removeClass("readLess");
-			card.addClass("large");
-		});
-	</script>
 @endsection
