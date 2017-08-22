@@ -25,10 +25,6 @@ Route::get('/donations/paypal', function() {
 	return view('donations.paypal');
 })->name('paypal');
 
-Route::get('/donations/venmo', function() {
-	return view('donations.venmo');
-})->name('venmo');
-
 Route::get('/accommodations', function() {
 	return view('accommodations');
 })->name('accommodations');
