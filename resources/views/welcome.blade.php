@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('header')
 	@if(session('status'))
@@ -21,6 +21,7 @@
 		<h1 class="w3-jumbo">Ashley & Tramaine</h1>
 		<h2>Are getting married</h2>
 		<h2><b>08.26.2018</b></h2>
+		<div id="home_countdown" class="hide-on-small-only"><span id="countdownClock"></span></div>
 	  </div>
 	<span class="w3-text-white w3-display-bottommiddle w3-hide-small"><i>- I'm only asking for a couple of forevers</i></span>
 	</header>
@@ -28,9 +29,9 @@
 
 @section('about_us')
 	<!-- About / Tramaine & Ashley -->
-	<div class="w3-container w3-padding-64" id="us" style="color:#fff;background: url(/images/map5.jpg); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; color: black;">
+	<div class="w3-container w3-padding-64 usMobile" id="us" style="color:#fff;background: url(/images/map5.jpg); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; color: black;">
 	<div class="w3-display-container w3-wide w3-margin scrollImg" style="position: relative;">
-	  <div class="w3-row" style="padding: 50px 75px !important;">
+	  <div class="w3-row storyTime" style="padding: 50px 75px;">
 		<h2 class="w3-center w3-padding">Let me tell you how it all got started!</h2>
 		<h3 class="w3-center w3-padding">Pick a story</h3>
 		<!--- <img src="images/flower2.png" class="valign-wrapper w3-hide-small" style="max-height:150px; position:absolute; right:0px; transform:rotate(250deg);" />
@@ -39,13 +40,13 @@
 			<li class="hers w3-half w3-xlarge w3-border w3-border-black w3-center w3-hover-border-red w3-padding" onclick="myFunction('her_story')"><span><i class="fa fa-female"></i>&nbsp;Hers</span></li>
 			<li class="his w3-half w3-xlarge w3-border w3-border-black w3-hover-border-blue w3-center w3-padding" onclick="myFunction('his_story')"><span><i class="fa fa-male"></i>&nbsp;His</span></li>
 		</ul>
-		<div class="hisStory w3-padding-large w3-hide w3-margin" id="his_story" style="/* background: radial-gradient(circle, transparent 89%, gray, blue); */ position:relative;">
+		<div class="hisStory w3-padding-large w3-margin" id="his_story" style="/* background: radial-gradient(circle, transparent 89%, gray, blue); */ position:relative;">
 			<div id="bgrdShadow"></div>
 			<div class="" style="position:relative;">
 				<i class="" style="w3-border">If she said it, I second it.</i>
 			</div>
 		</div>
-		<div class="herStory w3-padding-large w3-hide w3-margin" id="her_story" style="/* background: radial-gradient(circle, transparent 89%, gray, red); */ position:relative; text-align: justify;">
+		<div class="herStory w3-padding-large w3-margin" id="her_story" style="/* background: radial-gradient(circle, transparent 89%, gray, red); */ position:relative; text-align: justify;">
 			<div id="bgrdShadow"></div>
 			<div class="" style="position:relative;">
 				<i>How We Met….Our Love Story! I remember first meeting Maine in the Fall of 2008 at Britney’s house; one of my Maids of Honor. She was having her first get together in her new apartment.
@@ -54,16 +55,16 @@
 			</div>
 		</div>
 	  </div>
-	  <div class="w3-display-container w3-wide" style="position: relative; margin: 20px 250px;">
+	<div class="w3-display-container w3-wide hide-on-small-only" style="position: relative; margin: 20px 250px;">
 		<img class="w3-round w3-grayscale-min" src="/images/at3.jpg" style="width:100%;margin:32px 0">
-		</div>
+	</div>
 	</div>
 	<div></div>
 @endsection
 
 @section('wedding_information')
 	<!-- Wedding information content -->
-	<div class="w3-container w3-padding-64 w3-center" style="color:#000;background:url('/images/map5.jpg'); background-attachment: fixed; background-repeat: no-repeat; background-position: center center; background-size: cover;">
+	<div class="w3-container w3-padding-64 w3-center usMobile" style="color:#000;background:url('/images/map5.jpg'); background-attachment: fixed; background-repeat: no-repeat; background-position: center center; background-size: cover;">
 	
 	<!-- Wedding information -->
 	<!-- Background photo -->

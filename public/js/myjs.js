@@ -30,7 +30,7 @@ $(document).ready(function(){
 		card.addClass("large");
 	});
 	
-	$("#getting-started #countdownClock").countdown("2018/08/26", function(event) {
+	$("#getting-started #countdownClock, #home_countdown").countdown("2018/08/26", function(event) {
 		$(this).text(event.strftime('%D days %H:%M:%S'));
 	});
 });
@@ -45,35 +45,49 @@ function w3_close() {
 
 function myFunction(id) {
 	var id = id;
-	var x = document.getElementById(id);
+	var x = $("#" + id);
+	console.log(x);
 	
 	if(id == "his_story") {
-		if (x.className.indexOf("w3-show") == -1) {
-			x.className += " w3-show w3-animate-zoom";
-			$("li.his").addClass("w3-border-blue").removeClass("w3-border-black");
+		if(x.css("display") != "none") {
+			x.slideUp();
+			$("li.his").removeClass("w3-border-blue").addClass("w3-border-black");
 			
-			if(document.getElementById("her_story").className.indexOf("w3-show") > 0) {
-				$("#her_story").removeClass("w3-show");
+		} else { 
+			if($("#her_story").css('display') != 'none') {
+				$("#her_story").slideUp(function() {
+					setTimeout(function() {
+						x.slideDown();						
+					}, 500);
+				});
+				
 				$("li.hers").removeClass("w3-border-red").addClass("w3-border-black");
 				$(".scrollImg").removeClass("scrolledImg");
 				$(".hisAndHers").prev().removeClass("scrolledUl");
+			} else {
+				x.slideDown();
 			}
-		} else { 
-			$("#his_story").removeClass("w3-show w3-animate-zoom");
-			$("li.his").removeClass("w3-border-blue").addClass("w3-border-black");
+			
+			$("li.his").addClass("w3-border-blue").removeClass("w3-border-black");
 		}
 	} else {
-		if (x.className.indexOf("w3-show") == -1) {
-			x.className += " w3-show w3-animate-zoom";
+		if(x.css("display") == "none") {
+			if($("#his_story").css('display') != 'none') {
+				$("#his_story").slideUp(function() {
+					setTimeout(function() {
+						x.slideDown();						
+					}, 500);
+					$("li.his").removeClass("w3-border-blue").addClass("w3-border-black");
+				});
+			} else {
+				x.slideDown();
+			}
+
 			$("li.hers").addClass("w3-border-red").removeClass("w3-border-black");
 			$(".scrollImg").addClass("scrolledImg");
 			$(".hisAndHers").prev().addClass("scrolledUl");
-			
-			if(document.getElementById("his_story").className.indexOf("w3-show") != -1) {
-				$("#his_story").removeClass("w3-show");
-				$("li.his").removeClass("w3-border-blue").addClass("w3-border-black");
-			}
 		} else { 
+			x.slideUp();
 			$("#her_story").removeClass("w3-show w3-animate-zoom");
 			$("li.hers").removeClass("w3-border-red").addClass("w3-border-black");
 			$(".scrollImg").removeClass("scrolledImg");

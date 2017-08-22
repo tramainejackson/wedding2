@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('addt_style')
 	.bgimg {
@@ -14,7 +14,7 @@
 		margin-left: 0 !important;
 		margin-right: 0 !important;
 		width: 100%;
-		max-width: initial;
+		max-width: 100%;
 		padding: 0% 15%;
 		position: relative;
 	}

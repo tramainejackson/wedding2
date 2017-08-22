@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('addt_style')
 	.bgimg, .bgimg2 {
@@ -12,34 +12,21 @@
 @endsection
 
 @section('header')
-<div class="" style="background: url(/images/map3.jpg); background-repeat: no-repeat; background-position: center center; background-size: 100% 100%; background-attachment: fixed; padding: 0% 5%; color:black;">
-	<img src="/images/compass.png" class="countdownCompas" />
-	<div id="getting-started"><span id="countdownClock"></span></div>
+<div class="bgrdImage" style="background: url(/images/map3.jpg); background-repeat: no-repeat; background-position: center center; background-size: 100% 100%; background-attachment: fixed; padding: 0% 5%; color:black;">
+	<img src="/images/compass.png" class="countdownCompas hide-on-small-only" />
+	<div id="getting-started" class="hide-on-small-only"><span id="countdownClock"></span></div>
 	
 	<!--- Header / Home --->
-	<!--- <header class="w3-display-container" style="height:300px;">
-		<h1 class="w3-jumbo w3-display-topmiddle">Ashley</h1>
-		<img class="w3-image w3-display-middle" src="/images/infinity1.png" style="max-height:150px">
-		<h1 class="w3-jumbo w3-display-bottommiddle">Tramaine</h1>
-	</header> --->
-	<header class="w3-display-container" style="height:250px;">
-		<h1 class="w3-jumbo w3-display-left" style="left:15%;color: black;font-family:'Lobster Two', cursive">Ashley</h1>
-		<img class="w3-image w3-display-middle" src="/images/infinity1.png" style="max-height:150px">
-		<h1 class="w3-jumbo w3-display-right" style="right:10%;color: black;font-family:'Lobster Two', cursive">Tramaine</h1>
-	</header>
-	<!--- <header class="w3-display-container" style="height:250px;">
-		<h1 class="w3-jumbo w3-display-topmiddle" style="">Ashley</h1>
-		<img class="w3-image w3-display-middle" src="/images/infinity1.png" style="max-height:150px">
-		<h1 class="w3-jumbo w3-display-bottommiddle" style="">Tramaine</h1>
-	</header> --->
+	@component('layouts.nav')
+	@endcomponent
 @endsection
 
 @section('about_us')
 	<!-- Accommodations -->
 	<div class="w3-container w3-padding-64" id="us" style="background: linear-gradient(rgba(245, 248, 250, 0.85), #ffb07c, rgba(245, 248, 250, 0.85));">
 		<div class="">
-			<h1 class="w3-jumbo w3-center" style="margin-bottom:0">Guest</h1>
-			<h1 class="w3-jumbo w3-center">Accommodations</h1>
+			<h1 class="w3-jumbo w3-center mobileHeader1" style="margin-bottom:0">Guest</h1>
+			<h1 class="w3-jumbo w3-center mobileHeader1">Accommodations</h1>
 		</div>
 		<div class="w3-content">
 			<h1 class="w3-center w3-jumbo" style="border-bottom: solid 1px; margin: 0% 20% 5%; padding: 2% 0%;">Hotels</h1>
