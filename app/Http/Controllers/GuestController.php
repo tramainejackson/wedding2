@@ -93,14 +93,20 @@ class GuestController extends Controller
 		$foundGuest = Guests::where('name', $name)->get();
 		$foundAddtGuest = AddtGuest::where('name', $name)->get();
 
-		if($foundGuest->isNotEmpty()) {			
-			Guests::where('name', $name)->update(['rsvp' => $inviteResponse, 'responded' => 'Y']);
+		if($foundGuest->isNotEmpty()) {
+			$foundGuest = $foundGuest->first();
+			if($foundGuest->responded == "Y") {
+				$inviteResponse = "Already responded";
+			} else {
+				$foundGuest->update(['rsvp' => $inviteResponse, 'responded' => 'Y']);
+			}
 			
 			return view('confirmed', compact(['foundGuest', 'foundAddtGuest', 'first', 'inviteResponse']));
 		} elseif($foundAddtGuest->isNotEmpty()) {
-			$foundAddtGuest->first()->guests()->update(['rsvp' => $inviteResponse, 'responded' => 'Y']);
+			$foundAddtGuest = $foundAddtGuest->first();
+			$foundAddtGuest->update(['rsvp' => $inviteResponse]);
 			
-			return view('confirmed', compact(['foundAddtGuest', 'foundGuest', 'first', 'inviteResponse']));
+			return view('additional_guest', compact(['foundAddtGuest', 'foundGuest', 'first', 'inviteResponse']));
 		} else {
 			return view('no_invite', compact('name'));
 		}

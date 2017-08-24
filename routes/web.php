@@ -41,6 +41,8 @@ Route::post('/confirmed/{id}', 'AddtGuestController@store');
 
 Route::patch('/confirmed/{id}', 'AddtGuestController@update');
 
+Route::patch('/confirmed/{id}', 'AddtGuestController@update2');
+
 Route::post('/new_message', 'MessageController@store');
 
 Auth::routes();

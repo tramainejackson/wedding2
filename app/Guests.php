@@ -15,7 +15,7 @@ class Guests extends Model
 		return $this->hasOne(AddtGuest::class);
 	}
 	
-	public function addPlusOne($name) {
-		$this->plusOne()->create(compact('name'));
+	public function addPlusOne($name, $rsvp) {
+		$this->plusOne()->create(compact(['name', 'rsvp']));
 	}
 }
