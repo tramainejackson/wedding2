@@ -50,7 +50,37 @@ class GuestController extends Controller
      */
     public function store(Request $request)
     {
+		$first = ucfirst(strtolower(request('first', 'required')));
+		$last = ucfirst(strtolower(request('last', 'required')));
+		$name = trim($first . " " .$last);
+		$inviteResponse = $request->rsvp == 'Going' ? 'Y' : 'N';
+		
+		$foundGuest = Guests::where('name', $name)->get();
+		$foundAddtGuest = AddtGuest::where('name', $name)->get();
 
+		if($foundGuest->isNotEmpty()) {
+			$foundGuest = $foundGuest->first();
+			if($foundGuest->responded == "Y") {
+				$inviteResponse = "Already responded";
+			} else {
+				$foundGuest->update(['rsvp' => $inviteResponse, 'responded' => 'Y']);
+			}
+			
+			return view('confirmed', compact(['foundGuest', 'first', 'inviteResponse']));
+		} elseif($foundAddtGuest->isNotEmpty()) {
+			$foundAddtGuest = $foundAddtGuest->first();
+			$guest = $foundAddtGuest->guests;
+
+			if($guest->responded == "Y") {
+				$inviteResponse = "Already responded";
+			} else {
+				$foundAddtGuest->update(['rsvp' => $inviteResponse]);
+			}
+			
+			return view('additional_guest', compact(['foundAddtGuest', 'guest', 'first', 'inviteResponse']));
+		} else {
+			return view('no_invite', compact('name'));
+		}
     }
 
     /**
@@ -61,8 +91,7 @@ class GuestController extends Controller
      */
     public function show(Guests $guests)
     {
-        // return $guests;
-		// return view('guest_list', compact('guests'));
+
     }
 
     /**
@@ -83,33 +112,31 @@ class GuestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $first = ucfirst(strtolower(request('first', 'required')));
-		$last = ucfirst(strtolower(request('last', 'required')));
-		$name = trim($first . " " .$last);
-		$inviteResponse = $request->rsvp == 'Going' ? 'Y' : 'N';
+		$guest = Guests::findOrFail($id);
+		$newName = $request->addt_guest;
+		$plusOneOption = $request->plusOne;
 		
-		$foundGuest = Guests::where('name', $name)->get();
-		$foundAddtGuest = AddtGuest::where('name', $name)->get();
-
-		if($foundGuest->isNotEmpty()) {
-			$foundGuest = $foundGuest->first();
-			if($foundGuest->responded == "Y") {
-				$inviteResponse = "Already responded";
-			} else {
-				$foundGuest->update(['rsvp' => $inviteResponse, 'responded' => 'Y']);
+		if($plusOneOption == "No Plus One") {
+			$returnResponse = 'Thanks for your response. Your RSVP has be confirmed';
+			if($guest->plusOne);
+			{
+				$guest->plusOne()->delete();
 			}
-			
-			return view('confirmed', compact(['foundGuest', 'foundAddtGuest', 'first', 'inviteResponse']));
-		} elseif($foundAddtGuest->isNotEmpty()) {
-			$foundAddtGuest = $foundAddtGuest->first();
-			$foundAddtGuest->update(['rsvp' => $inviteResponse]);
-			
-			return view('additional_guest', compact(['foundAddtGuest', 'foundGuest', 'first', 'inviteResponse']));
+		} elseif($plusOneOption == "Check Back Soon") {
+			$guest->update(['rsvp' => 'N', 'responded' => 'N']);
+			$returnResponse = 'Ok let us know as soon as possible. We hope you can make it but understand if you can\'t. Hope to hear from you soon.';
+		} elseif(isset($request->plusOneName)) {
+			$newName = $request->plusOneName;
+			$returnResponse = 'Thanks for your response. We will try and add your plus one. We will reach out to you once we get a change to look at our guest list';
+			$guest->plusOne()->create(['name' => $newName, 'rsvp' => 'Y']);
 		} else {
-			return view('no_invite', compact('name'));
+			$guest->plusOne->update(['rsvp' => 'Y']);
+			$returnResponse = 'Thanks for your response. Both of yours RSVP\'s have been confirmed, we cant wait to see you there.';
 		}
+		// dd($guest);
+		return redirect('/')->with('status', $returnResponse);
     }
 
     /**

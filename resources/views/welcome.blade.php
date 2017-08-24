@@ -119,10 +119,8 @@
 		  <h1 class="w3-wide col s12">CAN YOU COME?</h1>
 		  <p class="col s12">We really hope you can make it.</p>
 		  
-		  <form class="col s12" action="/confirmed" method="POST">
+		  {!! Form::open([ 'action' => 'GuestController@store', 'class' => 'col s12']) !!}
 			<div class="row">
-				{{ csrf_field() }}
-				{{ method_field('PATCH') }}
 				<div class="input-field col s6">
 					<input id="first" class="w3-large" type="text" name="first">
 					<label for="first" class="active">First Name</label>
@@ -134,14 +132,14 @@
 			  <p class="w3-center"><i>Sincerely, Tramaine & Ashley</i></p>
 			  <div class="w3-row">
 				<div class="w3-half">
-				  <input type="submit" name="rsvp" value="Going" class="w3-button w3-block w3-green" />
+				  {!! Form::submit('Going', ['name' => 'rsvp', 'class' => 'w3-button w3-block w3-green']) !!}
 				</div>
 				<div class="w3-half">
-				  <input type="submit" name="rsvp" value="Cant come" class="w3-button w3-block w3-red" />
+				  {!! Form::submit('Cant Come', ['name' => 'rsvp', 'class' => 'w3-button w3-block w3-red']) !!}
 				</div>
 			  </div>
 			</div>
-		  </form>
+		{!! Form::close() !!}
 		</div>
 		<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
 	  </div>

@@ -30,8 +30,8 @@
 				<hr/>
 				
 				<div class="w3-container w3-center">
-					@if ($foundGuest->plusOne)
-						{!! Form::open([ 'action' => ['AddtGuestController@update', $foundGuest->id], 'method' => 'PATCH' ]) !!}
+					{!! Form::open([ 'action' => ['GuestController@update', $foundGuest->id], 'method' => 'PATCH' ]) !!}
+						@if ($foundGuest->plusOne)
 							<p class="w3-center" style="">We have <input type="text" style="width: fit-content; padding: 0% 0%; font-size: 100%; text-align: -webkit-center; text-align: center; border-bottom: none;" name="addt_guest" id="plusOneInput" value="{{ $foundGuest->plusOne()->pluck('name')->first() }}" onkeyup="document.getElementById('nameChange').innerHTML = this.value;" disabled /> as your plus one. Is it okay to confirm <span id="nameChange">{{ $foundGuest->plusOne()->pluck('name')->first() }}</span> as well?</p>
 						
 							<div class="w3-center w3-container">
@@ -42,9 +42,7 @@
 									<input type="submit" name="plusOne" class="w3-button" value="No Plus One" />
 								</div>
 							</div>
-						{!! Form::close() !!}
-					@else
-						{!! Form::open([ 'action' => ['AddtGuestController@store', $foundGuest->id], 'method' => 'POST' ]) !!}
+						@else
 							<p class="w3-center">We do not have a plus one added for you. Would you like to add one now?</p>
 							<div class="w3-center w3-container">
 								<div class="w3-center" style="display:none">
@@ -57,8 +55,8 @@
 									<input type="submit" name="plusOne" class="w3-button" value="No Plus One" />
 								</div>
 							</div>
-						{!! Form::close() !!}
-					@endif
+						@endif
+					{!! Form::close() !!}
 				</div>
 			@elseif ($inviteResponse == 'N') 
 				<div class="w3-modal-content w3-round" id="">

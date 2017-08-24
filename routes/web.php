@@ -35,13 +35,11 @@ Route::get('/guest_list', 'GuestController@index')->middleware('auth');
 
 Route::get('/photos', 'PhotoController@index')->name('photos');
 
-Route::patch('/confirmed', 'GuestController@update');
+Route::post('/confirmed', 'GuestController@store');
 
-Route::post('/confirmed/{id}', 'AddtGuestController@store');
+Route::patch('/confirmed/{id}', 'GuestController@update');
 
-Route::patch('/confirmed/{id}', 'AddtGuestController@update');
-
-Route::patch('/confirmed/{id}', 'AddtGuestController@update2');
+Route::patch('/additional_guest/{id}', 'AddtGuestController@update');
 
 Route::post('/new_message', 'MessageController@store');
 
