@@ -33,7 +33,6 @@
 					{!! Form::open([ 'action' => ['GuestController@update', $foundGuest->id], 'method' => 'PATCH' ]) !!}
 						@if ($foundGuest->plusOne)
 							<p class="w3-center" style="">We have <input type="text" style="width: fit-content; padding: 0% 0%; font-size: 100%; text-align: -webkit-center; text-align: center; border-bottom: none;" name="addt_guest" id="plusOneInput" value="{{ $foundGuest->plusOne()->pluck('name')->first() }}" onkeyup="document.getElementById('nameChange').innerHTML = this.value;" disabled /> as your plus one. Is it okay to confirm <span id="nameChange">{{ $foundGuest->plusOne()->pluck('name')->first() }}</span> as well?</p>
-						
 							<div class="w3-center w3-container">
 								<div class="w3-bar">
 									<input type="submit" name="plusOne" class="w3-button" value="Confirm Us Both" />

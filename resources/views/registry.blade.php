@@ -11,6 +11,17 @@
 	}
 @endsection
 
+@section('addt_style')
+	.bgimg, .bgimg2 {
+		min-height: 30%;
+	}
+	.row {
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 20px;
+	}
+@endsection
+
 @section('header')
 <div class="bgrdImage" style="background: url(/images/map3.jpg); background-repeat: no-repeat; background-position: center center; background-size: 100% 100%; background-attachment: fixed; padding: 0% 5%;">
 	<img src="/images/compass.png" class="countdownCompas hide-on-small-only" />

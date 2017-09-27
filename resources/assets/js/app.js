@@ -67,7 +67,7 @@ $(document).ready(function() {
 	var imagesPage = Number($('li.active span').text());
 	var imagesPagination = (imagesPage * 15) - 14;
 	var imagesTo = (imagesPagination + images) - 1;
-	var total = 150;
+	var total = 242;
 
 	$('#imgCount').text('#' + imagesPagination + ' - ' + imagesTo + ' of ' + total);
 

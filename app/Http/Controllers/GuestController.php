@@ -16,10 +16,15 @@ class GuestController extends Controller
     public function index()
     {
         $guests = Guests::orderBy('name', 'asc')->get();
-		$plusOnes = AddtGuest::all();
+		$headCount = 1;
         $confirmedCount = 0;
 	
 		foreach($guests as $guest) {
+			$headCount++;
+			if($guest->plusOne) {
+				$headCount++;
+			}
+			
 			if($guest->rsvp == "Y") {
 				$confirmedCount++;
 				
@@ -29,7 +34,7 @@ class GuestController extends Controller
 			}
 		}
 
-		return view('guest_list', compact('guests', 'plusOnes', 'confirmedCount'));
+		return view('guest_list', compact('guests', 'headCount', 'confirmedCount'));
     }
 
     /**
@@ -100,9 +105,10 @@ class GuestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Guests $guest)
     {
-        //
+		// dd($guest);
+        return view('guest_list_edit', compact('guest'));
     }
 
     /**
@@ -114,6 +120,7 @@ class GuestController extends Controller
      */
     public function update(Request $request, $id)
     {
+		// dd($guest);
 		$guest = Guests::findOrFail($id);
 		$newName = $request->addt_guest;
 		$plusOneOption = $request->plusOne;
@@ -135,10 +142,56 @@ class GuestController extends Controller
 			$guest->plusOne->update(['rsvp' => 'Y']);
 			$returnResponse = 'Thanks for your response. Both of yours RSVP\'s have been confirmed, we cant wait to see you there.';
 		}
-		// dd($guest);
 		return redirect('/')->with('status', $returnResponse);
     }
 
+	/**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update2(Request $request, Guests $guest)
+    {
+		// dd($request);
+		$guest->name = $request->name;
+		$plusOneOption = $request->plus_one;
+		$guest->rsvp = "";
+		
+		if($request->name == null) {
+			$guest->delete();
+			
+			return redirect()->action('GuestController@index', $guest)->with('status', 'Invitation Successfully Removed');
+		}
+		
+		if(isset($request->rsvp)) {
+			$guest->rsvp = "Y";
+		} else {
+			$guest->rsvp = "N";
+		}
+
+		if($plusOneOption == "") {
+			if($guest->plusOne) { $guest->plusOne()->delete();	}
+		} else {
+			if($guest->plusOne) { 
+				$guest->plusOne->update([
+					'rsvp' => $guest->rsvp, 
+					'name' => $plusOneOption
+				]); 
+			} else {
+				$guest->plusOne()->create([
+					'rsvp' => $guest->rsvp, 
+					'name' => $plusOneOption
+				]); 				
+			}
+		}
+		
+		$guest->save();
+		
+		return redirect()->action('GuestController@edit', $guest)->with('status', 'You have updated this invitation successfully');
+    }
+	
     /**
      * Remove the specified resource from storage.
      *

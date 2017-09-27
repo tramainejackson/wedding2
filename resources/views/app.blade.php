@@ -1,60 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>It's Wedding Season</title>
+<title>It's Wedding Season</title>
+<meta charset="UTF-8">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/css/materialize.min.css" media="screen,projection" />
+<link rel="stylesheet" href="/css/app.css" media="screen,projection" />
+<link rel="stylesheet" href="/css/mycss.css" media="screen,projection" />
+<style>
+body,h1,h2{font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+p {line-height: 2}
+.bgimg, .bgimg2 {
+    min-height: 100%;
+    background-position: 100% 85%;
+    background-size: cover;
+}
+.bgimg { background-image: url("/images/at2.jpg")}
+.bgimg2 { 
+	background-image: url("/images/flowers.jpg"); 
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+div#confirmation_modal {
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    margin: 0% 25%;
+    background: rgba(255, 255, 255, 0.8);
+}
+#us.w3-container, #test1 {
+    /* color: #000!important;
+	background-image: url("/images/gb4.jpg"); 
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+	background-attachment: fixed; */
+	position: relative;
+}
 
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
-	<!-- CSRF Token -->
-	<!--- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
-	
-	<!-- Styles -->
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display|Raleway|Lobster+Two|Indie+Flower">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="/css/materialize.min.css" media="screen,projection" />
-	<link rel="stylesheet" href="/css/app.css" media="screen,projection" />
-	<link rel="stylesheet" href="/css/mycss.css" media="screen,projection" />
-	
-	<style>
-		body,h1,h2{font-family: "Raleway", sans-serif}
-		body, html {height: 100%}
-		p {line-height: 2}
-		.bgimg, .bgimg2 {
-			min-height: 100%;
-			background-position: 100% 85%;
-			background-size: cover;
-		}
-		.bgimg { background-image: url("/images/at2.jpg")}
-		.bgimg2 { 
-			background-image: url("/images/flowers.jpg"); 
-			background-repeat: no-repeat;
-			background-position: center center;
-			background-size: cover;
-		}
-		div#confirmation_modal {
-			position: absolute;
-			z-index: 1;
-			top: 20px;
-			margin: 0% 25%;
-			background: rgba(255, 255, 255, 0.8);
-		}
-		#us.w3-container, #test1 {
-			/* color: #000!important;
-			background-image: url("/images/gb4.jpg"); 
-			background-repeat: no-repeat;
-			background-position: center center;
-			background-size: cover;
-			background-attachment: fixed; */
-			position: relative;
-		}
-
-		@yield('addt_style')
-	</style>
-</head>
+@yield('addt_style')
+</style>
 <body>
 
 <!-- Navbar (sticky bottom) -->
@@ -90,7 +82,8 @@
 			  <div class="background">
 				<img class="w3-mobile" src="/images/at1.jpg">
 			  </div>
-			  <div id="getting-started" class=""><span id="countdownClock"></span></div>
+			  <!-- <a href="#!user" class="w3-display-middle" style="max-height:50%;"><img class="circle w3-mobile" src="/images/img42.jpg"></a>
+			  <a href="#!name" class="w3-display-bottomleft"><span class="white-text w3-mobile">Check us out</span><span class="white-text w3-mobile">Take a look around</span></a> -->
 			</div>
 			<a href="#" class="w3-display-topright"><i onclick="w3_close()" class="material-icons">clear</i></a>
 		</li>
@@ -157,7 +150,7 @@
 				</div>
 
 				<div class="w3-center">
-					<h5 class="w3-center">#journey2jackson</h5>
+					<h5 class="w3-center">#jouney2jackson</h5>
 				</div>
 			</div>
 		</div>
@@ -169,12 +162,17 @@
 	</div>
 </footer>
 <div class="w3-hide-small" style="margin-bottom: 50px;display: -webkit-inline-box;display: inline-block;"></div>
-
-<!-- Footer -->
+<script src="/js/jquery.min.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/materialize.min.js"></script>
-<script src="/js/jquery.countdown/jquery.countdown.min.js"></script>
-<script src="/js/myjs.js"></script>
+<script type="text/javascript">
+	function w3_open() {
+		document.getElementById("mySidebar").style.display = "block";
+	}
+	function w3_close() {
+		document.getElementById("mySidebar").style.display = "none";
+	}
+</script>
 @yield('footer')
 </body>
 </html>

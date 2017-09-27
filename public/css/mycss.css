@@ -387,6 +387,9 @@ h1.parallax-text {
 .directionsDiv {
     margin: 0% 0% 5% !important;
 }
+div#confirmation_modal {
+	margin: 0% auto !important;
+}
 }
 
 @media (min-width: 1400px) {
