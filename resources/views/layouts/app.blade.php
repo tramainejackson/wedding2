@@ -157,7 +157,7 @@
 				</div>
 
 				<div class="w3-center">
-					<h5 class="w3-center">#jouney2jackson</h5>
+					<h5 class="w3-center">#journey2jackson</h5>
 				</div>
 			</div>
 		</div>
@@ -169,6 +169,8 @@
 	</div>
 </footer>
 <div class="w3-hide-small" style="margin-bottom: 50px;display: -webkit-inline-box;display: inline-block;"></div>
+
+<!-- Footer -->
 <script src="/js/app.js"></script>
 <script src="/js/materialize.min.js"></script>
 <script src="/js/jquery.countdown/jquery.countdown.min.js"></script>

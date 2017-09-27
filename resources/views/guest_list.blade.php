@@ -34,33 +34,43 @@
 @section('about_us')
 	@if(count($guests) > 0)
 		<div class="container">
+			@if(session('status'))
+				<div class="w3-row">
+					<div class="w3-card-4 w3-green w3-round-medium">
+						<h2 class="w3-center">{{ session('status') }}</h2>					
+					</div>
+				</div>
+			@endif
 			<div class="w3-row">
 				<ul class="w3-ul guestList">
 					<li class="" style="opacity:0;">
-						<p class="w3-center" style="width:33%; display:inline-block;">Names&nbsp;<span class="w3-badge">{{ count($guests) + count($plusOnes) }}</span></p>
-						<p class="w3-center" style="width:33%; display:inline-block;">Responded<span></span></p>
-						<p class="w3-center" style="width:33%; display:inline-block;">Going?&nbsp;<span class="w3-badge">{{ $confirmedCount }}</span></p>
+						<p class="w3-center" style="width:24.5%; display:inline-block;"></p>
+						<p class="w3-center" style="width:24.5%; display:inline-block;">Names&nbsp;<span class="w3-badge">{{ $headCount }}</span></p>
+						<p class="w3-center" style="width:24.5%; display:inline-block;">Responded<span></span></p>
+						<p class="w3-center" style="width:24.5%; display:inline-block;">Going?&nbsp;<span class="w3-badge">{{ $confirmedCount }}</span></p>
 					</li>
 					@foreach($guests as $guest)
 						<li class="" style="opacity:0;">
-							<span class="w3-center" style="width:33%; display:inline-block;">{{ $guest->name }}</span>
-							<span class="w3-center" style="width:33%; display:inline-block;">{{ $guest->responded }}</span>
+							<span class="w3-center" style="width:24.5%; display:inline-block;"><a href="/guest_list/{{ $guest->id }}/edit" class="btn">Edit</a></span>
+							<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->name }}</span>
+							<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->responded }}</span>
 							
 							@if($guest->rsvp == 'Y')
-								<span class="w3-center" style="width:33%; display:inline-block;"><i class="fa fa-check-circle fa-lg w3-center" style="color:green;"></i></span>
+								<span class="w3-center" style="width:24.5%; display:inline-block;"><i class="fa fa-check-circle fa-lg w3-center" style="color:green;"></i></span>
 							@else
-								<span class="w3-center" style="width:33%; display:inline-block;"><i class="fa fa-times-circle fa-lg w3-center" style="color:red;"></i></span>
+								<span class="w3-center" style="width:24.5%; display:inline-block;"><i class="fa fa-times-circle fa-lg w3-center" style="color:red;"></i></span>
 							@endif
 							
 							@if($guest->plusOne)
 								<ul class="">
 									<li class="">
-										<span class="w3-center" style="width:33%; display:inline-block;"><i class="fa fa-plus"></i>&nbsp;{{ $guest->plusOne()->pluck('name')->first() }}</span>
-										<span class="w3-center" style="width:33%; display:inline-block;"></span>
+										<span class="w3-center" style="width:24.5%; display:inline-block;"></span>
+										<span class="w3-center" style="width:24.5%; display:inline-block;"><i class="fa fa-plus"></i>&nbsp;{{ $guest->plusOne()->pluck('name')->first() }}</span>
+										<span class="w3-center" style="width:24.5%; display:inline-block;"></span>
 										@if($guest->rsvp == 'Y')
-											<span class="w3-center" style="width:33%; display:inline-block;"><i class="fa fa-check-circle fa-lg w3-center" style="color:green;"></i></span>
+											<span class="w3-center" style="width:24.5%; display:inline-block;"><i class="fa fa-check-circle fa-lg w3-center" style="color:green;"></i></span>
 										@else
-											<span class="w3-center" style="width:33%; display:inline-block;"><i class="fa fa-times-circle fa-lg w3-center" style="color:red;"></i></span>
+											<span class="w3-center" style="width:24.5%; display:inline-block;"><i class="fa fa-times-circle fa-lg w3-center" style="color:red;"></i></span>
 										@endif
 									</li>
 								</ul>
