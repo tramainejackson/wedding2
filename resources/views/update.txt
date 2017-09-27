@@ -1,0 +1,8 @@
+Done- Photos, reg, accom tab will have Ashley&Tramaine header going horizontal.
+Done- Add title of page under at the bottom of the header
+Done - Changed to map bgrd - Stars in gold background on the home page looks to be the best
+Done- Replace pink color with peach color where needed and take green out also
+Done- Add instructions under the pagination
+Done- Add a read more line in the blurbs to make them all start the same size
+Done - Change nav bar z-index to 5
+Done - Add countdown, compass clock

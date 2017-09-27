@@ -25,9 +25,9 @@ Route::get('/donations/paypal', function() {
 	return view('donations.paypal');
 })->name('paypal');
 
-Route::get('/donations/venmo', function() {
-	return view('donations.venmo');
-})->name('venmo');
+Route::get('/accommodations', function() {
+	return view('accommodations');
+})->name('accommodations');
 
 Route::get('/accommodations', function() {
 	return view('accommodations');
@@ -39,11 +39,11 @@ Route::get('/guest_list', 'GuestController@index')->middleware('auth');
 
 Route::get('/photos', 'PhotoController@index')->name('photos');
 
-Route::patch('/confirmed', 'GuestController@update');
+Route::post('/confirmed', 'GuestController@store');
 
-Route::post('/confirmed/{id}', 'AddtGuestController@store');
+Route::patch('/confirmed/{id}', 'GuestController@update');
 
-Route::patch('/confirmed/{id}', 'AddtGuestController@update');
+Route::patch('/additional_guest/{id}', 'AddtGuestController@update');
 
 Route::post('/new_message', 'MessageController@store');
 

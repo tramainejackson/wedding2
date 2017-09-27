@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('addt_style')
 	.bgimg {
@@ -6,7 +6,7 @@
 		min-height: 65%;
 	}
 	.container.partyPage {
-		background: linear-gradient(to right, #ffb07c 40%, white, #c0fa8b 60%);
+		background: linear-gradient(to right, floralwhite, #ffb07c, floralwhite, #c0fa8b, floralwhite);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -14,7 +14,7 @@
 		margin-left: 0 !important;
 		margin-right: 0 !important;
 		width: 100%;
-		max-width: initial;
+		max-width: 100%;
 		padding: 0% 15%;
 		position: relative;
 	}
@@ -48,12 +48,12 @@
 
 	<!--- Into to Party --->
 	<div class="container partyPage">
-		<div class="partyPageBgrd"></div>
+		<div id="partyPageBgrd"></div>
 
 		@for ($x = 0; $x < count($bridalParty); $x+=2)
 		
 			<!--- Matchup cards --->
-			<div class="">
+			<div class="w3-text-black">
 				<div class="row scrollfire{{$x}}" style="opacity:0;">
 					<div class="col s15 m5 l5 w3-hide-small">
 						<h2 class="center-align">{{ $bridalParty[$x]->title }}</h2>
@@ -63,7 +63,7 @@
 						<h2 class="center-align">{{ $bridalParty[$x+1]->title }}</h2>
 					</div>
 					<div class="col s12 m5 l5">
-						<div class="card">
+						<div class="card large">
 							<div class="card-image">
 								<img src="{{ $bridalParty[$x]->image }}" class="responsive-image" />
 								<span class="card-title w3-mobile">{{ $bridalParty[$x]->name }}</span>
@@ -73,14 +73,17 @@
 							<div class="card-content hide-on-small-only">
 								<p class="">{{ $bridalParty[$x]->blurb }}</p>
 							</div>
+							<div class="card-action hide-on-small-only">
+								<p class="w3-center readMore">------ Read More ------</p>
+							</div>
 						</div>
 					</div>
 					<div class="col s2 m2 l2">
-						<img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" />
-						<img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" />
+						<!--- <img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /> 
+						<img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /> --->
 					</div>
 					<div class="col s12 m5 l5">
-						<div class="card">
+						<div class="card large">
 							<div class="card-image">
 								<img src="{{ $bridalParty[$x+1]->image }}" class="responsive-image" />
 								<span class="card-title w3-mobile">{{ $bridalParty[$x+1]->name }}</span>
@@ -89,6 +92,9 @@
 							</div>
 							<div class="card-content hide-on-small-only">
 								<p class="">{{ $bridalParty[$x+1]->blurb }}</p>
+							</div>
+							<div class="card-action hide-on-small-only">
+								<p class="w3-center readMore">------ Read More ------</p>
 							</div>
 						</div>
 					</div>
@@ -109,18 +115,4 @@
 @endsection
 
 @section('footer')
-	<script type="text/javascript">
-		$("body").on("click", ".material-icons", function(e) {
-			var $this = $(this);
-			var card = $this.parents(".card");
-			
-			if(card.find('.card-content').hasClass('hide-on-small-only')) {
-				card.find('.card-content').removeClass('hide-on-small-only').slideDown();
-			} else {
-				card.find('.card-content').slideUp(function() {
-					card.find('.card-content').addClass('hide-on-small-only')
-				});				
-			}
-		});
-	</script>
 @endsection

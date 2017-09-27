@@ -26,7 +26,7 @@ class AddtGuestController extends Controller
 			$guest->responded = 'Y';
 			$guest->save();
 		} else {
-			$guest->addPlusOne($plusOneName);
+			$guest->addPlusOne($plusOneName, 'Y');
 			$returnResponse = 'Thanks for your response. We will try and add your plus one. We will reach out to you once we get a change to look at our guest list';
 		}
 		
@@ -43,22 +43,18 @@ class AddtGuestController extends Controller
      */
     public function update(Request $request, $id)
     {
-		$guest = Guests::findOrFail($id);
-		$newName = $request->addt_guest;
+		$addtGuest = AddtGuest::findOrFail($id);
 		$plusOneOption = $request->plusOne;
+		$guest = $addtGuest->guests;
 		
-		if($plusOneOption == "No Plus One") {
-			$returnResponse = 'Thanks for your response. Your RSVP has be confirmed';
-			$guest->plusOne()->delete();
-		} elseif($plusOneOption == "Check Back Soon") {
+		if($plusOneOption == "Check Back Soon") {
+			$addtGuest->update(['rsvp' => 'N']);
+			$guest->update(['rsvp' => 'N', 'responded' => 'N']);
 			$returnResponse = 'Ok let us know as soon as possible. We hope you can make it but understand if you can\'t. Hope to hear from you soon.';
-		} elseif($request->addt_guest) {
-			$returnResponse = 'Thanks for your response. We will try and add your plus one. We will reach out to you once we get a change to look at our guest list';
-			$guest->plusOne()->update(['name' => $newName]);
 		} else {
+			$guest->update(['rsvp' => 'Y', 'responded' => 'Y']);
 			$returnResponse = 'Thanks for your response. Both of yours RSVP\'s have been confirmed, we cant wait to see you there.';
 		}
-		// dd($guest);
 		return redirect('/')->with('status', $returnResponse);
     }
 }

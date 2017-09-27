@@ -1,30 +1,37 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('addt_style')
 	.bgimg {
 		min-height: 30%;
 	}
+	
+	header:after {
+		content: "";
+		display: block;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -10;
+		background: url(/images/map3.jpg) no-repeat center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
 @endsection
 
 @section('header')
-	<!-- Header / Home-->	
-	<header class="w3-display-container hide-on-small-only" style="height:250px;">
-		<h1 class="w3-jumbo w3-display-left" style="left:10%">Ashley</h1>
-		<img class="w3-image w3-display-middle" src="/images/infinity1.png" style="max-height:150px">
-		<h1 class="w3-jumbo w3-display-right" style="right:10%">Tramaine</h1>
-	</header>
-	<header class="w3-display-container w3-wide bgimg w3-grayscale-min hide-on-med-and-up" id="home">
-		<div class="w3-display-middle w3-text-white w3-center headerContent">
-			<h1 class="w3-jumbo">Gifts</h1>
-			<span class="w3-text-white w3-display-bottommiddle w3-hide-small"><i></i></span>
-		</div>
-	</header>
+	<!-- Header / Home-->
+	@component('layouts.nav')
+	@endcomponent
 	
 	<!-- Gift ideas -->
-	<div class="section white" style="background: linear-gradient(#f5f8fa, white, white, white);">
-		<div class="row container">
-			<h2 class="col offset-s1 offset-m1 offset-l1 s11 m11 l11 header">Gifts</h2>
-			<p class="col offset-s1 offset-m1 offset-l1 s11 m5 l5 grey-text text-darken-3 lighten-3">We will be accepting gifts through Venmo. Please choose one of the gift options to contribute to and enter an amount. We are extremely thankful and appreciative of any and every blessing that comes our way.</p>
+	<div class="section white" style="background: linear-gradient(#f5f8fa, white, white, white); padding: 2%;">
+		<div class="">
+			<h2 class="header">Gifts</h2>
+			<p class="grey-text text-darken-3 lighten-3">We will be accepting gifts through PayPal. Please choose one of the gift options to contribute to and enter an amount. We are extremely thankful and appreciative of any and every blessing that comes our way.</p>
 		</div>
 	</div>
 	<div class="parallax-container">
@@ -56,17 +63,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="parallax-container" style="background-color: white;">
+		<div class="parallax-container" style="">
 		<div class="parallax hide-on-small-only">
 			<img src="https://onepeterfive.com/wp-content/uploads/2014/08/suburb.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">New Home</h1>
 		</div>
-		<div class="hide-on-med-and-up" style="">
+		<div class="hide-on-med-and-up" style="background:white;">
 			<img src="https://onepeterfive.com/wp-content/uploads/2014/08/suburb.jpg">
 			<h1 class="parallax-text w3-center w3-jumbo">New Home</h1>
 		</div>
 	</div>
-	<div class="section white">
+	<div class="section white" style="margin-top: -35px;">
 		<div class="row container">
 			<div class="col offset-s1 offset-m1 offset-l1 s11 m4 l4">
 				<h2 class="header" style="margin:0">New Home</h2>
