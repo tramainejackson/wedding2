@@ -5,7 +5,6 @@
 html, body, .block {
 	height: 105%;
 }
-
 .scrollImg, .scrollImg2 {
 	background-image: url("/images/scroll2.png"); 
 	background-repeat: no-repeat;
@@ -196,6 +195,7 @@ span#countdownClock {
 .hisStory, .herStory {
 	display: none;
 }
+
 /*.rotateN{ transform:rotate(90deg); }
 .rotateS{ transform:rotate(-90deg); } */
 
