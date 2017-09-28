@@ -196,6 +196,12 @@ span#countdownClock {
 	display: none;
 }
 
+.createNewLink {
+	position: absolute;
+    left: -25%;
+    top: 20px;
+}
+
 /*.rotateN{ transform:rotate(90deg); }
 .rotateS{ transform:rotate(-90deg); } */
 

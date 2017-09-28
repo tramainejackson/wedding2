@@ -33,7 +33,7 @@
 
 @section('about_us')
 	@if(count($guests) > 0)
-		<div class="container">
+		<div class="container" style="position:relative">
 			@if(session('status'))
 				<div class="w3-row">
 					<div class="w3-card-4 w3-green w3-round-medium">
@@ -41,6 +41,9 @@
 					</div>
 				</div>
 			@endif
+			<div class="">
+				<a href="/guest_list/create" class="createNewLink btn">New Guest</a>
+			</div>
 			<div class="w3-row">
 				<ul class="w3-ul guestList">
 					<li class="" style="opacity:0;">

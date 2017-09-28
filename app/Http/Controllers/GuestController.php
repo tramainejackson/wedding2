@@ -44,10 +44,12 @@ class GuestController extends Controller
      */
     public function create(Request $request)
     {
-		// dd($request);
 		$guest = new Guests();
         $guest->name = ucwords(strtolower(trim(request('name', 'required'))));
 		$guest->rsvp = isset($request->rsvp) ? 'Y' : 'N';
+		$guest->save();
+		
+		// dd($guest);
 		
 		if(isset($request->plus_one)) {
 			$guest->plusOne()->create([
@@ -55,8 +57,7 @@ class GuestController extends Controller
 				'name' => $request->plus_one
 			]);
 		}
-		
-		$guest->save();
+		return redirect()->action('GuestController@index')->with('status', 'You have successfully added a new invite');
     }
 
     /**
