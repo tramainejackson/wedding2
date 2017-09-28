@@ -29,6 +29,10 @@ Route::get('/accommodations', function() {
 	return view('accommodations');
 })->name('accommodations');
 
+Route::get('/guest_list/create', function() {
+	return view('create_guest');
+})->middleware('auth');
+
 Route::get('/party', 'BridalPartyController@index');
 
 Route::get('/guest_list', 'GuestController@index')->middleware('auth');
@@ -38,6 +42,8 @@ Route::get('/guest_list/{guest}/edit', 'GuestController@edit')->middleware('auth
 Route::get('/photos', 'PhotoController@index')->name('photos');
 
 Route::post('/confirmed', 'GuestController@store');
+
+Route::post('/guest_list/create', 'GuestController@create');
 
 Route::patch('/confirmed/{id}', 'GuestController@update');
 

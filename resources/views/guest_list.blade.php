@@ -82,8 +82,8 @@
 		</div>
 	@else
 		<div class="container">
-			<div class="w3-row">
-				<h2 class="">You don't have anybody on your guest list. Where's the love?</h2>
+			<div class="w3-row w3-padding-24">
+				<h2 class="text-center">You don't have anybody on your guest list. Where's the love? Add your first guest <a href="guest_list/create" class="">here</a></h2>
 			</div>
 		</div>
 	@endif

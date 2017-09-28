@@ -16,7 +16,7 @@ class GuestController extends Controller
     public function index()
     {
         $guests = Guests::orderBy('name', 'asc')->get();
-		$headCount = 1;
+		$headCount = 0;
         $confirmedCount = 0;
 	
 		foreach($guests as $guest) {
@@ -42,9 +42,21 @@ class GuestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+		// dd($request);
+		$guest = new Guests();
+        $guest->name = ucwords(strtolower(trim(request('name', 'required'))));
+		$guest->rsvp = isset($request->rsvp) ? 'Y' : 'N';
+		
+		if(isset($request->plus_one)) {
+			$guest->plusOne()->create([
+				'rsvp' => $guest->rsvp, 
+				'name' => $request->plus_one
+			]);
+		}
+		
+		$guest->save();
     }
 
     /**
