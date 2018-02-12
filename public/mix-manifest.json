@@ -1,6 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/materialize.min.js": "/js/materialize.min.js",
-    "/js/jquery.min.js": "/js/jquery.min.js"
+    "/js/materialize.js": "/js/materialize.js",
+    "/js/jquery.countdown.min.js": "/js/jquery.countdown.min.js"
 }

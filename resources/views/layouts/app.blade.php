@@ -172,8 +172,7 @@
 
 <!-- Footer -->
 <script src="/js/app.js"></script>
-<script src="/js/materialize.min.js"></script>
-<script src="/js/jquery.countdown/jquery.countdown.min.js"></script>
+<script src="/js/materialize.js"></script>
 <script src="/js/myjs.js"></script>
 @yield('footer')
 </body>

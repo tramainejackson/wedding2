@@ -1,0 +1,7 @@
+---------------------------------------
+		Journey 2 Jackson
+---------------------------------------
+
+Update so users can enter email address when RSVP'n
+Add options for food
+export HTTP_PROXY="http://155.247.166.25:8080"
