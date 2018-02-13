@@ -13,6 +13,8 @@
 
 use App\Message;
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -53,6 +55,10 @@ Route::patch('/guest_list/{guest}/edit', 'GuestController@update2')->middleware(
 
 Route::post('/new_message', 'MessageController@store');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/test', function() {
+	$messageEmail = Message::find(16);
+	
+	return view('emails.new_message', compact('messageEmail'));
+});
