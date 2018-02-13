@@ -8,14 +8,66 @@
 @endsection
 
 @section('header')
-<div class="bgrdImage" style="background: url(/images/map3.jpg); background-repeat: no-repeat; background-position: center center; background-size: 100% 100%; background-attachment: fixed; padding: 0% 5% 2%; color:black;">
-
-	<!--- Header / Home --->
-	@component('layouts.nav')
-	@endcomponent
+	<div class="bgrdImage" style="background: url(/images/map3.jpg); background-repeat: no-repeat; background-position: center center; background-size: 100% 100%; background-attachment: fixed; padding: 0% 5% 2%; color:black;">
 	
-	<img src="/images/compass.png" class="countdownCompas hide-on-small-only" />
-	<div id="getting-started" class="hide-on-small-only"><span id="countdownClock"></span></div>
+	<!-- Header / Home-->
+	<header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
+	  <div class="w3-display-middle w3-text-white w3-center headerContent">
+		<h1 class="w3-jumbo">Ashley & Tramaine</h1>
+		<h2>Are getting married</h2>
+		<h2><b>08.26.2018</b></h2>
+		<div id="home_countdown" class="hide-on-small-only"><span id="countdownClock"></span></div>
+	  </div>
+	<span class="w3-text-white w3-display-bottommiddle w3-hide-small"><i>- I'm only asking for a couple of forevers</i></span>
+	</header>
+@endsection
+
+@section('wedding_information')
+	<!-- Wedding information content -->
+	<div class="w3-container w3-padding-64 w3-center usMobile" style="color:#000;background:url('/images/map5.jpg'); background-attachment: fixed; background-repeat: no-repeat; background-position: center center; background-size: cover;">
+	
+	<!-- Wedding information -->
+	<!-- Background photo -->
+	<div class="w3-display-container w3-wide w3-margin scrollImg2" id="wedding" style="position: relative; padding: 50px 0px 175px;">
+		<div class="w3-center" style="position: relative; padding: 100px 0px 50px;">
+			<h1 class="w3-jumbo"><b>THE WEDDING</b></h1>
+			<h1 class="w3-xxlarge">Are You Invited?!?!</h1>
+			<h2>Of course..</h2>
+		</div>
+	
+	  <div class="w3-content" style="position:relative; /* background: rgba(255, 255, 255, 0.9); */">
+		<!--- <img class="w3-round-large w3-mobile" src="http://luciensmanor.com/wp-content/uploads/2016/07/Versailles-2016.jpg"> --->
+		<div class="w3-row" style="font-size: 125%;">
+		  <div class="w3-half">
+			<h2 class="w3-xxlarge">When</h2>
+			<p>August 26, 2018</p>
+			<p>Wedding Ceremony - 2:30pm</p>
+			<p>Cocktail Hour - 3:00pm</p>
+			<p>Reception & Dinner - 4:00pm</p>
+		  </div>
+		  <!--- <div class="">
+			<img src="/images/design3.png" class="valign-wrapper w3-hide-small" style="max-height:175px; position:absolute; left:45%; transform:rotate(-35deg); bottom: -20px;" />
+		  </div> --->
+		  <div class="w3-half">
+			<h2 class="w3-xxlarge">Where</h2>
+			<p>Lucien's Manor</p>
+			<p>81 W. White Horse Pike</p>
+			<p>Berlin, NJ 08009</p>
+			<p><a href="http://www.luciensmanor.com" target="_blank">luciensmanor.com</a></p>
+		  </div>
+		  
+		</div>
+	  </div>
+	  <!-- RSVP section -->
+	  <div class="w3-content" style="position:relative; /* background: rgba(255, 255, 255, 0.9); */">
+		<h1>HOPE YOU CAN MAKE IT!</h1>
+		  <p class="w3-large">Kindly Respond By January, 2018</p>
+		  <p class="w3-xlarge">
+			<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round w3-red w3-opacity w3-hover-opacity-off" style="padding:8px 60px">RSVP</button>
+		  </p>
+	  </div>
+	  </div>
+	</div>
 @endsection
 
 @section('about_us')
@@ -89,6 +141,5 @@
 		
 		confirmationDiv.style.display = "block";
 		confirmationDiv.children[0].className += " w3-animate-zoom";
-		// window.scrollTo(0, confirmationDiv.offsetTop);
 	</script>
 @endsection

@@ -84,7 +84,7 @@ class GuestController extends Controller
 				$foundGuest->update(['rsvp' => $inviteResponse, 'responded' => 'Y']);
 			}
 			
-			return view('confirmed', compact(['foundGuest', 'first', 'inviteResponse']));
+			return view('confirmed', compact('foundGuest', 'first', 'inviteResponse'));
 		} elseif($foundAddtGuest->isNotEmpty()) {
 			$foundAddtGuest = $foundAddtGuest->first();
 			$guest = $foundAddtGuest->guests;
@@ -95,7 +95,7 @@ class GuestController extends Controller
 				$foundAddtGuest->update(['rsvp' => $inviteResponse]);
 			}
 			
-			return view('additional_guest', compact(['foundAddtGuest', 'guest', 'first', 'inviteResponse']));
+			return view('additional_guest', compact('foundAddtGuest', 'guest', 'first', 'inviteResponse'));
 		} else {
 			return view('no_invite', compact('name'));
 		}
@@ -133,29 +133,40 @@ class GuestController extends Controller
      */
     public function update(Request $request, $id)
     {
+		$guest = Guests::find($id);
 		// dd($guest);
-		$guest = Guests::findOrFail($id);
 		$newName = $request->addt_guest;
 		$plusOneOption = $request->plusOne;
 		
 		if($plusOneOption == "No Plus One") {
 			$returnResponse = 'Thanks for your response. Your RSVP has be confirmed';
-			if($guest->plusOne);
-			{
+			
+			if($guest->plusOne)	{
 				$guest->plusOne()->delete();
 			}
+
+			return redirect('/food_selection/' . $guest->id )->with('status', $returnResponse);
 		} elseif($plusOneOption == "Check Back Soon") {
 			$guest->update(['rsvp' => 'N', 'responded' => 'N']);
+			
 			$returnResponse = 'Ok let us know as soon as possible. We hope you can make it but understand if you can\'t. Hope to hear from you soon.';
+
+			return redirect('/')->with('status', $returnResponse);
 		} elseif(isset($request->plusOneName)) {
 			$newName = $request->plusOneName;
+			
 			$returnResponse = 'Thanks for your response. We will try and add your plus one. We will reach out to you once we get a change to look at our guest list';
 			$guest->plusOne()->create(['name' => $newName, 'rsvp' => 'Y']);
+
+			return redirect('/food_selection/' . $guest->id )->with('status', $returnResponse);
 		} else {
 			$guest->plusOne->update(['rsvp' => 'Y']);
-			$returnResponse = 'Thanks for your response. Both of yours RSVP\'s have been confirmed, we cant wait to see you there.';
+			
+			$returnResponse = 'Thanks for your response. Both, you and your RSVP\'s have been confirmed, we cant wait to see you there.';
+
+			return redirect('/food_selection/' . $guest->id )->with('status', $returnResponse);
 		}
-		return redirect('/')->with('status', $returnResponse);
+		
     }
 
 	/**
@@ -204,6 +215,18 @@ class GuestController extends Controller
 		
 		return redirect()->action('GuestController@edit', $guest)->with('status', 'You have updated this invitation successfully');
     }
+	
+	/**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function food_selection(Request $request, Guests $guest)
+    {
+		
+	}
 	
     /**
      * Remove the specified resource from storage.

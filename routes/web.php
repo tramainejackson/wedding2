@@ -41,6 +41,12 @@ Route::get('/guest_list', 'GuestController@index')->middleware('auth');
 
 Route::get('/guest_list/{guest}/edit', 'GuestController@edit')->middleware('auth');
 
+Route::get('/food_selection/{guests}', function(\App\Guests $guests) {
+	// dd($guests);
+	
+	return view('food_selection', compact('guests'));
+})->name('food_selection');
+
 Route::get('/photos', 'PhotoController@index')->name('photos');
 
 Route::post('/confirmed', 'GuestController@store');
@@ -56,9 +62,3 @@ Route::patch('/guest_list/{guest}/edit', 'GuestController@update2')->middleware(
 Route::post('/new_message', 'MessageController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/test', function() {
-	$messageEmail = Message::find(16);
-	
-	return view('emails.new_message', compact('messageEmail'));
-});
