@@ -129,6 +129,10 @@
 					<input id="last" class="w3-large" type="text" name="last">
 					<label for="last" class="active">Last Name</label>
 				</div>
+				<div class="input-field col s12">
+					<input id="email" class="w3-large" type="email" name="email">
+					<label for="email" class="active">Email Address</label>
+				</div>
 			  <p class="w3-center"><i>Sincerely, Tramaine & Ashley</i></p>
 			  <div class="w3-row">
 				<div class="w3-half">

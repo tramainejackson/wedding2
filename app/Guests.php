@@ -9,7 +9,7 @@ class Guests extends Model
 {
 	use SoftDeletes;
 	
-	protected $fillable = ['rsvp', 'responded'];	
+	protected $fillable = ['rsvp', 'responded', 'email'];	
 
     /**
      * The attributes that should be mutated to dates.

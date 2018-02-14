@@ -1,10 +1,16 @@
+html, body, .block {
+	height: 105%;
+}
+
 .parallax-container {
 	height: 500px;
 }
 
-html, body, .block {
-	height: 105%;
+.container {
+    max-width: 100% !important;
+    width: 90%;
 }
+
 .scrollImg, .scrollImg2 {
 	background-image: url("/images/scroll2.png"); 
 	background-repeat: no-repeat;

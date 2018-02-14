@@ -42,10 +42,10 @@ Route::get('/guest_list', 'GuestController@index')->middleware('auth');
 Route::get('/guest_list/{guest}/edit', 'GuestController@edit')->middleware('auth');
 
 Route::get('/food_selection/{guests}', function(\App\Guests $guests) {
-	// dd($guests);
-	
 	return view('food_selection', compact('guests'));
 })->name('food_selection');
+
+Route::post('/food_selection/{guests}', 'GuestController@food_selection');
 
 Route::get('/photos', 'PhotoController@index')->name('photos');
 

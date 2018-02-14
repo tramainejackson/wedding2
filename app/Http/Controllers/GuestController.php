@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Guests;
 use App\AddtGuest;
+use Illuminate\support\Facades\Mail;
+use App\Mail\WeddingWebsiteMessage;
+use App\Mail\Confirmation;
+use App\Message;
 
 class GuestController extends Controller
 {
@@ -68,10 +73,12 @@ class GuestController extends Controller
      */
     public function store(Request $request)
     {
+		// dd($request);
 		$first = ucfirst(strtolower(request('first', 'required')));
 		$last = ucfirst(strtolower(request('last', 'required')));
 		$name = trim($first . " " .$last);
 		$inviteResponse = $request->rsvp == 'Going' ? 'Y' : 'N';
+		$email = $request->email != '' ? $request->email : null;
 		
 		$foundGuest = Guests::where('name', $name)->get();
 		$foundAddtGuest = AddtGuest::where('name', $name)->get();
@@ -81,7 +88,11 @@ class GuestController extends Controller
 			if($foundGuest->responded == "Y") {
 				$inviteResponse = "Already responded";
 			} else {
-				$foundGuest->update(['rsvp' => $inviteResponse, 'responded' => 'Y']);
+				$foundGuest->update([
+					'rsvp' => $inviteResponse, 
+					'responded' => 'Y',
+					'email' => $email
+				]);
 			}
 			
 			return view('confirmed', compact('foundGuest', 'first', 'inviteResponse'));
@@ -92,7 +103,10 @@ class GuestController extends Controller
 			if($guest->responded == "Y") {
 				$inviteResponse = "Already responded";
 			} else {
-				$foundAddtGuest->update(['rsvp' => $inviteResponse]);
+				$foundAddtGuest->update([
+					'rsvp' => $inviteResponse,
+					'email' => $email
+				]);
 			}
 			
 			return view('additional_guest', compact('foundAddtGuest', 'guest', 'first', 'inviteResponse'));
@@ -223,9 +237,29 @@ class GuestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function food_selection(Request $request, Guests $guest)
+    public function food_selection(Request $request, Guests $guests)
     {
-		
+		if(isset($request->add_guest_option)) {
+			if(DB::table('food_selections')->insert(
+				['guests_id' => $guests->id, 'food_option' => $request->food_option,'add_guest_id' => $guests->plusOne->id, 'add_guest_option' => $request->add_guest_option]
+			)) {
+				$guests->food_selected = 'Y';
+				if($guests->save()) {
+					\Mail::to('test@gmail.com')->send(new Confirmation($guests));
+				}
+			}
+		} else {
+			if(DB::table('food_selections')->insert(
+				['guests_id' => $guests->id, 'food_option' => $request->food_option]
+			)) {
+				$guests->food_selected = 'Y';
+				if($guests->save()) {
+					\Mail::to('test@gmail.com')->send(new Confirmation($guests));
+				}
+			}
+		}
+
+		return redirect('/')->with('status', 'Looks like your all set. Thanks for confirming your RSVP and making your food selection. Ca\'nt wait to see you on the big day.');
 	}
 	
     /**
