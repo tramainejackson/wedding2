@@ -82,7 +82,6 @@
 									<option value="#">Option 4</option>
 									<option value="#">Option 5</option>
 								</select>
-								<label>Food Options</label>
 							</div>
 						</div>
 					</div>
@@ -123,7 +122,7 @@
 					{{ csrf_field() }}
 					
 					<div class="input-field">
-						<select class="foodSelectionSelect" name="food_option" disabled>
+						<select class="browser-default foodSelectionSelect" name="food_option" disabled>
 							<option value="" disabled selected>Choose your food option</option>
 							<option value="#">Option 1</option>
 							<option value="#">Option 2</option>
@@ -131,7 +130,6 @@
 							<option value="#">Option 4</option>
 							<option value="#">Option 5</option>
 						</select>
-						<label>Food Options</label>
 					</div>
 					<div class="">
 						<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />
@@ -157,7 +155,7 @@
 					{{ csrf_field() }}
 					
 					<div class="input-field">
-						<select class="foodSelectionSelect" name="food_option">
+						<select class="browser-default foodSelectionSelect" name="food_option">
 							<option value="" disabled selected>Choose your food option</option>
 							<option value="#">Option 1</option>
 							<option value="#">Option 2</option>
@@ -165,7 +163,6 @@
 							<option value="#">Option 4</option>
 							<option value="#">Option 5</option>
 						</select>
-						<label>Food Options</label>
 					</div>
 					<div class="">
 						<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />

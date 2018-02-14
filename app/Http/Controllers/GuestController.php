@@ -244,7 +244,11 @@ class GuestController extends Controller
 			)) {
 				$guests->food_selected = 'Y';
 				if($guests->save()) {
-					// \Mail::to('test@gmail.com')->send(new Confirmation($guests));
+					if($guests->email != null) {
+						\Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
+					} else {
+						\Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
+					}
 				}
 			}
 		} else {
@@ -253,7 +257,11 @@ class GuestController extends Controller
 			)) {
 				$guests->food_selected = 'Y';
 				if($guests->save()) {
-					// \Mail::to('test@gmail.com')->send(new Confirmation($guests));
+					if($guests->email != null) {
+						\Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
+					} else {
+						\Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
+					}
 				}
 			}
 		}
@@ -321,12 +329,11 @@ class GuestController extends Controller
 		$inviteResponse = request('rsvp') == 'Going' ? 'Y' : 'N';
 		$email = request('email') != '' ? $request->email : null;
 
-		if($guests->responded == "Y") {
+		if($guests->rsvp != null) {
 			$inviteResponse = "Already responded";
 		} else {
 			$guests->update([
 				'rsvp' => $inviteResponse, 
-				'responded' => 'Y',
 				'email' => $email
 			]);
 
