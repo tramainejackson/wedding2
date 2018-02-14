@@ -180,7 +180,6 @@ class GuestController extends Controller
 
 			return redirect('/food_selection/' . $guest->id )->with('status', $returnResponse);
 		}
-		
     }
 
 	/**
@@ -245,7 +244,7 @@ class GuestController extends Controller
 			)) {
 				$guests->food_selected = 'Y';
 				if($guests->save()) {
-					\Mail::to('test@gmail.com')->send(new Confirmation($guests));
+					// \Mail::to('test@gmail.com')->send(new Confirmation($guests));
 				}
 			}
 		} else {
@@ -254,15 +253,88 @@ class GuestController extends Controller
 			)) {
 				$guests->food_selected = 'Y';
 				if($guests->save()) {
-					\Mail::to('test@gmail.com')->send(new Confirmation($guests));
+					// \Mail::to('test@gmail.com')->send(new Confirmation($guests));
 				}
 			}
 		}
 
-		return redirect('/')->with('status', 'Looks like your all set. Thanks for confirming your RSVP and making your food selection. Ca\'nt wait to see you on the big day.');
+		return redirect('/')->with('status', 'Looks like your all set. Thanks for confirming your RSVP and making your food selection. Can\'t wait to see you on the big day.');
 	}
 	
     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function confirm_guest(Request $request)
+    {
+        // dd($request);
+		$first = ucfirst(strtolower(request('first', 'required')));
+		$last = ucfirst(strtolower(request('last', 'required')));
+		$name = trim($first . " " .$last);
+		$email = $request->email != '' ? $request->email : null;
+		
+		$foundGuest = Guests::where('name', $name)->get();
+		$foundAddtGuest = AddtGuest::where('name', $name)->get();
+
+		if($foundGuest->isNotEmpty()) {
+			$foundGuest = $foundGuest->first();
+			if($foundGuest->responded == 'Y') {
+				if($foundGuest->food_selected == 'Y') {
+					return view('already_confirmed', compact('first', 'last', 'email', 'name', 'foundGuest', 'foundAddtGuest'));
+				} else {
+					$guests = $foundGuest;
+					return view('food_selection', compact('guests'));
+				}
+			} else {
+				return view('confirmed', compact('first', 'last', 'email', 'name', 'foundGuest', 'foundAddtGuest'));
+			}
+		} elseif($foundAddtGuest->isNotEmpty()) {
+			// Get the guest on the invitation
+			$foundGuest = $foundAddtGuest->first()->guests;
+			$foundAddtGuest = $foundAddtGuest->first();
+			
+			if($foundAddtGuest->guests->responded == 'Y') {
+				if($foundAddtGuest->guests->food_selected == 'Y') {
+					return view('already_confirmed', compact('first', 'last', 'email', 'name', 'foundGuest', 'foundAddtGuest'));
+				} else {
+					$guests = $foundGuest;
+					return view('food_selection', compact('guests'));
+				}
+			} else {
+				return view('confirmed', compact('first', 'last', 'email', 'name', 'foundGuest', 'foundAddtGuest'));
+			}
+		} else {
+			return view('no_invite', compact('first', 'last', 'email', 'name'));
+		}
+    } 
+	
+	/**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function confirm_rsvp(Request $request, Guests $guests)
+    {
+		$inviteResponse = request('rsvp') == 'Going' ? 'Y' : 'N';
+		$email = request('email') != '' ? $request->email : null;
+
+		if($guests->responded == "Y") {
+			$inviteResponse = "Already responded";
+		} else {
+			$guests->update([
+				'rsvp' => $inviteResponse, 
+				'responded' => 'Y',
+				'email' => $email
+			]);
+
+			return view('food_selection', compact('guests'));
+		}		
+    }
+	
+	/**
      * Remove the specified resource from storage.
      *
      * @param  int  $id

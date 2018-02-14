@@ -49,13 +49,15 @@ Route::post('/food_selection/{guests}', 'GuestController@food_selection');
 
 Route::get('/photos', 'PhotoController@index')->name('photos');
 
-Route::post('/confirmed', 'GuestController@store');
+Route::patch('/confirmed', 'GuestController@store');
+
+Route::get('/confirmed', 'GuestController@confirm_guest');
 
 Route::post('/guest_list/create', 'GuestController@create');
 
-Route::patch('/confirmed/{id}', 'GuestController@update');
+Route::patch('/confirmed/{guests}', 'GuestController@confirm_rsvp');
 
-Route::patch('/additional_guest/{id}', 'AddtGuestController@update');
+Route::patch('/additional_guest/{guests}', 'AddtGuestController@store');
 
 Route::patch('/guest_list/{guest}/edit', 'GuestController@update2')->middleware('auth');
 

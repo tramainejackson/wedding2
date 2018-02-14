@@ -118,6 +118,7 @@
 		  
 		  <h1 class="w3-wide col s12">CAN YOU COME?</h1>
 		  <p class="col s12">We really hope you can make it.</p>
+		  <p class="w3-center"><i>Sincerely, Tramaine & Ashley</i></p>
 		  
 		  {!! Form::open([ 'action' => 'GuestController@store', 'class' => 'col s12']) !!}
 			<div class="row">
@@ -133,15 +134,12 @@
 					<input id="email" class="w3-large" type="email" name="email">
 					<label for="email" class="active">Email Address</label>
 				</div>
-			  <p class="w3-center"><i>Sincerely, Tramaine & Ashley</i></p>
-			  <div class="w3-row">
-				<div class="w3-half">
-				  {!! Form::submit('Going', ['name' => 'rsvp', 'class' => 'w3-button w3-block w3-green']) !!}
+				<div class="">
+					<span class="w3-xlarge getRSVP">Next</span>&nbsp;<span><i class="fa fa-2x fa-arrow-circle-right w3-text-green getRSVP"></i></span>
+					
+				  <!-- {!! Form::submit('', ['name' => 'rsvp', 'class' => 'w3-button w3-block w3-green']) !!} -->
+				  <!-- {!! Form::submit('Cant Come', ['name' => 'rsvp', 'class' => 'w3-button w3-block w3-red']) !!} -->
 				</div>
-				<div class="w3-half">
-				  {!! Form::submit('Cant Come', ['name' => 'rsvp', 'class' => 'w3-button w3-block w3-red']) !!}
-				</div>
-			  </div>
 			</div>
 		{!! Form::close() !!}
 		</div>
@@ -150,7 +148,35 @@
 	</div>
 @endsection
 
-
 @section('footer')
-	
+	<script>
+		$('body').on('click', '.getRSVP', function() {
+			getRSVP($('#first').val(), $('#last').val(), $('#email').val());
+		});
+		
+		$('body').on('click', '.yesPO', function() {
+			$('.foodSelectionForm').slideUp(function() {
+				$('.plusOneSelectionForm').slideDown();
+				$('.foodSelectionSelect').attr('disabled', true);
+				$('[name="plus_one"]').removeAttr('disabled').focus();
+			});
+		});
+		
+		$('body').on('click', '.noPO', function() {
+			$('.plusOneSelectionForm').slideUp(function() {
+				$('.foodSelectionForm').slideDown();				
+				$('[name="plus_one"]').attr('disabled', true);
+				$('.foodSelectionSelect').removeAttr('disabled').focus();
+			});
+			
+		});
+		
+		$('body').on('click', '.findRSVP', function() {
+			$('#confirmation').fadeOut(function() {
+				$('#id01.w3-modal .w3-modal-content > div.w3-container').fadeIn(function() {
+					$('#confirmation').remove();					
+				});
+			});
+		});
+	</script>
 @endsection

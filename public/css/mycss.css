@@ -11,6 +11,10 @@ html, body, .block {
     width: 90%;
 }
 
+.hidden {
+	display: none;
+}
+
 .scrollImg, .scrollImg2 {
 	background-image: url("/images/scroll2.png"); 
 	background-repeat: no-repeat;

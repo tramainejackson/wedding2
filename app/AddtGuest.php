@@ -17,6 +17,6 @@ class AddtGuest extends Model
 		Get the person who was invited
 	*/	
 	public function guests() {
-		return $this->belongsTo(Guests::class);
+		return $this->belongsTo('\App\Guests');
 	}
 }
