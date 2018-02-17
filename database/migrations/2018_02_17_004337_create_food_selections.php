@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsTable extends Migration
+class CreateFoodSelections extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('food_selections', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title', 100);
-            $table->text('body')->nullable();
-            $table->char('publish', 1)->default('Y');
+            $table->integer('guests_id')->nullable();
+            $table->string('food_option', 255)->nullable();
+            $table->integer('add_guest_id')->nullable();
+            $table->string('add_guest_option', 255)->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('food_selections');
     }
 }

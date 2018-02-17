@@ -15,9 +15,9 @@ class CreateAddtGuestsTable extends Migration
     {
         Schema::create('addt_guests', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('guests_id');
-            $table->char('rsvp', 1);
-            $table->string('name', 50);
+            $table->integer('guests_id')->nullable();
+            $table->string('name', 50)->nullable();
+            $table->char('rsvp', 1)->nullable();
 			$table->timestamps();
         });
     }

@@ -15,11 +15,11 @@ class CreateBridalPartiesTable extends Migration
     {
         Schema::create('bridal_parties', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('order');
-            $table->string('title', 50);
-            $table->string('name', 30);
-            $table->string('image', 30);
-            $table->text('blurb');
+            $table->integer('order')->nullable();
+            $table->string('title', 50)->nullable();
+            $table->string('name', 30)->nullable();
+            $table->string('image', 100)->nullable();
+            $table->text('blurb')->nullable();
             $table->timestamps();
         });
     }
