@@ -1,4 +1,10 @@
-$(document).ready(function(){
+$(document).ready(function() {
+	
+	$.ajaxSetup({
+		headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')	},
+		cache: false
+	});
+	
 	$('.collapsible').collapsible();
 	  
 	$("body").on("click", ".material-icons", function(e) {
@@ -34,6 +40,77 @@ $(document).ready(function(){
 		$(this).text(event.strftime('%D days %H:%M:%S'));
 	});
 });
+
+// Get confirmed RSVP from the 
+function getRSVP(firstname, lastname, email) {
+	$.ajax({
+	  method: "GET",
+	  url: "/confirmed",
+	  data: {'first':firstname, 'last':lastname, 'email':email}
+	})
+	
+	.fail(function() {	
+		alert("Fail");
+	})
+	
+	.done(function(data) {
+		var newData = $(data);
+		$('#id01.w3-modal .w3-modal-content > div.w3-container').fadeOut(function() {
+			$(newData).appendTo('#id01.w3-modal .w3-modal-content').fadeIn();
+		});
+	});
+}
+
+// Get confirmed RSVP from the server
+function confirmRSVP(rsvp, email) {
+	console.log(rsvp);
+	$.ajax({
+	  method: "PATCH",
+	  url: "/confirmed/" + rsvp.id,
+	  data: {'rsvp':'Going', 'email':email}
+	})
+	
+	.fail(function() {	
+		alert("Fail");
+	})
+	
+	.done(function(data) {
+		var newData = $(data);
+		$(newData).appendTo('#id01.w3-modal .w3-modal-content');
+		$('select').material_select();
+		$('#confirmation').fadeOut(function() {
+			$(newData).fadeIn(function() {
+				$('#confirmation').remove();
+			});
+		});
+	});
+}
+
+// Confirm plus one and bring up 
+function confirmPlusOne(plusOne, guests) {
+	$.ajax({
+	  method: "PATCH",
+	  url: "/additional_guest/" + guests,
+	  data: {'plusOne': plusOne}
+	})
+	
+	.fail(function() {	
+		alert("Fail");
+	})
+	
+	.done(function(data) {
+		var newData = $(data);
+		var currentFoodSelectionDiv = $('.foodSelectionDiv');
+		
+		$(newData).appendTo('#id01.w3-modal .w3-modal-content');
+		$('select').material_select();
+		$(currentFoodSelectionDiv).slideUp(function() {
+			$(newData).slideDown(function() {
+				$(currentFoodSelectionDiv).remove();
+			});
+		});
+	});
+}
 
 function w3_open() {
 	document.getElementById("mySidebar").style.display = "block";
