@@ -25,7 +25,7 @@
 	<!-- Header / Home-->
 	<header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
 	  <div class="w3-display-middle w3-text-white w3-center headerContent">
-		<h1 class="w3-jumbo">The Guest List</h1>
+		<h1 class="w3-jumbo">The Food Selections</h1>
 		<span></span>
 	  </div>
 	</header>
@@ -41,42 +41,44 @@
 					</div>
 				</div>
 			@endif
-			<div class="">
-				<a href="/guest_list/create" class="createNewLink btn">New Guest</a>
-			</div>
-			<div class="w3-row">
-				<ul class="w3-ul guestList">
+			<div class="w3-row w3-padding-24">
+				<ul class="w3-ul w3-hoverable guestList">
 					<li class="" style="opacity:0;">
 						<p class="w3-center" style="width:24.5%; display:inline-block;"></p>
-						<p class="w3-center" style="width:24.5%; display:inline-block;">Names&nbsp;<span class="w3-badge">{{ $headCount }}</span></p>
-						<p class="w3-center" style="width:24.5%; display:inline-block;">Responded<span></span></p>
-						<p class="w3-center" style="width:24.5%; display:inline-block;">Going?&nbsp;<span class="w3-badge">{{ $confirmedCount }}</span></p>
+						<p class="w3-center" style="width:24.5%; display:inline-block;">Names&nbsp;<span class="w3-badge"></span></p>
+						<p class="w3-center" style="width:24.5%; display:inline-block;">Food Selection<span></span></p>
 					</li>
 					@foreach($guests as $guest)
 						<li class="" style="opacity:0;">
-							<span class="w3-center" style="width:24.5%; display:inline-block;"><a href="/guest_list/{{ $guest->id }}/edit" class="btn">Edit</a></span>
-							<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->name }}</span>
-							<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->responded }}</span>
-							
-							@if($guest->rsvp == 'Y')
-								<span class="w3-center" style="width:24.5%; display:inline-block;"><i class="fa fa-check-circle fa-lg w3-center" style="color:green;"></i></span>
+							<!-- Action button for guest food edit -->
+							@if($guest->food_option)
+								<span class="w3-center" style="width:24.5%; display:inline-block;"><a href="/food_selection/{{ $guest->food_option->id }}/edit" class="btn">Edit &nbsp;Selection</a></span>
 							@else
-								<span class="w3-center" style="width:24.5%; display:inline-block;"><i class="fa fa-times-circle fa-lg w3-center" style="color:red;"></i></span>
+								<span class="w3-center" style="width:24.5%; display:inline-block;"><a href="/food_selection/{{ $guest->id }}/create" class="btn light-green darken-1">Make Selection</a></span>
 							@endif
 							
+							<!-- Guest Name -->
+							<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->name }}</span>
+							
+							<!-- Guest food selection -->
+							@if($guest->food_selected == 'Y')
+								<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->food_option->food_option }}</span>
+							@else
+								<span class="w3-center" style="width:24.5%; display:inline-block;">No Selection Yet</span>
+							@endif
+							
+							<span class="w3-center" style="width:24.5%; display:inline-block;"></span>
+							
+							<!-- Check if there is a plus one for the invitiation -->
 							@if($guest->plusOne)
-								<ul class="">
-									<li class="">
-										<span class="w3-center" style="width:24.5%; display:inline-block;"></span>
-										<span class="w3-center" style="width:24.5%; display:inline-block;"><i class="fa fa-plus"></i>&nbsp;{{ $guest->plusOne()->pluck('name')->first() }}</span>
-										<span class="w3-center" style="width:24.5%; display:inline-block;"></span>
-										@if($guest->rsvp == 'Y')
-											<span class="w3-center" style="width:24.5%; display:inline-block;"><i class="fa fa-check-circle fa-lg w3-center" style="color:green;"></i></span>
-										@else
-											<span class="w3-center" style="width:24.5%; display:inline-block;"><i class="fa fa-times-circle fa-lg w3-center" style="color:red;"></i></span>
-										@endif
-									</li>
-								</ul>
+								<span class="w3-center" style="width:24.5%; display:inline-block;"></span>
+								<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->plusOne->name }}</span>
+								
+								@if($guest->food_selected == 'Y')
+									<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->food_option->add_guest_option }}</span>
+								@else
+									<span class="w3-center" style="width:24.5%; display:inline-block;">No Selection Yet</span>
+								@endif
 							@endif
 						</li>
 					@endforeach
@@ -93,11 +95,6 @@
 @endsection
 
 @section('footer')
-	<!-- Footer -->
-	<script src="js/app.js"></script>
-	<script src="js/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="js/materialize.min.js"></script>
 	<script type="text/javascript">
 		//ScrollFire plugin init
 		var options = [

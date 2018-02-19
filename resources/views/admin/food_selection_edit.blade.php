@@ -68,11 +68,6 @@
 @endsection
 
 @section('footer')
-	<!-- Footer -->
-	<script src="/js/app.js"></script>
-	<script src="/js/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="/js/materialize.min.js"></script>
 	<script type="text/javascript">
 		//ScrollFire plugin init
 		var options = [

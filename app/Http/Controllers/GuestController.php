@@ -39,7 +39,7 @@ class GuestController extends Controller
 			}
 		}
 
-		return view('guest_list', compact('guests', 'headCount', 'confirmedCount'));
+		return view('admin.guest_list', compact('guests', 'headCount', 'confirmedCount'));
     }
 
     /**
@@ -135,7 +135,7 @@ class GuestController extends Controller
     public function edit(Guests $guest)
     {
 		// dd($guest);
-        return view('guest_list_edit', compact('guest'));
+        return view('admin.guest_list_edit', compact('guest'));
     }
 
     /**
@@ -245,9 +245,9 @@ class GuestController extends Controller
 				$guests->food_selected = 'Y';
 				if($guests->save()) {
 					if($guests->email != null) {
-						\Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
+						// \Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
 					} else {
-						\Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
+						// \Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
 					}
 				}
 			}
@@ -258,9 +258,9 @@ class GuestController extends Controller
 				$guests->food_selected = 'Y';
 				if($guests->save()) {
 					if($guests->email != null) {
-						\Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
+						// \Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
 					} else {
-						\Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
+						// \Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
 					}
 				}
 			}
@@ -268,6 +268,33 @@ class GuestController extends Controller
 
 		return redirect('/')->with('status', 'Looks like your all set. Thanks for confirming your RSVP and making your food selection. Can\'t wait to see you on the big day.');
 	}
+	
+	/**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function admin_food_selection(Request $request, Guests $guests)
+    {
+		$guests = Guests::orderBy('name', 'asc')->get();
+		
+		return view('admin.food_selection', compact('guests'));
+	}
+	
+	/**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit_food_selection(Request $request, \App\FoodSelection $foodSelection)
+    {
+		dd($foodSelection);
+	}
+	
 	
     /**
      * Remove the specified resource from storage.

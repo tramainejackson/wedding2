@@ -28,4 +28,11 @@ class Guests extends Model
 	public function addPlusOne($name, $rsvp) {
 		$this->plusOne()->create(compact(['name', 'rsvp']));
 	}
+	
+	/**
+		Get the person's food selection
+	*/
+    public function food_option() {
+		return $this->hasOne('\App\FoodSelection');
+	}
 }

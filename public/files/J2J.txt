@@ -2,10 +2,13 @@
 		Journey 2 Jackson
 ---------------------------------------
 
-Add food options after RSVP
-Fix countdown on localhost
 Fix my story
-Update so users can enter email address when RSVP'n
+Add option for removing plus one even if we already have one listed
+Add search feature to guest list and food selection list
+Done - Add a food options tab in the admin side
+Done - Update so users can enter email address when RSVP'n
+Done - Add food options after RSVP
+Done - Fix countdown on localhost
 Done - Update the email that is sent out with better style
 Done- Photos, reg, accom tab will have Ashley&Tramaine header going horizontal.
 Done- Add title of page under at the bottom of the header

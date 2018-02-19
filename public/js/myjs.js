@@ -36,8 +36,14 @@ $(document).ready(function() {
 		card.addClass("large");
 	});
 	
+	// Add countdown plugin
 	$("#getting-started #countdownClock, #home_countdown").countdown("2018/08/26", function(event) {
 		$(this).text(event.strftime('%D days %H:%M:%S'));
+	});
+	
+	//Search option box
+	$(".guest_search ").keyup(function(e){
+		startSearch($(".guest_search ").val());
 	});
 });
 
@@ -118,6 +124,34 @@ function w3_open() {
 
 function w3_close() {
 	document.getElementById("mySidebar").style.display = "none";
+}
+
+// Check text to see if it matches the search criteria being entered
+function startSearch(searchVal) {
+	var membersTable = $('ul.guestList li').not('.guestListHeader');
+	var searchCriteria = searchVal.toLowerCase();
+	var foundResults = 0;
+	$(membersTable).removeClass("matches");
+	$('.noSearchResults').remove();
+	
+	if(searchCriteria != "") {
+		$(membersTable).each(function(event){
+			var dataString = $(this).find('.nameSearch').text().toLowerCase();
+			
+			if(dataString.includes(searchCriteria)) {
+				$(this).addClass("matches");
+				$(this).show();
+				foundResults++;
+			} else if(!dataString.includes(searchCriteria)) {
+				$(this).hide();
+			}
+		});
+		
+		// If all rows are hidden, then add a row saying no results found
+		if(foundResults == 0) {
+			$('<li class="noSearchResults"><td>No Results Found</li>').appendTo($('ul.guestList'));
+		}
+	}
 }
 
 function myFunction(id) {
