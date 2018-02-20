@@ -14,7 +14,7 @@ class AddtGuest extends Model
 	 *
 	 * @var array
 	*/
-	protected $fillable = ['guests_id', 'name', 'rsvp'];
+	protected $fillable = ['guests_id', 'name', 'rsvp', 'added_by'];
 	
     /**
 		Get the person who was invited

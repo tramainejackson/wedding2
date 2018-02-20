@@ -81,7 +81,7 @@
 							<!-- Check if there is a plus one for the invitiation -->
 							@if($guest->plusOne)
 								<span class="w3-center" style="width:19.5%; display:inline-block;"></span>
-								<span class="w3-center" style="width:19.5%; display:inline-block;"><i class="fa fa-plus"></i>&nbsp;{{ $guest->plusOne->name }}</span>
+								<span class="w3-center" style="width:19.5%; display:inline-block;"><i class="fa fa-plus"></i>&nbsp;{{ $guest->plusOne->name }}{!! $guest->plusOne->added_by == 'admin' ? '' : '&nbsp;<span class="red-text">(Added By Guest)</span>' !!}</span>
 								<span class="w3-center" style="width:19.5%; display:inline-block;"></span>
 								
 								@if($guest->rsvp == 'Y')
