@@ -41,6 +41,13 @@ Route::get('/guest_list_food', 'GuestController@admin_food_selection')->middlewa
 
 Route::get('/food_selection/{foodSelection}/edit', 'GuestController@edit_food_selection')->middleware('auth');
 
+Route::get('/food_selection/{guests}/create', function(\App\Guests $guests) {
+	$guest = $guests;
+	$foodSelection = $guests->food_selection;
+	
+	return view('admin.food_selection_edit', compact('guest', 'foodSelection'));
+})->middleware('auth');
+
 Route::get('/guest_list/{guest}/edit', 'GuestController@edit')->middleware('auth');
 
 Route::post('/guest_list/create', 'GuestController@create');

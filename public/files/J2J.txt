@@ -4,7 +4,7 @@
 
 Fix my story
 Add option for removing plus one even if we already have one listed
-Add search feature to guest list and food selection list
+Done - Add search feature to guest list and food selection list
 Done - Add a food options tab in the admin side
 Done - Update so users can enter email address when RSVP'n
 Done - Add food options after RSVP

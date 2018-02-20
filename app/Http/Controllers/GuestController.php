@@ -23,6 +23,7 @@ class GuestController extends Controller
         $guests = Guests::orderBy('name', 'asc')->get();
 		$headCount = 0;
         $confirmedCount = 0;
+        $declinedCount = 0;
 	
 		foreach($guests as $guest) {
 			$headCount++;
@@ -36,10 +37,16 @@ class GuestController extends Controller
 				if($guest->plusOne) {
 					$confirmedCount++;
 				}
+			} elseif($guest->rsvp == "N") {
+				$declinedCount++;
+				
+				if($guest->plusOne) {
+					$declinedCount++;
+				}
 			}
 		}
 
-		return view('admin.guest_list', compact('guests', 'headCount', 'confirmedCount'));
+		return view('admin.guest_list', compact('guests', 'headCount', 'confirmedCount', 'declinedCount'));
     }
 
     /**
@@ -202,9 +209,9 @@ class GuestController extends Controller
 			return redirect()->action('GuestController@index', $guest)->with('status', 'Invitation Successfully Removed');
 		}
 		
-		if(isset($request->rsvp)) {
+		if(isset($request->rsvpYes)) {
 			$guest->rsvp = "Y";
-		} else {
+		} elseif($request->rsvpNo) {
 			$guest->rsvp = "N";
 		}
 
@@ -224,6 +231,7 @@ class GuestController extends Controller
 			}
 		}
 		
+		$guest->responded = 'Y';
 		$guest->save();
 		
 		return redirect()->action('GuestController@edit', $guest)->with('status', 'You have updated this invitation successfully');
@@ -292,7 +300,9 @@ class GuestController extends Controller
      */
     public function edit_food_selection(Request $request, \App\FoodSelection $foodSelection)
     {
-		dd($foodSelection);
+		$guest = $foodSelection->guests;
+		
+		return view('admin.food_selection_edit', compact('guest', 'foodSelection'));
 	}
 	
 	

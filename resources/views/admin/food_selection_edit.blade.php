@@ -6,7 +6,7 @@
 	}
 @endsection
 
-@section('content_title', 'Guest List')
+@section('content_title', 'Food Selection Edit')
 
 @section('nav')
 	<!-- Navbar (sticky bottom) -->
@@ -25,7 +25,7 @@
 	<!-- Header / Home-->
 	<header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
 	  <div class="w3-display-middle w3-text-white w3-center headerContent">
-		<h1 class="w3-jumbo">The Guest List</h1>
+		<h1 class="w3-jumbo">The Food Selection</h1>
 		<span></span>
 	  </div>
 	</header>
@@ -40,25 +40,37 @@
 				</div>
 			</div>
 		@endif
-		<div class="w3-row w3-padding-24">
-			<h2 class="w3-center">You Are Editing {{ ucwords($guest->name) }}'s Invitation</h2>
+		<div class="row w3-padding-24">
+			<h2 class="w3-center">You Are Editing {{ ucwords($guest->name) }}'s Food Selection</h2>
 		</div>
-		<div class="w3-row w3-padding-32">
+		<div class="row w3-padding-32">
 			{!! Form::model($guest, [ 'action' => ['GuestController@update2', $guest->id], 'method' => 'PATCH', 'class' => '']) !!}
-				<p class="">
-					<input type="checkbox" name="rsvp" id="rsvp" {{ $guest->rsvp == "Y" ? 'checked' : '' }} />
-					<label for="rsvp">Comfirmed Invite</label>
-				</p>
 				<div class="input-field col s6">
-					<input id="first" class="w3-large validate" type="text" name="name" value="{{ ucwords($guest->name) }}" style="padding-left:20px;" />
-					<label for="name" class="active">Guest</label>
+					<select class="" name="">
+						<option value="#">Option 1</option>
+						<option value="#">Option 2</option>
+						<option value="#">Option 3</option>
+						<option value="#">Option 4</option>
+						<option value="#">Option 5</option>
+					</select>
+					<label for="name" class="active">{{ ucwords($guest->name) }} Food Selection</label>
 				</div>
-				<div class="input-field col s6">
-					<input id="plus_one" class="w3-large validate" type="text" name="plus_one" value="{{ $guest->plusOne ? ucwords($guest->plusOne->name) : '' }}" placeholder="Add A Plus One" style="padding-left:20px;" />
-					<label for="Plus One" class="active">Plus One</label>
-				</div>
-				<span class="w3-text-red">*Removing the guest will remove both invitees from the list but not completely from the system</span><br/>
-				<span class="w3-text-red">*Removing the plus one's name will remove the plus one completely</span>
+				
+				@if($guest->plusOne)
+					<div class="input-field col s6">
+						<select class="" name="">
+							<option value="#">Option 1</option>
+							<option value="#">Option 2</option>
+							<option value="#">Option 3</option>
+							<option value="#">Option 4</option>
+							<option value="#">Option 5</option>
+						</select>
+						<label for="Plus One" class="active">{{ $guest->plusOne->name }} Food Selection</label>
+					</div>
+				@endif
+				
+				<span class="w3-text-red col s12">*Removing the guest will remove both invitees from the list but not completely from the system</span><br/>
+				<span class="w3-text-red col s12">*Removing the plus one's name will remove the plus one completely</span>
 				<div class="input-field col offset-s3 s4 m12 l12">
 					{!! Form::submit('Save Changes', ['name' => 'submit', 'class' => 'btn waves-effect waves-light red accent-2 w3-left']) !!}
 				</div>

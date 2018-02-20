@@ -6,7 +6,7 @@
 	}
 @endsection
 
-@section('content_title', 'Guest List')
+@section('content_title', 'Food Selection')
 
 @section('nav')
 	<!-- Navbar (sticky bottom) -->
@@ -41,9 +41,15 @@
 					</div>
 				</div>
 			@endif
+			<div class="row w3-padding-24">
+				<div class="input-field col s4">
+					<input type="text" name="guest_search" class="guest_search" placeholder="Enter Name To Search ...." />
+					<label for="guest_search">Search Guest</label>
+				</div>
+			</div>
 			<div class="w3-row w3-padding-24">
 				<ul class="w3-ul w3-hoverable guestList">
-					<li class="" style="opacity:0;">
+					<li class="guestListHeader" style="opacity:0;">
 						<p class="w3-center" style="width:24.5%; display:inline-block;"></p>
 						<p class="w3-center" style="width:24.5%; display:inline-block;">Names&nbsp;<span class="w3-badge"></span></p>
 						<p class="w3-center" style="width:24.5%; display:inline-block;">Food Selection<span></span></p>
@@ -58,7 +64,7 @@
 							@endif
 							
 							<!-- Guest Name -->
-							<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->name }}</span>
+							<span class="w3-center nameSearch" style="width:24.5%; display:inline-block;">{{ $guest->name }}</span>
 							
 							<!-- Guest food selection -->
 							@if($guest->food_selected == 'Y')

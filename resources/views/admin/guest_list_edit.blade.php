@@ -46,10 +46,14 @@
 		<div class="w3-row w3-padding-32">
 			{!! Form::model($guest, [ 'action' => ['GuestController@update2', $guest->id], 'method' => 'PATCH', 'class' => '']) !!}
 				<p class="">
-					<input type="checkbox" name="rsvp" id="rsvp" {{ $guest->rsvp == "Y" ? 'checked' : '' }} />
-					<label for="rsvp">Comfirmed Invite</label>
+					<input type="checkbox" name="rsvpYes" id="rsvpYes" {{ $guest->rsvp == "Y" ? 'checked' : '' }} />
+					<label for="rsvpYes">Comfirmed Invite</label>
 				</p>
-				<div class="input-field col s6">
+				<p class="">
+					<input type="checkbox" name="rsvpNo" id="rsvpNo" {{ $guest->rsvp == "N" ? 'checked' : '' }} />
+					<label for="rsvpNo">Decline Invite</label>
+				</p>
+				<div class="input-field col s6" style="margin-top:12px;">
 					<input id="first" class="w3-large validate" type="text" name="name" value="{{ ucwords($guest->name) }}" style="padding-left:20px;" />
 					<label for="name" class="active">Guest</label>
 				</div>
