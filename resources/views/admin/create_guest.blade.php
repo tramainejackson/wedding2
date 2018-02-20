@@ -48,10 +48,18 @@
 				<div class="input-field col s6">
 					<input id="first" class="w3-large validate" type="text" name="name" value="{{ old('name') }}" style="padding-left:20px;" placeholder="Guest Full Name" />
 					<label for="name" class="active">Guest</label>
+					
+					@if($errors->has('name'))
+						<span class="text-red">{{ $errors->first('name') }}</span>
+					@endif
 				</div>
 				<div class="input-field col s6">
 					<input id="plus_one" class="w3-large validate" type="text" name="plus_one" value="{{ old('plus_one') }}" placeholder="Add A Plus One" style="padding-left:20px;" />
 					<label for="Plus One" class="active">Plus One</label>
+				</div>
+				<div class="input-field col s6">
+					<input id="email" class="w3-large validate" type="email" name="email" value="{{ old('email') }}" placeholder="Add An Email Address" style="padding-left:20px;" />
+					<label for="email" class="active">Email Address</label>
 				</div>
 				<p class="">
 					<input type="checkbox" name="rsvp" id="rsvp" />

@@ -44,9 +44,11 @@ Route::get('/food_selection/{foodSelection}/edit', 'GuestController@edit_food_se
 Route::get('/food_selection/{guests}/create', function(\App\Guests $guests) {
 	$guest = $guests;
 	$foodSelection = $guests->food_selection;
-	
+
 	return view('admin.food_selection_edit', compact('guest', 'foodSelection'));
 })->middleware('auth');
+
+Route::patch('/food_selection/{guests}/create', 'GuestController@create_food_selection')->middleware('auth');
 
 Route::get('/guest_list/{guest}/edit', 'GuestController@edit')->middleware('auth');
 
@@ -69,6 +71,8 @@ Route::patch('/confirmed', 'GuestController@store');
 Route::get('/confirmed', 'GuestController@confirm_guest');
 
 Route::patch('/confirmed/{guests}', 'GuestController@confirm_rsvp');
+
+Route::patch('/declined/{guests}', 'GuestController@decline_rsvp');
 
 Route::patch('/additional_guest/{guests}', 'AddtGuestController@store');
 

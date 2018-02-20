@@ -92,6 +92,30 @@ function confirmRSVP(rsvp, email) {
 	});
 }
 
+// Get guest and decline invite
+function declineRSVP(rsvp, email) {
+	$.ajax({
+	  method: "PATCH",
+	  url: "/declined/" + rsvp.id,
+	  data: {'rsvp':'Decline', 'email':email}
+	})
+	
+	.fail(function() {	
+		alert("Fail");
+	})
+	
+	.done(function(data) {
+		var newData = $(data);
+		console.log($(newData));
+		$(newData).appendTo('#id01.w3-modal .w3-modal-content');
+		$('#confirmation').fadeOut(function() {
+			$(newData).fadeIn(function() {
+				$('#confirmation').remove();
+			});
+		});
+	});
+}
+
 // Confirm plus one and bring up 
 function confirmPlusOne(plusOne, guests) {
 	$.ajax({

@@ -44,28 +44,31 @@
 			<h2 class="w3-center">You Are Editing {{ ucwords($guest->name) }}'s Food Selection</h2>
 		</div>
 		<div class="row w3-padding-32">
-			{!! Form::model($guest, [ 'action' => ['GuestController@update2', $guest->id], 'method' => 'PATCH', 'class' => '']) !!}
-				<div class="input-field col s6">
-					<select class="" name="">
-						<option value="#">Option 1</option>
-						<option value="#">Option 2</option>
-						<option value="#">Option 3</option>
-						<option value="#">Option 4</option>
-						<option value="#">Option 5</option>
-					</select>
-					<label for="name" class="active">{{ ucwords($guest->name) }} Food Selection</label>
-				</div>
-				
-				@if($guest->plusOne)
+			{!! Form::model($guest, [ 'action' => ['GuestController@create_food_selection', $guest->id], 'method' => 'PATCH', 'class' => '']) !!}
+				<div class="form-group">
 					<div class="input-field col s6">
-						<select class="" name="">
-							<option value="#">Option 1</option>
-							<option value="#">Option 2</option>
-							<option value="#">Option 3</option>
-							<option value="#">Option 4</option>
-							<option value="#">Option 5</option>
+						<select class="" name="food_option">
+							<option value="1" {{ $guest->food_option ? $guest->food_option->food_option == 1 ? 'selected' : '' : '' }}>Option 1</option>
+							<option value="2" {{ $guest->food_option ? $guest->food_option->food_option == 2 ? 'selected' : '' : '' }}>Option 2</option>
+							<option value="3" {{ $guest->food_option ? $guest->food_option->food_option == 3 ? 'selected' : '' : '' }}>Option 3</option>
+							<option value="4" {{ $guest->food_option ? $guest->food_option->food_option == 4 ? 'selected' : '' : '' }}>Option 4</option>
+							<option value="5" {{ $guest->food_option ? $guest->food_option->food_option == 5 ? 'selected' : '' : '' }}>Option 5</option>
 						</select>
-						<label for="Plus One" class="active">{{ $guest->plusOne->name }} Food Selection</label>
+						<label for="name" class="active">{{ ucwords($guest->name) }} Food Selection</label>
+					</div>
+				</div>
+				@if($guest->plusOne)
+					<div class="form-group">
+						<div class="input-field col s6">
+							<select class="" name="add_guest_option">
+								<option value="1" {{ $guest->food_option ? $guest->food_option->add_guest_option == 1 ? 'selected' : '' : '' }}>Option 1</option>
+								<option value="2" {{ $guest->food_option ? $guest->food_option->add_guest_option == 2 ? 'selected' : '' : '' }}>Option 2</option>
+								<option value="3" {{ $guest->food_option ? $guest->food_option->add_guest_option == 3 ? 'selected' : '' : '' }}>Option 3</option>
+								<option value="4" {{ $guest->food_option ? $guest->food_option->add_guest_option == 4 ? 'selected' : '' : '' }}>Option 4</option>
+								<option value="5" {{ $guest->food_option ? $guest->food_option->add_guest_option == 5 ? 'selected' : '' : '' }}>Option 5</option>
+							</select>
+							<label for="Plus One" class="active">{{ $guest->plusOne->name }} Food Selection</label>
+						</div>
 					</div>
 				@endif
 				

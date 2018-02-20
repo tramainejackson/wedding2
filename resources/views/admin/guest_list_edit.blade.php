@@ -45,21 +45,37 @@
 		</div>
 		<div class="w3-row w3-padding-32">
 			{!! Form::model($guest, [ 'action' => ['GuestController@update2', $guest->id], 'method' => 'PATCH', 'class' => '']) !!}
-				<p class="">
-					<input type="checkbox" name="rsvpYes" id="rsvpYes" {{ $guest->rsvp == "Y" ? 'checked' : '' }} />
-					<label for="rsvpYes">Comfirmed Invite</label>
-				</p>
-				<p class="">
-					<input type="checkbox" name="rsvpNo" id="rsvpNo" {{ $guest->rsvp == "N" ? 'checked' : '' }} />
-					<label for="rsvpNo">Decline Invite</label>
-				</p>
-				<div class="input-field col s6" style="margin-top:12px;">
-					<input id="first" class="w3-large validate" type="text" name="name" value="{{ ucwords($guest->name) }}" style="padding-left:20px;" />
-					<label for="name" class="active">Guest</label>
+				<div class="row">
+					<div class="form-group col s2">
+						<p class="">
+							<input type="checkbox" name="rsvpYes" id="rsvpYes" {{ $guest->rsvp == "Y" ? 'checked' : '' }} />
+							<label for="rsvpYes">Comfirmed Invite</label>
+						</p>
+					</div>
+					<div class="form-group col s10">
+						<p class="">
+							<input type="checkbox" name="rsvpNo" id="rsvpNo" class="" {{ $guest->rsvp == "N" ? 'checked' : '' }} />
+							<label for="rsvpNo">Decline Invite</label>
+						</p>
+					</div>
 				</div>
-				<div class="input-field col s6">
-					<input id="plus_one" class="w3-large validate" type="text" name="plus_one" value="{{ $guest->plusOne ? ucwords($guest->plusOne->name) : '' }}" placeholder="Add A Plus One" style="padding-left:20px;" />
-					<label for="Plus One" class="active">Plus One</label>
+				<div class="form-group">
+					<div class="input-field col s6" style="margin-top:12px;">
+						<input id="first" class="w3-large validate" type="text" name="name" value="{{ ucwords($guest->name) }}" style="padding-left:20px;" />
+						<label for="name" class="active">Guest</label>
+					</div>					
+				</div>
+				<div class="form-group">
+					<div class="input-field col s6">
+						<input id="plus_one" class="w3-large validate" type="text" name="plus_one" value="{{ $guest->plusOne ? ucwords($guest->plusOne->name) : '' }}" placeholder="Add A Plus One" style="padding-left:20px;" />
+						<label for="Plus One" class="active">Plus One</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-field col s6">
+						<input id="email" class="w3-large validate" type="email" name="email" value="{{ $guest->email }}" placeholder="Add An Email Address" style="padding-left:20px;" />
+						<label for="email" class="active">Email Address</label>
+					</div>
 				</div>
 				<span class="w3-text-red">*Removing the guest will remove both invitees from the list but not completely from the system</span><br/>
 				<span class="w3-text-red">*Removing the plus one's name will remove the plus one completely</span>

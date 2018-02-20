@@ -42,9 +42,11 @@
 				</div>
 			@endif
 			<div class="row w3-padding-24">
-				<div class="input-field col s4">
-					<input type="text" name="guest_search" class="guest_search" placeholder="Enter Name To Search ...." />
-					<label for="guest_search">Search Guest</label>
+				<div class="form-group">
+					<div class="input-field col s4">
+						<input type="text" name="guest_search" class="guest_search" placeholder="Enter Name To Search ...." />
+						<label for="guest_search">Search Guest</label>
+					</div>
 				</div>
 			</div>
 			<div class="w3-row w3-padding-24">

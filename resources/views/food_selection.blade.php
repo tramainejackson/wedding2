@@ -131,7 +131,7 @@
 							<option value="#">Option 5</option>
 						</select>
 					</div>
-					<div class="">
+					<div class="w3-padding-16">
 						<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />
 					</div>
 				</form>
@@ -164,7 +164,7 @@
 							<option value="#">Option 5</option>
 						</select>
 					</div>
-					<div class="">
+					<div class="w3-padding-16">
 						<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />
 					</div>
 				</form>

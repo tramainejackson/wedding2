@@ -48,6 +48,10 @@ img.w3-display-middle {
     /* max-height: 450px; */
 }
 
+.form-group * {
+    font-size: 100% !important;
+}
+
 .partyPageBgrd {
     position: absolute;
     background: rgba(0, 0, 0, 0.11);

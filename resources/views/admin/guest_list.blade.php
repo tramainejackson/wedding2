@@ -45,9 +45,11 @@
 				<div class="col s2">
 					<a href="/guest_list/create" class="btn">New Guest</a>
 				</div>
-				<div class="input-field col s4">
-					<input type="text" name="guest_search" class="guest_search" placeholder="Enter Name To Search ...." />
-					<label for="guest_search">Search Guest</label>
+				<div class="form-group">
+					<div class="input-field col s4">
+						<input type="text" name="guest_search" class="guest_search" placeholder="Enter Name To Search ...." />
+						<label for="guest_search">Search Guest</label>
+					</div>
 				</div>
 			</div>
 			<div class="w3-row">
@@ -84,7 +86,9 @@
 								
 								@if($guest->rsvp == 'Y')
 									<span class="w3-center" style="width:19.5%; display:inline-block;"><i class="fa fa-check-circle fa-lg w3-center" style="color:green;"></i></span>
+									<span class="w3-center" style="width:19.5%; display:inline-block;"></span>
 								@elseif($guest->rsvp == 'N')
+									<span class="w3-center" style="width:19.5%; display:inline-block;"></span>
 									<span class="w3-center" style="width:19.5%; display:inline-block;"><i class="fa fa-times-circle fa-lg w3-center" style="color:red;"></i></span>
 								@else
 									<span class="w3-center" style="width:19.5%; display:inline-block;"></span>
