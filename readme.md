@@ -1,4 +1,4 @@
-<p align="center"><img src="http://journey2jackson.com/images/at2.jpg"></p>
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -6,10 +6,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
-
-## Journey 2 Jackson
-
-Take the journey to eternity with Ashley and Tramaine. And what a journey it has been. Take a stroll down memory lane and enjoy some of the good times with this couple as they prepare for the next stage in life as a union.
 
 ## About Laravel
 

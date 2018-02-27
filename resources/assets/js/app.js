@@ -61,6 +61,7 @@ $(document).ready(function() {
     ];
     Materialize.scrollFire(options);
 	
+	
 	// Add image count to the bottom of the display container
 	var images = $('.mySlides').length;
 	var imagesPage = Number($('li.active span').text());

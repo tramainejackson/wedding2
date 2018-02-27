@@ -15,13 +15,10 @@ class CreateGuestsTable extends Migration
     {
         Schema::create('guests', function (Blueprint $table) {
             $table->increments('id');
-			$table->string('name', 100)->nullable();
-			$table->string('email', 100)->nullable();
+			$table->string('name');
 			$table->char('rsvp', 1)->default('N');
 			$table->char('responded', 1)->default('N');
-			$table->char('food_selected', 1)->default('N');
             $table->timestamps();
-			$table->softDeletes();
         });
     }
 
