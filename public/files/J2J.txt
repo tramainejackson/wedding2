@@ -3,7 +3,7 @@
 ---------------------------------------
 
 Fix paypal issue
-Fix my story
+Done - Fix my story
 Done - Add search feature to guest list and food selection list
 Done - Add a food options tab in the admin side
 Done - Update so users can enter email address when RSVP'n
