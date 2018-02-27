@@ -2,7 +2,11 @@
 	@if($guests->plusOne)
 		@if($guests->responded != 'Y')
 			<div class="" id="">
-				<h3 class="">Thanks for confirming your reservation. Once you confirm your food selections we will receive and email with your selections. If you need to make any changes please reach out to us.</h3>
+				@if($guests->plusOne->added_by != null)
+					<h3 class="">Thanks for confirming your reservation. Once you confirm your food selections we will receive an email with your selections. If you need to make any changes please reach out to us.</h3>
+				@else
+					<h3 class="">Thanks for confirming your reservation. We did not originally have a plus one added for you but we will try to accommodate your plus one and confirm with you by June 1st. Please make your food selections below. If you need to make any changes please reach out to us directly.</h3>
+				@endif
 				
 				<h3 class="w3-center" style="background: linear-gradient(#d4be95, beige, rgba(0, 0, 0, 0));">Food Options</h3>
 				
