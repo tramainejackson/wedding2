@@ -54,6 +54,9 @@
 						</div>
 					</div>
 				</form>
+				<script>
+					$('select').material_select();
+				</script>
 			</div>
 		@else
 			<div class="" id="">
@@ -103,6 +106,9 @@
 						</div>
 					</div>
 				</form>
+				<script>
+					$('select').material_select();
+				</script>
 			</div>
 		@endif
 	@else
@@ -126,6 +132,9 @@
 						<input type="submit" name="submit" class="btn green" value="Add Plus One" />
 					</div>
 				</form>
+				<script>
+					$('select').material_select();
+				</script>
 			</div>
 			<div class="foodSelectionForm" style="display:none;">
 				<h3 class="">Select food option for {{ $guests->name }}</h3>
@@ -158,6 +167,7 @@
 				</form>
 			</div>
 			<script>
+				$('select').material_select();
 				$('[name="plus_one_selection_form"]').on('submit', function() {
 					event.preventDefault();
 					confirmPlusOne($('[name="plus_one"]').val(), $('[name="guest_id"]').val());
@@ -196,6 +206,9 @@
 						</div>
 					</div>
 				</form>
+				<script>
+					$('select').material_select();
+				</script>
 			</div>
 		@endif
 	@endif

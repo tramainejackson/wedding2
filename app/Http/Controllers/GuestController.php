@@ -395,7 +395,7 @@ class GuestController extends Controller
 
 		if($foundGuest->isNotEmpty()) {
 			$foundGuest = $foundGuest->first();
-			if($foundGuest->responded == 'Y') {
+			if($foundGuest->rsvp == 'Y') {
 				if($foundGuest->food_selected == 'Y') {
 					return view('already_confirmed', compact('first', 'last', 'email', 'name', 'foundGuest', 'foundAddtGuest'));
 				} else {
