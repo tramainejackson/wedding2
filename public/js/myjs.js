@@ -6,7 +6,14 @@ $(document).ready(function() {
 	});
 	
 	$('.collapsible').collapsible();
-	  
+	
+	// Show the description of the food
+	$('body').on('click', '.foodDescrBtn', function() {
+		$('.foodDescList').show().animate({right:'0'});
+	});
+	
+	// I should have added a description here before I 
+	// forgot what this does
 	$("body").on("click", ".material-icons", function(e) {
 		var $this = $(this);
 		var card = $this.parents(".card");
@@ -20,6 +27,7 @@ $(document).ready(function() {
 		}
 	});
 	
+	// Show more of the bridal party member story
 	$("body").on("click", ".readMore", function(e) {
 		var $this = $(this);
 		var card = $this.parents(".card.large");
@@ -28,6 +36,7 @@ $(document).ready(function() {
 		card.removeClass("large");
 	});
 	
+	// Show less of the bridal party member story
 	$("body").on("click", ".readLess", function(e) {
 		var $this = $(this);
 		var card = $this.parents(".card");
@@ -69,7 +78,6 @@ function getRSVP(firstname, lastname, email) {
 
 // Get confirmed RSVP from the server
 function confirmRSVP(rsvp, email) {
-	console.log(rsvp);
 	$.ajax({
 	  method: "PATCH",
 	  url: "/confirmed/" + rsvp.id,

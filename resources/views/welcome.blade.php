@@ -143,12 +143,56 @@
 			</div>
 		{!! Form::close() !!}
 		</div>
-		<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+		<span onclick="document.getElementById('id01').style.display='none'; document.getElementById('food_desc_list').style.display='none';" class="w3-button w3-display-topright">&times;</span>
 	  </div>
 	</div>
 @endsection
 
 @section('footer')
+	<!-- Description modal for all the food selections -->
+	<div class="foodDescList" id="food_desc_list">
+		<ul class="">
+			<li class="">
+				<div class="container">
+					<h2 class="">Grilled Mediterranean Chicken</h2>
+					<div class="row valign-wrapper">
+						<div class="col s4">
+							<img src="{{ asset('/images/med_chicken.jpg') }}" class="circle  responsive-img" />
+						</div>
+						<div class="col s8">
+							<p class="">Grilled chicken topped with Feta Cheese, Kalamata Olives, Tri Color Peppers, Red Onions, Lemon Thyme Sauce</p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="">
+				<div class="container">
+					<h2 class="">Grilled Rib-Eye</h2>
+					<div class="row valign-wrapper">
+						<div class="col s4">
+							<img src="{{ asset('/images/grilled_steak.jpg') }}" class="circle  responsive-img" />
+						</div>
+						<div class="col s8">
+							<p class="">Tender Rib Eye Grilled to Perfection with a Caramelized Onion Demi-glace</p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="">
+				<div class="container">
+					<h2 class="">Stuffed Salmon</h2>
+					<div class="row valign-wrapper">
+						<div class="col s4">
+							<img src="{{ asset('/images/salmon.jpg') }}" class="circle  responsive-img" />
+						</div>
+						<div class="col s8">
+							<p class="">Salmon stuffed with Crab Imperial topped with Hollandaise Sauce</p>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
 	<script>
 		$('body').on('click', '.getRSVP', function() {
 			getRSVP($('#first').val(), $('#last').val(), $('#email').val());

@@ -20,11 +20,9 @@
 							<div class="input-field">
 								<select class="" name="food_option">
 									<option value="" disabled selected>Choose your food option</option>
-									<option value="#">Option 1</option>
-									<option value="#">Option 2</option>
-									<option value="#">Option 3</option>
-									<option value="#">Option 4</option>
-									<option value="#">Option 5</option>
+									<option value="chicken">Grilled Mediterranean Chicken</option>
+									<option value="beef">Grilled Rib-Eye</option>
+									<option value="seafood">Stuffed Salmon</option>
 								</select>
 								<label>Food Options</label>
 							</div>
@@ -35,18 +33,25 @@
 							<div class="input-field">
 								<select class="" name="add_guest_option">
 									<option value="" disabled selected>Choose your food option</option>
-									<option value="#">Option 1</option>
-									<option value="#">Option 2</option>
-									<option value="#">Option 3</option>
-									<option value="#">Option 4</option>
-									<option value="#">Option 5</option>
+									<option value="chicken">Grilled Mediterranean Chicken</option>
+									<option value="beef">Grilled Rib-Eye</option>
+									<option value="seafood">Stuffed Salmon</option>
 								</select>
 								<label>Food Options</label>
 							</div>
 						</div>
 					</div>
-					<div class="">
-						<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />
+					<div class="w3-container w3-padding">
+						<div class="w3-row-padding">
+							<div class="w3-col s6 text-left">
+								<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />
+							</div>
+							<div class="w3-col s6 text-right">
+								<div class="">
+									<button type="button" class="btn pink lighten-2 foodDescrBtn">Food Descriptions</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</form>
 			</div>
@@ -65,11 +70,9 @@
 							<div class="input-field">
 								<select class="" name="food_option">
 									<option value="" disabled selected>Choose your food option</option>
-									<option value="#">Option 1</option>
-									<option value="#">Option 2</option>
-									<option value="#">Option 3</option>
-									<option value="#">Option 4</option>
-									<option value="#">Option 5</option>
+									<option value="chicken">Grilled Mediterranean Chicken</option>
+									<option value="beef">Grilled Rib-Eye</option>
+									<option value="seafood">Stuffed Salmon</option>
 								</select>
 								<label>Food Options</label>
 							</div>
@@ -80,23 +83,27 @@
 							<div class="input-field">
 								<select class="" name="add_guest_option">
 									<option value="" disabled selected>Choose your food option</option>
-									<option value="#">Option 1</option>
-									<option value="#">Option 2</option>
-									<option value="#">Option 3</option>
-									<option value="#">Option 4</option>
-									<option value="#">Option 5</option>
+									<option value="chicken">Grilled Mediterranean Chicken</option>
+									<option value="beef">Grilled Rib-Eye</option>
+									<option value="seafood">Stuffed Salmon</option>
 								</select>
 							</div>
 						</div>
 					</div>
-					<div class="">
-						<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />
+					<div class="w3-container w3-padding">
+						<div class="w3-row-padding">
+							<div class="w3-col s6 text-left">
+								<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />
+							</div>
+							<div class="w3-col s6 text-right">
+								<div class="">
+									<button type="button" class="btn pink lighten-2 foodDescrBtn">Food Descriptions</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</form>
 			</div>
-			<script>
-				$('select').material_select();
-			</script>
 		@endif
 	@else
 		@if($guests->responded != 'Y')
@@ -125,18 +132,28 @@
 				<form name="food_selection_form" class="" action="/food_selection/{{ $guests->id }}" method="POST">
 					{{ csrf_field() }}
 					
-					<div class="input-field">
-						<select class="browser-default foodSelectionSelect" name="food_option" disabled>
-							<option value="" disabled selected>Choose your food option</option>
-							<option value="#">Option 1</option>
-							<option value="#">Option 2</option>
-							<option value="#">Option 3</option>
-							<option value="#">Option 4</option>
-							<option value="#">Option 5</option>
-						</select>
+					<div class="w3-container w3-padding">
+						<div class="input-field">
+							<select class="browser-default foodSelectionSelect" name="food_option" disabled>
+								<option value="" disabled selected>Choose your food option</option>
+								<option class="tooltip" value="chicken">Grilled Mediterranean Chicken
+								</option>
+								<option class="tooltip" value="beef">Grilled Rib-Eye</option>
+								<option class="tooltip" value="seafood">Stuffed Salmon</option>
+							</select>
+						</div>
 					</div>
-					<div class="w3-padding-16">
-						<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />
+					<div class="w3-container w3-padding">
+						<div class="w3-row-padding">
+							<div class="w3-col s6 text-left">
+								<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />
+							</div>
+							<div class="w3-col s6 text-right">
+								<div class="">
+									<button type="button" class="btn pink lighten-2 foodDescrBtn">Food Descriptions</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</form>
 			</div>
@@ -161,21 +178,25 @@
 					<div class="input-field">
 						<select class="browser-default foodSelectionSelect" name="food_option">
 							<option value="" disabled selected>Choose your food option</option>
-							<option value="#">Option 1</option>
-							<option value="#">Option 2</option>
-							<option value="#">Option 3</option>
-							<option value="#">Option 4</option>
-							<option value="#">Option 5</option>
+							<option value="chicken">Grilled Mediterranean Chicken</option>
+							<option value="beef">Grilled Rib-Eye</option>
+							<option value="seafood">Stuffed Salmon</option>
 						</select>
 					</div>
-					<div class="w3-padding-16">
-						<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />
+					<div class="w3-container w3-padding">
+						<div class="w3-row-padding">
+							<div class="w3-col s6 text-left">
+								<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />
+							</div>
+							<div class="w3-col s6 text-right">
+								<div class="">
+									<button type="button" class="btn pink lighten-2 foodDescrBtn">Food Descriptions</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</form>
 			</div>
-			<script>
-				$('select').material_select();
-			</script>
 		@endif
 	@endif
 </div>

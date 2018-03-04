@@ -94,6 +94,29 @@ img.w3-display-middle {
 	margin:0 auto;
 }
 
+.foodDescList {
+	height: 100vh;
+	max-height: 100vh;
+	display: none;
+	position: fixed;
+    top: 0;
+    right: -25%;
+    max-width: 25%;
+    background: white;
+    z-index: 50;
+}
+
+.foodDescList h2 {
+	font-size: 175%;
+}
+.foodDescList img {
+	height: 100px;
+}
+
+.w3-modal {
+	padding-top: 45px;
+}
+
 .comporation.grey.darken-4 h3 {
     margin: 0px;
 }

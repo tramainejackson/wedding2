@@ -15,6 +15,10 @@ use App\Message;
 
 Auth::routes();
 
+// Route::get('/test', function () {
+    // return view('test');
+// })->name('test');
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
