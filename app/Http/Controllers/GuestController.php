@@ -402,6 +402,8 @@ class GuestController extends Controller
 					$guests = $foundGuest;
 					return view('food_selection', compact('guests'));
 				}
+			} elseif($foundGuest->rsvp == 'N') {
+				return view('changed_rsvp', compact('foundGuest'));
 			} else {
 				return view('confirmed', compact('first', 'last', 'email', 'name', 'foundGuest', 'foundAddtGuest'));
 			}
@@ -410,13 +412,15 @@ class GuestController extends Controller
 			$foundGuest = $foundAddtGuest->first()->guests;
 			$foundAddtGuest = $foundAddtGuest->first();
 			
-			if($foundAddtGuest->guests->responded == 'Y') {
+			if($foundAddtGuest->guests->rsvp == 'Y') {
 				if($foundAddtGuest->guests->food_selected == 'Y') {
 					return view('already_confirmed', compact('first', 'last', 'email', 'name', 'foundGuest', 'foundAddtGuest'));
 				} else {
 					$guests = $foundGuest;
 					return view('food_selection', compact('guests'));
 				}
+			} elseif($foundAddtGuest->guests->rsvp == 'N') {
+				return view('changed_rsvp', compact('foundGuest', 'foundAddtGuest'));
 			} else {
 				return view('confirmed', compact('first', 'last', 'email', 'name', 'foundGuest', 'foundAddtGuest'));
 			}

@@ -99,16 +99,17 @@ img.w3-display-middle {
 	max-height: 100vh;
 	display: none;
 	position: fixed;
-    top: 0;
-    right: -25%;
-    max-width: 25%;
-    background: white;
-    z-index: 50;
+	top: 0;
+	right: -25%;
+	max-width: 25%;
+	background: white;
+	z-index: 50;
 }
 
 .foodDescList h2 {
 	font-size: 175%;
 }
+
 .foodDescList img {
 	height: 100px;
 }
@@ -242,201 +243,301 @@ span#countdownClock {
 /*.rotateN{ transform:rotate(90deg); }
 .rotateS{ transform:rotate(-90deg); } */
 
-@media (max-width: 600px) {
+@media only screen and (min-width: 1400px) {
+	.foodDescList .row {
+		display: -ms-flexbox;
+		display: -webkit-box;
+		display: flex;
+		-ms-flex-align: center;
+		-webkit-box-align: center;
+		align-items: center;
+	}
+	
+	.foodDescList h2 {
+		font-size: 275%;
+	}
 
-body:before {
-	content: "";
-	display: block;
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	z-index: -10;
-	background: url(/images/map3.jpg) no-repeat center center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-
-body .usMobile:before {
-	content: "";
-	display: block;
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	z-index: -9;
-	background: url(/images/map5.jpg) no-repeat center center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+	.foodDescList img {
+		height: 190px;
+	}
 }
 
-.bgrdImage, .usMobile {
-	background: none !important;
-    padding: 0% !important;
+@media only screen and (max-width: 1399px) {
+	.foodDescList {
+		max-width: 23%;
+	}
+
+	.foodDescList h2 {
+		font-size: 175%;
+	}
+
+	.foodDescList img {
+		height: 150px;
+	}
 }
 
-div#getting-started {
-    top: initial;
-    bottom: 1%;
-    left: 0%;
-    min-height: 100px;
-    height: 100px;
-    width: 100%;
+@media only screen and (max-width: 1199px) {
+	.foodDescList {
+		max-width: 19%;
+	}
+	
+	.foodDescList h2 {
+		font-size: 175%;
+	}
+
+	.foodDescList img {
+		height: 150px;
+	}
 }
 
-span#countdownClock {
-    background: rgba(245, 245, 220, 0.8);
-    padding: 3%;
-    position: absolute;
-    left: 20%;
-    bottom: 45%;
-    border-radius: 15px;
+@media only screen and (max-width: 992px) {
+	.foodDescList {
+		max-width: 19%;
+	}
+
+	.foodDescList h2 {
+		font-size: 175%;
+	}
+
+	.foodDescList img {
+		height: 150px;
+	}
 }
 
-.bgimg, .bgimg2 {
-    background-position: 70% 100% !important;
+@media only screen and (max-width: 810px) {
+	form[name="food_selection_form"] .w3-col.s6, form[name="food_selection_form"] .col.s6 {
+		width: 100%;
+		margin: 5px -8px;
+		padding: 0;
+	}
+	
+	form[name="food_selection_form"] .w3-col.s6 .btn {
+		width: 100%;
+		max-width: 100%;
+		word-wrap: break-word;
+		white-space: normal;
+		height: auto;
+	}
+	
+	.foodDescList {
+		max-width: 100%;
+		right: -100%;
+	}
+	
+	.foodDescList .container .row {
+		display: -ms-flexbox;
+		display: -webkit-box;
+		display: flex;
+		-ms-flex-align: center;
+		-webkit-box-align: center;
+		align-items: center;
+	}
+	
+	.foodDescList img {
+		height: 165px;
+	}
 }
 
-.scrollImg, .scrollImg2 {
-    background-image: none;
-    margin: 10px 0px !important;
-    padding: 50px 0px !important;
+@media only screen and (max-width: 600px) {
+	.foodDescList img {
+		height: 85px;
+	}
 }
 
-.storyTime {
-	padding: 0px !important;
-	margin: 8px !important;
-	background: rgba(255, 255, 255, 0.8);
-}
-.card.large {
-    height: initial;
-}
+@media only screen and (max-width: 600px) {
+	body:before {
+		content: "";
+		display: block;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -10;
+		background: url(/images/map3.jpg) no-repeat center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
 
-.headAsh {
-	left: 30% !important;
-    top: 7% !important;
-}
+	body .usMobile:before {
+		content: "";
+		display: block;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -9;
+		background: url(/images/map5.jpg) no-repeat center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
 
-.headMaine {
-	right: 20% !important;
-    top: 65% !important;
-}
+	.bgrdImage, .usMobile {
+		background: none !important;
+		padding: 0% !important;
+	}
 
-img.w3-display-middle {
-    top: 45%;
-}
+	div#getting-started {
+		top: initial;
+		bottom: 1%;
+		left: 0%;
+		min-height: 100px;
+		height: 100px;
+		width: 100%;
+	}
 
-.mobileHeader1 {
-	font-size: 36px !important;
-}
+	span#countdownClock {
+		background: rgba(245, 245, 220, 0.8);
+		padding: 3%;
+		position: absolute;
+		left: 20%;
+		bottom: 45%;
+		border-radius: 15px;
+	}
 
-#wedding {
-	padding: 16px 8px 32px !important;
-	margin: 8px !important;
-	background: rgba(255, 255, 255, 0.8);
-}
+	.bgimg, .bgimg2 {
+		background-position: 70% 100% !important;
+	}
 
-#us {
-	padding-top: 32px!important;
-    padding-bottom: 16px!important;
-}
+	.scrollImg, .scrollImg2 {
+		background-image: none;
+		margin: 10px 0px !important;
+		padding: 50px 0px !important;
+	}
 
-#wedding h1 {
-	margin-top: 30px;
-	margin-bottom: 30px;
-}
+	.storyTime {
+		padding: 0px !important;
+		margin: 8px !important;
+		background: rgba(255, 255, 255, 0.8);
+	}
+	.card.large {
+		height: initial;
+	}
 
-.container.partyPage {
-    padding: 0% 5% !important;
-	background: none !important;
-}
+	.headAsh {
+		left: 30% !important;
+		top: 7% !important;
+	}
 
-.partyPageBgrd {
-    position: fixed;
-    background: url('/images/peachbgrd.jpg');
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-	z-index: -1;
-}
+	.headMaine {
+		right: 20% !important;
+		top: 65% !important;
+	}
 
-#instagram_us {
-	margin-top: 50px;
-}
-p.w3-center.w3-padding.regOptionP {
-    font-size: 140%;
-    margin: 0% 0%;
-	color: black;
-}
+	img.w3-display-middle {
+		top: 45%;
+	}
 
-.section {
-    padding-left: 5%;
-    padding-right: 5%;
-}
-h1.parallax-text {
-	top: 5%;
-	background: radial-gradient(circle, whitesmoke, rgba(245, 245, 245, 0.85), transparent 90%);
-}
-.pagination {
-    margin: 22px auto;
-    display: inline-table;
-}
-.pagination li.active {
-    background-color: initial;
-}
-.pagination > li {
-	display: inline-block;
-}
-.pagination > li > span {
-	font-size: 40%;
-}
-.pagination > li > a {
-	font-size: 40%;
-}
+	.mobileHeader1 {
+		font-size: 36px !important;
+	}
 
-.herStory {
-	padding: 20px 5px!important;
-	background: radial-gradient(circle, transparent 97%, gray, red) !important;
-}
-.hisStory {
-	padding: 20px 5px!important;
-	background: radial-gradient(circle, transparent 97%, gray, blue) !important;
-}
-.w3-modal-content {
-    margin: 0px 8% 0px 3%;
-}
-.comporation.grey.darken-4 {
-    margin: 0px 0px -16px;
-}
-.photosPageContainer {
-	max-height:450px; 
-	min-height:250px;
-}
+	#wedding {
+		padding: 16px 8px 32px !important;
+		margin: 8px !important;
+		background: rgba(255, 255, 255, 0.8);
+	}
 
-.photosPageContainer button.w3-display-left, .photosPageContainer div.w3-display-bottomleft {
-	left:0;
-}
+	#us {
+		padding-top: 32px!important;
+		padding-bottom: 16px!important;
+	}
 
-.photosPageContainer button.w3-display-right {
-	right:0;
-}
-.directionsDiv {
-    margin: 0% 0% 5% !important;
-}
-div#confirmation_modal {
-	margin: 0% auto !important;
-}
+	#wedding h1 {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+
+	.container.partyPage {
+		padding: 0% 5% !important;
+		background: none !important;
+	}
+
+	.partyPageBgrd {
+		position: fixed;
+		background: url('/images/peachbgrd.jpg');
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: -1;
+	}
+
+	#instagram_us {
+		margin-top: 50px;
+	}
+	p.w3-center.w3-padding.regOptionP {
+		font-size: 140%;
+		margin: 0% 0%;
+		color: black;
+	}
+
+	.section {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+	h1.parallax-text {
+		top: 5%;
+		background: radial-gradient(circle, whitesmoke, rgba(245, 245, 245, 0.85), transparent 90%);
+	}
+	.pagination {
+		margin: 22px auto;
+		display: inline-table;
+	}
+	.pagination li.active {
+		background-color: initial;
+	}
+	.pagination > li {
+		display: inline-block;
+	}
+	.pagination > li > span {
+		font-size: 40%;
+	}
+	.pagination > li > a {
+		font-size: 40%;
+	}
+
+	.herStory {
+		padding: 20px 5px!important;
+		background: radial-gradient(circle, transparent 97%, gray, red) !important;
+	}
+	.hisStory {
+		padding: 20px 5px!important;
+		background: radial-gradient(circle, transparent 97%, gray, blue) !important;
+	}
+	.w3-modal-content {
+		margin: 0px 8% 0px 3%;
+	}
+	.comporation.grey.darken-4 {
+		margin: 0px 0px -16px;
+	}
+	.photosPageContainer {
+		max-height:450px; 
+		min-height:250px;
+	}
+
+	.photosPageContainer button.w3-display-left, .photosPageContainer div.w3-display-bottomleft {
+		left:0;
+	}
+
+	.photosPageContainer button.w3-display-right {
+		right:0;
+	}
+	.directionsDiv {
+		margin: 0% 0% 5% !important;
+	}
+	div#confirmation_modal {
+		margin: 0% auto !important;
+	}
 }
 
 @media (min-width: 1400px) {
-.card.large {
-    height: 850px;
-}
+	.card.large {
+		height: 850px;
+	}
 }

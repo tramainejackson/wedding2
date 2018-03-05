@@ -153,47 +153,54 @@
 	<div class="foodDescList" id="food_desc_list">
 		<ul class="">
 			<li class="">
-				<div class="container">
+				<div class="container" style="width: 100%;">
 					<h2 class="">Grilled Mediterranean Chicken</h2>
-					<div class="row valign-wrapper">
-						<div class="col s4">
+					<div class="row">
+						<div class="col s12 text-center">
 							<img src="{{ asset('/images/med_chicken.jpg') }}" class="circle  responsive-img" />
 						</div>
-						<div class="col s8">
+						<div class="col s12">
 							<p class="">Grilled chicken topped with Feta Cheese, Kalamata Olives, Tri Color Peppers, Red Onions, Lemon Thyme Sauce</p>
 						</div>
 					</div>
 				</div>
 			</li>
 			<li class="">
-				<div class="container">
+				<div class="container" style="width: 100%;">
 					<h2 class="">Grilled Rib-Eye</h2>
-					<div class="row valign-wrapper">
-						<div class="col s4">
+					<div class="row">
+						<div class="col s12 text-center">
 							<img src="{{ asset('/images/grilled_steak.jpg') }}" class="circle  responsive-img" />
 						</div>
-						<div class="col s8">
+						<div class="col s12">
 							<p class="">Tender Rib Eye Grilled to Perfection with a Caramelized Onion Demi-glace</p>
 						</div>
 					</div>
 				</div>
 			</li>
 			<li class="">
-				<div class="container">
+				<div class="container" style="width: 100%;">
 					<h2 class="">Stuffed Salmon</h2>
-					<div class="row valign-wrapper">
-						<div class="col s4">
+					<div class="row">
+						<div class="col s12 text-center">
 							<img src="{{ asset('/images/salmon.jpg') }}" class="circle  responsive-img" />
 						</div>
-						<div class="col s8">
+						<div class="col s12">
 							<p class="">Salmon stuffed with Crab Imperial topped with Hollandaise Sauce</p>
 						</div>
 					</div>
 				</div>
 			</li>
 		</ul>
+		<div class="text-center">
+			<button type="button" class="btn red lighten-2 closeFoodDesc">Close</button>
+		</div>
 	</div>
 	<script>
+		$('body').on('click', '.closeFoodDesc', function() {
+			$('.foodDescList').animate({right:'-=100%'});
+		});
+		
 		$('body').on('click', '.getRSVP', function() {
 			getRSVP($('#first').val(), $('#last').val(), $('#email').val());
 		});
