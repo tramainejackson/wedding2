@@ -48,11 +48,9 @@
 				<div class="form-group">
 					<div class="input-field col s6">
 						<select class="" name="food_option">
-							<option value="1" {{ $guest->food_option ? $guest->food_option->food_option == 1 ? 'selected' : '' : '' }}>Option 1</option>
-							<option value="2" {{ $guest->food_option ? $guest->food_option->food_option == 2 ? 'selected' : '' : '' }}>Option 2</option>
-							<option value="3" {{ $guest->food_option ? $guest->food_option->food_option == 3 ? 'selected' : '' : '' }}>Option 3</option>
-							<option value="4" {{ $guest->food_option ? $guest->food_option->food_option == 4 ? 'selected' : '' : '' }}>Option 4</option>
-							<option value="5" {{ $guest->food_option ? $guest->food_option->food_option == 5 ? 'selected' : '' : '' }}>Option 5</option>
+							<option value="chicken" {{ $guest->food_option ? $guest->food_option->food_option == 1 ? 'selected' : '' : '' }}>Grilled Mediterranean Chicken</option>
+							<option value="beef" {{ $guest->food_option ? $guest->food_option->food_option == 2 ? 'selected' : '' : '' }}>Grilled Rib-Eye</option>
+							<option value="seafood" {{ $guest->food_option ? $guest->food_option->food_option == 3 ? 'selected' : '' : '' }}>Stuffed Salmon</option>
 						</select>
 						<label for="name" class="active">{{ ucwords($guest->name) }} Food Selection</label>
 					</div>
@@ -61,11 +59,9 @@
 					<div class="form-group">
 						<div class="input-field col s6">
 							<select class="" name="add_guest_option">
-								<option value="1" {{ $guest->food_option ? $guest->food_option->add_guest_option == 1 ? 'selected' : '' : '' }}>Option 1</option>
-								<option value="2" {{ $guest->food_option ? $guest->food_option->add_guest_option == 2 ? 'selected' : '' : '' }}>Option 2</option>
-								<option value="3" {{ $guest->food_option ? $guest->food_option->add_guest_option == 3 ? 'selected' : '' : '' }}>Option 3</option>
-								<option value="4" {{ $guest->food_option ? $guest->food_option->add_guest_option == 4 ? 'selected' : '' : '' }}>Option 4</option>
-								<option value="5" {{ $guest->food_option ? $guest->food_option->add_guest_option == 5 ? 'selected' : '' : '' }}>Option 5</option>
+								<option value="chicken" {{ $guest->food_option ? $guest->food_option->add_guest_option == 1 ? 'selected' : '' : '' }}>Grilled Mediterranean Chicken</option>
+								<option value="beef" {{ $guest->food_option ? $guest->food_option->add_guest_option == 2 ? 'selected' : '' : '' }}>Grilled Rib-Eye</option>
+								<option value="seafood" {{ $guest->food_option ? $guest->food_option->add_guest_option == 3 ? 'selected' : '' : '' }}>Stuffed Salmon</option>
 							</select>
 							<label for="Plus One" class="active">{{ $guest->plusOne->name }} Food Selection</label>
 						</div>
