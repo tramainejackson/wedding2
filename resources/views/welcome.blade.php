@@ -134,8 +134,8 @@
 					<input id="email" class="w3-large" type="email" name="email">
 					<label for="email" class="active">Email Address</label>
 				</div>
-				<div class="getRSVP">
-					<span class="w3-xlarge">Next</span>&nbsp;<span><i class="fa fa-2x fa-arrow-circle-right w3-text-green"></i></span>
+				<div class="">
+					<button type="button" class="w3-xlarge getRSVP btn green darken-2" style="height:auto">Next</button>
 				</div>
 			</div>
 		{!! Form::close() !!}
