@@ -54,6 +54,18 @@ $(document).ready(function() {
 	$(".guest_search ").keyup(function(e){
 		startSearch($(".guest_search ").val());
 	});
+	
+	// Do not allow submission if no value
+	$('body').on('submit', 'form[name="food_selection_form"]', function() {
+		var form = $('form[name="food_selection_form"]');
+
+		if($(form).find('option:selected').val() == '') {
+			alert('Please make a food selection to continue');
+			return false;
+		} else {
+			return true;
+		}
+	});
 });
 
 // Get confirmed RSVP from the 
