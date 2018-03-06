@@ -346,6 +346,12 @@ button.confirmRSVP, button.declineRSVP {
 	.foodDescList img {
 		height: 85px;
 	}
+	
+	.foodDescList h2 {
+		margin-top: 0px;
+		margin-bottom: 8px;
+		font-size: 150%;
+	}
 }
 
 @media only screen and (max-width: 600px) {
