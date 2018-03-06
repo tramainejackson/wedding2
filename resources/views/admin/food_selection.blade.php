@@ -69,8 +69,12 @@
 							<span class="w3-center nameSearch" style="width:24.5%; display:inline-block;">{{ $guest->name }}</span>
 							
 							<!-- Guest food selection -->
-							@if($guest->food_selected == 'Y')
-								<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->food_option->food_option }}</span>
+							@if($guest->food_option)
+								@if($guest->food_selected == 'Y')
+									<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->food_option->food_option }}</span>
+								@else
+									<span class="w3-center" style="width:24.5%; display:inline-block;">No Selection Yet</span>
+								@endif
 							@else
 								<span class="w3-center" style="width:24.5%; display:inline-block;">No Selection Yet</span>
 							@endif
@@ -82,8 +86,12 @@
 								<span class="w3-center" style="width:24.5%; display:inline-block;"></span>
 								<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->plusOne->name }}</span>
 								
-								@if($guest->food_selected == 'Y')
-									<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->food_option->add_guest_option }}</span>
+								@if($guest->food_option)
+									@if($guest->food_selected == 'Y')
+										<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->food_option->add_guest_option }}</span>
+									@else
+										<span class="w3-center" style="width:24.5%; display:inline-block;">No Selection Yet</span>
+									@endif
 								@else
 									<span class="w3-center" style="width:24.5%; display:inline-block;">No Selection Yet</span>
 								@endif
