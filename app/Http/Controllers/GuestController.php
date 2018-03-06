@@ -271,9 +271,9 @@ class GuestController extends Controller
 				
 				if($guests->save()) {
 					if($guests->email != null) {
-						// \Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
+						\Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
 					} else {
-						// \Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
+						\Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
 					}
 				}
 			}
@@ -288,9 +288,9 @@ class GuestController extends Controller
 				
 				if($guests->save()) {
 					if($guests->email != null) {
-						// \Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
+						\Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
 					} else {
-						// \Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
+						\Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
 					}
 				}
 			}
