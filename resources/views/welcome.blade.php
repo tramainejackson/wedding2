@@ -134,11 +134,8 @@
 					<input id="email" class="w3-large" type="email" name="email">
 					<label for="email" class="active">Email Address</label>
 				</div>
-				<div class="">
-					<span class="w3-xlarge getRSVP">Next</span>&nbsp;<span><i class="fa fa-2x fa-arrow-circle-right w3-text-green getRSVP"></i></span>
-					
-				  <!-- {!! Form::submit('', ['name' => 'rsvp', 'class' => 'w3-button w3-block w3-green']) !!} -->
-				  <!-- {!! Form::submit('Cant Come', ['name' => 'rsvp', 'class' => 'w3-button w3-block w3-red']) !!} -->
+				<div class="getRSVP">
+					<span class="w3-xlarge">Next</span>&nbsp;<span><i class="fa fa-2x fa-arrow-circle-right w3-text-green"></i></span>
 				</div>
 			</div>
 		{!! Form::close() !!}
