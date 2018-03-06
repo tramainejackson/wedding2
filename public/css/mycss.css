@@ -240,6 +240,10 @@ span#countdownClock {
     top: 20px;
 }
 
+button.confirmRSVP, button.declineRSVP {
+	width: 100%;
+}
+
 /*.rotateN{ transform:rotate(90deg); }
 .rotateS{ transform:rotate(-90deg); } */
 
