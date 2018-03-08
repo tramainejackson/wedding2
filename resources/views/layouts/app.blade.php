@@ -66,10 +66,11 @@
 		<div class="w3-bottom w3-hide-small">
 			<div class="w3-bar w3-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
 				@if (Auth::check())
-					<a href="/" style="width:25%" class="w3-bar-item w3-button">Home</a>
-					<a href="/guest_list" style="width:25%" class="w3-bar-item w3-button">Guest List</a>
-					<a href="/guest_list_food" style="width:25%" class="w3-bar-item w3-button">Food Selections</a>
-					<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="width:25%" class="w3-bar-item w3-button">Logout</a>
+					<a href="/" style="width:20%" class="w3-bar-item w3-button">Home</a>
+					<a href="/guest_list" style="width:20%" class="w3-bar-item w3-button">Guest List</a>
+					<a href="/guest_list_food" style="width:20%" class="w3-bar-item w3-button">Food Selections</a>
+					<a href="/photos/create" style="width:20%" class="w3-bar-item w3-button">Photos</a>
+					<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="width:20%" class="w3-bar-item w3-button">Logout</a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 						{{ csrf_field() }}
 					</form>

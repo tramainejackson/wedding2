@@ -68,8 +68,6 @@ Route::get('/party', 'BridalPartyController@index');
 
 Route::post('/food_selection/{guests}', 'GuestController@food_selection');
 
-Route::get('/photos', 'PhotoController@index')->name('photos');
-
 Route::patch('/confirmed', 'GuestController@store');
 
 Route::get('/confirmed', 'GuestController@confirm_guest');
@@ -83,3 +81,7 @@ Route::patch('/additional_guest/{guests}', 'AddtGuestController@store');
 Route::post('/new_message', 'MessageController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/photos', 'PhotoController');
+
+Route::post('/photos/remove_photos', 'PhotoController@remove_photos');
