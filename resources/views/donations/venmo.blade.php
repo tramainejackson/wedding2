@@ -23,7 +23,7 @@
 @endsection
 
 @section('header')
-	<!-- Header / Home-->
+	<!-- Header / Home-->	
 	@component('layouts.nav')
 	@endcomponent
 	

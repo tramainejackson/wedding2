@@ -1,4 +1,4 @@
-<p align="center"><img src="http://journey2jackson.com/images/at2.jpg"></p>
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 ## Journey 2 Jackson
 

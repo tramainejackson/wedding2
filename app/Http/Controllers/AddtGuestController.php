@@ -14,24 +14,14 @@ class AddtGuestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Guests $guest, $id)
+    public function store(Request $request, Guests $guests)
     {
-		$guest = Guests::findOrFail($id);
-		$plusOneOption = request('plusOne', 'required');
-		$plusOneName = request('plusOneName', 'required');
+		$guest = $guests;
+		$plusOneName = request('plusOne', 'required');
 		
-		if($plusOneOption == "No Plus One") {
-			$returnResponse = 'Thanks for your response. Your RSVP has be confirmed';
-			$guest->rsvp = 'Y';
-			$guest->responded = 'Y';
-			$guest->save();
-		} else {
-			$guest->addPlusOne($plusOneName, 'Y');
-			$returnResponse = 'Thanks for your response. We will try and add your plus one. We will reach out to you once we get a change to look at our guest list';
-		}
+		$guest->addPlusOne($plusOneName, 'Y');
 		
-		return redirect('/')->with('status', $returnResponse);
-		// dd($guest);
+		return view('food_selection', compact('guests'));
     }
 	
     /**

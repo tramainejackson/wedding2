@@ -43,7 +43,7 @@
 		<div class="hisStory w3-padding-large w3-margin" id="his_story" style="/* background: radial-gradient(circle, transparent 89%, gray, blue); */ position:relative;">
 			<div id="bgrdShadow"></div>
 			<div class="" style="position:relative;">
-				<i class="" style="w3-border">If she said it, I second it.</i>
+				<i class="" style="w3-border">Our story for me starts around the same time, 2008 at Britney's house. While me and guys were driving over to Britney's house party, Kev was giving everybody the run down of who all was going to be there. He told us it was the same girls from Widener University that were always around. Once we got there, I knew everybody but Ashley and actually didn't pay much attention to her but I remembered that she was a cutie. Some time goes by and me and the guys were heading to another gathering one of Kev's friends at D&B. On our way over there, we find out it's going to be the same crew as before. Ashley didn't really seem interested in any of the guys, so we still didn't cross path's or intereact at all! Fast forward another year or so and we meet again at another gathering (our friends like to have gatherings). After being around each other on so many occassions, I figure she wasn't going anywhere so I finally decided to actually have a conversation with her. And it seemed like the conversation went on for hours, talking about everything imaginable. After that night I get a text from Kev asking if it was ok if Ashley had my phone number. I knew it was over for her from there. She had been poisoned by my stinger #scorpioSeason! From that day, we talked, and talked some more and talked a little bit more. She soon became the only person I really wanted to talk to. Then one day she comes and tells me we're in a relationship. She said it from another room because she knew it was a bold move. But I didn't put up much of a fight because when she wants something she's going to get it no matter the cost. Half a decade later, through all the ups and downs, joys and tears, I couldn't think of a better person to have by my side.</i>
 			</div>
 		</div>
 		<div class="herStory w3-padding-large w3-margin" id="her_story" style="/* background: radial-gradient(circle, transparent 89%, gray, red); */ position:relative; text-align: justify;">
@@ -101,7 +101,7 @@
 	  <!-- RSVP section -->
 	  <div class="w3-content" style="position:relative; /* background: rgba(255, 255, 255, 0.9); */">
 		<h1>HOPE YOU CAN MAKE IT!</h1>
-		  <p class="w3-large">Kindly Respond By January, 2018</p>
+		  <p class="w3-large">Kindly Respond By May 1, 2018</p>
 		  <p class="w3-xlarge">
 			<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round w3-red w3-opacity w3-hover-opacity-off" style="padding:8px 60px">RSVP</button>
 		  </p>
@@ -118,6 +118,7 @@
 		  
 		  <h1 class="w3-wide col s12">CAN YOU COME?</h1>
 		  <p class="col s12">We really hope you can make it.</p>
+		  <p class="w3-center"><i>Sincerely, Tramaine & Ashley</i></p>
 		  
 		  {!! Form::open([ 'action' => 'GuestController@store', 'class' => 'col s12']) !!}
 			<div class="row">
@@ -129,24 +130,101 @@
 					<input id="last" class="w3-large" type="text" name="last">
 					<label for="last" class="active">Last Name</label>
 				</div>
-			  <p class="w3-center"><i>Sincerely, Tramaine & Ashley</i></p>
-			  <div class="w3-row">
-				<div class="w3-half">
-				  {!! Form::submit('Going', ['name' => 'rsvp', 'class' => 'w3-button w3-block w3-green']) !!}
+				<div class="input-field col s12">
+					<input id="email" class="w3-large" type="email" name="email">
+					<label for="email" class="active">Email Address</label>
 				</div>
-				<div class="w3-half">
-				  {!! Form::submit('Cant Come', ['name' => 'rsvp', 'class' => 'w3-button w3-block w3-red']) !!}
+				<div class="">
+					<button type="button" class="w3-xlarge getRSVP btn green darken-2" style="height:auto">Next</button>
 				</div>
-			  </div>
 			</div>
 		{!! Form::close() !!}
 		</div>
-		<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+		<span onclick="document.getElementById('id01').style.display='none'; document.getElementById('food_desc_list').style.display='none';" class="w3-button w3-display-topright">&times;</span>
 	  </div>
 	</div>
 @endsection
 
-
 @section('footer')
-	
+	<!-- Description modal for all the food selections -->
+	<div class="foodDescList" id="food_desc_list">
+		<ul class="">
+			<li class="">
+				<div class="container" style="width: 100%;">
+					<h2 class="">Grilled Mediterranean Chicken</h2>
+					<div class="row">
+						<div class="col s12 text-center">
+							<img src="{{ asset('/images/med_chicken.jpg') }}" class="circle  responsive-img" />
+						</div>
+						<div class="col s12">
+							<p class="">Grilled chicken topped with Feta Cheese, Kalamata Olives, Tri Color Peppers, Red Onions, Lemon Thyme Sauce</p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="">
+				<div class="container" style="width: 100%;">
+					<h2 class="">Grilled Rib-Eye</h2>
+					<div class="row">
+						<div class="col s12 text-center">
+							<img src="{{ asset('/images/grilled_steak.jpg') }}" class="circle  responsive-img" />
+						</div>
+						<div class="col s12">
+							<p class="">Tender Rib Eye Grilled to Perfection with a Caramelized Onion Demi-glace</p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="">
+				<div class="container" style="width: 100%;">
+					<h2 class="">Stuffed Salmon</h2>
+					<div class="row">
+						<div class="col s12 text-center">
+							<img src="{{ asset('/images/salmon.jpg') }}" class="circle  responsive-img" />
+						</div>
+						<div class="col s12">
+							<p class="">Salmon stuffed with Crab Imperial topped with Hollandaise Sauce</p>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<div class="text-center">
+			<button type="button" class="btn red lighten-2 closeFoodDesc">Close</button>
+		</div>
+	</div>
+	<script>
+		$('body').on('click', '.closeFoodDesc', function() {
+			$('.foodDescList').animate({right:'-=100%'});
+		});
+		
+		$('body').on('click', '.getRSVP', function() {
+			getRSVP($('#first').val(), $('#last').val(), $('#email').val());
+		});
+		
+		$('body').on('click', '.yesPO', function() {
+			$('.foodSelectionForm').slideUp(function() {
+				$('.plusOneSelectionForm').slideDown();
+				$('.foodSelectionSelect').attr('disabled', true);
+				$('[name="plus_one"]').removeAttr('disabled').focus();
+			});
+		});
+		
+		$('body').on('click', '.noPO', function() {
+			$('.plusOneSelectionForm').slideUp(function() {
+				$('.foodSelectionForm').slideDown();				
+				$('[name="plus_one"]').attr('disabled', true);
+				$('.foodSelectionSelect').removeAttr('disabled').focus();
+			});
+			
+		});
+		
+		$('body').on('click', '.findRSVP', function() {
+			$('#confirmation').fadeOut(function() {
+				$('#id01.w3-modal .w3-modal-content > div.w3-container').fadeIn(function() {
+					$('#confirmation').remove();					
+				});
+			});
+		});
+	</script>
 @endsection

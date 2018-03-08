@@ -68,7 +68,7 @@
 				@if (Auth::check())
 					<a href="/" style="width:25%" class="w3-bar-item w3-button">Home</a>
 					<a href="/guest_list" style="width:25%" class="w3-bar-item w3-button">Guest List</a>
-					<a href="/" style="width:25%" class="w3-bar-item w3-button">Something 1</a>
+					<a href="/guest_list_food" style="width:25%" class="w3-bar-item w3-button">Food Selections</a>
 					<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="width:25%" class="w3-bar-item w3-button">Logout</a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 						{{ csrf_field() }}
