@@ -101,12 +101,17 @@
 					<a href="#" class="w3-display-topright"><i onclick="w3_close()" class="material-icons">clear</i></a>
 				</li>
 				@if (Auth::check())
-					<li><a href="/" style="width:25%" class="w3-mobile w3-bar-item w3-button">Home</a></li>
-					<li><a href="/guest_list" style="width:25%" class="w3-bar-item w3-button">Guest List</a></li>
-					<li><a href="/" style="width:25%" class="w3-bar-item w3-button">Something 1</a></li>
-					<li><a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="width:25%" class="w3-bar-item w3-button">Logout</a></li>
-					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-						{{ csrf_field() }}
+					<li><a href="/" class="w3-mobile w3-bar-item w3-button waves-effect">Home</a></li>
+					<li><a href="/guest_list" class="w3-mobile w3-bar-item waves-effect w3-button" onclick="w3_close()">Guest List</a></li>
+					<li><a href="/guest_list_food" class="w3-mobile w3-bar-item w3-button waves-effect" onclick="w3_close()">Food Selections</a></li>
+					<li><a href="/photos/create" class="w3-mobile w3-bar-item w3-button">Photos</a></li>
+					<li><div class="divider"></div></li>
+					<li>
+						<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w3-mobile w3-bar-item w3-button">Logout</a>
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+							{{ csrf_field() }}
+						</form>
+					</li>
 					</form>
 				@else
 					<li><a href="/" class="w3-mobile w3-bar-item w3-button waves-effect">Home</a></li>
