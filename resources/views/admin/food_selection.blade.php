@@ -49,6 +49,36 @@
 					</div>
 				</div>
 			</div>
+			<div class="row w3-padding-24">
+				<div class="w3-col s3">
+					<p class="text-center">
+						<button class="w3-btn w3-round w3-black">Total Count
+							<span class="w3-badge w3-margin-left w3-white">{{ $seafood->count() + $chicken->count() + $beef->count() }}</span>
+						</button>
+					</p>
+				</div>
+				<div class="w3-col s3">
+					<p class="text-center">
+						<button class="w3-btn w3-round orange lighten-3">Seafood
+							<span class="w3-badge w3-margin-left w3-white">{{ $seafood->count() }}</span>
+						</button>
+					</p>
+				</div>
+				<div class="w3-col s3">
+					<p class="text-center">
+						<button class="w3-btn w3-round white-text indigo accent-3">Chicken
+							<span class="w3-badge w3-margin-left w3-white">{{ $chicken->count() }}</span>
+						</button>
+					</p>
+				</div>
+				<div class="w3-col s3">
+					<p class="text-center">
+						<button class="w3-btn w3-round cyan lighten-2">Beef
+							<span class="w3-badge w3-margin-left w3-white">{{ $beef->count() }}</span>
+						</button>
+					</p>
+				</div>
+			</div>
 			<div class="w3-row w3-padding-24">
 				<ul class="w3-ul w3-hoverable guestList">
 					<li class="guestListHeader" style="opacity:0;">

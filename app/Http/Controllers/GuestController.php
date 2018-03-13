@@ -309,8 +309,17 @@ class GuestController extends Controller
     public function admin_food_selection(Request $request, Guests $guests)
     {
 		$guests = Guests::orderBy('name', 'asc')->get();
+		$seafood = FoodSelection::where('food_option', 'seafood')
+			->orWhere('add_guest_option', 'seafood')
+			->get();
+		$chicken = FoodSelection::where('food_option', 'chicken')
+			->orWhere('add_guest_option', 'chicken')
+			->get();
+		$beef = FoodSelection::where('food_option', 'beef')
+			->orWhere('add_guest_option', 'beef')
+			->get();
 		
-		return view('admin.food_selection', compact('guests'));
+		return view('admin.food_selection', compact('guests', 'seafood', 'chicken', 'beef'));
 	}
 	
 	/**
