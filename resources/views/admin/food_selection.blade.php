@@ -53,28 +53,28 @@
 				<div class="w3-col s3">
 					<p class="text-center">
 						<button class="w3-btn w3-round w3-black">Total Count
-							<span class="w3-badge w3-margin-left w3-white">{{ $seafood->count() + $chicken->count() + $beef->count() }}</span>
+							<span class="w3-badge w3-margin-left w3-white">{{ $guestSeafood->count() + $guestChicken->count() + $guestBeef->count() + $addGuestSeafood->count() + $addGuestChicken->count() + $addGuestBeef->count() }}</span>
 						</button>
 					</p>
 				</div>
 				<div class="w3-col s3">
 					<p class="text-center">
 						<button class="w3-btn w3-round orange lighten-3">Seafood
-							<span class="w3-badge w3-margin-left w3-white">{{ $seafood->count() }}</span>
+							<span class="w3-badge w3-margin-left w3-white">{{ $guestSeafood->count() + $addGuestSeafood->count() }}</span>
 						</button>
 					</p>
 				</div>
 				<div class="w3-col s3">
 					<p class="text-center">
 						<button class="w3-btn w3-round white-text indigo accent-3">Chicken
-							<span class="w3-badge w3-margin-left w3-white">{{ $chicken->count() }}</span>
+							<span class="w3-badge w3-margin-left w3-white">{{ $guestChicken->count() + $addGuestChicken->count() }}</span>
 						</button>
 					</p>
 				</div>
 				<div class="w3-col s3">
 					<p class="text-center">
 						<button class="w3-btn w3-round cyan lighten-2">Beef
-							<span class="w3-badge w3-margin-left w3-white">{{ $beef->count() }}</span>
+							<span class="w3-badge w3-margin-left w3-white">{{ $guestBeef->count() + $addGuestBeef->count() }}</span>
 						</button>
 					</p>
 				</div>
@@ -101,7 +101,7 @@
 							<!-- Guest food selection -->
 							@if($guest->food_option)
 								@if($guest->food_selected == 'Y')
-									<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->food_option->food_option }}</span>
+									<span class="w3-center" style="width:24.5%; display:inline-block;">{{ ucfirst($guest->food_option->food_option) }}</span>
 								@else
 									<span class="w3-center" style="width:24.5%; display:inline-block;">No Selection Yet</span>
 								@endif
@@ -118,7 +118,7 @@
 								
 								@if($guest->food_option)
 									@if($guest->food_selected == 'Y')
-										<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->food_option->add_guest_option }}</span>
+										<span class="w3-center" style="width:24.5%; display:inline-block;">{{ ucfirst($guest->food_option->add_guest_option) }}</span>
 									@else
 										<span class="w3-center" style="width:24.5%; display:inline-block;">No Selection Yet</span>
 									@endif
