@@ -44,7 +44,7 @@
 			<h2 class="w3-center">You Are Editing {{ ucwords($guest->name) }}'s Invitation</h2>
 		</div>
 		<div class="w3-row w3-padding-32">
-			{!! Form::model($guest, [ 'action' => ['GuestController@update2', $guest->id], 'method' => 'PATCH', 'class' => '']) !!}
+			{!! Form::model($guest, [ 'action' => ['GuestController@update2', $guest->id], 'method' => 'PATCH', 'class' => 'editGuestForm']) !!}
 				<p class="">
 					<input type="checkbox" name="rsvp" id="rsvp" {{ $guest->rsvp == "Y" ? 'checked' : '' }} />
 					<label for="rsvp">Comfirmed Invite</label>

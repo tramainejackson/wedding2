@@ -11,24 +11,25 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		
 		<!-- Styles -->
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display|Raleway|Lobster+Two|Indie+Flower">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="/css/materialize.min.css" media="screen,projection" />
-		<link rel="stylesheet" href="/css/app.css" media="screen,projection" />
-		<link rel="stylesheet" href="/css/mycss.css" media="screen,projection" />
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- Bootstrap core CSS -->
+		<link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet" media="screen,projection">
+		<!-- Material Design Bootstrap -->
+		<link href="{{ asset('/css/mdb.min.css') }}" rel="stylesheet" media="screen,projection">
+		<link href="{{ asset('/css/mycss.css') }}" rel="stylesheet" media="screen,projection" />
 		
 		<style>
 			body,h1,h2{font-family: "Raleway", sans-serif}
 			body, html {height: 100%}
 			p {line-height: 2}
+			
 			.bgimg, .bgimg2 {
-				min-height: 100%;
-				background-position: 100% 85%;
-				background-size: cover;
+				min-height: 100vh;
+				max-height: 100vh;
 			}
-			.bgimg { background-image: url("/images/at2.jpg")}
+			
 			.bgimg2 { 
 				background-image: url("/images/flowers.jpg"); 
 				background-repeat: no-repeat;
@@ -54,35 +55,29 @@
 
 			@yield('addt_style')
 		</style>
-		
-		<!-- Scripts -->
-		<script src="/js/app.js"></script>
-		<script src="/js/materialize.min.js"></script>
-		<script src="/js/jquery.countdown.min.js"></script>
-		<script src="/js/myjs.js"></script>
 	</head>
 	<body>
 		<!-- Navbar (sticky bottom) -->
-		<div class="w3-bottom w3-hide-small">
-			<div class="w3-bar w3-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
+		<div class="fixed-bottom rgba-white-light">
+			<div class="d-flex align-items-center justify-content-around">
 				@if (Auth::check())
-					<a href="/" style="width:20%" class="w3-bar-item w3-button">Home</a>
-					<a href="/guest_list" style="width:20%" class="w3-bar-item w3-button">Guest List</a>
-					<a href="/guest_list_food" style="width:20%" class="w3-bar-item w3-button">Food Selections</a>
-					<a href="/photos/create" style="width:20%" class="w3-bar-item w3-button">Photos</a>
-					<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="width:20%" class="w3-bar-item w3-button">Logout</a>
+					<a href="/" class="btn">Home</a>
+					<a href="/guest_list" class="btn">Guest List</a>
+					<a href="/guest_list_food" class="btn">Food Selections</a>
+					<a href="/photos/create" class="btn">Photos</a>
+					<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn">Logout</a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 						{{ csrf_field() }}
 					</form>
 
 				@else
-					<a href="/" style="width:14.2%" class="w3-bar-item w3-button">Home</a>
-					<a href="/#us" style="width:14.2%" class="w3-bar-item w3-button">Our Story</a>
-					<a href="/#wedding" style="width:14.2%" class="w3-bar-item w3-button">Wedding</a>
-					<a href="/party" style="width:14.2%" class="w3-bar-item w3-button">Dream Team</a>
-					<a href="/photos" style="width:14.2%" class="w3-bar-item w3-button">Photos</a>
-					<a href="/registry" style="width:14.2%" class="w3-bar-item w3-button">Registry</a>
-					<a href="/accommodations" style="width:14.2%" class="w3-bar-item w3-button">Accommodations</a>
+					<a href="/" class="btn black-text rgba-blue-grey-light">Home</a>
+					<a href="/#us" class="btn">Our Story</a>
+					<a href="/#wedding" class="btn">Wedding</a>
+					<a href="/party" class="btn">Dream Team</a>
+					<a href="/photos" class="btn">Photos</a>
+					<a href="/registry" class="btn">Registry</a>
+					<a href="/accommodations" class="btn">Accommodations</a>
 				@endif
 			</div>
 		</div>
@@ -101,28 +96,28 @@
 					<a href="#" class="w3-display-topright"><i onclick="w3_close()" class="material-icons">clear</i></a>
 				</li>
 				@if (Auth::check())
-					<li><a href="/" class="w3-mobile w3-bar-item w3-button waves-effect">Home</a></li>
-					<li><a href="/guest_list" class="w3-mobile w3-bar-item waves-effect w3-button" onclick="w3_close()">Guest List</a></li>
-					<li><a href="/guest_list_food" class="w3-mobile w3-bar-item w3-button waves-effect" onclick="w3_close()">Food Selections</a></li>
-					<li><a href="/photos/create" class="w3-mobile w3-bar-item w3-button">Photos</a></li>
+					<li><a href="/" class="w3-mobile btn waves-effect">Home</a></li>
+					<li><a href="/guest_list" class="w3-mobile waves-effect btn" onclick="w3_close()">Guest List</a></li>
+					<li><a href="/guest_list_food" class="w3-mobile btn waves-effect" onclick="w3_close()">Food Selections</a></li>
+					<li><a href="/photos/create" class="w3-mobile btn">Photos</a></li>
 					<li><div class="divider"></div></li>
 					<li>
-						<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w3-mobile w3-bar-item w3-button">Logout</a>
+						<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w3-mobile btn">Logout</a>
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 							{{ csrf_field() }}
 						</form>
 					</li>
 					</form>
 				@else
-					<li><a href="/" class="w3-mobile w3-bar-item w3-button waves-effect">Home</a></li>
-					<li><a href="/#us" class="w3-mobile w3-bar-item waves-effect w3-button" onclick="w3_close()">Our Story</a></li>
-					<li><a href="/#wedding" class="w3-mobile w3-bar-item w3-button waves-effect" onclick="w3_close()">Wedding</a></li>
-					<li><a href="/party" class="w3-mobile w3-bar-item w3-button">Dream Team</a></li>
-					<li><a href="/photos" class="w3-mobile w3-bar-item w3-button">Photos</a></li>
-					<li><a href="/registry" class="w3-mobile w3-bar-item w3-button">Registry</a></li>
-					<li><a href="/accommodations" class="w3-mobile w3-bar-item w3-button">Accommodations</a></li>
+					<li><a href="/" class="w3-mobile btn waves-effect">Home</a></li>
+					<li><a href="/#us" class="w3-mobile waves-effect btn" onclick="w3_close()">Our Story</a></li>
+					<li><a href="/#wedding" class="w3-mobile btn waves-effect" onclick="w3_close()">Wedding</a></li>
+					<li><a href="/party" class="w3-mobile btn">Dream Team</a></li>
+					<li><a href="/photos" class="w3-mobile btn">Photos</a></li>
+					<li><a href="/registry" class="w3-mobile btn">Registry</a></li>
+					<li><a href="/accommodations" class="w3-mobile btn">Accommodations</a></li>
 					<li><div class="divider"></div></li>
-					<li><a href="/login" class="w3-mobile w3-bar-item w3-button">Login</a></li>
+					<li><a href="/login" class="w3-mobile btn">Login</a></li>
 				@endif
 			</ul>
 		</div>
@@ -136,68 +131,92 @@
 		@yield('rsvp_information')
 
 		<!-- Footer -->
-		<footer class="w3-center w3-black w3-padding-16">
+		<footer class="black white-text py-3">
 			<div class="container">
 				<div class="row">
-					<div class="col s12 m8 l8">
-						<h4 class="w3-left-align w3-padding-24" style="padding-left:5px">I think we covered everything but if you still want to contact us then you can leave a message at the BEEEEEEEPPPPPPPP.....</h4>
+					<div class="col-8">
+						<h4 class="h4-responsive">I think we covered everything but if you still want to contact us then you can leave a message at the BEEEEEEEPPPPPPPP.....</h4>
 
 						{!! Form::open([ 'action' => 'MessageController@store', 'class' => '']) !!}
-							<div class="input-field col s6">
-								<input id="first" class="w3-large validate" type="text" name="name" value="{{ old('name') }}">
-								<label for="name" class="active">Full Name</label>
-								
-								@if($errors->has('name'))
-									<span class="text-danger">{{ $errors->first('name') }}</span>
-								@endif
+							<div class="row">
+								<div class="col">
+									<div class="md-form">
+										<input id="first" class="form-control" type="text" name="name" value="{{ old('name') }}">
+										
+										<label for="name" class="">Full Name</label>
+										
+										@if($errors->has('name'))
+											<span class="text-danger">{{ $errors->first('name') }}</span>
+										@endif
+									</div>
+								</div>
+								<div class="col">
+									<div class="md-form">
+										<input id="last" class="form-control" type="email" name="email" value="{{ old('email') }}">
+										
+										<label for="email" class="">Email Address</label>
+										
+										@if($errors->has('email'))
+											<span class="text-danger">{{ $errors->first('email') }}</span>
+										@endif
+									</div>
+								</div>
 							</div>
-							<div class="input-field col s6">
-								<input id="last" class="w3-large validate" type="email" name="email" value="{{ old('email') }}">
-								<label for="email" class="active">Email Address</label>
+							<div class="md-form">
+								<textarea id="message" class="form-control md-textarea" name="message">{{ old('message') }}</textarea>
 								
-								@if($errors->has('email'))
-									<span class="text-danger">{{ $errors->first('email') }}</span>
-								@endif
-							</div>
-							<div class="input-field col s12">
-								<textarea id="message" class="w3-large materialize-textarea validate" name="message">{{ old('message') }}</textarea>
-								<label for="message" class="active">Message</label>
+								<label for="message" class="">Message</label>
 								
 								@if($errors->has('message'))
 									<span class="text-danger">{{ $errors->first('message') }}</span>
 								@endif
 							</div>
-							<div class="input-field col offset-s3 s4 m12 l12">
-								{!! Form::submit('Send Message', ['name' => 'submit', 'class' => 'btn waves-effect waves-light red accent-2 w3-left']) !!}
+							<div class="md-form">
+								{!! Form::submit('Send Message', ['name' => 'submit', 'class' => 'btn btn-lg red accent-2 m-0']) !!}
 							</div>
 						{!! Form::close() !!}
 					</div>
-					<div class="col offset-s2 s8 m4 l4" id="instagram_us">
-						<h4 class="w3-center" style="padding-left:5px">Instagram With Us</h4>
+					
+					<div class="col-4" id="instagram_us">
+						<h4 class="text-center">Instagram With Us</h4>
 
 						<div class="w3-display-container">
-							<img src="/images/at3.jpg" class="responsive-img w3-center" />
+							<img src="/images/at3.jpg" class="img-fluid" />
 						</div>
 
-						<div class="w3-center">
-							<h5 class="w3-center">#journey2jackson</h5>
+						<div class="text-center">
+							<h5 class="text-center">#journey2jackson</h5>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="w3-display-container">
-				<div class="grey darken-4 comporation">
-					<h5 class="w3-align-left">&copy;&nbsp; & &reg;&nbsp; by Tramaine</h5>
+			<div class="container-fluid grey darken-4 text-center" style="margin-bottom: -15px;">
+				<div class="row">
+					<div class="col">
+						<p class="m-0">&copy;&nbsp; & &reg;&nbsp; by Tramaine</p>
+					</div>
 				</div>
 			</div>
 		</footer>
-		<div class="w3-hide-small" style="margin-bottom: 50px;display: -webkit-inline-box;display: inline-block;"></div>
 
 		@if($errors->has('name') || $errors->has('message') || $errors->has('email'))
 			<script>
 				$('#first').focus();
 			</script>
 		@endif
+		
+		<!-- SCRIPTS -->
+		<!-- JQuery -->
+		<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+		<!-- Bootstrap tooltips -->
+		<script type="text/javascript" src="/js/popper.min.js"></script>
+		<!-- Bootstrap core JavaScript -->
+		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+		<!-- MDB core JavaScript -->
+		<script type="text/javascript" src="/js/mdb.min.js"></script>
+		<script src="/js/materialize.min.js"></script>
+		<script src="/js/jquery.countdown.min.js"></script>
+		<script src="/js/myjs.js"></script>
 		
 		@yield('footer')
 	</body>

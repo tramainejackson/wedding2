@@ -44,17 +44,17 @@
 			<h2 class="w3-center">You Are Editing {{ ucwords($guest->name) }}'s Invitation</h2>
 		</div>
 		<div class="w3-row w3-padding-32">
-			{!! Form::model($guest, [ 'action' => ['GuestController@update2', $guest->id], 'method' => 'PATCH', 'class' => '']) !!}
+			{!! Form::model($guest, [ 'action' => ['GuestController@update2', $guest->id], 'method' => 'PATCH', 'class' => 'editGuestForm']) !!}
 				<div class="row">
 					<div class="form-group col s2">
 						<p class="">
-							<input type="checkbox" name="rsvpYes" id="rsvpYes" {{ $guest->rsvp == "Y" ? 'checked' : '' }} />
+							<input class="inviteCheck" type="checkbox" name="rsvpYes" id="rsvpYes" {{ $guest->rsvp == "Y" ? 'checked' : '' }} />
 							<label for="rsvpYes">Comfirmed Invite</label>
 						</p>
 					</div>
 					<div class="form-group col s10">
 						<p class="">
-							<input type="checkbox" name="rsvpNo" id="rsvpNo" class="" {{ $guest->rsvp == "N" ? 'checked' : '' }} />
+							<input class="inviteCheck" type="checkbox" name="rsvpNo" id="rsvpNo" class="" {{ $guest->rsvp == "N" ? 'checked' : '' }} />
 							<label for="rsvpNo">Decline Invite</label>
 						</p>
 					</div>
@@ -85,31 +85,4 @@
 			{!! Form::close() !!}
 		</div>
 	</div>
-@endsection
-
-@section('footer')
-	<script type="text/javascript">
-		//ScrollFire plugin init
-		var options = [
-		  {selector: '.guestList li', offset: 100, callback: function(el) {
-			$(el).fadeTo("slow", 1);
-		  } }
-		];
-
-		for(var x=1; x <= ($('.guestList > li').length - 1); x++) {
-			var listItem = {};
-			
-			$('.guestList > li').eq(x).addClass('guestNum'+x);
-			listItem = {
-				selector: '.guestNum'+x,
-				offset: 100,
-				callback: function(el) {
-					$(el).fadeTo("slow", 1);
-				}
-			}
-			
-			options.push(listItem);
-		}
-		Materialize.scrollFire(options);
-	</script>
 @endsection

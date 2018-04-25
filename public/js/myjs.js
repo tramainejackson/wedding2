@@ -12,6 +12,19 @@ $(document).ready(function() {
 		$('.foodDescList').show().animate({right:'0'});
 	});
 	
+	$('.mdb-select').material_select();
+	
+	// Create a toggle for the decline/confirm invite checkbox
+	$("body").on("click", ".editGuestForm .inviteCheck", function(e) {
+		if($(this).attr('id') == 'rsvpYes') {
+			$(this).attr('checked', 'checked');
+			$('.editGuestForm #rsvpNo').removeAttr('checked');
+		} else {
+			$(this).attr('checked', 'checked');
+			$('.editGuestForm #rsvpYes').removeAttr('checked');
+		}
+	});
+	
 	// I should have added a description here before I 
 	// forgot what this does
 	$("body").on("click", ".material-icons", function(e) {
