@@ -1,131 +1,151 @@
 @extends('layouts.app')
 
 @section('addt_style')
-	.bgimg, .bgimg2 {
-		min-height: 30%;
+	body {
+		background-color: #f5f8fa;
 	}
-@endsection
-
-@section('content_title', 'Food Selection')
-
-@section('nav')
-	<!-- Navbar (sticky bottom) -->
-	<div class="w3-bottom w3-hide-small">
-	  <div class="w3-bar w3-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
-		<a href="/" style="width:20%" class="w3-bar-item w3-button">Home</a>
-		<a href="/#us" style="width:20%" class="w3-bar-item w3-button">Our Story</a>
-		<a href="/#wedding" style="width:20%" class="w3-bar-item w3-button">Wedding</a>
-		<a href="/party" style="width:20%" class="w3-bar-item w3-button w3-hover-black">Dream Team</a>
-		<a href="/#rsvp" style="width:20%" class="w3-bar-item w3-button w3-hover-black">RSVP</a>
-	  </div>
-	</div>
+	
+	.bgimg {
+		min-height: 30%;
+		background: url(/images/at2.jpg);
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
 @endsection
 
 @section('header')	
 	<!-- Header / Home-->
-	<header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
-	  <div class="w3-display-middle w3-text-white w3-center headerContent">
-		<h1 class="w3-jumbo">The Food Selections</h1>
-		<span></span>
-	  </div>
+	<header class="bgimg text-center" id="home">
+		<div class="d-flex align-items-center justify-content-center">
+			<h1 class="headerContent white-text">The Food Selections</h1>
+		</div>
 	</header>
 @endsection
 
 @section('about_us')
 	@if(count($guests) > 0)
-		<div class="container" style="position:relative">
+		<div class="container">
+	
 			@if(session('status'))
 				<div class="w3-row">
 					<div class="w3-card-4 w3-green w3-round-medium">
-						<h2 class="w3-center">{{ session('status') }}</h2>					
+						<h2 class="">{{ session('status') }}</h2>					
 					</div>
 				</div>
 			@endif
-			<div class="row w3-padding-24">
-				<div class="form-group">
-					<div class="input-field col s4">
-						<input type="text" name="guest_search" class="guest_search" placeholder="Enter Name To Search ...." />
+			
+			<!-- Food selection seach option -->
+			<div class="row my-5">
+				<div class="col-12 col-md-4">
+					<div class="md-form">
+						<input type="text" name="guest_search" class="form-control guest_search" placeholder="Enter Name To Search ...." />
+
 						<label for="guest_search">Search Guest</label>
 					</div>
 				</div>
 			</div>
-			<div class="row w3-padding-24">
-				<div class="w3-col s3">
-					<p class="text-center">
-						<button class="w3-btn w3-round w3-black">Total Count
-							<span class="w3-badge w3-margin-left w3-white">{{ $guestSeafood->count() + $guestChicken->count() + $guestBeef->count() + $addGuestSeafood->count() + $addGuestChicken->count() + $addGuestBeef->count() }}</span>
+			
+			<!-- Food selections count -->
+			<div class="row text-center mb-5 foodSelectionCount">
+				<div class="col-12 col-md">
+					<p class="">
+						<button class="btn black" type="button">Total Count
+							<span class="">{{ $guestSeafood->count() + $guestChicken->count() + $guestBeef->count() + $addGuestSeafood->count() + $addGuestChicken->count() + $addGuestBeef->count() }}</span>
 						</button>
 					</p>
 				</div>
-				<div class="w3-col s3">
-					<p class="text-center">
-						<button class="w3-btn w3-round orange lighten-3">Seafood
-							<span class="w3-badge w3-margin-left w3-white">{{ $guestSeafood->count() + $addGuestSeafood->count() }}</span>
+				<div class="col-4 col-md">
+					<p class="">
+						<button class="btn orange darken-3" type="button">Seafood
+							<span class="">{{ $guestSeafood->count() + $addGuestSeafood->count() }}</span>
 						</button>
 					</p>
 				</div>
-				<div class="w3-col s3">
-					<p class="text-center">
-						<button class="w3-btn w3-round white-text indigo accent-3">Chicken
-							<span class="w3-badge w3-margin-left w3-white">{{ $guestChicken->count() + $addGuestChicken->count() }}</span>
+				<div class="col-4 col-md">
+					<p class="">
+						<button class="btn indigo accent-3" type="button">Chicken
+							<span class="">{{ $guestChicken->count() + $addGuestChicken->count() }}</span>
 						</button>
 					</p>
 				</div>
-				<div class="w3-col s3">
-					<p class="text-center">
-						<button class="w3-btn w3-round cyan lighten-2">Beef
-							<span class="w3-badge w3-margin-left w3-white">{{ $guestBeef->count() + $addGuestBeef->count() }}</span>
+				<div class="col-4 col-md">
+					<p class="">
+						<button class="btn w3-round cyan lighten-2" type="button">Beef
+							<span class="">{{ $guestBeef->count() + $addGuestBeef->count() }}</span>
 						</button>
 					</p>
 				</div>
 			</div>
-			<div class="w3-row w3-padding-24">
-				<ul class="w3-ul w3-hoverable guestList">
-					<li class="guestListHeader" style="opacity:0;">
-						<p class="w3-center" style="width:24.5%; display:inline-block;"></p>
-						<p class="w3-center" style="width:24.5%; display:inline-block;">Names&nbsp;<span class="w3-badge"></span></p>
-						<p class="w3-center" style="width:24.5%; display:inline-block;">Food Selection<span></span></p>
+			
+			<!-- Guest food selections -->
+			<div class="row">
+				<ul class="list-unstyled w-100 guestList">
+					<li class="guestListHeader border-bottom" style="opacity:0;">
+						<div class="container-fluid">
+							<div class="row text-center">
+								<div class="col d-none d-md-block"></div>
+								<div class="col">
+									<p class="">Names</p>
+								</div>
+								<div class="col">
+									<p class="">Food Selection</p>
+								</div>
+							</div>
+						</div>
 					</li>
 					@foreach($guests as $guest)
-						<li class="" style="opacity:0;">
-							<!-- Action button for guest food edit -->
-							@if($guest->food_option)
-								<span class="w3-center" style="width:24.5%; display:inline-block;"><a href="/food_selection/{{ $guest->food_option->id }}/edit" class="btn">Edit &nbsp;Selection</a></span>
-							@else
-								<span class="w3-center" style="width:24.5%; display:inline-block;"><a href="/food_selection/{{ $guest->id }}/create" class="btn light-green darken-1">Make Selection</a></span>
-							@endif
+						<li class="border-bottom py-3" style="opacity:0;">
+							<div class="container-fluid">
+								<div class="row text-center">
+									<div class="col-12 col-md order-1 order-md-0">
+										<!-- Action button for guest food edit -->
+										@if($guest->food_option)
+											<span class="">
+												<a href="/food_selection/{{ $guest->food_option->id }}/edit" class="btn blue darken-3 d-block d-md-inline">Edit &nbsp;Selection</a>
+											</span>
+										@else
+											<span class="">
+												<a href="/food_selection/{{ $guest->id }}/create" class="btn blue lighten-2 d-block d-md-inline">Make Selection</a>
+											</span>
+										@endif
+									</div>
+									<div class="col d-flex flex-column justify-content-center align-items-center">
+										<!-- Guest Name -->
+										<span class=" nameSearch">{{ $guest->name }}</span>
+										
+										<!-- Check if there is a plus one for the invitiation -->
+										@if($guest->plusOne)
+											<span class=""></span>
+											
+											<span class="">{{ $guest->plusOne->name }}</span>
+										@endif
+									</div>
+									<div class="col d-flex flex-column justify-content-center align-items-center">
+										<!-- Guest food selection -->
+										@if($guest->food_option)
+											@if($guest->food_selected == 'Y')
+												<span class="">{{ ucfirst($guest->food_option->food_option) }}</span>
+											@else
+												<span class="">No Selection Yet</span>
+											@endif
+										@else
+											<span class="">No Selection Yet</span>
+										@endif
+										
+										@if($guest->food_option)
+												@if($guest->food_selected == 'Y')
+													<span class="">{{ ucfirst($guest->food_option->add_guest_option) }}</span>
+												@else
+													<span class="">No Selection Yet</span>
+												@endif
+											@else
+												<span class="">No Selection Yet</span>
+											@endif
+									</div>
+								</div>
+							</div>
 							
-							<!-- Guest Name -->
-							<span class="w3-center nameSearch" style="width:24.5%; display:inline-block;">{{ $guest->name }}</span>
-							
-							<!-- Guest food selection -->
-							@if($guest->food_option)
-								@if($guest->food_selected == 'Y')
-									<span class="w3-center" style="width:24.5%; display:inline-block;">{{ ucfirst($guest->food_option->food_option) }}</span>
-								@else
-									<span class="w3-center" style="width:24.5%; display:inline-block;">No Selection Yet</span>
-								@endif
-							@else
-								<span class="w3-center" style="width:24.5%; display:inline-block;">No Selection Yet</span>
-							@endif
-							
-							<span class="w3-center" style="width:24.5%; display:inline-block;"></span>
-							
-							<!-- Check if there is a plus one for the invitiation -->
-							@if($guest->plusOne)
-								<span class="w3-center" style="width:24.5%; display:inline-block;"></span>
-								<span class="w3-center" style="width:24.5%; display:inline-block;">{{ $guest->plusOne->name }}</span>
-								
-								@if($guest->food_option)
-									@if($guest->food_selected == 'Y')
-										<span class="w3-center" style="width:24.5%; display:inline-block;">{{ ucfirst($guest->food_option->add_guest_option) }}</span>
-									@else
-										<span class="w3-center" style="width:24.5%; display:inline-block;">No Selection Yet</span>
-									@endif
-								@else
-									<span class="w3-center" style="width:24.5%; display:inline-block;">No Selection Yet</span>
-								@endif
-							@endif
 						</li>
 					@endforeach
 				</ul>

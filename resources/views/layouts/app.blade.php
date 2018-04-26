@@ -21,8 +21,6 @@
 		<link href="{{ asset('/css/mycss.css') }}" rel="stylesheet" media="screen,projection" />
 		
 		<style>
-			body,h1,h2{font-family: "Raleway", sans-serif}
-			body, html {height: 100%}
 			p {line-height: 2}
 			
 			.bgimg, .bgimg2 {
@@ -36,6 +34,7 @@
 				background-position: center center;
 				background-size: cover;
 			}
+			
 			div#confirmation_modal {
 				position: absolute;
 				z-index: 1;
@@ -43,6 +42,7 @@
 				margin: 0% 25%;
 				background: rgba(255, 255, 255, 0.8);
 			}
+			
 			#us.w3-container, #test1 {
 				/* color: #000!important;
 				background-image: url("/images/gb4.jpg"); 
@@ -58,26 +58,26 @@
 	</head>
 	<body>
 		<!-- Navbar (sticky bottom) -->
-		<div class="fixed-bottom rgba-white-light">
+		<div class="fixed-bottom rgba-white-strong">
 			<div class="d-flex align-items-center justify-content-around">
 				@if (Auth::check())
-					<a href="/" class="btn">Home</a>
-					<a href="/guest_list" class="btn">Guest List</a>
-					<a href="/guest_list_food" class="btn">Food Selections</a>
-					<a href="/photos/create" class="btn">Photos</a>
-					<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn">Logout</a>
+					<a href="/" class="btn nav-link">Home</a>
+					<a href="/guest_list" class="btn nav-link">Guest List</a>
+					<a href="/guest_list_food" class="btn nav-link">Food Selections</a>
+					<a href="/photos/create" class="btn nav-link">Photos</a>
+					<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn nav-link">Logout</a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 						{{ csrf_field() }}
 					</form>
 
 				@else
-					<a href="/" class="btn black-text rgba-blue-grey-light">Home</a>
-					<a href="/#us" class="btn">Our Story</a>
-					<a href="/#wedding" class="btn">Wedding</a>
-					<a href="/party" class="btn">Dream Team</a>
-					<a href="/photos" class="btn">Photos</a>
-					<a href="/registry" class="btn">Registry</a>
-					<a href="/accommodations" class="btn">Accommodations</a>
+					<a href="/" class="btn nav-link">Home</a>
+					<a href="/#us" class="btn nav-link">Our Story</a>
+					<a href="/#wedding" class="btn nav-link">Wedding</a>
+					<a href="/party" class="btn nav-link">Dream Team</a>
+					<a href="/photos" class="btn nav-link">Photos</a>
+					<a href="/registry" class="btn nav-link">Registry</a>
+					<a href="/accommodations" class="btn nav-link">Accommodations</a>
 				@endif
 			</div>
 		</div>
@@ -134,7 +134,7 @@
 		<footer class="black white-text py-3">
 			<div class="container">
 				<div class="row">
-					<div class="col-8">
+					<div class="col-12 col-md-8">
 						<h4 class="h4-responsive">I think we covered everything but if you still want to contact us then you can leave a message at the BEEEEEEEPPPPPPPP.....</h4>
 
 						{!! Form::open([ 'action' => 'MessageController@store', 'class' => '']) !!}
@@ -177,7 +177,7 @@
 						{!! Form::close() !!}
 					</div>
 					
-					<div class="col-4" id="instagram_us">
+					<div class="col-12 col-md-4" id="instagram_us">
 						<h4 class="text-center">Instagram With Us</h4>
 
 						<div class="w3-display-container">

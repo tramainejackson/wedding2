@@ -1,7 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Allerta+Stencil|Artifika|Cinzel+Decorative|Fanwood+Text|Fredericka+the+Great|Fugaz+One|Germania+One|Graduate|Grand+Hotel|IM+Fell+Double+Pica|Montserrat|Slabo+27px|Source+Sans+Pro|Sedgwick+Ave+Display|Raleway|Lobster+Two|Indie+Flower);
 
-html, body, .block {
-	height: 105%;
+body,h1,h2{
+	font-family: "Raleway", sans-serif;
+}
+
+body, html, .block {
+	height: 100%;
+}
+
+.view {
+	min-height: 100vh;
 }
 
 .parallax-container {
@@ -13,8 +21,13 @@ html, body, .block {
     width: 90%;
 }
 
-.bottom {
-	bottom: 0px;
+.bottom {bottom: 0px;}
+.top {top: 0px;}
+.left {left: 0px;}
+.right {right:0px;}
+
+.btn.nav-link {
+	color: black !important;
 }
 
 .hidden {
@@ -37,8 +50,8 @@ html, body, .block {
 	margin-top: 100px !important;
 }
 
-img.w3-display-middle {
-    top: 55%;
+.notHomeHeader {
+	height: 250px;
 }
 
 .partyNav {
@@ -113,10 +126,6 @@ img.w3-display-middle {
 
 .foodDescList img {
 	height: 100px;
-}
-
-.w3-modal {
-	padding-top: 45px;
 }
 
 .comporation.grey.darken-4 h3 {
@@ -211,6 +220,40 @@ img.countdownCompas {
     top: 1%;
 }
 
+.headAsh, .headMaine {
+	font-family:'Lobster Two', cursive;
+}
+
+.accommodationsPage, .registryPage {
+	background: linear-gradient(rgba(245, 248, 250, 0.85), #ffb07c, rgba(245, 248, 250, 0.85));
+}
+
+.accommodationsPage .hotelHeader, .accommodationsPage .directionsDiv {
+	border-bottom: solid 1px; 
+	margin: 0% 20% 5%; 
+	padding: 2% 0%;
+}
+
+.registryPage .leftQuote {
+    margin-bottom: -5%;
+}
+
+.registryPage .rightQuote {
+    margin-top: -5%;
+}
+
+.regOptionDiv {
+	height: 350px;
+}
+
+.regOptionDiv img {
+	height:300px; 
+	width: 300px;
+	margin: 0 auto; 
+	display: -webkit-box; 
+	display: block;
+}
+
 div#getting-started {
     position: absolute;
     top: 1%;
@@ -273,6 +316,10 @@ p.deleteImg {
 .rotateS{ transform:rotate(-90deg); } */
 
 @media only screen and (max-width: 575.99px) {
+	.container:not(.container ~ footer) {
+		background-color: rgba(255,255,255,.7);
+	}
+	
 	.foodDescList img {
 		height: 85px;
 	}
@@ -349,10 +396,10 @@ p.deleteImg {
 	}
 
 	.storyTime {
-		padding: 0px !important;
 		margin: 8px !important;
 		background: rgba(255, 255, 255, 0.8);
 	}
+	
 	.card.large {
 		height: initial;
 	}
@@ -367,20 +414,20 @@ p.deleteImg {
 		top: 65% !important;
 	}
 
-	img.w3-display-middle {
-		top: 45%;
-	}
-
-	.mobileHeader1 {
-		font-size: 36px !important;
-	}
-
 	#wedding {
 		padding: 16px 8px 32px !important;
 		margin: 8px !important;
 		background: rgba(255, 255, 255, 0.8);
 	}
+	
+	#wedding .weddingInfo {
+		font-size: 125%;
+	}
 
+	#wedding .weddingInfo h2 {
+		font-size: 225%;
+	}
+	
 	#us {
 		padding-top: 32px!important;
 		padding-bottom: 16px!important;
@@ -448,9 +495,7 @@ p.deleteImg {
 		padding: 20px 5px!important;
 		background: radial-gradient(circle, transparent 97%, gray, blue) !important;
 	}
-	.w3-modal-content {
-		margin: 0px 8% 0px 3%;
-	}
+
 	.comporation.grey.darken-4 {
 		margin: 0px 0px -16px;
 	}
@@ -471,6 +516,12 @@ p.deleteImg {
 	}
 	div#confirmation_modal {
 		margin: 0% auto !important;
+	}
+	
+	.view img	{
+		position: absolute;
+		margin-left: -50%;
+		height: -webkit-fill-available;
 	}
 }
 
@@ -506,6 +557,21 @@ p.deleteImg {
 	.foodDescList img {
 		height: 165px;
 	}
+	
+	.guestList span.badge {
+		width: 100%;
+	}
+	
+	.foodSelectionCount span {
+		width: 100%;
+		display: block;
+	}
+	
+	.view img	{
+		position: absolute;
+		margin-left: -50%;
+		height: -webkit-fill-available;
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -534,6 +600,19 @@ p.deleteImg {
 	.foodDescList img {
 		height: 150px;
 	}
+	
+	.foodSelectionCount span {
+		width: initial;
+		display: initial;
+	}
+	
+	.view img {
+		width: 100% !important;
+	}
+	
+	.storyTime {
+		padding: 50px 75px;
+	}
 }
 
 @media only screen and (min-width: 1200px) {
@@ -547,6 +626,10 @@ p.deleteImg {
 
 	.foodDescList img {
 		height: 150px;
+	}
+	
+	.guestList span.badge {
+		width: initial;
 	}
 }
 

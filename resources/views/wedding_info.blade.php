@@ -10,15 +10,15 @@
 				<h2 class="h2-responsive">Of course..</h2>
 			</div>
 
-			<div class="col-12 d-flex align-items-center justify-content-center my-4" style="font-size: 125%;">
-				<div class="px-5">
+			<div class="col-12 d-flex flex-column flex-md-row align-items-center justify-content-center my-4 weddingInfo">
+				<div class="p-5">
 					<h2 class="h2-responsive">When</h2>
 					<p>August 26, 2018</p>
 					<p>Wedding Ceremony - 2:30pm</p>
 					<p>Cocktail Hour - 3:00pm</p>
 					<p>Reception & Dinner - 4:00pm</p>
 				</div>
-				<div class="px-5">
+				<div class="p-3">
 					<h2 class="h2-responsive">Where</h2>
 					<p>Lucien's Manor</p>
 					<p>81 W. White Horse Pike</p>
