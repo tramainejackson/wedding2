@@ -1,6 +1,6 @@
 <!-- Header / Home-->
 <header class="view bgimg white-text" id="home">
-	<img src="/images/at2.jpg" class="" alt="Home Hero Image" style="margin-top: -15%;">
+	<img src="/images/at2.jpg" class="" alt="Home Hero Image" />
 	
 	<div class="mask flex-center text-center">
 		<div class="headerContent">

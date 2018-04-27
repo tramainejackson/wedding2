@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+@section('addt_style')
+	body {
+		background: url(/images/map3.jpg);
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: center center;
+	}
+@endsection
+
 @section('header')
 	@if(session('status'))
 		<!-- RSVP Confirmation modal -->
@@ -28,119 +37,99 @@
 
 @section('rsvp_information')
 	<!-- RSVP modal -->
-	<div id="id01" class="modal fade">
-	  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="padding:32px;max-width:600px">
-		<div class="w3-container w3-white text-center row">
-		  
-		  <h1 class="w3-wide col s12">CAN YOU COME?</h1>
-		  <p class="col s12">We really hope you can make it.</p>
-		  <p class="text-center"><i>Sincerely, Tramaine & Ashley</i></p>
-		  
-		  {!! Form::open([ 'action' => 'GuestController@store', 'class' => 'col s12']) !!}
-			<div class="row">
-				<div class="input-field col s6">
-					<input id="first" class="w3-large" type="text" name="first">
-					<label for="first" class="active">First Name</label>
+	<div id="reservationModal" class="modal fade">
+		<div class="modal-dialog modal-lg" tabindex="-1" role="dialog" aria-labelledby="reservationModal" aria-hidden="true" data-backdrop="true">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="h2-responsive">Wedding Reservation</h2>
+					
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
-				<div class="input-field col s6">
-					<input id="last" class="w3-large" type="text" name="last">
-					<label for="last" class="active">Last Name</label>
-				</div>
-				<div class="input-field col s12">
-					<input id="email" class="w3-large" type="email" name="email">
-					<label for="email" class="active">Email Address</label>
-				</div>
-				<div class="">
-					<button type="button" class="w3-xlarge getRSVP btn green darken-2" style="height:auto">Next</button>
+				<div class="modal-body">
+					<div class="guestRsvpCheckFormContainer">
+						<h1 class="h1-responsive text-center">CAN YOU COME?</h1>
+						<p class="text-center">We really hope you can make it.</p>
+						<p class="text-center"><i>Sincerely, Tramaine & Ashley</i></p>
+					 
+						{!! Form::open([ 'action' => 'GuestController@store', 'class' => 'guestRsvpCheckForm']) !!}
+							<div class="row">
+								<div class="col">
+									<div class="md-form">
+										<input id="first" class="form-control" type="text" name="first" required />
+										
+										<label for="first" class="">First Name</label>
+									</div>
+								</div>
+								<div class="col">
+									<div class="md-form">
+										<input id="last" class="form-control" type="text" name="last" required />
+									
+										<label for="last" class="">Last Name</label>
+									</div>
+								</div>
+							</div>
+							<div class="md-form">
+								<input id="email" class="form-control" type="email" name="email" />
+							
+								<label for="email" class="">Email Address</label>
+							</div>
+							<div class="md-form">
+								<button type="button" class="getRSVP btn btn-lg green darken-2">Next</button>
+							</div>
+						{!! Form::close() !!}
+					</div>
 				</div>
 			</div>
-		{!! Form::close() !!}
 		</div>
-		<span onclick="document.getElementById('id01').style.display='none'; document.getElementById('food_desc_list').style.display='none';" class="btn w3-display-topright">&times;</span>
-	  </div>
 	</div>
 @endsection
 
 @section('footer')
 	<!-- Description modal for all the food selections -->
-	<div class="foodDescList" id="food_desc_list">
-		<ul class="">
-			<li class="">
-				<div class="container" style="width: 100%;">
-					<h2 class="">Grilled Mediterranean Chicken</h2>
-					<div class="row">
-						<div class="col s12 text-center">
-							<img src="{{ asset('/images/med_chicken.jpg') }}" class="circle  responsive-img" />
-						</div>
-						<div class="col s12">
-							<p class="">Grilled chicken topped with Feta Cheese, Kalamata Olives, Tri Color Peppers, Red Onions, Lemon Thyme Sauce</p>
-						</div>
+	<div class="foodDescList" id="food_desc_list container-fluid">
+		<div class="row">
+			<div class="col-12 col-lg my-3">
+				<div class="row text-center align-items-center">
+					<h2 class="col-12 h2-responsive text-muted">Grilled Med Chicken</h2>
+					
+					<div class="col-6">
+						<img src="{{ asset('/images/med_chicken.jpg') }}" class="img-fluid rounded-circle" />
+					</div>
+					<div class="col-6">
+						<p class="">Grilled chicken topped with Feta Cheese, Kalamata Olives, Tri Color Peppers, Red Onions, Lemon Thyme Sauce</p>
 					</div>
 				</div>
-			</li>
-			<li class="">
-				<div class="container" style="width: 100%;">
-					<h2 class="">Grilled Rib-Eye</h2>
-					<div class="row">
-						<div class="col s12 text-center">
-							<img src="{{ asset('/images/grilled_steak.jpg') }}" class="circle  responsive-img" />
-						</div>
-						<div class="col s12">
-							<p class="">Tender Rib Eye Grilled to Perfection with a Caramelized Onion Demi-glace</p>
-						</div>
+			</div>
+			<div class="col-12 col-lg my-3">
+				<div class="row text-center align-items-center">
+					<h2 class="col-12 h2-responsive text-muted">Grilled Rib-Eye</h2>
+					
+					<div class="col-6">
+						<img src="{{ asset('/images/grilled_steak.jpg') }}" class="img-fluid rounded-circle" />
+					</div>
+					
+					<div class="col-6">
+						<p class="">Tender Rib Eye Grilled to Perfection with a Caramelized Onion Demi-glace</p>
 					</div>
 				</div>
-			</li>
-			<li class="">
-				<div class="container" style="width: 100%;">
-					<h2 class="">Stuffed Salmon</h2>
-					<div class="row">
-						<div class="col s12 text-center">
-							<img src="{{ asset('/images/salmon.jpg') }}" class="circle  responsive-img" />
-						</div>
-						<div class="col s12">
-							<p class="">Salmon stuffed with Crab Imperial topped with Hollandaise Sauce</p>
-						</div>
+			</div>
+			<div class="col-12 col-lg my-3">
+				<div class="row text-center align-items-center">
+					<h2 class="col-12 h2-responsive text-muted">Stuffed Salmon</h2>
+				
+					<div class="col-6">
+						<img src="{{ asset('/images/salmon.jpg') }}" class="img-fluid rounded-circle" />
+					</div>
+					<div class="col-6">
+						<p class="">Salmon stuffed with Crab Imperial topped with Hollandaise Sauce</p>
 					</div>
 				</div>
-			</li>
-		</ul>
-		<div class="text-center">
-			<button type="button" class="btn red lighten-2 closeFoodDesc">Close</button>
+			</div>
+			<div class="col-12 text-center">
+				<button type="button" class="btn red lighten-2 closeFoodDesc">Close</button>
+			</div>
 		</div>
 	</div>
-	<script>
-		$('body').on('click', '.closeFoodDesc', function() {
-			$('.foodDescList').animate({right:'-=100%'});
-		});
-		
-		$('body').on('click', '.getRSVP', function() {
-			getRSVP($('#first').val(), $('#last').val(), $('#email').val());
-		});
-		
-		$('body').on('click', '.yesPO', function() {
-			$('.foodSelectionForm').slideUp(function() {
-				$('.plusOneSelectionForm').slideDown();
-				$('.foodSelectionSelect').attr('disabled', true);
-				$('[name="plus_one"]').removeAttr('disabled').focus();
-			});
-		});
-		
-		$('body').on('click', '.noPO', function() {
-			$('.plusOneSelectionForm').slideUp(function() {
-				$('.foodSelectionForm').slideDown();				
-				$('[name="plus_one"]').attr('disabled', true);
-				$('.foodSelectionSelect').removeAttr('disabled').focus();
-			});
-			
-		});
-		
-		$('body').on('click', '.findRSVP', function() {
-			$('#confirmation').fadeOut(function() {
-				$('#id01.w3-modal .w3-modal-content > div.w3-container').fadeIn(function() {
-					$('#confirmation').remove();					
-				});
-			});
-		});
-	</script>
 @endsection

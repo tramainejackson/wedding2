@@ -1,5 +1,5 @@
 <!-- About / Tramaine & Ashley -->
-	<div class="container-fluid" id="us">
+	<div class="container-fluid mt-5" id="us">
 		<div class="scrollImg">
 			<div class="row py-3 storyTime">
 				<h2 class="text-center col-12">Let me tell you how it all got started!</h2>

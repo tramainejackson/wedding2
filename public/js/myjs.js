@@ -5,11 +5,17 @@ $(document).ready(function() {
 		cache: false
 	});
 	
+	new WOW().init();
+	
 	$('.collapsible').collapsible();
 	
 	// Show the description of the food
 	$('body').on('click', '.foodDescrBtn', function() {
-		$('.foodDescList').show().animate({right:'0'});
+		$('.foodDescList').show().animate({right:'0', zIndex:'2000'});
+	});
+
+	$('body').on('click', '.closeFoodDesc', function() {
+		$('.foodDescList').animate({right:'-=100%'});
 	});
 	
 	$('.mdb-select').material_select();
@@ -23,6 +29,62 @@ $(document).ready(function() {
 			$(this).attr('checked', 'checked');
 			$('.editGuestForm #rsvpYes').removeAttr('checked');
 		}
+	});
+
+	// Make home page image the same size as the parent div
+	$('.view.bgimg img').css({minHeight:$('.view.bgimg').height() + 'px'});
+	
+	// Make margin bottom on footer same size as navigate
+	$('footer').css({marginBottom:$('.fixed-bottom').height() + 'px'});
+	
+	$('body').on('click', '.getRSVP', function(e) {
+		// Remove any error messages if they exist
+		$('.guestRsvpCheckFormContainer span.inputError').remove();
+		
+		if($('#first').val() == '' || $('#last').val() == '') {
+			// Append error for missing firstname
+			if($('#first').val() == '') {
+				$('#first').parent().after('<span class="inputError red-text">Firstname cannot be empty</span>')
+			}
+
+			// Append error for missing lastname
+			if($('#last').val() == '') {
+				$('#last').parent().after('<span class="inputError red-text">Lastname cannot be empty</span>')
+			}
+		} else {
+			getRSVP($('#first').val(), $('#last').val(), $('#email').val());
+		}
+	});
+	
+	$('body').on('click', '.yesPO', function() {
+		$('.foodSelectionForm').slideUp(function() {
+			$('.plusOneSelectionForm').slideDown();
+			$('.foodSelectionSelect').attr('disabled', true);
+			$('[name="plus_one"]').removeAttr('disabled').focus();
+		});
+	});
+	
+	$('body').on('click', '.noPO', function() {
+		$('.plusOneSelectionForm').slideUp(function() {
+			$('.foodSelectionForm').slideDown();				
+			$('[name="plus_one"]').attr('disabled', true);
+			$('.foodSelectionSelect').removeAttr('disabled').focus();
+		});
+		
+	});
+	
+	$('body').on('click', '.findRSVP', function() {
+		$('#reservationModal #confirmation').fadeOut(function() {
+			$('#reservationModal .guestRsvpCheckFormContainer').fadeIn(function() {
+				$('#confirmation').remove();					
+			});
+		});
+	});
+	
+	// Not sure what this does right this moment
+	$('[name="plus_one_selection_form"]').on('submit', function() {
+		event.preventDefault();
+		confirmPlusOne($('[name="plus_one"]').val(), $('[name="guest_id"]').val());
 	});
 	
 	// I should have added a description here before I 
@@ -99,12 +161,30 @@ $(document).ready(function() {
 	// Do not allow submission if no value
 	$('body').on('submit', 'form[name="food_selection_form"]', function() {
 		var form = $('form[name="food_selection_form"]');
-
-		if($(form).find('option:selected').val() == '') {
-			alert('Please make a food selection to continue');
-			return false;
+		var error = 0;
+		
+		if($(form).find('select option:selected').length > 1) {
+			var options = $(form).find('select option:selected');
+			
+			$(options).each(function() {
+				if($(this).val() == '') {
+					error++;
+				}
+			});
+			
+			if(error >= 0) {
+				toastr["error"]("Please make a food selection for both guest");
+				return false;
+			} else {
+				return true;
+			}
 		} else {
-			return true;
+			if($(form).find('option:selected').val() == '') {
+				toastr["error"]("Please make a food selection to continue");
+				return false;
+			} else {
+				return true;
+			}
 		}
 	});
 });
@@ -112,19 +192,19 @@ $(document).ready(function() {
 // Get confirmed RSVP from the 
 function getRSVP(firstname, lastname, email) {
 	$.ajax({
-	  method: "GET",
-	  url: "/confirmed",
-	  data: {'first':firstname, 'last':lastname, 'email':email}
+		method: "GET",
+		url: "/confirmed",
+		data: {'first':firstname, 'last':lastname, 'email':email}
 	})
 	
-	.fail(function() {	
+	.fail(function() {
 		alert("Fail");
 	})
 	
 	.done(function(data) {
 		var newData = $(data);
-		$('#id01.w3-modal .w3-modal-content > div.w3-container').fadeOut(function() {
-			$(newData).appendTo('#id01.w3-modal .w3-modal-content').fadeIn();
+		$('#reservationModal .guestRsvpCheckFormContainer').fadeOut(function() {
+			$(newData).appendTo('#reservationModal .modal-body').fadeIn();
 		});
 	});
 }
@@ -143,10 +223,9 @@ function confirmRSVP(rsvp, email) {
 	
 	.done(function(data) {
 		var newData = $(data);
-		$(newData).appendTo('#id01.w3-modal .w3-modal-content');
-		$('select').material_select();
 		$('#confirmation').fadeOut(function() {
-			$(newData).fadeIn(function() {
+			$(newData).appendTo('#reservationModal .modal-body').fadeIn(function() {
+				$('select').material_select();
 				$('#confirmation').remove();
 			});
 		});
@@ -168,9 +247,8 @@ function declineRSVP(rsvp, email) {
 	.done(function(data) {
 		var newData = $(data);
 		console.log($(newData));
-		$(newData).appendTo('#id01.w3-modal .w3-modal-content');
 		$('#confirmation').fadeOut(function() {
-			$(newData).fadeIn(function() {
+			$(newData).appendTo('#reservationModal .modal-body').fadeIn(function() {
 				$('#confirmation').remove();
 			});
 		});
@@ -201,14 +279,6 @@ function confirmPlusOne(plusOne, guests) {
 			});
 		});
 	});
-}
-
-function w3_open() {
-	document.getElementById("mySidebar").style.display = "block";
-}
-
-function w3_close() {
-	document.getElementById("mySidebar").style.display = "none";
 }
 
 // Check text to see if it matches the search criteria being entered

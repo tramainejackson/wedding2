@@ -58,7 +58,7 @@
 	</head>
 	<body>
 		<!-- Navbar (sticky bottom) -->
-		<div class="fixed-bottom rgba-white-strong">
+		<div class="fixed-bottom rgba-white-strong d-none d-lg-block">
 			<div class="d-flex align-items-center justify-content-around">
 				@if (Auth::check())
 					<a href="/" class="btn nav-link">Home</a>
@@ -83,7 +83,7 @@
 		</div>
 
 		<!-- Navbar (mobile) -->
-		<a href="#" onclick="w3_open()" class="w3-hide-medium w3-hide-large w3-padding w3-margin btn circle" style="position:fixed;z-index: 1;"><i class="material-icons">menu</i></a>
+		<a href="#" class="d-block d-lg-none" style="position:fixed;z-index: 1;"><i class="material-icons">menu</i></a>
 		<div class="w3-sidebar w3-hide-medium w3-hide-large" style="display:none;z-index:2;" id="mySidebar">
 			<ul>
 				<li>
@@ -129,9 +129,10 @@
 		@yield('wedding_information')
 
 		@yield('rsvp_information')
-
+		
+		@yield('footer')
 		<!-- Footer -->
-		<footer class="black white-text py-3">
+		<footer class="black white-text pt-5">
 			<div class="container">
 				<div class="row">
 					<div class="col-12 col-md-8">
@@ -177,7 +178,7 @@
 						{!! Form::close() !!}
 					</div>
 					
-					<div class="col-12 col-md-4" id="instagram_us">
+					<div class="col-12 col-md-4 mt-5 mt-md-2" id="instagram_us">
 						<h4 class="text-center">Instagram With Us</h4>
 
 						<div class="w3-display-container">
@@ -190,7 +191,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="container-fluid grey darken-4 text-center" style="margin-bottom: -15px;">
+			<div class="container-fluid grey darken-4 text-center">
 				<div class="row">
 					<div class="col">
 						<p class="m-0">&copy;&nbsp; & &reg;&nbsp; by Tramaine</p>
@@ -217,7 +218,5 @@
 		<script src="/js/materialize.min.js"></script>
 		<script src="/js/jquery.countdown.min.js"></script>
 		<script src="/js/myjs.js"></script>
-		
-		@yield('footer')
 	</body>
 </html>

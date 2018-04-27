@@ -4,57 +4,31 @@
 	.bgimg {
 		background-image: url("/images/bridalparty1.png");
 		min-height: 65%;
-	}
-	.container.partyPage {
-		background: linear-gradient(to right, floralwhite, #ffb07c, floralwhite, #c0fa8b, floralwhite);
-		background-position: center;
-		background-repeat: no-repeat;
+		background-position: center center;
 		background-size: cover;
-		background-attachment: fixed;
-		margin-left: 0 !important;
-		margin-right: 0 !important;
-		width: 100%;
-		max-width: 100%;
-		padding: 0% 15%;
-		position: relative;
 	}
-	.partyHeader {
-		background: linear-gradient(coral, rgba(255, 127, 80, 0.75), rgba(255, 127, 80, 0.5));
-		border-radius: 10px;
-	}
-@endsection
-
-@section('nav')
-	<!-- Navbar (sticky bottom) -->
-	<div class="w3-bottom w3-hide-small">
-	  <div class="w3-bar w3-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
-		<a href="/" style="width:20%" class="w3-bar-item w3-button">Home</a>
-		<a href="/#us" style="width:20%" class="w3-bar-item w3-button">Our Story</a>
-		<a href="/#wedding" style="width:20%" class="w3-bar-item w3-button">Wedding</a>
-		<a href="/party" style="width:20%" class="w3-bar-item w3-button w3-hover-black">Dream Team</a>
-		<a href="/#rsvp" style="width:20%" class="w3-bar-item w3-button w3-hover-black">RSVP</a>
-	  </div>
-	</div>
 @endsection
 
 @section('header')
 	<!-- Header / Home-->
-	<header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
-	  <div class="w3-display-middle w3-text-white w3-center partyHeader w3-padding">
-		<h1 class="w3-jumbo">Wedding Party</h1>
-		<h5 class="">- been down since day one</h5>
-	  </div>
+	<header class="view bgimg" id="home">
+		<div class="mask flex-column flex-center rgba-black-light">
+			<div class="partyHeader white-text text-center px-3">
+				<h1 class="display-3">Wedding Party</h1>
+				<h5 class="">- been down since day one</h5>
+			</div>
+		</div>
 	</header>
 
 	<!--- Into to Party --->
-	<div class="container partyPage">
+	<div class="partyPage">
 		<div id="partyPageBgrd"></div>
 
 		@for ($x = 0; $x < count($bridalParty); $x+=2)
 		
 			<!--- Matchup cards --->
-			<div class="w3-text-black">
-				<div class="row scrollfire{{$x}}" style="opacity:0;">
+			<div class="container wow fadeInUp">
+				<div class="row">
 					<div class="col s15 m5 l5 w3-hide-small">
 						<h2 class="center-align">{{ $bridalParty[$x]->title }}</h2>
 					</div>

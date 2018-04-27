@@ -8,6 +8,10 @@ body, html, .block {
 	height: 100%;
 }
 
+.wow {
+    visibility: hidden;
+}
+   
 .view {
 	min-height: 100vh;
 }
@@ -51,11 +55,30 @@ body, html, .block {
 }
 
 .notHomeHeader {
-	height: 250px;
+	min-height: 250px;
+}
+
+.partyHeader {
+	background: linear-gradient(coral, rgba(255, 127, 80, 0.75), rgba(255, 127, 80, 0.5));
+	border-radius: 10px;
 }
 
 .partyNav {
 	top: 0px;
+}
+
+.partyPage {
+	background: linear-gradient(to right, floralwhite, #ffb07c, floralwhite, #c0fa8b, floralwhite);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	width: 100%;
+	max-width: 100%;
+	padding: 0% 15%;
+	position: relative;
 }
 
 .divider {
@@ -77,6 +100,10 @@ body, html, .block {
     bottom: 0;
     left: 10%;
     right: 10%;
+}
+
+.fixed-bottom.rgba-white-strong:hover {
+    background: white;
 }
 
 .bgrdShadow {
@@ -109,13 +136,13 @@ body, html, .block {
 }
 
 .foodDescList {
-	height: 100vh;
+	height: 35%;
 	max-height: 100vh;
 	display: none;
 	position: fixed;
-	top: 0;
-	right: -25%;
-	max-width: 25%;
+	bottom: 0;
+	right: 00;
+	max-width: 100%;
 	background: white;
 	z-index: 50;
 }
@@ -330,6 +357,10 @@ p.deleteImg {
 		font-size: 150%;
 	}
 	
+	.closeFoodDesc {
+		margin-top: -5%;
+	}
+	
 	body:before {
 		content: "";
 		display: block;
@@ -368,12 +399,12 @@ p.deleteImg {
 	}
 
 	div#getting-started {
-		top: initial;
-		bottom: 1%;
-		left: 0%;
+		top: 5px;
+		bottom: initial;
+		left: initial;
+		right: 0px;
 		min-height: 100px;
 		height: 100px;
-		width: 100%;
 	}
 
 	span#countdownClock {
@@ -526,23 +557,18 @@ p.deleteImg {
 }
 
 @media only screen and (min-width: 576px) {
-	form[name="food_selection_form"] .w3-col.s6, form[name="food_selection_form"] .col.s6 {
-		width: 100%;
-		margin: 5px -8px;
-		padding: 0;
-	}
-	
-	form[name="food_selection_form"] .w3-col.s6 .btn {
-		width: 100%;
-		max-width: 100%;
-		word-wrap: break-word;
-		white-space: normal;
-		height: auto;
+	div#getting-started {
+		top: 5px;
+		bottom: initial;
+		left: initial;
+		right: 0px;
+		min-height: 100px;
+		height: 100px;
 	}
 	
 	.foodDescList {
 		max-width: 100%;
-		right: -100%;
+		height: 100%;
 	}
 	
 	.foodDescList .container .row {
@@ -567,7 +593,7 @@ p.deleteImg {
 		display: block;
 	}
 	
-	.view img	{
+	.view img {
 		position: absolute;
 		margin-left: -50%;
 		height: -webkit-fill-available;
@@ -576,7 +602,7 @@ p.deleteImg {
 
 @media only screen and (min-width: 768px) {
 	.foodDescList {
-		max-width: 19%;
+		/* max-width: 19%; */
 	}
 
 	.foodDescList h2 {
@@ -586,11 +612,26 @@ p.deleteImg {
 	.foodDescList img {
 		height: 150px;
 	}
+	
+	.view img {
+		margin-left: initial;
+	}
 }
 
 @media only screen and (min-width: 992px) {
+	div#getting-started {
+		position: absolute;
+		top: 1%;
+		left: 1%;
+		min-height: 200px;
+		height: 200px;
+		width: 200px;
+		text-align: -webkit-center;
+		text-align: center;
+	}
+
 	.foodDescList {
-		max-width: 19%;
+		max-height: 39%;
 	}
 	
 	.foodDescList h2 {
@@ -607,17 +648,23 @@ p.deleteImg {
 	}
 	
 	.view img {
+		margin-left: initial;
 		width: 100% !important;
+		height: auto;
 	}
 	
 	.storyTime {
 		padding: 50px 75px;
 	}
+	
+	.closeFoodDesc {
+		margin-top: -5%;
+	}
 }
 
 @media only screen and (min-width: 1200px) {
 	.foodDescList {
-		max-width: 23%;
+		/* max-width: 23%; */
 	}
 
 	.foodDescList h2 {
@@ -631,6 +678,11 @@ p.deleteImg {
 	.guestList span.badge {
 		width: initial;
 	}
+	
+	.closeFoodDesc {
+		margin-top: -1%;
+	}
+}
 }
 
 @media only screen and (min-width: 1400px) {

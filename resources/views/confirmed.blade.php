@@ -1,15 +1,23 @@
-<div class="container" id="confirmation" style="display:none;">
-	<h2 class="w3-center">Yayyyyyy</h2>
-	<h3 class="" style="text-align:justify">We were able to find your RSVP. Please let us know if you can make it.</h3>
-	<div class="w3-half center w3-margin-top">
-		<button class="w3-xlarge findRSVP btn orange darken-1" style="height:auto">Back</button>
+<div id="confirmation">
+	<div class="text-center">
+		<h2 class="h2-responsive">Yayyyyyy</h2>
+		<h3 class="h3-responsive text-justify">We were able to find your RSVP. Please let us know if you can make it.</h3>
 	</div>
-	<div class="w3-half center">
-		<div class="w3-margin-top w3-margin-bottom confirmRSVP">
-			<button class="w3-xlarge confirmRSVP green btn darken-2" onclick="confirmRSVP({{$foundGuest}}, '{{$email}}');" style="height:auto">Confirm</button>
+	<div class="d-flex align-items-center justify-content-around my-5">
+		<div class="col">
+			<button class="findRSVP btn btn-lg orange darken-1 w-100 mx-0">
+				<i class="fa fa-arrow-circle-left"></i>&nbsp;Back
+			</button>
 		</div>
-		<div class="w3-margin-top w3-margin-bottom">
-			<button class="w3-xlarge declineRSVP btn red accent-4" onclick="declineRSVP({{$foundGuest}}, '{{$email}}');" style="height:auto">Can't Make it</button>
+		<div class="col">
+			<button class="confirmRSVP btn btn-lg green darken-2 w-100 mx-0" onclick="confirmRSVP({{$foundGuest}}, '{{$email}}');">
+				<i class="fa fa-check" aria-hidden="true"></i>&nbsp;Confirm
+			</button>
+		</div>
+		<div class="col">
+			<button class="declineRSVP btn btn-lg red accent-4 w-100 mx-0" onclick="declineRSVP({{$foundGuest}}, '{{$email}}');">
+				<i class="fa fa-close" aria-hidden="true"></i>&nbsp;Can't Make It
+			</button>
 		</div>
 	</div>
 </div>
