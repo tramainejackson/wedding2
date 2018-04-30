@@ -10,20 +10,6 @@
 @endsection
 
 @section('header')
-	@if(session('status'))
-		<!-- RSVP Confirmation modal -->
-		  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="padding:32px;max-width:600px" id="confirmation_modal">
-			<div class="w3-container w3-white text-center">
-			  <h1 class="w3-wide">{{ session('status') }}</h1>
-			</div>
-			<span onclick="document.getElementById('confirmation_modal').style.display='none'" class="btn w3-display-topright">&times;</span>
-		  </div>
-	@endif
-	
-	@if(Auth::guest())
-		<a href="/login" style="position:absolute;z-index:2;background:transparent;right:20px;" class="btn btn-link btn-lg d-none d-md-block">Login</a>
-	@endif
-		
 	@include('welcome_header')
 @endsection
 

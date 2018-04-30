@@ -35,14 +35,6 @@
 				background-size: cover;
 			}
 			
-			div#confirmation_modal {
-				position: absolute;
-				z-index: 1;
-				top: 20px;
-				margin: 0% 25%;
-				background: rgba(255, 255, 255, 0.8);
-			}
-			
 			#us.w3-container, #test1 {
 				/* color: #000!important;
 				background-image: url("/images/gb4.jpg"); 
@@ -56,7 +48,7 @@
 			@yield('addt_style')
 		</style>
 	</head>
-	<body>
+	<body class="">
 		<!-- Navbar (sticky bottom) -->
 		<div class="fixed-bottom rgba-white-strong d-none d-lg-block">
 			<div class="d-flex align-items-center justify-content-around">
@@ -83,41 +75,69 @@
 		</div>
 
 		<!-- Navbar (mobile) -->
-		<a href="#" class="d-block d-lg-none" style="position:fixed;z-index: 1;"><i class="material-icons">menu</i></a>
-		<div class="w3-sidebar w3-hide-medium w3-hide-large" style="display:none;z-index:2;" id="mySidebar">
-			<ul>
+		<!-- SideNav slide-out button -->
+		<a href="#" data-activates="slide-out" class="btn btn-primary p-3 d-block d-lg-none button-collapse" style="position:fixed;z-index: 1;"><i class="material-icons">menu</i></a>
+		
+		<!-- Sidebar navigation -->
+		<div id="slide-out" class="side-nav fixed white">
+			<ul class="custom-scrollbar">
 				<li>
-					<div class="w3-display-container" style="margin-bottom:5px;">
-					  <div class="background">
-						<img class="w3-mobile" src="/images/at1.jpg">
-					  </div>
-					  <div id="getting-started" class=""><span id="countdownClock"></span></div>
+					<div class="position-relative">
+						<div class="background">
+							<img class="img-fluid" src="/images/at1.jpg">
+						</div>
+						<div id="side_nav_countdown" class="">
+							<span id="countdownClock"></span>
+						</div>
 					</div>
-					<a href="#" class="w3-display-topright"><i onclick="w3_close()" class="material-icons">clear</i></a>
 				</li>
 				@if (Auth::check())
-					<li><a href="/" class="w3-mobile btn waves-effect">Home</a></li>
-					<li><a href="/guest_list" class="w3-mobile waves-effect btn" onclick="w3_close()">Guest List</a></li>
-					<li><a href="/guest_list_food" class="w3-mobile btn waves-effect" onclick="w3_close()">Food Selections</a></li>
-					<li><a href="/photos/create" class="w3-mobile btn">Photos</a></li>
+					<li>
+						<a href="/" class="btn nav-link">Home</a>
+					</li>
+					<li>
+						<a href="/guest_list" class="btn nav-link">Guest List</a>
+					</li>
+					<li>
+						<a href="/guest_list_food" class="btn nav-link">Food Selections</a>
+					</li>
+					<li>
+						<a href="/photos/create" class="btn nav-link">Photos</a>
+					</li>
 					<li><div class="divider"></div></li>
 					<li>
-						<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w3-mobile btn">Logout</a>
+						<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn nav-link">Logout</a>
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 							{{ csrf_field() }}
 						</form>
 					</li>
 					</form>
 				@else
-					<li><a href="/" class="w3-mobile btn waves-effect">Home</a></li>
-					<li><a href="/#us" class="w3-mobile waves-effect btn" onclick="w3_close()">Our Story</a></li>
-					<li><a href="/#wedding" class="w3-mobile btn waves-effect" onclick="w3_close()">Wedding</a></li>
-					<li><a href="/party" class="w3-mobile btn">Dream Team</a></li>
-					<li><a href="/photos" class="w3-mobile btn">Photos</a></li>
-					<li><a href="/registry" class="w3-mobile btn">Registry</a></li>
-					<li><a href="/accommodations" class="w3-mobile btn">Accommodations</a></li>
+					<li>
+						<a href="/" class="btn nav-link">Home</a>
+					</li>
+					<li>
+						<a href="/#us" class="btn nav-link">Our Story</a>
+					</li>
+					<li>
+						<a href="/#wedding" class="btn nav-link">Wedding</a>
+					</li>
+					<li>
+						<a href="/party" class="btn nav-link">Dream Team</a>
+					</li>
+					<li>
+						<a href="/photos" class="btn nav-link">Photos</a>
+					</li>
+					<li>
+						<a href="/registry" class="btn nav-link">Registry</a>
+					</li>
+					<li>
+						<a href="/accommodations" class="btn nav-link">Accommodations</a>
+					</li>
 					<li><div class="divider"></div></li>
-					<li><a href="/login" class="w3-mobile btn">Login</a></li>
+					<li>
+						<a href="/login" class="btn nav-link">Login</a>
+					</li>
 				@endif
 			</ul>
 		</div>
@@ -131,6 +151,7 @@
 		@yield('rsvp_information')
 		
 		@yield('footer')
+		
 		<!-- Footer -->
 		<footer class="black white-text pt-5">
 			<div class="container">
@@ -215,7 +236,6 @@
 		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 		<!-- MDB core JavaScript -->
 		<script type="text/javascript" src="/js/mdb.min.js"></script>
-		<script src="/js/materialize.min.js"></script>
 		<script src="/js/jquery.countdown.min.js"></script>
 		<script src="/js/myjs.js"></script>
 	</body>

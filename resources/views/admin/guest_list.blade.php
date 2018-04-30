@@ -64,7 +64,7 @@
 						</li>
 						
 						@foreach($guests as $guest)
-							<li class="border-bottom py-2" style="opacity:0;">
+							<li class="border-bottom py-2 wow fadeInUp">
 								<div class="container-fluid">
 									<div class="row text-center justify-content-center">
 										<div class="col-12 col-md order-1 order-md-0 d-flex flex-column justify-content-center">

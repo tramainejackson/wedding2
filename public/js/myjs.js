@@ -5,8 +5,18 @@ $(document).ready(function() {
 		cache: false
 	});
 	
+	// Bring up modal for accommodations page for
+	// room block
+	$('#accommodations_page_modal, #confirmation_modal').modal('show');
+	
 	new WOW().init();
 	
+	// SideNav Button Initialization
+	$(".button-collapse").sideNav();
+	// SideNav Scrollbar Initialization
+	var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+	Ps.initialize(sideNavScrollbar);
+
 	$('.collapsible').collapsible();
 	
 	// Show the description of the food
@@ -87,41 +97,8 @@ $(document).ready(function() {
 		confirmPlusOne($('[name="plus_one"]').val(), $('[name="guest_id"]').val());
 	});
 	
-	// I should have added a description here before I 
-	// forgot what this does
-	$("body").on("click", ".material-icons", function(e) {
-		var $this = $(this);
-		var card = $this.parents(".card");
-		
-		if(card.find('.card-content').hasClass('hide-on-small-only')) {
-			card.find('.card-content').removeClass('hide-on-small-only').slideDown();
-		} else {
-			card.find('.card-content').slideUp(function() {
-				card.find('.card-content').addClass('hide-on-small-only')
-			});				
-		}
-	});
-	
-	// Show more of the bridal party member story
-	$("body").on("click", ".readMore", function(e) {
-		var $this = $(this);
-		var card = $this.parents(".card.large");
-		
-		$this.text("------ Read Less ------").removeClass("readMore").addClass("readLess");
-		card.removeClass("large");
-	});
-	
-	// Show less of the bridal party member story
-	$("body").on("click", ".readLess", function(e) {
-		var $this = $(this);
-		var card = $this.parents(".card");
-		
-		$this.text("------ Read Less ------").addClass("readMore").removeClass("readLess");
-		card.addClass("large");
-	});
-	
 	// Add countdown plugin
-	$("#getting-started #countdownClock, #home_countdown").countdown("2018/08/26", function(event) {
+	$("#getting-started #countdownClock, #side_nav_countdown #countdownClock, #home_countdown").countdown("2018/08/26", function(event) {
 		$(this).text(event.strftime('%D days %H:%M:%S'));
 	});
 	
@@ -172,7 +149,7 @@ $(document).ready(function() {
 				}
 			});
 			
-			if(error >= 0) {
+			if(error >= 1) {
 				toastr["error"]("Please make a food selection for both guest");
 				return false;
 			} else {

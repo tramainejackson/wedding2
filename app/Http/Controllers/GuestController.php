@@ -258,45 +258,50 @@ class GuestController extends Controller
      */
     public function food_selection(Request $request, Guests $guests)
     {
-		if(isset($request->add_guest_option)) {
-			$food_selection = new FoodSelection();
-			$food_selection->guests_id = $guests->id;
-			$food_selection->food_option = $request->food_option;
-			$food_selection->add_guest_id = $guests->plusOne->id;
-			$food_selection->add_guest_option = $request->add_guest_option;
-			
-			if($food_selection->save()) {
-				$guests->food_selected = 'Y';
-				$guests->responded = 'Y';
-				
-				if($guests->save()) {
-					if($guests->email != null) {
-						\Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
-					} else {
-						\Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
-					}
-				}
-			}
+		if($guests->food_option) {
+			return redirect('/')->with('status', 'Looks like you have a food selection already. If you don\'t believe you made a selection already. Please contact us and we will double check for you');
 		} else {
-			$food_selection = new FoodSelection();
-			$food_selection->guests_id = $guests->id;
-			$food_selection->food_option = $request->food_option;
-			
-			if($food_selection->save()) {
-				$guests->food_selected = 'Y';
-				$guests->responded = 'Y';
+			if(isset($request->add_guest_option)) {
+				$food_selection = new FoodSelection();
+				$food_selection->guests_id = $guests->id;
+				$food_selection->food_option = $request->food_option;
+				$food_selection->add_guest_id = $guests->plusOne->id;
+				$food_selection->add_guest_option = $request->add_guest_option;
 				
-				if($guests->save()) {
-					if($guests->email != null) {
-						\Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
-					} else {
-						\Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
+				if($food_selection->save()) {
+					$guests->food_selected = 'Y';
+					$guests->responded = 'Y';
+					
+					if($guests->save()) {
+						if($guests->email != null) {
+							// \Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
+						} else {
+							// \Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
+						}
+					}
+				}
+			} else {
+				$food_selection = new FoodSelection();
+				$food_selection->guests_id = $guests->id;
+				$food_selection->food_option = $request->food_option;
+				
+				if($food_selection->save()) {
+					$guests->food_selected = 'Y';
+					$guests->responded = 'Y';
+					
+					if($guests->save()) {
+						if($guests->email != null) {
+							\Mail::to($guests->email)->bcc('adc0426@gmail.com')->send(new Confirmation($guests));
+						} else {
+							\Mail::to('adc0426@gmail.com')->cc('jackson.tramaine3@gmail.com')->send(new Confirmation($guests));
+						}
 					}
 				}
 			}
+			
+			return redirect('/')->with('status', 'Looks like your all set. Thanks for confirming your RSVP and making your food selection. Can\'t wait to see you on the big day.');
 		}
 
-		return redirect('/')->with('status', 'Looks like your all set. Thanks for confirming your RSVP and making your food selection. Can\'t wait to see you on the big day.');
 	}
 	
 	/**

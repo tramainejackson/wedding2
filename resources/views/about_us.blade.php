@@ -41,7 +41,7 @@
 			</div>
 		</div>
 		<div class="text-center py-5 d-none d-md-block">
-			<img class="m-5 mw-100" src="/images/at3.jpg">
+			<img class="mw-100" src="/images/at3.jpg">
 		</div>
 	</div>
 	<div></div>

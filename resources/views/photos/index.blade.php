@@ -1,26 +1,35 @@
 @extends('layouts.app')
 
 @section('header')
-	@include('layouts.nav')
+	@include('layouts.header')
 @endsection
 
 @section('about_us')
-	<!-- About / Tramaine & Ashley -->
-	<div class="container photosPageContainer">
+	<!-- Photos Header -->
+	<div class="container text-center">
+		<div class="row">
+			<h2 class="h2-responsive m-0 py-3 w-100" style="font-family:'Lobster Two', cursive; background: linear-gradient(rgba(245, 248, 250, 0.85), rgba(255, 176, 124, 0.9));">Squad Goals</h2>
+		</div>
+	</div>
+	
+	<!-- Photos -->
+	<div class="container photosPageContainer position-relative">
 		@foreach ($photos as $photo)
 			<img class="mySlides w3-animate-zoom w3-mobile rot{{ $photo->description }}" src="{{ $photo->name }}">
 		@endforeach
 		
-		<button class="w3-button w3-black w3-display-left" onclick="plusPic(-1)">&#10094;</button>
+		<a class="btn btn-floating position-absolute middle left blue-gradient" onclick="plusPic(-1)"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></a>
 		
-		<button class="w3-button w3-black w3-display-right" onclick="plusPic(1)" style="">&#10095;</button>
+		<a class="btn btn-floating position-absolute middle right blue-gradient" onclick="plusPic(1)" style=""><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 
+	</div>
+
+	<!-- Photos Paginator -->
+	<div class="container" style="text-align:center; background: linear-gradient(rgba(255, 176, 124, 0.9), rgba(255, 176, 124, 0.9), rgba(245, 248, 250, 0.9));">
+		{{ $photos->links() }}
 		<div class="">
-			{{ $photos->links() }}
-			<div class="w3-center w3-padding">
-				<p class="">Select the next number to see the next set of 15 pictures</p>
-				<span id="imgCount" class=""></span>
-			</div>
+			<p class="">Select the next number to see the next set of 15 pictures</p>
+			<span id="imgCount" class=""></span>
 		</div>
 	</div>
 	

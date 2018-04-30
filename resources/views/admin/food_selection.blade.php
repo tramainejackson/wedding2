@@ -95,7 +95,7 @@
 						</div>
 					</li>
 					@foreach($guests as $guest)
-						<li class="border-bottom py-3" style="opacity:0;">
+						<li class="border-bottom py-3 wow fadeInUp">
 							<div class="container-fluid">
 								<div class="row text-center">
 									<div class="col-12 col-md order-1 order-md-0">

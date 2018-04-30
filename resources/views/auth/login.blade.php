@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('header')
-	@include('layouts.nav')
+	@include('layouts.header')
 @endsection
 
 @section('about_us')
 	<div class="container">
 		<div class="row align-items-center justify-content-center my-4">
-			<div class="col-4">
+			<div class="col-12 col-sm-10 col-md-8 col-xl-6 white rounded p-4 mx-auto">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h2 class="h2-responsive">Login</h2>

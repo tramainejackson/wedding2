@@ -29,46 +29,77 @@
 			<!--- Matchup cards --->
 			<div class="container wow fadeInUp">
 				<div class="row">
-					<div class="col s15 m5 l5 w3-hide-small">
-						<h2 class="center-align">{{ $bridalParty[$x]->title }}</h2>
-					</div>
-					<div class="col s2 m2 l2 w3-hide-small"><span>&nbsp;</span></div>
-					<div class="col s5 m5 l5 w3-hide-small">
-						<h2 class="center-align">{{ $bridalParty[$x+1]->title }}</h2>
-					</div>
-					<div class="col s12 m5 l5">
-						<div class="card large">
-							<div class="card-image">
-								<img src="{{ $bridalParty[$x]->image }}" class="responsive-image" />
-								<span class="card-title w3-mobile">{{ $bridalParty[$x]->name }}</span>
-								<span class="card-title-top w3-mobile hide-on-med-and-up">{{ $bridalParty[$x]->title }}</span>
-								<span class="w3-right btn btn-floating pulse hide-on-med-and-up" style="width: initial;height: initial;padding: 2px 5px;margin-top: -50px;margin-right: 15px;"><i class="material-icons">more_vert</i></span>
+					<!--Bride Card-->
+					<div class="col-12 col-md-8 col-lg-6 mx-auto my-2 my-lg-0">
+						<div class="card ovf-hidden">
+							<!-- Card image -->
+							<div class="view">
+								<img src="{{ $bridalParty[$x]->image }}" class="card-img-top img-fluid" />
+								<div class="mask rgba-white-slight">
+									<h2 class="w-100 py-3 rgba-black-strong text-center white-text">{{ $bridalParty[$x]->name }}</h2>
+								</div>
 							</div>
-							<div class="card-content hide-on-small-only">
-								<p class="">{{ $bridalParty[$x]->blurb }}</p>
+							
+							<!-- Card Body -->
+							<div class="card-body p-0">
+								<div class="card-title text-center">
+									<h2 class="h2-responsive py-3 m-0 coolText2 wedding-color-gradient white-text">{{ $bridalParty[$x]->title }}</h2>
+								</div>
+								<div class="card-text p-3">
+									<p class="">{{ substr($bridalParty[$x]->blurb, 0, 150) }}.....</p>
+
+									<a class="activator btn position-relative peach-gradient">Read More</a>
+								</div>
 							</div>
-							<div class="card-action hide-on-small-only">
-								<p class="w3-center readMore">------ Read More ------</p>
+							
+							<!-- Card reveal -->
+							<div class="card-reveal white">
+								<div class="card-title content-title">
+									<h2 class="h2-responsive py-3 px-4 m-0 coolText2 wedding-color-gradient white-text text-center">{{  $bridalParty[$x]->name . ' - ' . $bridalParty[$x]->title }}
+									<i class="fa fa-close text-muted font-smaill"></i>
+									</h2>
+								</div>
+								<div class="content-text p-3">
+									<p class="">{{ $bridalParty[$x]->blurb }}</p>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col s2 m2 l2">
-						<!--- <img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /> 
-						<img src="images/flower2.png" class="middeleImg valign-wrapper w3-hide-small" /> --->
-					</div>
-					<div class="col s12 m5 l5">
-						<div class="card large">
-							<div class="card-image">
-								<img src="{{ $bridalParty[$x+1]->image }}" class="responsive-image" />
-								<span class="card-title w3-mobile">{{ $bridalParty[$x+1]->name }}</span>
-								<span class="card-title-top w3-mobile hide-on-med-and-up">{{ $bridalParty[$x+1]->title }}</span>
-								<span class="w3-right btn btn-floating pulse hide-on-med-and-up" style="width: initial;height: initial;padding: 2px 5px;margin-top: -50px;margin-right: 15px;"><i class="material-icons">more_vert</i></span>
+
+					<!-- Groom Card -->
+					<div class="col-12 col-md-8 col-lg-6 mx-auto my-2 my-lg-0">
+						<div class="card ovf-hidden">
+							<!-- Card image -->
+							<div class="view">
+								<img src="{{ $bridalParty[$x+1]->image }}" class=" card-img-top img-fluid" />
+								<div class="mask rgba-white-slight">
+									<h2 class="w-100 py-3 rgba-black-strong text-center white-text">{{ $bridalParty[$x+1]->name }}</h2>
+								</div>
 							</div>
-							<div class="card-content hide-on-small-only">
-								<p class="">{{ $bridalParty[$x+1]->blurb }}</p>
+							
+							<div class="card-body p-0">
+								<div class="card-title text-center">
+									<h2 class="h2-responsive py-3 m-0 coolText2 wedding-color-gradient white-text">{{ $bridalParty[$x+1]->title }}</h2>
+								</div>
+								<div class="card-text p-3">
+									<p class="">{{ substr($bridalParty[$x+1]->blurb, 0, 150) }}.....</p>
+
+									<a class="activator btn position-relative peach-gradient">Read More</a>
+								</div>
 							</div>
-							<div class="card-action hide-on-small-only">
-								<p class="w3-center readMore">------ Read More ------</p>
+							
+							<!-- Card reveal -->
+							<div class="card-reveal white">
+								<div class="content">
+									<div class="card-title content-title">
+										<h2 class="h2-responsive py-3 px-4 m-0 coolText2 wedding-color-gradient white-text text-center">{{ $bridalParty[$x+1]->name . ' - ' . $bridalParty[$x+1]->title }}
+										<i class="fa fa-close text-muted font-smaill"></i>
+										</h2>
+									</div>
+									<div class="content-text p-3">
+										<p class="">{{ $bridalParty[$x+1]->blurb }}</p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

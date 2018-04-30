@@ -6,25 +6,31 @@
 
 @section('about_us')
 	<!-- Modal for Accommodations -->
-	<div class="modal fade">
-		<div class="w3-modal-content w3-animate-zoom">
-			<span class="w3-button w3-display-topright fa fa-close"></span>
-			<div class="">
-				<h2 class=" w3-padding" style="background: darkred; color: whitesmoke;">Room Block</h2>
-			</div>
-			<div class="">
-				<h2 class="" style="margin-bottom:2px;">There is a block of rooms reserved for a discounted rate of $119.00 a night at the hotel listed below.</h2>
-				<p class="" style="color:darkred;">**Block Is Under The Clark and Jackson Wedding Party**</p>
-			</div>
-			<div class="col s12 offset-m4 m4 l4 w3-padding">
-				<h2 class=" w3-padding" style="margin:5px; padding-bottom:0px !important;">Wingate by Wyndham Hotel</h2>
-				<h3 class="" style="margin:5px;"><i>(856) 627-1000</i></h3>
-				<h4 class="" style="margin:5px;"><a href="http://www.wingatehotels.com" target="_blank" class="">www.wingatehotels.com</a></h4>
-				<h5 class="" style="margin:5px;">(4.5 miles)</h5>
+	<div class="modal fade" id="accommodations_page_modal">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header" style="background: darkred; color: whitesmoke;">
+					<div class="">
+						<h2 class="w3-padding">Room Block</h2>
+					</div>
+					<span class="fa fa-close white-text" data-dismiss="modal" aria-label="Close"></span>
+				</div>
+				<div class="modal-body">
+					<div class="text-center">
+						<h2 class="">There is a block of rooms reserved for a discounted rate of $119.00 a night at the hotel listed below.</h2>
+						<p class="" style="color:darkred;">**Block Is Under The Clark and Jackson Wedding Party**</p>
+					</div>
+					<div class="text-center">
+						<h2 class="">Wingate by Wyndham Hotel</h2>
+						<h3 class=""><i>(856) 627-1000</i></h3>
+						<h4 class=""><a href="http://www.wingatehotels.com" target="_blank" class="">www.wingatehotels.com</a></h4>
+						<h5 class="">(4.5 miles)</h5>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- Accommodations -->
 	<div class="container accommodationsPage">
 		<div class="row pt-5">

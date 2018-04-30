@@ -1,5 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Allerta+Stencil|Artifika|Cinzel+Decorative|Fanwood+Text|Fredericka+the+Great|Fugaz+One|Germania+One|Graduate|Grand+Hotel|IM+Fell+Double+Pica|Montserrat|Slabo+27px|Source+Sans+Pro|Sedgwick+Ave+Display|Raleway|Lobster+Two|Indie+Flower);
 
+/** Different Text **/
+.coolText1 {font-family: 'Fredericka the Great', cursive;}
+.coolText2 {font-family: 'Cinzel Decorative', cursive;}
+.coolText3 {font-family: 'Allerta Stencil', cursive;}
+.coolText4 {font-family: 'Fanwood Text', cursive;}
+.coolText5 {font-family: 'Germania One', cursive;}
+/** .Different Text **/
+
 body,h1,h2{
 	font-family: "Raleway", sans-serif;
 }
@@ -11,14 +19,20 @@ body, html, .block {
 .wow {
     visibility: hidden;
 }
-   
-.view {
+
+.wedding-color-gradient {
+    background: -webkit-linear-gradient(50deg,#6fff8e,#FC6262)!important;
+    background: linear-gradient(40deg,#6fff8e,#FC6262)!important;
+}
+
+#home.welcomeHeader.view {
 	min-height: 100vh;
 }
 
-.parallax-container {
-	height: 500px;
+#home.welcomeHeader.view img {
+	width: 100%;
 }
+
 
 .container {
     max-width: 100% !important;
@@ -29,6 +43,7 @@ body, html, .block {
 .top {top: 0px;}
 .left {left: 0px;}
 .right {right:0px;}
+.middle {top:45% !important;}
 
 .btn.nav-link {
 	color: black !important;
@@ -36,6 +51,11 @@ body, html, .block {
 
 .hidden {
 	display: none;
+}
+
+.side-nav a {
+    height: initial;
+    line-height: initial;
 }
 
 .scrollImg, .scrollImg2 {
@@ -77,12 +97,13 @@ body, html, .block {
 	margin-right: 0 !important;
 	width: 100%;
 	max-width: 100%;
-	padding: 0% 15%;
+	padding: 5% 0%;
 	position: relative;
 }
 
 .divider {
 	margin: 10% 0%;
+	border-bottom: solid 1px darkgray;
 }
 
 .card .card-image img {
@@ -296,6 +317,15 @@ span#countdownClock {
     background: rgba(245, 245, 220, 0.8);
     padding: 3%;
 	position: absolute;
+    left: 20%;
+    bottom: 45%;
+    border-radius: 15px;
+}
+
+#side_nav_countdown span#countdownClock {
+    background: rgb(229, 185, 148);
+    padding: 3%;
+    position: absolute;
     left: 20%;
     bottom: 45%;
     border-radius: 15px;
@@ -549,7 +579,7 @@ p.deleteImg {
 		margin: 0% auto !important;
 	}
 	
-	.view img	{
+	#home.welcomeHeader.view img	{
 		position: absolute;
 		margin-left: -50%;
 		height: -webkit-fill-available;
@@ -564,6 +594,14 @@ p.deleteImg {
 		right: 0px;
 		min-height: 100px;
 		height: 100px;
+	}
+	
+	 ul.pagination {
+		display: inline-table;
+	}
+	
+	ul.pagination li {
+		display: inline-block;
 	}
 	
 	.foodDescList {
@@ -593,9 +631,8 @@ p.deleteImg {
 		display: block;
 	}
 	
-	.view img {
+	#home.welcomeHeader.view img {
 		position: absolute;
-		margin-left: -50%;
 		height: -webkit-fill-available;
 	}
 }
@@ -613,7 +650,7 @@ p.deleteImg {
 		height: 150px;
 	}
 	
-	.view img {
+	#home.welcomeHeader.view img {
 		margin-left: initial;
 	}
 }
@@ -647,7 +684,7 @@ p.deleteImg {
 		display: initial;
 	}
 	
-	.view img {
+	#home.welcomeHeader.view img {
 		margin-left: initial;
 		width: 100% !important;
 		height: auto;
@@ -683,27 +720,9 @@ p.deleteImg {
 		margin-top: -1%;
 	}
 }
-}
 
 @media only screen and (min-width: 1400px) {
-	.foodDescList .row {
-		display: -ms-flexbox;
-		display: -webkit-box;
-		display: flex;
-		-ms-flex-align: center;
-		-webkit-box-align: center;
-		align-items: center;
-	}
-	
-	.foodDescList h2 {
-		font-size: 275%;
-	}
-
-	.foodDescList img {
-		height: 190px;
-	}
-	
-	.card.large {
-		height: 850px;
+	.side-nav.fixed {
+		display: none !important;
 	}
 }
