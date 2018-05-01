@@ -25,6 +25,15 @@
 
 @section('about_us')
 	<div class="container py-5">
+		@if(session('status'))
+			<span class="hidden returnMessage">{{ session('status') }}</span>
+			@section('addt_script')
+				<script type="text/javascript">
+					toastr["success"]($('.returnMessage').text());
+				</script>
+			@endsection
+		@endif
+		
 		<div class="row">
 			<div class="col text-right">
 				<a class="btn btn-lg orange darken-2 mx-0 my-3" href="/photos/show">All Photos</a>

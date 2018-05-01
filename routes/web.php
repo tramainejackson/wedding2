@@ -64,6 +64,8 @@ Route::post('/guest_list/create', 'GuestController@create');
 
 Route::patch('/guest_list/{guest}/edit', 'GuestController@update2')->middleware('auth');
 
+Route::delete('/guest_list/{guests}', 'GuestController@destroy')->middleware('auth');
+
 Route::get('/party', 'BridalPartyController@index');
 
 Route::post('/food_selection/{guests}', 'GuestController@food_selection');

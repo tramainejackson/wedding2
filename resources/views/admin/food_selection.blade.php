@@ -26,15 +26,14 @@
 @section('about_us')
 	@if(count($guests) > 0)
 		<div class="container">
-	
 			@if(session('status'))
-				<div class="w3-row">
-					<div class="w3-card-4 w3-green w3-round-medium">
-						<h2 class="">{{ session('status') }}</h2>					
-					</div>
-				</div>
-			@endif
-			
+				<span class="hidden returnMessage">{{ session('status') }}</span>
+				@section('addt_script')
+					<script type="text/javascript">
+						toastr["success"]($('.returnMessage').text());
+					</script>
+				@endsection
+			@endif	
 			<!-- Food selection seach option -->
 			<div class="row my-5">
 				<div class="col-12 col-md-4">
@@ -124,28 +123,21 @@
 									<div class="col d-flex flex-column justify-content-center align-items-center">
 										<!-- Guest food selection -->
 										@if($guest->food_option)
-											@if($guest->food_selected == 'Y')
-												<span class="">{{ ucfirst($guest->food_option->food_option) }}</span>
-											@else
-												<span class="">No Selection Yet</span>
-											@endif
+											<span class="">{{ $guest->food_option->food_option == 'blank' ? 'No Selection Yet' : ucfirst($guest->food_option->food_option) }}</span>
 										@else
 											<span class="">No Selection Yet</span>
 										@endif
 										
-										@if($guest->food_option)
-												@if($guest->food_selected == 'Y')
-													<span class="">{{ ucfirst($guest->food_option->add_guest_option) }}</span>
-												@else
-													<span class="">No Selection Yet</span>
-												@endif
+										@if($guest->plusOne)
+											@if($guest->food_option)
+												<span class="">{{ $guest->food_option->add_guest_option == 'blank' ? 'No Selection Yet' : ucfirst($guest->food_option->add_guest_option) }}</span>
 											@else
 												<span class="">No Selection Yet</span>
 											@endif
+										@endif
 									</div>
 								</div>
 							</div>
-							
 						</li>
 					@endforeach
 				</ul>

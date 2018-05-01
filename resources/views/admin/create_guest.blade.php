@@ -51,12 +51,12 @@
 							<span class="text-red">{{ $errors->first('name') }}</span>
 						@endif
 					</div>
-					<div class="md-form col s6">
+					<div class="md-form">
 						<input id="plus_one" class="form-control" type="text" name="plus_one" value="{{ old('plus_one') }}" placeholder="Add A Plus One" />
 						
 						<label for="plus_one" class="">Plus One Name</label>
 					</div>
-					<div class="md-form col s6">
+					<div class="md-form">
 						<input id="email" class="form-control" type="email" name="email" value="{{ old('email') }}" placeholder="Add An Email Address" />
 						
 						<label for="email" class="">Email Address</label>

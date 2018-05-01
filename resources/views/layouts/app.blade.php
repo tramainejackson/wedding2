@@ -238,5 +238,7 @@
 		<script type="text/javascript" src="/js/mdb.min.js"></script>
 		<script src="/js/jquery.countdown.min.js"></script>
 		<script src="/js/myjs.js"></script>
+		
+		@yield('addt_script')
 	</body>
 </html>

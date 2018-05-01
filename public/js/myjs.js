@@ -10,7 +10,7 @@ $(document).ready(function() {
 	$('#accommodations_page_modal, #confirmation_modal').modal('show');
 	
 	new WOW().init();
-	
+
 	// SideNav Button Initialization
 	$(".button-collapse").sideNav();
 	// SideNav Scrollbar Initialization
@@ -30,14 +30,43 @@ $(document).ready(function() {
 	
 	$('.mdb-select').material_select();
 	
-	// Create a toggle for the decline/confirm invite checkbox
+	// Create a toggle for the decline/confirm invite checkbox (two different color buttons)
 	$("body").on("click", ".editGuestForm .inviteCheck", function(e) {
-		if($(this).attr('id') == 'rsvpYes') {
-			$(this).attr('checked', 'checked');
-			$('.editGuestForm #rsvpNo').removeAttr('checked');
+		// Check and see if either button is already selected
+		if($(this).children().attr('checked') == 'checked'||  $(this).siblings().children().attr('checked') == 'checked') { 
+			if($(this).attr('id') == 'rsvpYes') {
+				$(this).toggleClass('active green stylish-color-dark');
+				$(this).siblings().toggleClass('active red stylish-color-dark');
+
+				if($(this).children().attr('checked') == 'checked') {
+					$(this).children().removeAttr('checked');
+					$(this).siblings().children().attr('checked', 'checked');
+				} else {
+					$(this).children().attr('checked', 'checked');
+					$(this).siblings().children().removeAttr('checked');
+				}
+			} else if($(this).attr('id') == 'rsvpNo') {
+				$(this).siblings().toggleClass('active green stylish-color-dark');
+				$(this).toggleClass('active red stylish-color-dark');
+
+				if($(this).children().attr('checked') == 'checked') {
+					$(this).siblings().children().attr('checked', 'checked');
+					$(this).children().removeAttr('checked');
+				} else {
+					$(this).children().attr('checked', 'checked');
+					$(this).siblings().children().removeAttr('checked');
+				}
+			}
 		} else {
-			$(this).attr('checked', 'checked');
-			$('.editGuestForm #rsvpYes').removeAttr('checked');
+			// Since no input already selected, make this input checked and 
+			// do nothing with the other one
+			$(this).children().attr('checked', 'checked');
+			
+			if($(this).attr('id') == 'rsvpYes') {
+				$(this).toggleClass('active green stylish-color-dark');
+			} else {
+				$(this).toggleClass('active red stylish-color-dark');
+			}
 		}
 	});
 
@@ -364,3 +393,8 @@ function filePreview(input) {
 		}
     }
 }
+
+// MDB Lightbox Init
+$(function () {
+	$("#mdb-lightbox-ui").load("/addons/mdb-lightbox-ui.html");
+});

@@ -26,11 +26,12 @@
 @section('about_us')
 	<div class="container">
 		@if(session('status'))
-			<div class="row">
-				<div class="w3-card-4 w3-green w3-round-medium">
-					<h2 class="text-center">{{ session('status') }}</h2>					
-				</div>
-			</div>
+			<span class="hidden returnMessage">{{ session('status') }}</span>
+			@section('addt_script')
+				<script type="text/javascript">
+					toastr["info"]($('.returnMessage').text());
+				</script>
+			@endsection
 		@endif
 		
 		@if(count($guests) > 0)
@@ -51,7 +52,7 @@
 			<div class="row my-5">
 				<div class="col-12">
 					<ul class="list-unstyled guestList">
-						<li class="guestListHeader" style="opacity:0;">
+						<li class="guestListHeader">
 							<div class="container-fluid">
 								<div class="row text-center">
 									<p class="col d-none d-md-block"></p>

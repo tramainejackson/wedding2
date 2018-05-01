@@ -26,11 +26,12 @@
 @section('about_us')
 	<div class="container py-5">
 		@if(session('status'))
-			<div class="row">
-				<div class="w3-card-4 w3-green w3-round-medium">
-					<h2 class="text-center">{{ session('status') }}</h2>					
-				</div>
-			</div>
+			<span class="hidden returnMessage">{{ session('status') }}</span>
+			@section('addt_script')
+				<script type="text/javascript">
+					toastr["success"]($('.returnMessage').text());
+				</script>
+			@endsection
 		@endif
 		<div class="row">
 			<div class="col text-center">				
@@ -43,13 +44,13 @@
 			<div class="row">
 				<div class="md-form col">
 					<div class="d-flex align-items-center justify-content-center">
-						<button class="inviteCheck btn{{ $guest->rsvp == 'Y' ? ' green active' : ' stylish-color-dark' }}" type="button">Comfirmed Invite
-							<input class="" type="checkbox" name="rsvpYes" id="rsvpYes"{{ $guest->rsvp == "Y" ? ' checked' : '' }} />
+						<button class="inviteCheck btn{{ $guest->rsvp == 'Y' ? ' green active' : ' stylish-color-dark' }}"  id="rsvpYes" type="button">Comfirmed Invite
+							<input hidden class="hidden" type="checkbox" name="rsvpYes" value="Y"{{ $guest->rsvp == "Y" ? ' checked' : '' }} />
 						</button>
 
 
-						<button class="inviteCheck btn{{ $guest->rsvp == 'N' ? ' red active' : ' stylish-color-dark' }}" type="button">Declined Invite
-							<input class="" type="checkbox" name="rsvpNo" id="rsvpNo" class="" {{ $guest->rsvp == "N" ? 'checked' : '' }} />
+						<button class="inviteCheck btn{{ $guest->rsvp == 'N' ? ' red active' : ' stylish-color-dark' }}" id="rsvpNo" type="button">Declined Invite
+							<input hidden class="hidden" type="checkbox" name="rsvpNo" value="Y"{{ $guest->rsvp == "N" ? ' checked' : '' }} />
 						</button>
 					</div>
 				</div>
@@ -76,9 +77,57 @@
 				<div class="md-form">
 					<button class="btn red accent-2 m-0" type="submit">Save Changes</button>
 					
-					<button class="btn yellow darken-4" type="button">Remove Invite</button>
+					<button class="btn yellow darken-4" type="button" data-toggle="modal" data-target="#delete_guest_modal">Remove Invite</button>
 				</div>
 			</div>
 		{!! Form::close() !!}
+	</div>
+	
+	<!-- Delete guest confirmation modal -->
+	<div class="modal fade" id="delete_guest_modal" tabindex="-1" role="dialog" aria-labelledby="deleteGuestModal" aria-hidden="true" data-backdrop="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="">Delete Guest</h2>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					{!! Form::model($guest, [ 'action' => ['GuestController@destroy', $guest->id], 'method' => 'DELETE', 'class' => 'removeGuestForm']) !!}
+						<div class="">
+							<span>Are you sure you want to delete this guest?</span>
+						</div>
+						<div class="my-3">
+							<table class="table table-responsive-md">
+								<thead class="danger-color-dark white-text">
+									<tr>
+										<th>Name</th>
+										<th>Email Address</th>
+										<th>Plus One</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>{{ $guest->name }}</td>
+										<td>{{ $guest->name }}</td>
+										
+										@if($guest->plusOne)
+											<td>{{ $guest->plusOne->name }}</td>
+										@else
+											<td>No Plus One Added</td>
+										@endif
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="d-flex flex-colum flex-lg-row align-items-center justify-content-around">
+							<button class="btn danger-color-dark" type="Submit">Remove</button>
+							<button class="btn close p-3 yellow darken-2" type="button" data-dismiss="modal">Cancel</button>
+						</div>
+					{!! Form::close() !!}
+				</div>
+			</div>
+		</div>
 	</div>
 @endsection

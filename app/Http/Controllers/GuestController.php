@@ -57,27 +57,26 @@ class GuestController extends Controller
      */
     public function create(Request $request)
     {
+		// dd($request);
 		$this->validate(request(), [
 			'name' => 'required'
 		]);
 		
 		$guest = new Guests();
         $guest->name = ucwords(strtolower(trim($request->name)));
-		$guest->rsvp = isset($request->rsvp) ? 'Y' : null;
 		$guest->email = $request->email;
 		
 		if($guest->save()) {
 			// If user entered a plus one for the invitation
-			if(isset($request->plus_one)) {
+			if($request->plus_one != null) {
 				$guest->plusOne()->create([
-					'rsvp' => $guest->rsvp, 
 					'name' => $request->plus_one,
 					'added_by' => 'admin'
 				]);
 			}
-		}
 
-		return redirect()->action('GuestController@index')->with('status', 'You have successfully added a new invite');
+			return redirect()->action('GuestController@edit', $guest)->with('status', 'You have successfully added a new invite');
+		}
     }
 
     /**
@@ -208,39 +207,54 @@ class GuestController extends Controller
     {
 		// dd($request);
 		$guest->name = $request->name;
-		$plusOneOption = $request->plus_one;
-		$guest->responded = null;
-		$guest->rsvp = null;
+		$guest->responded = 'Y';
 		$guest->email = $request->email;
-		
-		if($request->name == null) {
-			$guest->delete();
-			
-			return redirect()->action('GuestController@index', $guest)->with('status', 'Invitation Successfully Removed');
-		}
+		$plusOneOption = $request->plus_one;
 		
 		if(isset($request->rsvpYes)) {
 			$guest->rsvp = "Y";
-			$guest->responded = 'Y';
 		} elseif(isset($request->rsvpNo)) {
 			$guest->rsvp = "N";
-			$guest->responded = 'Y';
 		}
 
-		if($plusOneOption == "") {
-			if($guest->plusOne) { $guest->plusOne()->delete();	}
-		} else {
-			if($guest->plusOne) { 
+		if($guest->plusOne) { 
+			if($plusOneOption == "") {
+				// If there is a plus one in the db for the 
+				// guest and that addt_guest guest was removed, 
+				// then delete the plus one
+				if($guest->plusOne()->delete()) {
+					// If there is a food option then make the addt
+					// guest options null
+					if($guest->food_option) {
+						$guest->food_option->add_guest_id = null;
+						$guest->food_option->add_guest_option = null;
+						$guest->food_option->save();
+					}
+				}
+			} else {
 				$guest->plusOne->update([
 					'rsvp' => $guest->rsvp, 
 					'name' => $plusOneOption
 				]); 
-			} else {
+			}
+		} else {
+			if($plusOneOption != "") {
 				$guest->plusOne()->create([
 					'rsvp' => $guest->rsvp, 
 					'name' => $plusOneOption,
 					'added_by' => 'admin'
-				]); 				
+				]);
+			}
+
+		}
+		
+		// If the RSVP was declined, then remove any food selections
+		// and make food selected null
+		if($guest->rsvp == "N") {
+			$guest->food_selected = null;
+			
+			if($guest->food_option) {
+				$guest->food_option->delete();
 			}
 		}
 		
@@ -349,25 +363,38 @@ class GuestController extends Controller
     {
 		// dd($request);
 		if($guests->food_option) {
-			$guests->food_option->food_option = $request->food_option;
-			
-			if($guests->plusOne) {
-				$guests->food_option->add_guest_option = $request->add_guest_option;
+			if($request->food_option == 'blank') {
+				$guests->food_selected = null;
+				$guests->responded = null;
+				$guests->save();
+				
+				if($guests->plusOne) {
+					$guests->food_option->food_option = $request->food_option;
+					$guests->food_option->add_guest_option = $request->add_guest_option;
+				} else {
+					if($guests->food_option->delete()) {
+						return redirect()->action('GuestController@admin_food_selection')->with('status', 'Food Selections Updated');
+					}
+				}
+			} else {
+				$guests->food_option->food_option = $request->food_option;
+				
+				// Update plus one food option
+				if($guests->plusOne) {
+					$guests->food_option->add_guest_option = $request->add_guest_option;
+				}
 			}
 			
 			if($guests->food_option->save()) {
-				$guest = $guests;
-				$foodSelection = $guests->food_option;
-				
-				return redirect()->action('GuestController@edit_food_selection', compact('guest', 'foodSelection'))->with('status', 'Food Selections Updated');
+				return redirect()->back()->with('status', 'Food Selections Updated');
 			}
 		} else {
+			$food_selection = new FoodSelection();
 			$guests->rsvp = 'Y';
-			$guests->food_selected = 'Y';
 			$guests->responded = 'Y';
+			$guests->food_selected = 'Y';
 
 			if($guests->save()) {
-				$food_selection = new FoodSelection();
 				$food_selection->guests_id = $guests->id;
 				$food_selection->food_option = $request->food_option;
 				
@@ -380,14 +407,13 @@ class GuestController extends Controller
 					$guest = $guests;
 					$foodSelection = $food_selection;
 					
-					return redirect()->action('GuestController@edit_food_selection', compact('guest', 'foodSelection'))->with('status', 'Food Selections Updated');
 				}
 			}
 
+			return redirect()->back()->with('status', 'Food Selections Updated');
 		}
 	}
-	
-	
+
     /**
      * Remove the specified resource from storage.
      *
@@ -439,8 +465,7 @@ class GuestController extends Controller
 			return view('no_invite', compact('first', 'last', 'email', 'name'));
 		}
     }
-	
-	
+
 	/**
      * Remove the specified resource from storage.
      *
@@ -494,8 +519,22 @@ class GuestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Guests $guests)
     {
-        //
+        // dd($guests);
+		if($guests->delete()) {
+			// If there is a addt guest then remove guest
+			if($guests->plusOne) {
+				$guests->plusOne->delete();
+			}
+			
+			// If there is a food option for the guest then remove 
+			// food option
+			if($guests->food_option) {
+				$guests->food_option->delete();
+			}
+			
+			return redirect()->action('GuestController@index', $guests)->with('status', 'Invitation Successfully Removed');
+		}
     }
 }
