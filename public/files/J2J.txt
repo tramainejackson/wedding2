@@ -4,6 +4,7 @@
 
 Fix paypal issue
 Add option to delete photos
+Guest need to be able to delete their plus one
 Done - Fix my story
 Done - Add search feature to guest list and food selection list
 Done - Add a food options tab in the admin side
