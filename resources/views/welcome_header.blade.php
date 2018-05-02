@@ -24,8 +24,8 @@
 	
 <!-- Header / Home-->
 <header class="view bgimg white-text welcomeHeader" id="home">
-	<img src="/images/at2.jpg" class="" alt="Home Hero Image" />
-	
+	<!-- <img src="/images/at2.jpg" class="" alt="Home Hero Image" /> -->
+
 	<div class="mask flex-center text-center">
 		<div class="headerContent">
 			<h1 class="display-2">Ashley & Tramaine</h1>

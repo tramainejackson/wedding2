@@ -27,6 +27,10 @@ body, html, .block {
 
 #home.welcomeHeader.view {
 	min-height: 100vh;
+	background-image: url(/images/at2.jpg);
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #home.welcomeHeader.view img {

@@ -120,10 +120,10 @@ $(document).ready(function() {
 		});
 	});
 	
-	// Not sure what this does right this moment
-	$('[name="plus_one_selection_form"]').on('submit', function() {
-		event.preventDefault();
-		confirmPlusOne($('[name="plus_one"]').val(), $('[name="guest_id"]').val());
+	// When a guest adds a plus one, submit form via Ajax
+	$('body').on('click', 'button.sendPlusOne', function(e) {
+		e.preventDefault();
+		confirmPlusOne($('.plusOneSelectionForm [name="plus_one"]').val(), $('.plusOneSelectionForm [name="guest_id"]').val());
 	});
 	
 	// Add countdown plugin
@@ -252,7 +252,6 @@ function declineRSVP(rsvp, email) {
 	
 	.done(function(data) {
 		var newData = $(data);
-		console.log($(newData));
 		$('#confirmation').fadeOut(function() {
 			$(newData).appendTo('#reservationModal .modal-body').fadeIn(function() {
 				$('#confirmation').remove();
@@ -276,11 +275,9 @@ function confirmPlusOne(plusOne, guests) {
 	.done(function(data) {
 		var newData = $(data);
 		var currentFoodSelectionDiv = $('.foodSelectionDiv');
-		
-		$(newData).appendTo('#id01.w3-modal .w3-modal-content');
-		$('select').material_select();
+
 		$(currentFoodSelectionDiv).slideUp(function() {
-			$(newData).slideDown(function() {
+			$(newData).appendTo('#reservationModal .modal-body').slideDown(function() {
 				$(currentFoodSelectionDiv).remove();
 			});
 		});

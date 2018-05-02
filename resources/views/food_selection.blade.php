@@ -105,51 +105,52 @@
 			<div class="" id="">
 				<h3 class="">Thanks for confirming your reservation {{ $guests->name }}.</h3>
 			</div>
-			<div class="plusOneOption w3-margin-bottom w3-padding-16">
+			<div class="plusOneOption mb-4">
 				<h3 class="">Are You Bringing A Plus One?</h3>
-				<button type="button" class="yesPO btn">Yes</button>
-				<button type="button" class="noPO btn">No</button>
+				<button type="button" class="yesPO btn green darken-1">Yes</button>
+				<button type="button" class="noPO btn red darken-1">No</button>
 			</div>
-			<div class="plusOneSelectionForm w3-margin-top w3-padding-32" style="display:none;">
-				<form name="plus_one_selection_form" class="" action="" method="POST">
+			
+			<div class="plusOneSelectionForm my-3" style="display:none;">
+				<form name="plus_one_selection_form" class="" method="PATCH">
 					<div class="md-form">
-						<input type="text" name="plus_one" class="w3-large" value="{{ old('plus_one') }}" placeholder="Enter Full Name" disabled />
-						<label for="plus_one" class="w3-medium">Plus One Name</label>
+						<input type="text" name="plus_one" class="form-control" value="{{ old('plus_one') }}" placeholder="Enter Full Name" disabled />
+						
+						<label for="plus_one" class="">Plus One Name</label>
 					</div>
 					<div class="">
-						<input type="number" name="guest_id" class="hidden" value="{{$guests->id}}" hidden />
-						<input type="submit" name="submit" class="btn green" value="Add Plus One" />
+						<input type="number" name="guest_id" class="hidden form-control" value="{{$guests->id}}" hidden />
+						
+						<button type="button" class="btn green sendPlusOne">Add Plus One</button>
 					</div>
 				</form>
-				<script>
-					$('select').material_select();
-				</script>
 			</div>
+			
 			<div class="foodSelectionForm" style="display:none;">
-				<h3 class="">Select food option for {{ $guests->name }}</h3>
+				<div class="col-12 text-center mb-4">
+					<h3 class="h3-responsive" style="background: linear-gradient(#d4be95, beige, rgba(0, 0, 0, 0));">Select food option for {{ $guests->name }}</h3>
+				</div>
 				<form name="food_selection_form" class="" action="/food_selection/{{ $guests->id }}" method="POST">
 					{{ csrf_field() }}
 					
-					<div class="w3-container w3-padding">
+					<div class="container-fluid">
 						<div class="md-form">
-							<select class="browser-default foodSelectionSelect" name="food_option" disabled>
+							<select class="mdb-select foodSelectionSelect" name="food_option">
 								<option value="" disabled selected>Choose your food option</option>
-								<option class="tooltip" value="chicken">Grilled Mediterranean Chicken
+								<option class="" value="chicken">Grilled Mediterranean Chicken
 								</option>
-								<option class="tooltip" value="beef">Grilled Rib-Eye</option>
-								<option class="tooltip" value="seafood">Stuffed Salmon</option>
+								<option class="" value="beef">Grilled Rib-Eye</option>
+								<option class="" value="seafood">Stuffed Salmon</option>
 							</select>
 						</div>
 					</div>
-					<div class="w3-container w3-padding">
-						<div class="w3-row-padding">
-							<div class="w3-col s6 text-left">
-								<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col">
+								<button type="submit" class="btn green">Confirm Food Selections</button>
 							</div>
-							<div class="w3-col s6 text-right">
-								<div class="">
-									<button type="button" class="btn pink lighten-2 foodDescrBtn">Food Descriptions</button>
-								</div>
+							<div class="col">
+								<button type="button" class="btn pink lighten-2 foodDescrBtn">Food Descriptions</button>
 							</div>
 						</div>
 					</div>
@@ -168,19 +169,19 @@
 					{{ csrf_field() }}
 					
 					<div class="md-form">
-						<select class="browser-default foodSelectionSelect" name="food_option">
+						<select class="mdb-select foodSelectionSelect" name="food_option">
 							<option value="" disabled selected>Choose your food option</option>
 							<option value="chicken">Grilled Mediterranean Chicken</option>
 							<option value="beef">Grilled Rib-Eye</option>
 							<option value="seafood">Stuffed Salmon</option>
 						</select>
 					</div>
-					<div class="w3-container w3-padding">
-						<div class="w3-row-padding">
-							<div class="w3-col s6 text-left">
-								<input type="submit" name="submit" class="btn" value="Confirm Food Selections" />
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col">
+								<button type="submit" class="btn green">Confirm Food Selections</button>
 							</div>
-							<div class="w3-col s6 text-right">
+							<div class="col">
 								<div class="">
 									<button type="button" class="btn pink lighten-2 foodDescrBtn">Food Descriptions</button>
 								</div>
@@ -191,6 +192,7 @@
 			</div>
 		@endif
 	@endif
+	
 	<script>
 		$('.mdb-select').material_select();
 	</script>
