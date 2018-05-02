@@ -34,7 +34,11 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<div class="guestRsvpCheckFormContainer">
+					<div class="">
+						<h3 class="">WOW!!!!!! Is it May already? Time is flying! At this time if you still need to make an RSVP, please contact us directly. Our RSVP's filled up so we will let you know if we still have any availability.</h3>
+						<h5 class="">Thanks,<br/><br/>Ashley & Tramaine</h5>
+					</div>
+					<!-- <div class="guestRsvpCheckFormContainer">
 						<h1 class="h1-responsive text-center">CAN YOU COME?</h1>
 						<p class="text-center">We really hope you can make it.</p>
 						<p class="text-center"><i>Sincerely, Tramaine & Ashley</i></p>
@@ -65,7 +69,7 @@
 								<button type="button" class="getRSVP btn btn-lg green darken-2">Next</button>
 							</div>
 						{!! Form::close() !!}
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

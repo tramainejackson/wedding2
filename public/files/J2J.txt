@@ -5,6 +5,9 @@
 Fix paypal issue
 Add option to delete photos
 Guest need to be able to delete their plus one
+If food selection already there, plus one is not being added/removed and needs to
+When admin adds plus one, not adding plus one as an RSVP if guest is already RSVP
+Add a count for 'no selection' on food page
 Done - Fix my story
 Done - Add search feature to guest list and food selection list
 Done - Add a food options tab in the admin side
