@@ -50,28 +50,35 @@
 				<div class="col-12 col-md">
 					<p class="">
 						<button class="btn black" type="button">Total Count
-							<span class="">{{ $guestSeafood->count() + $guestChicken->count() + $guestBeef->count() + $addGuestSeafood->count() + $addGuestChicken->count() + $addGuestBeef->count() }}</span>
+							<span class="">{{ $guestSeafood->count() + $guestChicken->count() + $guestBeef->count() + $addGuestSeafood->count() + $addGuestChicken->count() + $addGuestBeef->count() + $noSelection->count() }}</span>
 						</button>
 					</p>
 				</div>
-				<div class="col-4 col-md">
+				<div class="col-6 col-md">
 					<p class="">
 						<button class="btn orange darken-3" type="button">Seafood
 							<span class="">{{ $guestSeafood->count() + $addGuestSeafood->count() }}</span>
 						</button>
 					</p>
 				</div>
-				<div class="col-4 col-md">
+				<div class="col-6 col-md">
 					<p class="">
 						<button class="btn indigo accent-3" type="button">Chicken
 							<span class="">{{ $guestChicken->count() + $addGuestChicken->count() }}</span>
 						</button>
 					</p>
 				</div>
-				<div class="col-4 col-md">
+				<div class="col-6 col-md">
 					<p class="">
 						<button class="btn w3-round cyan lighten-2" type="button">Beef
 							<span class="">{{ $guestBeef->count() + $addGuestBeef->count() }}</span>
+						</button>
+					</p>
+				</div>
+				<div class="col-6 col-md">
+					<p class="">
+						<button class="btn w3-round red darken-2" type="button">No Selection
+							<span class="">{{ $noSelection->count() }}</span>
 						</button>
 					</p>
 				</div>

@@ -334,8 +334,9 @@ class GuestController extends Controller
 		$addGuestSeafood = FoodSelection::where('add_guest_option', 'seafood')->get();
 		$addGuestChicken = FoodSelection::where('add_guest_option', 'chicken')->get();
 		$addGuestBeef = FoodSelection::where('add_guest_option', 'beef')->get();
+		$noSelection = FoodSelection::where('add_guest_option', 'blank')->orWhere('food_option', 'blank')->get();
 		
-		return view('admin.food_selection', compact('guests', 'guestBeef', 'guestChicken', 'guestSeafood', 'addGuestBeef', 'addGuestChicken', 'addGuestSeafood'));
+		return view('admin.food_selection', compact('guests', 'guestBeef', 'guestChicken', 'guestSeafood', 'addGuestBeef', 'addGuestChicken', 'addGuestSeafood', 'noSelection'));
 	}
 	
 	/**
