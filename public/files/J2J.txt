@@ -1,10 +1,10 @@
 ---------------------------------------
 		Journey 2 Jackson
 ---------------------------------------
-
-Fix paypal issue
+Add a db column for when users click on the link for PayPal
 Add option to delete photos
 Guest need to be able to delete their plus one
+Done: Fix paypal issue
 Done: When admin adds plus one, not adding plus one as an RSVP if guest is already RSVP
 Done: If food selection already there, plus one is not being added/removed and needs to
 Done: Add a count for 'no selection' on food page

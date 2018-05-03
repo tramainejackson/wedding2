@@ -79,7 +79,7 @@
 		
 		<!-- Sidebar navigation -->
 		<div id="slide-out" class="side-nav fixed white">
-			<ul class="custom-scrollbar">
+			<ul class="custom-scrollbar pb-4">
 				<li>
 					<div class="position-relative">
 						<div class="background">

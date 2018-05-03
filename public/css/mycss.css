@@ -25,7 +25,7 @@ body, html, .block {
     background: linear-gradient(40deg,#6fff8e,#FC6262)!important;
 }
 
-#home.welcomeHeader.view {
+#home.welcomeHeader.view, .giftsView.view {
 	min-height: 100vh;
 	background-image: url(/images/at2.jpg);
     background-position: 100% 100%;
@@ -33,7 +33,11 @@ body, html, .block {
     background-size: cover;
 }
 
-#home.welcomeHeader.view img {
+.giftsView.view {
+	background-image: initial;
+}
+
+#home.welcomeHeader.view img, .giftsView.view img {
 	width: 100%;
 }
 
@@ -377,6 +381,18 @@ p.deleteImg {
 .rotateS{ transform:rotate(-90deg); } */
 
 @media only screen and (max-width: 575.99px) {
+	.giftsView.view.nhGift {
+		background-image: url(https://onepeterfive.com/wp-content/uploads/2014/08/suburb.jpg) !important;
+		background-position: center center;
+		background-size: cover;
+	}
+	
+	.giftsView.view.hmGift {
+		background-image: url(/images/gift_greece.jpg) !important;
+		background-position: center center;
+		background-size: cover;
+	}
+	
 	.mobileDiv {
 		background-color: rgba(255,255,255,.7);
 	}
@@ -583,11 +599,12 @@ p.deleteImg {
 	.directionsDiv {
 		margin: 0% 0% 5% !important;
 	}
+	
 	div#confirmation_modal {
 		margin: 0% auto !important;
 	}
 	
-	#home.welcomeHeader.view img	{
+	#home.welcomeHeader.view img {
 		position: absolute;
 		margin-left: -50%;
 		height: -webkit-fill-available;
@@ -595,6 +612,18 @@ p.deleteImg {
 }
 
 @media only screen and (min-width: 576px) {
+	.giftsView.view.nhGift {
+		background-image: url(https://onepeterfive.com/wp-content/uploads/2014/08/suburb.jpg) !important;
+		background-position: center center;
+		background-size: cover;
+	}
+	
+	.giftsView.view.hmGift {
+		background-image: url(/images/gift_greece.jpg) !important;
+		background-position: center center;
+		background-size: cover;
+	}
+	
 	div#getting-started {
 		top: 5px;
 		bottom: initial;
@@ -708,6 +737,18 @@ p.deleteImg {
 }
 
 @media only screen and (min-width: 1200px) {
+	.giftsView.view.nhGift {
+		background-image: initial !important;
+		background-position: center center;
+		background-size: cover;
+	}
+	
+	.giftsView.view.hmGift {
+		background-image: initial !important;
+		background-position: center center;
+		background-size: cover;
+	}
+	
 	.foodDescList {
 		/* max-width: 23%; */
 	}

@@ -1,107 +1,109 @@
 @extends('layouts.app')
 
-@section('addt_style')
-	.bgimg {
-		min-height: 30%;
-	}
-	
-	header:after {
-		content: "";
-		display: block;
-		position: fixed;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -10;
-		background: url(/images/map3.jpg) no-repeat center center;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-	}
+@section('header')	
+	@include('layouts.header')
 @endsection
 
-@section('header')
-	<!-- Header / Home-->	
-	@component('layouts.nav')
-	@endcomponent
+@section('addt_script')	
+	<script type="text/javascript">
+		$('body').on('keyup', 'input#hm_gift_amount', function() {
+			var inputAmount = $(this).val();
+			
+			// Change the paypal.me link to reflect the amount
+			// of the input
+			$(this).parents('.col').next().find('a').attr('href', 'https://www.paypal.me/actionjack/' + inputAmount);
+			
+			// Change the display amount to reflect the amount
+			// of the input
+			$('#hm_amount_display').text(inputAmount);
+		});
+		
+		$('body').on('keyup', 'input#nh_gift_amount', function() {
+			var inputAmount = $(this).val();
+			
+			// Change the paypal.me link to reflect the amount
+			// of the input
+			$(this).parents('.col').next().find('a').attr('href', 'https://www.paypal.me/actionjack/' + inputAmount);
+			
+			// Change the display amount to reflect the amount
+			// of the input
+			$('#nh_amount_display').text(inputAmount);
+		});
+	</script>
+@endsection
 
+@section('about_us')
 	<!-- Gift ideas -->
-	<div class="container-fluid white" style="background: linear-gradient(#f5f8fa, white, white, white); padding: 2%;">
-		<div class="">
-			<h2 class="header">Gifts</h2>
-			<p class="grey-text text-darken-3 lighten-3">We will be accepting gifts through PayPal. Please choose one of the gift options to contribute to and enter an amount. We are extremely thankful and appreciative of any and every blessing that comes our way.</p>
+	<div class="container-fluid white">
+		<div class="row px-lg-5">
+			<div class="col p-5">
+			<h1 class="h1-responsive text-center text-lg-left px-lg-5">Gifts</h2>
+			<p class="m-0 px-lg-5">We will be accepting gifts through PayPal. Please choose one of the gift options to contribute to and enter an amount. We are extremely thankful and appreciative of any and every blessing that comes our way.</p>
+			</div>
 		</div>
 	</div>
-	<div class="parallax-container">
-		<div class="parallax hide-on-small-only">
-			<img src="/images/gift_greece.jpg">
-			<h1 class="parallax-text w3-center w3-jumbo">Honeymoon</h1>
-		</div>
-		<div class="hide-on-med-and-up" style="background:white;">
-			<img src="/images/gift_greece.jpg">
-			<h1 class="parallax-text w3-center w3-jumbo">Honeymoon</h1>
-			<span class="parallax-span">Greece</span>
+	
+	<div class="view giftsView hmGift wow fadeInDownBig">
+		<img src="/images/gift_greece.jpg" class="img-fluid d-none d-xl-block" alt="">
+		<div class="mask flex-center">
+			<div class="rgba-white-strong col-12 col-md-10 col-lg-6 wow slideInRight">
+				<h1 class="display-3 text-center py-4 coolText2">Honeymoon</h1>
+
+				<div class="col mb-4">
+					<h2 class="h2-responsive">I would like to add to this gift of $<span id="hm_amount_display">0.00</span> towards your honeymoon</h2>
+					<h4 class="h4-responsive">(Enter the amount you would like to give)</h4>
+				</div>
+				
+				<div class="col">
+					<label for="hm_gift_amount">Gift Amount</label>
+					<div class="md-form input-group mt-0">
+						<div class="input-group-prepend">
+							<i class="fa fa-dollar input-group-text" id="" aria-hidden="true"></i>
+						</div>
+						
+						<input class="giftTotal form-control" id="hm_gift_amount" name="" type="number" min="25" placeholder="Enter Gift Amount" />
+					</div>
+				</div>
+				
+				<div class="col">
+					<a href="https://www.paypal.me/actionjack/25" target="_blank" class="payPalAmount btn btn-link btn-outline-cyan mx-0">Click Here To Continue</a>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="section white">
-		<div class="row container">
-			<div class="col offset-s1 offset-m1 offset-l1 s11 m4 l4">
-				<h2 class="header">Honeymoon</h2>
-				<h5 class="header">(Enter the amount you would like to give)</h5>
-			</div>
-			<div class="col s12 m4 l4" style="margin:20px 0px;">
-				<div class="input-field" style="">
-					<i class="material-icons prefix">attach_money</i>
-					<input class="giftTotal w3-large" name="" type="number" min="0.00" value="0.00" step="0.01"/>
-					<label class="w3-large">Gift Amount</label>
-				</div>
-			</div>
-			<div class="col offset-s1 offset-m1 offset-l1 s11 m11 l11">
-				<p class="grey-text text-darken-3 lighten-3" style="">I would like to add to this gift of $<span class="amountDisplay">0.00</span> towards your honeymoon<br/><a href="https://www.paypal.me/actionjack/25" target="_blank" class="payPalAmount">Click Here To Continue</a></p>
+		<div class="row">
+			<div class="col">
+				<h1 class="h1-responsive text-center my-5 py-5">OR</h1>
 			</div>
 		</div>
 	</div>
-	<div class="parallax-container" style="">
-		<div class="parallax hide-on-small-only">
-			<img src="https://onepeterfive.com/wp-content/uploads/2014/08/suburb.jpg">
-			<h1 class="parallax-text w3-center w3-jumbo">New Home</h1>
-		</div>
-		<div class="hide-on-med-and-up" style="">
-			<img src="https://onepeterfive.com/wp-content/uploads/2014/08/suburb.jpg">
-			<h1 class="parallax-text w3-center w3-jumbo">New Home</h1>
-		</div>
-	</div>
-	<div class="section white" style="margin-top: -35px;">
-		<div class="row container">
-			<div class="col offset-s1 offset-m1 offset-l1 s11 m4 l4">
-				<h2 class="header" style="margin:0">New Home</h2>
-				<h5 class="header">(Enter the amount you would like to give)</h5>
-			</div>
-			<div class="col s12 m4 l4" style="margin:20px 0px;">
-				<div class="input-field" style="">
-					<i class="material-icons prefix">attach_money</i>
-					<input class="giftTotal w3-large" name="" type="number" min="0.00" value="0.00" step="0.01"/>
-					<label class="w3-large">Gift Amount</label>
-				</div>
-			</div>
-			<div class="col offset-s1 offset-m1 offset-l1 s11 m11 l11">
-				<p class="grey-text text-darken-3 lighten-3" style="">I would like to add to this gift of $<span class="amountDisplay">0.00</span> towards a new home<br/><a href="https://www.paypal.me/actionjack/25" target="_blank" class="payPalAmount">Click Here To Continue</a></p>
-			</div>
-		</div>
-	</div>
-	<!--- <div class="parallax-container hide-on-small-only">
-		<div class="parallax">
-			<img src="/images/at3.jpg" />
-		</div>
-	</div> --->
-@endsection
+	<div class="view giftsView nhGift wow fadeInDownBig">
+		<img src="https://onepeterfive.com/wp-content/uploads/2014/08/suburb.jpg" class="img-fluid d-none d-xl-block" alt="">
+		<div class="mask flex-center">
+			<div class="rgba-white-strong col-12 col-md-10 col-lg-6 wow slideInLeft">
+				<h1 class="display-3 text-center py-4 coolText2">New Home</h1>
 
-@section('footer')
-	<script type="text/javascript">
-		$(document).ready(function(){
-		  $('.parallax').parallax();
-		});
-	</script>
+				<div class="col mb-4">
+					<h2 class="h2-responsive">I would like to give a gift of $<span id="nh_amount_display">0.00</span> towards your new home</h2>
+					<h4 class="h4-responsive">(Enter the amount you would like to give)</h4>
+				</div>
+				
+				<div class="col">
+					<label for="hm_gift_amount">Gift Amount</label>
+					<div class="md-form input-group mt-0">
+						<div class="input-group-prepend">
+							<i class="fa fa-dollar input-group-text" id="" aria-hidden="true"></i>
+						</div>
+						
+						<input class="giftTotal form-control" id="nh_gift_amount" name="" type="number" min="25" placeholder="Enter Gift Amount" />
+					</div>
+				</div>
+				
+				<div class="col">
+					<a href="https://www.paypal.me/actionjack/25" target="_blank" class="payPalAmount btn btn-link btn-outline-cyan mx-0">Click Here To Continue</a>
+				</div>
+			</div>
+		</div>
+	</div>
 @endsection
