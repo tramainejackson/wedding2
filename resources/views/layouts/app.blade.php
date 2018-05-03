@@ -11,7 +11,6 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		
 		<!-- Styles -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 		<!-- Font Awesome -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- Bootstrap core CSS -->
@@ -76,7 +75,7 @@
 
 		<!-- Navbar (mobile) -->
 		<!-- SideNav slide-out button -->
-		<button type="button" data-activates="slide-out" class="btn btn-primary p-1 d-block d-lg-none button-collapse" style="position:fixed;z-index: 10000;"><i class="material-icons">menu</i></button>
+		<button type="button" data-activates="slide-out" class="btn btn-sm btn-primary d-block d-lg-none button-collapse" style="position:fixed;z-index: 1039;"><i class="fa fa-bars" aria-hidden="true"></i></button>
 		
 		<!-- Sidebar navigation -->
 		<div id="slide-out" class="side-nav fixed white">

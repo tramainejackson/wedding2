@@ -6,7 +6,7 @@
 				<h3 class="text-center col-12">Pick a story</h3>
 
 				<div class="col">
-					<ul class="hisAndHers text-center my-4">
+					<ul class="list-unstyled hisAndHers text-center my-4">
 						<li class="hers text-center d-inline" onclick="myFunction('her_story')">
 							<button class="btn btn-lg red darken-2" type="button">
 								<span><i class="fa fa-female"></i>&nbsp;Hers</span>
@@ -14,7 +14,7 @@
 						</li>
 						<li class="his text-center d-inline" onclick="myFunction('his_story')">
 							<button class="btn btn-lg blue darken-2" type="button">
-								&nbsp;<span><i class="fa fa-male"></i>&nbsp;His</span>&nbsp;
+								&nbsp;&nbsp;<span><i class="fa fa-male"></i>&nbsp;His</span>&nbsp;&nbsp;
 							</button>
 						</li>
 					</ul>
