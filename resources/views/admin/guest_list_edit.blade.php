@@ -24,7 +24,7 @@
 @endsection
 
 @section('about_us')
-	<div class="container py-5">
+	<div class="container mobileDiv py-5">
 		@if(session('status'))
 			<span class="hidden returnMessage">{{ session('status') }}</span>
 			@section('addt_script')
@@ -75,7 +75,7 @@
 				</div>
 				
 				<div class="md-form">
-					<button class="btn red accent-2 m-0" type="submit">Save Changes</button>
+					<button class="btn red accent-2 m-sm-0" type="submit">Save Changes</button>
 					
 					<button class="btn yellow darken-4" type="button" data-toggle="modal" data-target="#delete_guest_modal">Remove Invite</button>
 				</div>

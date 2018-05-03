@@ -207,53 +207,17 @@ class GuestController extends Controller
     {
 		// dd($request);
 		$guest->name = $request->name;
-		$guest->responded = 'Y';
 		$guest->email = $request->email;
 		$plusOneOption = $request->plus_one;
 		
 		if(isset($request->rsvpYes)) {
 			$guest->rsvp = "Y";
+			$guest->responded = 'Y';
 		} elseif(isset($request->rsvpNo)) {
 			$guest->rsvp = "N";
+			$guest->responded = 'Y';
 		}
 
-		if($guest->plusOne) { 
-			if($plusOneOption == "") {
-				// If there is a plus one in the db for the 
-				// guest and that addt_guest guest was removed, 
-				// then delete the plus one
-				if($guest->plusOne()->delete()) {
-					// If there is a food option then make the addt
-					// guest options null
-					if($guest->food_option) {
-						$guest->food_option->add_guest_id = null;
-						$guest->food_option->add_guest_option = null;
-						$guest->food_option->save();
-					}
-				}
-			} else {
-				$guest->plusOne->update([
-					'rsvp' => $guest->rsvp, 
-					'name' => $plusOneOption
-				]); 
-			}
-		} else {
-			if($plusOneOption != "") {
-				$plusOneOption = $guest->plusOne()->create([
-					'rsvp' => $guest->rsvp, 
-					'name' => $plusOneOption,
-					'added_by' => 'admin'
-				]);
-			}
-			
-			if($guest->food_option) {
-				$guest->food_option->add_guest_option = 'blank';
-				$guest->food_option->add_guest_id = $plusOneOption->id;
-				$guest->food_option->save();
-			}
-
-		}
-		
 		// If the RSVP was declined, then remove any food selections
 		// and make food selected null
 		if($guest->rsvp == "N") {
@@ -262,8 +226,75 @@ class GuestController extends Controller
 			if($guest->food_option) {
 				$guest->food_option->delete();
 			}
+		} elseif($guest->rsvp == "Y") {
+			// If there is not a food option then make add one
+			if(!$guest->food_option) {
+				$foodSelection = new FoodSelection();
+				$foodSelection->food_option = 'blank';
+				$foodSelection->guests_id = $guest->id;
+				$foodSelection->save();
+			}
+
+			if($guest->plusOne) { 
+				if($plusOneOption == "") {
+					// If there is a plus one in the db for the 
+					// guest and that addt_guest guest was removed, 
+					// then delete the plus one
+					if($guest->plusOne()->delete()) {
+						if($guest->food_option) {
+							$guest->food_option->add_guest_id = null;
+							$guest->food_option->add_guest_option = null;
+							$guest->food_option->save();
+						}
+					}
+				} else {
+					$guest->plusOne->update([
+						'rsvp' => $guest->rsvp, 
+						'name' => $plusOneOption
+					]);
+					
+					if($guest->food_option) {
+						$guest->food_option->add_guest_id = $guest->plusOne->id;
+						$guest->food_option->add_guest_option = 'blank';
+						$guest->food_option->save();
+					}
+				}
+			} else {
+				if($plusOneOption != "") {
+					$plusOneOption = $guest->plusOne()->create([
+						'rsvp' => $guest->rsvp, 
+						'name' => $plusOneOption,
+						'added_by' => 'admin'
+					]);
+
+					if($guest->food_option) {
+						$guest->food_option->add_guest_option = 'blank';
+						$guest->food_option->add_guest_id = $plusOneOption->id;
+						$guest->food_option->save();
+					}
+				}
+			}
+		} else {
+			if($plusOneOption == "") {
+				// If there is a plus one in the db for the 
+				// guest and that addt_guest guest was removed, 
+				// then delete the plus one
+				if($guest->plusOne()->delete()) {
+					if($guest->food_option) {
+						$guest->food_option->add_guest_id = null;
+						$guest->food_option->add_guest_option = null;
+						$guest->food_option->save();
+					}
+				}
+			} else {
+				$plusOneOption = $guest->plusOne()->create([
+					'rsvp' => isset($guest->rsvp) ? $guest->rsvp : null, 
+					'name' => $plusOneOption,
+					'added_by' => 'admin'
+				]);
+			}
 		}
-		
+
 		$guest->save();
 		
 		return redirect()->action('GuestController@edit', $guest)->with('status', 'You have updated this invitation successfully');
@@ -340,9 +371,10 @@ class GuestController extends Controller
 		$addGuestSeafood = FoodSelection::where('add_guest_option', 'seafood')->get();
 		$addGuestChicken = FoodSelection::where('add_guest_option', 'chicken')->get();
 		$addGuestBeef = FoodSelection::where('add_guest_option', 'beef')->get();
-		$noSelection = FoodSelection::where('add_guest_option', 'blank')->orWhere('food_option', 'blank')->get();
+		$noSelection2 = FoodSelection::Where('food_option', 'blank')->get();
+		$noSelection1 = FoodSelection::where('add_guest_option', 'blank')->get();
 		
-		return view('admin.food_selection', compact('guests', 'guestBeef', 'guestChicken', 'guestSeafood', 'addGuestBeef', 'addGuestChicken', 'addGuestSeafood', 'noSelection'));
+		return view('admin.food_selection', compact('guests', 'guestBeef', 'guestChicken', 'guestSeafood', 'addGuestBeef', 'addGuestChicken', 'addGuestSeafood', 'noSelection1', 'noSelection2'));
 	}
 	
 	/**

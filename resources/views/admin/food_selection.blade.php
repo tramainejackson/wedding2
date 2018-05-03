@@ -50,7 +50,7 @@
 				<div class="col-12 col-md">
 					<p class="">
 						<button class="btn black" type="button">Total Count
-							<span class="">{{ $guestSeafood->count() + $guestChicken->count() + $guestBeef->count() + $addGuestSeafood->count() + $addGuestChicken->count() + $addGuestBeef->count() + $noSelection->count() }}</span>
+							<span class="">{{ $guestSeafood->count() + $guestChicken->count() + $guestBeef->count() + $addGuestSeafood->count() + $addGuestChicken->count() + $addGuestBeef->count() + $noSelection1->count() + $noSelection2->count() }}</span>
 						</button>
 					</p>
 				</div>
@@ -78,7 +78,7 @@
 				<div class="col-12 col-sm-6 col-md">
 					<p class="">
 						<button class="btn w3-round red darken-2" type="button">No Selection
-							<span class="">{{ $noSelection->count() }}</span>
+							<span class="">{{ $noSelection1->count() + $noSelection2->count() }}</span>
 						</button>
 					</p>
 				</div>

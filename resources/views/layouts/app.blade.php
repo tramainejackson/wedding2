@@ -79,7 +79,7 @@
 		
 		<!-- Sidebar navigation -->
 		<div id="slide-out" class="side-nav fixed white">
-			<ul class="custom-scrollbar pb-4">
+			<ul class="custom-scrollbar pb-2">
 				<li>
 					<div class="position-relative">
 						<div class="background">
@@ -103,8 +103,7 @@
 					<li>
 						<a href="/photos/create" class="btn nav-link">Photos</a>
 					</li>
-					<li><div class="divider"></div></li>
-					<li>
+					<li class="my-3">
 						<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn nav-link">Logout</a>
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 							{{ csrf_field() }}
@@ -133,7 +132,7 @@
 					<li>
 						<a href="/accommodations" class="btn nav-link">Accommodations</a>
 					</li>
-					<li>
+					<li class="my-3">
 						<a href="/login" class="btn nav-link">Login</a>
 					</li>
 				@endif
