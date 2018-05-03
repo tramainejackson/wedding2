@@ -76,7 +76,7 @@
 
 		<!-- Navbar (mobile) -->
 		<!-- SideNav slide-out button -->
-		<a href="#" data-activates="slide-out" class="btn btn-primary p-3 d-block d-lg-none button-collapse" style="position:fixed;z-index: 1;"><i class="material-icons">menu</i></a>
+		<button type="button" data-activates="slide-out" class="btn btn-primary p-1 d-block d-lg-none button-collapse" style="position:fixed;z-index: 10000;"><i class="material-icons">menu</i></button>
 		
 		<!-- Sidebar navigation -->
 		<div id="slide-out" class="side-nav fixed white">

@@ -239,11 +239,17 @@ class GuestController extends Controller
 			}
 		} else {
 			if($plusOneOption != "") {
-				$guest->plusOne()->create([
+				$plusOneOption = $guest->plusOne()->create([
 					'rsvp' => $guest->rsvp, 
 					'name' => $plusOneOption,
 					'added_by' => 'admin'
 				]);
+			}
+			
+			if($guest->food_option) {
+				$guest->food_option->add_guest_option = 'blank';
+				$guest->food_option->add_guest_id = $plusOneOption->id;
+				$guest->food_option->save();
 			}
 
 		}

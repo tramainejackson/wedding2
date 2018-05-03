@@ -125,30 +125,3 @@
 		@endif
 	</div>
 @endsection
-
-@section('footer')
-	<script type="text/javascript">
-		//ScrollFire plugin init
-		var options = [
-		  {selector: '.guestList li', offset: 100, callback: function(el) {
-			$(el).fadeTo("slow", 1);
-		  } }
-		];
-
-		for(var x=1; x <= ($('.guestList > li').length - 1); x++) {
-			var listItem = {};
-			
-			$('.guestList > li').eq(x).addClass('guestNum'+x);
-			listItem = {
-				selector: '.guestNum'+x,
-				offset: 100,
-				callback: function(el) {
-					$(el).fadeTo("slow", 1);
-				}
-			}
-			
-			options.push(listItem);
-		}
-		Materialize.scrollFire(options);
-	</script>
-@endsection
