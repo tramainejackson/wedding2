@@ -19,7 +19,7 @@
 	
 	<div class="compassImageHeader">
 		<img src="/images/compass.png" class="countdownCompas d-none d-lg-block" />
-		<div id="getting-started" class="hide-on-small-only">
+		<div id="getting-started" class="d-none d-lg-block">
 			<span id="countdownClock"></span>
 		</div>
 	</div>

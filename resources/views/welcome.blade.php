@@ -9,6 +9,17 @@
 	}
 @endsection
 
+@section('addt_script')
+	<script>
+		$('body').on('click', 'a[href="/#us"], a[href="/#wedding"]', function() {
+			// Hide sideNav
+			$('button.button-collapse').sideNav('hide').ready(function() {
+				$('.drag-target:last-of-type, #sidenav-overlay').remove();
+			});
+		});
+	</script>
+@endsection
+
 @section('header')
 	@include('welcome_header')
 @endsection

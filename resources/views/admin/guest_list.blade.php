@@ -24,7 +24,7 @@
 @endsection
 
 @section('about_us')
-	<div class="container">
+	<div class="container mobileDiv">
 		@if(session('status'))
 			<span class="hidden returnMessage">{{ session('status') }}</span>
 			@section('addt_script')

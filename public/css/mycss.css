@@ -377,7 +377,7 @@ p.deleteImg {
 .rotateS{ transform:rotate(-90deg); } */
 
 @media only screen and (max-width: 575.99px) {
-	.container:not(.container ~ footer) {
+	.mobileDiv {
 		background-color: rgba(255,255,255,.7);
 	}
 	

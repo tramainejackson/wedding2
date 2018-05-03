@@ -220,11 +220,6 @@
 			</div>
 		</footer>
 
-		@if($errors->has('name') || $errors->has('message') || $errors->has('email'))
-			<script>
-				$('#first').focus();
-			</script>
-		@endif
 		
 		<!-- SCRIPTS -->
 		<!-- JQuery -->
@@ -237,7 +232,13 @@
 		<script type="text/javascript" src="/js/mdb.min.js"></script>
 		<script src="/js/jquery.countdown.min.js"></script>
 		<script src="/js/myjs.js"></script>
-		
+
+		@if($errors->has('name') || $errors->has('message') || $errors->has('email'))
+			<script>
+				$('#first').focus();
+			</script>
+		@endif
+
 		@yield('addt_script')
 	</body>
 </html>

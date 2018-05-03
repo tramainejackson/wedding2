@@ -25,7 +25,7 @@
 
 @section('about_us')
 	@if(count($guests) > 0)
-		<div class="container">
+		<div class="container mobileDiv">
 			@if(session('status'))
 				<span class="hidden returnMessage">{{ session('status') }}</span>
 				@section('addt_script')
@@ -54,28 +54,28 @@
 						</button>
 					</p>
 				</div>
-				<div class="col-6 col-md">
+				<div class="col-12 col-sm-6 col-md">
 					<p class="">
 						<button class="btn orange darken-3" type="button">Seafood
 							<span class="">{{ $guestSeafood->count() + $addGuestSeafood->count() }}</span>
 						</button>
 					</p>
 				</div>
-				<div class="col-6 col-md">
+				<div class="col-12 col-sm-6 col-md">
 					<p class="">
 						<button class="btn indigo accent-3" type="button">Chicken
 							<span class="">{{ $guestChicken->count() + $addGuestChicken->count() }}</span>
 						</button>
 					</p>
 				</div>
-				<div class="col-6 col-md">
+				<div class="col-12 col-sm-6 col-md">
 					<p class="">
 						<button class="btn w3-round cyan lighten-2" type="button">Beef
 							<span class="">{{ $guestBeef->count() + $addGuestBeef->count() }}</span>
 						</button>
 					</p>
 				</div>
-				<div class="col-6 col-md">
+				<div class="col-12 col-sm-6 col-md">
 					<p class="">
 						<button class="btn w3-round red darken-2" type="button">No Selection
 							<span class="">{{ $noSelection->count() }}</span>
