@@ -133,7 +133,6 @@
 					<li>
 						<a href="/accommodations" class="btn nav-link">Accommodations</a>
 					</li>
-					<li><div class="divider"></div></li>
 					<li>
 						<a href="/login" class="btn nav-link">Login</a>
 					</li>

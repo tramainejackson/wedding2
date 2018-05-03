@@ -2,6 +2,7 @@
 		Journey 2 Jackson
 ---------------------------------------
 Add a db column for when users click on the link for PayPal
+Also allow them to add their name so we know who its coming from
 Add option to delete photos
 Guest need to be able to delete their plus one
 Done: Fix paypal issue
