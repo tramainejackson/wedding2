@@ -2,6 +2,9 @@
 /public/hot
 /public/images
 /public/storage
+/public/addons
+/public/css/mdb*
+/public/js/mdb*
 /storage/*.key
 /vendor
 /.idea
