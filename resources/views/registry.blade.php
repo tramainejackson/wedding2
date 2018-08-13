@@ -22,7 +22,7 @@
 							<i class="fa fa-3x fa-quote-left" aria-hidden="true"></i>
 						</div>
 						<div class="col-10 col-md-7 col-lg-10 text-justify mx-auto px-5">
-							<i>We know its not traditional and not the way its done,<br/>but rather than a wedding list we'd love a bit of sun.<br/>So if you'd like to give a gift and send us on our way<br/>a donation to our honeymoon would really make our day</i>
+							<i>We know its not traditional and not the way its done,but rather than a wedding list we'd love a bit of sun. So if you'd like to give a gift and send us on our way a donation to our honeymoon would really make our day</i>
 						</div>
 						<div class="col-12 text-right rightQuote">
 							<i class="fa fa-3x fa-quote-right" aria-hidden="true"></i>
@@ -37,7 +37,7 @@
 							<i class="fa fa-3x fa-quote-left" aria-hidden="true"></i>
 						</div>
 						<div class="col-10 col-md-7 col-lg-10 text-justify mx-auto px-5">
-							<i>Our house has been filled with love and care,<br/>and is now full to the brim with no room to spare.<br/>If you were thinking of giving a gift, to help us on our way<br/>a monetary gift towards our new home, would really make our day.</i>
+							<i>Our house has been filled with love and care, and is now full to the brim with no room to spare. If you were thinking of giving a gift, to help us on our way a monetary gift towards our new home, would really make our day.</i>
 						</div>
 						<div class="col-12 text-right rightQuote">
 							<i class="fa fa-3x fa-quote-right" aria-hidden="true"></i>
@@ -48,7 +48,7 @@
 		</div>
 
 		<div class="row">			
-			<h3 class="col-10 mx-auto h3-responsive">If you wish, you can contribute towards our honeymoon and new life together as Mr & Mrs, we will be accepting monetary gift via PayPal, Cash, Money Order, or Check. If you're a millenial and prefer to send electronically, please select one of the options below. But if you are more traditional feel free to bring a card to the wedding, there will be a card station</h3>
+			<h3 class="col-10 mx-auto h3-responsive">If you wish, you can contribute towards our honeymoon and new life together as Mr & Mrs, we will be accepting monetary gift via PayPal or Check. If you're a millenial and prefer to send electronically, please select one of the paypal option. But if you are more traditional feel free to bring a card to the wedding, there will be a card station</h3>
 		</div>
 		
 		<!-- Registry gifts info -->
@@ -73,6 +73,12 @@
 				<div class="">
 					<p class="text-center w3-padding regOptionP">If you would like to be traditional, we will have a card box station at the wedding and you're free to bring a card with you.</p>
 				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col">
+				<h3 class="h3-responsive text-center">**Dinner Plate cost is $100/per person**</h3>
 			</div>
 		</div>
 	</div>

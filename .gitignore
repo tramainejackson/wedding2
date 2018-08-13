@@ -3,8 +3,11 @@
 /public/images
 /public/storage
 /public/addons
+/public/css/addons
+/public/js/addons
 /public/css/mdb*
 /public/js/mdb*
+/public/js/jquery*
 /storage/*.key
 /vendor
 /.idea

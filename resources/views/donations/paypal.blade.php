@@ -29,6 +29,26 @@
 			// of the input
 			$('#nh_amount_display').text(inputAmount);
 		});
+		
+		$('#nh_gift_amount').parent().parent().next().children('a').on('click', function(e) {
+			
+			if($('#nh_gift_amount').val() < 50) {
+				e.preventDefault();
+
+				toastr.error('Minimum gift amount is $50.', {timeOut: 5000})
+			}
+
+		});
+		
+		$('#hm_gift_amount').parent().parent().next().children('a').on('click', function(e) {
+			
+			if($('#hm_gift_amount').val() < 50) {
+				e.preventDefault();
+
+				toastr.error('Minimum gift amount is $50.', {timeOut: 5000})
+			}
+
+		});
 	</script>
 @endsection
 
@@ -44,33 +64,41 @@
 	</div>
 	
 	<div class="view giftsView hmGift wow fadeInDownBig">
-		<img src="/images/gift_greece.jpg" class="img-fluid d-none d-xl-block" alt="">
+	
+		<img src="/images/gift_greece.jpg" class="img-fluid d-none d-xl-block" alt="" />
+		
 		<div class="mask flex-center">
 			<div class="rgba-white-strong col-12 col-md-10 col-lg-6 wow slideInRight">
 				<h1 class="display-3 text-center py-4 coolText2">Honeymoon</h1>
 
 				<div class="col mb-4">
-					<h2 class="h2-responsive">I would like to add to this gift of $<span id="hm_amount_display">0.00</span> towards your honeymoon</h2>
+					<h2 class="h2-responsive">I would like to give a gift of $<span id="hm_amount_display">0.00</span> towards your honeymoon</h2>
 					<h4 class="h4-responsive">(Enter the amount you would like to give)</h4>
 				</div>
 				
 				<div class="col">
+				
 					<label for="hm_gift_amount">Gift Amount</label>
+					
 					<div class="md-form input-group mt-0">
 						<div class="input-group-prepend">
 							<i class="fa fa-dollar input-group-text" id="" aria-hidden="true"></i>
 						</div>
 						
-						<input class="giftTotal form-control" id="hm_gift_amount" name="" type="number" min="25" placeholder="Enter Gift Amount" />
+						<input class="giftTotal form-control" id="hm_gift_amount" name="" type="number" min="50" placeholder="Enter Gift Amount" />
 					</div>
+					
 				</div>
 				
 				<div class="col">
+				
 					<a href="https://www.paypal.me/actionjack/25" target="_blank" class="payPalAmount btn btn-link btn-outline-cyan mx-0">Click Here To Continue</a>
+				
 				</div>
 			</div>
 		</div>
 	</div>
+	
 	<div class="section white">
 		<div class="row">
 			<div class="col">
@@ -78,6 +106,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<div class="view giftsView nhGift wow fadeInDownBig">
 		<img src="https://onepeterfive.com/wp-content/uploads/2014/08/suburb.jpg" class="img-fluid d-none d-xl-block" alt="">
 		<div class="mask flex-center">
@@ -91,17 +120,22 @@
 				
 				<div class="col">
 					<label for="hm_gift_amount">Gift Amount</label>
+					
 					<div class="md-form input-group mt-0">
+					
 						<div class="input-group-prepend">
 							<i class="fa fa-dollar input-group-text" id="" aria-hidden="true"></i>
 						</div>
 						
-						<input class="giftTotal form-control" id="nh_gift_amount" name="" type="number" min="25" placeholder="Enter Gift Amount" />
+						<input class="giftTotal form-control" id="nh_gift_amount" name="" type="number" min="50" placeholder="Enter Gift Amount" />
+						
 					</div>
 				</div>
 				
 				<div class="col">
+				
 					<a href="https://www.paypal.me/actionjack/25" target="_blank" class="payPalAmount btn btn-link btn-outline-cyan mx-0">Click Here To Continue</a>
+				
 				</div>
 			</div>
 		</div>
