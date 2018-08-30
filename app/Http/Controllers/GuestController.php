@@ -148,8 +148,9 @@ class GuestController extends Controller
      */
     public function edit(Guests $guest)
     {
-		// dd($guest);
-        return view('admin.guest_list_edit', compact('guest'));
+		$states = collect(DB::select('select * from states'));
+
+        return view('admin.guest_list_edit', compact('guest', 'states'));
     }
 
     /**

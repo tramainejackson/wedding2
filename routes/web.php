@@ -19,21 +19,17 @@ Auth::routes();
     // return view('test');
 // })->name('test');
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', 'HomeController@welcome')->name('welcome');
 
-Route::get('/registry', function() {
-	return view('registry');
-})->name('registry');
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/donations/paypal', function() {
-	return view('donations.paypal');
-})->name('paypal');
+Route::get('/registry', 'HomeController@registry')->name('registry');
 
-Route::get('/accommodations', function() {
-	return view('accommodations');
-})->name('accommodations');
+Route::get('/party', 'BridalPartyController@index');
+
+Route::get('/donations/paypal', 'HomeController@paypal')->name('paypal');
+
+Route::get('/accommodations', 'HomeController@accommodations')->name('accommodations');
 
 Route::get('/guest_list/create', function() {
 	return view('admin.create_guest');
@@ -66,8 +62,6 @@ Route::patch('/guest_list/{guest}/edit', 'GuestController@update2')->middleware(
 
 Route::delete('/guest_list/{guests}', 'GuestController@destroy')->middleware('auth');
 
-Route::get('/party', 'BridalPartyController@index');
-
 Route::post('/food_selection/{guests}', 'GuestController@food_selection');
 
 Route::patch('/confirmed', 'GuestController@store');
@@ -81,8 +75,6 @@ Route::patch('/declined/{guests}', 'GuestController@decline_rsvp');
 Route::patch('/additional_guest/{guests}', 'AddtGuestController@store');
 
 Route::post('/new_message', 'MessageController@store');
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/photos', 'PhotoController');
 

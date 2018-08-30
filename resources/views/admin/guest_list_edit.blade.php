@@ -41,6 +41,7 @@
 
 		<!-- Guest edit form -->
 		{!! Form::model($guest, [ 'action' => ['GuestController@update2', $guest->id], 'method' => 'PATCH', 'class' => 'editGuestForm']) !!}
+		
 			<div class="row">
 				<div class="md-form col">
 					<div class="d-flex align-items-center justify-content-center">
@@ -56,30 +57,78 @@
 				</div>
 
 				<div class="md-form col-12">
-					<div class="input-field col s6" style="margin-top:12px;">
-						<input id="first" class="form-control" type="text" name="name" value="{{ ucwords($guest->name) }}" style="padding-left:20px;" />
-						<label for="name" class="active">Guest</label>
-					</div>					
-				</div>
-				<div class="md-form col-12">
-					<div class="input-field col s6">
-						<input id="plus_one" class="form-control" type="text" name="plus_one" value="{{ $guest->plusOne ? ucwords($guest->plusOne->name) : '' }}" placeholder="Add A Plus One" style="padding-left:20px;" />
-						<label for="Plus One" class="active">Plus One</label>
-					</div>
-				</div>
-				<div class="md-form col-12">
-					<div class="input-field col s6">
-						<input id="email" class="form-control" type="email" name="email" value="{{ $guest->email }}" placeholder="Add An Email Address" style="padding-left:20px;" />
-						<label for="email" class="active">Email Address</label>
-					</div>
+
+					<input id="first" class="form-control" type="text" name="name" value="{{ ucwords($guest->name) }}" />
+					
+					<label for="name" class="active">Guest</label>
+			
 				</div>
 				
-				<div class="md-form">
+				<div class="md-form col-12">
+				
+					<input id="plus_one" class="form-control" type="text" name="plus_one" value="{{ $guest->plusOne ? ucwords($guest->plusOne->name) : '' }}" placeholder="Add A Plus One" />
+						
+					<label for="Plus One" class="active">Plus One</label>
+
+				</div>
+				
+				<div class="md-form col-12">
+				
+					<input id="email" class="form-control" type="email" name="email" value="{{ $guest->email }}" placeholder="Add An Email Address" />
+						
+					<label for="email" class="active">Email Address</label>
+
+				</div>
+				
+				<div class="form-row w-100">
+					
+					<div class="md-form col-5">
+					
+						<input id="address" class="form-control" type="text" name="address" value="{{ $guest->address }}" placeholder="Add An Address" />
+							
+						<label for="address" class="active">Address</label>
+						
+					</div>
+					
+					<div class="md-form col-3">
+					
+						<input id="city" class="form-control" type="text" name="city" value="{{ $guest->city }}" placeholder="Add A City" />
+							
+						<label for="city" class="active">City</label>
+						
+					</div>
+					
+					<div class="md-form col-2">
+					
+						<select class="mdb-select" name="state">
+							@foreach($states as $state)
+							
+								<option value="{{ $state->state }}">{{ $state->state }}</option>
+							
+							@endforeach
+						</select>
+							
+						<label for="state" class="active">State</label>
+						
+					</div>
+					
+					<div class="md-form col-2">
+						
+						<input id="zip" class="form-control" type="number" name="zip" value="{{ $guest->zip }}" placeholder="Add A Zip Code" />
+							
+						<label for="zip" class="active">Zip Code</label>
+
+					</div>
+					
+				</div>
+				
+				<div class="md-form col-12">
 					<button class="btn red accent-2 m-sm-0" type="submit">Save Changes</button>
 					
 					<button class="btn yellow darken-4" type="button" data-toggle="modal" data-target="#delete_guest_modal">Remove Invite</button>
 				</div>
 			</div>
+			
 		{!! Form::close() !!}
 	</div>
 	
