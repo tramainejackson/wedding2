@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Guests;
 use App\AddtGuest;
 use App\FoodSelection;
+use App\Setting;
 use Illuminate\support\Facades\Mail;
 use App\Mail\WeddingWebsiteMessage;
 use App\Mail\Confirmation;
@@ -19,15 +20,35 @@ class GuestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $guests = Guests::orderBy('name', 'asc')->get();
+		$guests;
+		
+		if(request()->query('confirmed') == true) {
+			
+			$guests = Guests::confirmed()->orderBy('name', 'asc')->get();
+			
+		} else if(request()->query('not_responed') == true) {
+			
+			$guests = Guests::notResponed()->orderBy('name', 'asc')->get();
+			
+		} else if(request()->query('declined') == true) {
+			
+			$guests = Guests::declined()->orderBy('name', 'asc')->get();
+			
+		} else {
+			
+			$guests = Guests::orderBy('name', 'asc')->get();
+			
+		}
+		
 		$headCount = 0;
         $confirmedCount = 0;
         $declinedCount = 0;
 	
 		foreach($guests as $guest) {
 			$headCount++;
+			
 			if($guest->plusOne) {
 				$headCount++;
 			}
@@ -209,6 +230,10 @@ class GuestController extends Controller
 		// dd($request);
 		$guest->name = $request->name;
 		$guest->email = $request->email;
+		$guest->address = $request->address;
+		$guest->city = $request->city;
+		$guest->state = $request->state;
+		$guest->zip = $request->zip;
 		$plusOneOption = $request->plus_one;
 		
 		if(isset($request->rsvpYes)) {
@@ -217,6 +242,14 @@ class GuestController extends Controller
 		} elseif(isset($request->rsvpNo)) {
 			$guest->rsvp = "N";
 			$guest->responded = 'Y';
+		}
+		
+		if(isset($request->plus_one_rsvpYes)) {
+			$plusOneRSVP = "Y";
+		} elseif(isset($request->plus_one_rsvpNo)) {
+			$plusOneRSVP = "N";
+		} else {
+			$plusOneRSVP = $guest->rsvp;
 		}
 
 		// If the RSVP was declined, then remove any food selections
@@ -236,46 +269,9 @@ class GuestController extends Controller
 				$foodSelection->save();
 			}
 
-			if($guest->plusOne) { 
-				if($plusOneOption == "") {
-					// If there is a plus one in the db for the 
-					// guest and that addt_guest guest was removed, 
-					// then delete the plus one
-					if($guest->plusOne()->delete()) {
-						if($guest->food_option) {
-							$guest->food_option->add_guest_id = null;
-							$guest->food_option->add_guest_option = null;
-							$guest->food_option->save();
-						}
-					}
-				} else {
-					$guest->plusOne->update([
-						'rsvp' => $guest->rsvp, 
-						'name' => $plusOneOption
-					]);
-					
-					if($guest->food_option) {
-						$guest->food_option->add_guest_id = $guest->plusOne->id;
-						$guest->food_option->add_guest_option = 'blank';
-						$guest->food_option->save();
-					}
-				}
-			} else {
-				if($plusOneOption != "") {
-					$plusOneOption = $guest->plusOne()->create([
-						'rsvp' => $guest->rsvp, 
-						'name' => $plusOneOption,
-						'added_by' => 'admin'
-					]);
-
-					if($guest->food_option) {
-						$guest->food_option->add_guest_option = 'blank';
-						$guest->food_option->add_guest_id = $plusOneOption->id;
-						$guest->food_option->save();
-					}
-				}
-			}
-		} else {
+		}
+		
+		if($guest->plusOne) { 
 			if($plusOneOption == "") {
 				// If there is a plus one in the db for the 
 				// guest and that addt_guest guest was removed, 
@@ -288,11 +284,30 @@ class GuestController extends Controller
 					}
 				}
 			} else {
+				$guest->plusOne->update([
+					'rsvp' => $plusOneRSVP, 
+					'name' => $plusOneOption
+				]);
+				
+				if($guest->food_option) {
+					$guest->food_option->add_guest_id = $guest->plusOne->id;
+					$guest->food_option->add_guest_option = 'blank';
+					$guest->food_option->save();
+				}
+			}
+		} else {
+			if($plusOneOption != "") {
 				$plusOneOption = $guest->plusOne()->create([
-					'rsvp' => isset($guest->rsvp) ? $guest->rsvp : null, 
+					'rsvp' => $plusOneRSVP, 
 					'name' => $plusOneOption,
 					'added_by' => 'admin'
 				]);
+
+				if($guest->food_option) {
+					$guest->food_option->add_guest_option = 'blank';
+					$guest->food_option->add_guest_id = $plusOneOption->id;
+					$guest->food_option->save();
+				}
 			}
 		}
 

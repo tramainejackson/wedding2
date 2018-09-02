@@ -37,14 +37,42 @@
 		@if(count($guests) > 0)
 			<!-- Guest list search field and new guest button -->
 			<div class="row my-3">
+			
 				<div class="col-3">
 					<a href="/guest_list/create" class="btn btn-lg blue-gradient mx-0">New Guest</a>
 				</div>
+				
 				<div class="col-12 col-md-3">
 					<div class="md-form">
 						<input type="text" name="guest_search" class="form-control guest_search" placeholder="Enter Name To Search ...." />
 						
 						<label for="guest_search">Search Guest</label>
+					</div>
+				</div>
+				
+				<div class="col-12 d-flex align-items-center justify-content-center my-4">
+					<div class="col-3">
+
+						<a href="{{ route('guest.index') }}" class="btn btn-block{{ request()->query() == false ? ' blue active' : ' grey darken-2'}}">All Guest</a>
+						
+					</div>
+					
+					<div class="col-3">
+						
+						<a href="{{ route('guest.index', ['confirmed' => true]) }}" class="btn btn-block{{ request()->query('confirmed') == true ? ' blue active' : ' grey darken-2'}}">Confirmed</a>
+						
+					</div>
+					
+					<div class="col-3">
+						
+						<a href="{{ route('guest.index', ['declined' => true]) }}" class="btn btn-block{{ request()->query('declined') == true ? ' blue active' : ' grey darken-2'}}">Declined</a>
+						
+					</div>
+					
+					<div class="col-3">
+						
+						<a href="{{ route('guest.index', ['not_responed' => true]) }}" class="btn btn-block{{ request()->query('not_responed') == true ? ' blue active' : ' grey darken-2'}}">No Response</a>
+						
 					</div>
 				</div>
 			</div>

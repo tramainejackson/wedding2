@@ -25,7 +25,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/registry', 'HomeController@registry')->name('registry');
 
-Route::get('/party', 'BridalPartyController@index');
+Route::get('/party', 'HomeController@party')->name('party');
+
+Route::get('/settings', 'HomeController@settings')->name('settings');
 
 Route::get('/donations/paypal', 'HomeController@paypal')->name('paypal');
 
@@ -35,7 +37,7 @@ Route::get('/guest_list/create', function() {
 	return view('admin.create_guest');
 })->middleware('auth');
 
-Route::get('/guest_list', 'GuestController@index')->middleware('auth');
+Route::get('/guest_list', 'GuestController@index')->middleware('auth')->name('guest.index');
 
 Route::get('/guest_list_food', 'GuestController@admin_food_selection')->middleware('auth');
 
@@ -54,7 +56,7 @@ Route::get('/food_selection/{guests}', function(\App\Guests $guests) {
 
 Route::patch('/food_selection/{guests}/create', 'GuestController@create_food_selection')->middleware('auth');
 
-Route::get('/guest_list/{guest}/edit', 'GuestController@edit')->middleware('auth');
+Route::get('/guest_list/{guest}/edit', 'GuestController@edit')->middleware('auth')->name('guest.edit');
 
 Route::post('/guest_list/create', 'GuestController@create');
 
@@ -75,6 +77,8 @@ Route::patch('/declined/{guests}', 'GuestController@decline_rsvp');
 Route::patch('/additional_guest/{guests}', 'AddtGuestController@store');
 
 Route::post('/new_message', 'MessageController@store');
+
+Route::patch('/update_settings', 'HomeController@update_settings');
 
 Route::resource('/photos', 'PhotoController');
 

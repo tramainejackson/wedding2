@@ -47,16 +47,25 @@
 			@yield('addt_style')
 		</style>
 	</head>
+	
 	<body class="">
+
 		<!-- Navbar (sticky bottom) -->
 		<div class="fixed-bottom rgba-white-strong d-none d-lg-block">
 			<div class="d-flex align-items-center justify-content-around">
 				@if (Auth::check())
 					<a href="/" class="btn nav-link">Home</a>
+				
 					<a href="/guest_list" class="btn nav-link">Guest List</a>
+					
 					<a href="/guest_list_food" class="btn nav-link">Food Selections</a>
+					
 					<a href="/photos/create" class="btn nav-link">Photos</a>
+					
+					<a href="{{ route('settings') }}" class="btn nav-link">Settings</a>
+					
 					<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn nav-link">Logout</a>
+					
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 						{{ csrf_field() }}
 					</form>
@@ -140,7 +149,7 @@
 		</div>
 
 		@yield('header')
-
+		
 		@yield('about_us')
 			
 		@yield('wedding_information')
@@ -204,7 +213,7 @@
 						</div>
 
 						<div class="text-center">
-							<h5 class="text-center">#journey2jackson</h5>
+							<h5 class="text-center">#{{ $settings->hashtag }}</h5>
 						</div>
 					</div>
 				</div>
@@ -221,11 +230,14 @@
 		
 		<!-- SCRIPTS -->
 		<!-- JQuery -->
-		<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+		
 		<!-- Bootstrap tooltips -->
 		<script type="text/javascript" src="/js/popper.min.js"></script>
+		
 		<!-- Bootstrap core JavaScript -->
 		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+		
 		<!-- MDB core JavaScript -->
 		<script type="text/javascript" src="/js/mdb.min.js"></script>
 		<script src="/js/jquery.countdown.min.js"></script>

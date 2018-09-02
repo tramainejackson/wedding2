@@ -11,6 +11,9 @@ $(document).ready(function() {
 	
 	new WOW().init();
 
+	// Data Picker Initialization
+	$('.datepicker').pickadate();
+
 	// SideNav Button Initialization
 	$(".button-collapse").sideNav();
 	// SideNav Scrollbar Initialization

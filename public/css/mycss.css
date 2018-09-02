@@ -25,6 +25,12 @@ body, html, .block {
     background: linear-gradient(40deg,#6fff8e,#FC6262)!important;
 }
 
+.form-row .md-form .select-wrapper input.select-dropdown {
+    height: 2.25rem;
+    line-height: 2.25rem;
+	padding: 1px 0px;
+}
+
 #home.welcomeHeader.view, .giftsView.view {
 	min-height: 100vh;
 	background-image: url(/images/at2.jpg);
