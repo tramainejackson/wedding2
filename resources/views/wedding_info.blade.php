@@ -27,12 +27,14 @@
 				</div>
 			</div>
 			
-			<!-- RSVP section -->
-			<div class="col-12">
-				<h1>HOPE YOU CAN MAKE IT!</h1>
-				<p class="">Kindly Respond By May 1, 2018</p>
-				
-				<button type="button" data-toggle="modal" data-target="#reservationModal" class="btn btn-lg rgba-red-strong" style="font-size:175% !important;">RSVP</button>
-			</div>
+			@if($settings->wedding_date > $now)
+				<!-- RSVP section -->
+				<div class="col-12">
+					<h1>HOPE YOU CAN MAKE IT!</h1>
+					<p class="">Kindly Respond By May 1, 2018</p>
+					
+					<button type="button" data-toggle="modal" data-target="#reservationModal" class="btn btn-lg rgba-red-strong" style="font-size:175% !important;">RSVP</button>
+				</div>
+			@endif
 		</div>
 	</div>

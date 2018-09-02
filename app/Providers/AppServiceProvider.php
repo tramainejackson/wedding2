@@ -17,17 +17,29 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 		Schema::defaultStringLength(191);
-		view()->composer('layouts.app', function($view) {;
+		view()->composer('layouts.app', function($view) {
 			
 			$view->with('settings', Setting::first());
 
 		});		
 		
-		view()->composer('welcome_header', function($view) {;
+		view()->composer('welcome_header', function($view) {
 			
 			$view->with('settings', Setting::first());
 
 		});
+		
+		view()->composer('wedding_info', function($view) {
+			
+			$view->with('now', Carbon::now());
+
+		});
+		
+		view()->composer('wedding_info', function($view) {
+			
+			$view->with('settings', Setting::first());
+
+		});			
 		
 		view()->composer('welcome_header', function($view) {
 			
