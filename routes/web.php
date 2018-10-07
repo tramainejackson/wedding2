@@ -25,8 +25,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/registry', 'HomeController@registry')->name('registry');
 
-Route::get('/party', 'HomeController@party')->name('party');
-
 Route::get('/settings', 'HomeController@settings')->name('settings');
 
 Route::get('/donations/paypal', 'HomeController@paypal')->name('paypal');
@@ -80,6 +78,8 @@ Route::post('/new_message', 'MessageController@store');
 
 Route::patch('/update_settings', 'HomeController@update_settings');
 
+Route::post('/photos/remove_photos', 'PhotoController@remove_photos');
+
 Route::resource('/photos', 'PhotoController');
 
-Route::post('/photos/remove_photos', 'PhotoController@remove_photos');
+Route::resource('/bridal_party', 'BridalPartyController');

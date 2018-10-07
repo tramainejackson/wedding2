@@ -119,8 +119,10 @@
 											<div class="col d-flex flex-column justify-content-center">
 												<span class=""><i class="fa fa-check-circle fa-lg" style="color:green;"></i></span>
 												
-												@if($guest->plusOne)
+												@if($guest->plusOne && $guest->plusOne->rsvp == 'Y')
 													<span class=""><i class="fa fa-check-circle fa-lg" style="color:green;"></i></span>
+												@elseif($guest->plusOne && $guest->plusOne->rsvp == 'N')
+													<span class=""><i class="fa fa-times-circle fa-lg" style="color:red;"></i></span>
 												@endif
 											</div>
 											
@@ -130,9 +132,11 @@
 
 											<div class="col d-flex flex-column justify-content-center">
 												<span class=""><i class="fa fa-times-circle fa-lg col" style="color:red;"></i></span>
-											
-												@if($guest->plusOne)
-													<span class=""><i class="fa fa-times-circle fa-lg col" style="color:red;"></i></span>
+
+												@if($guest->plusOne && $guest->plusOne->rsvp == 'Y')
+													<span class=""><i class="fa fa-check-circle fa-lg" style="color:green;"></i></span>
+												@elseif($guest->plusOne && $guest->plusOne->rsvp == 'N')
+													<span class=""><i class="fa fa-times-circle fa-lg" style="color:red;"></i></span>
 												@endif
 											</div>
 										@else

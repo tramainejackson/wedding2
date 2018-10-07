@@ -176,7 +176,12 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
-        dd($request);
+//        dd($photo);
+
+        if($photo->delete()) {
+
+            return redirect()->back()->with('status', 'Photo was deleted successfully');
+        }
     }
 	
 	/**

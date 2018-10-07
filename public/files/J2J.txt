@@ -3,9 +3,11 @@
 ---------------------------------------
 Add a db column for when users click on the link for PayPal
 Also allow them to add their name so we know who its coming from
-Add option to delete photos
 Guest need to be able to delete their plus one
 Future: See what happens if Addt Guest registers
+Done: Add the bridal party options as a setting to be edited
+Done: Add option to delete photos
+Done: Wedding date not changing when changing the year
 Done: When admin confirms/delete guest, needs to add/delete food selection
 Done: Fix paypal issue
 Done: When admin adds plus one, not adding plus one as an RSVP if guest is already RSVP
@@ -26,4 +28,3 @@ Done- Add instructions under the pagination
 Done- Add a read more line in the blurbs to make them all start the same size
 Done - Change nav bar z-index to 5
 Done - Add countdown, compass clock
-export HTTP_PROXY="http://155.247.166.25:8080"

@@ -10,11 +10,12 @@
 <!--- Header / Home --->
 <header class="notHomeHeader">
 	<div class="container h-100 px-5">
-		<div class="container d-flex flex-column flex-xl-row align-items-center justify-content-around h-100">
+		{{--<div class="container d-flex flex-column flex-xl-row align-items-center justify-content-around h-100">
 			<h1 class="display-3 headAsh">Ashley</h1>
 			<img class="" src="/images/infinity1.png" style="max-height:150px">
 			<h1 class="display-3 headMaine">Tramaine</h1>
-		</div>
+		</div>--}}
+		<img src="/images/infinity_sign_horizontal2.png" />
 	</div>
 	
 	<div class="compassImageHeader">

@@ -34,18 +34,66 @@
 		</div>
 		
 		<div class="row">
-			<div class="col-12">
-				<div id="mdb-lightbox-ui"></div>
-				<div class="mdb-lightbox">
-					@foreach($photos as $photo)
-						<figure class="col-md-4">
-							<a href="{{ asset(str_ireplace('public/images', 'storage/images/lg', $photo->name)) }}" data-size="{{ '1500x' . $photo->lg_height }}">
-								<img class="img-fluid img-thumbnail" src="{{ asset(str_ireplace('public/images', 'storage/images/sm', $photo->name)) }}" />
-							</a>
-						</figure>
-					@endforeach
+
+			@foreach($photos as $photo)
+
+				<figure class="col-md-4 col-lg-2 text-center">
+
+					<a href="{{ asset(str_ireplace('public/images', 'storage/images/lg', $photo->name)) }}" data-size="{{ '1500x' . $photo->lg_height }}">
+						<img class="" src="{{ asset(str_ireplace('public/images', 'storage/images/sm', $photo->name)) }}" height="300" width="250" />
+					</a>
+
+					<div class="w-100 position-absolute bottom mb-1" style="z-index:1">
+
+						<button class="btn btn-danger removeImgBtn" data-toggle="modal" data-target="#modalConfirmDelete">Remove
+
+							<input class="hidden" type="number" value="{{ $photo->id }}" hidden />
+
+						</button>
+
+					</div>
+
+				</figure>
+
+			@endforeach
+
+		</div>
+
+	</div>
+
+	<!--Modal: modalConfirmDelete-->
+	<div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+			<!--Content-->
+			<div class="modal-content text-center">
+				<!--Header-->
+				<div class="modal-header d-flex justify-content-center">
+					<p class="heading">Are you sure you want to delete this picture?</p>
+				</div>
+
+				<!--Body-->
+				<div class="modal-body">
+
+					<i class="fa fa-times fa-4x animated rotateIn"></i>
+
+				</div>
+
+				<!--Footer-->
+				<div class="modal-footer flex-center">
+
+					{!! Form::open(['action' => ['PhotoController@destroy', 1], 'method' => 'DELETE', 'class' => 'pictureDeleteForm', 'id' => 'picture_delete_form']) !!}
+
+
+						<button type="submit" class="btn btn-outline-danger">Yes</button>
+
+						<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">No</button>
+
+					{!! Form::close() !!}
+
 				</div>
 			</div>
+			<!--/.Content-->
 		</div>
 	</div>
+	<!--Modal: modalConfirmDelete-->
 @endsection

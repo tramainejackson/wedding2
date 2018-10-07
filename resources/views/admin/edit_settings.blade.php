@@ -58,7 +58,7 @@
 							<label for="hisname" class="">His Name</label>
 							
 							@if($errors->has('hisname'))
-								<span class="text-red">{{ $errors->first('hisname') }}</span>
+								<span class="red-text">{{ $errors->first('hisname') }}</span>
 							@endif
 							
 						</div>
@@ -68,6 +68,10 @@
 							<input id="hername" class="form-control" type="text" name="hername" value="{{ old('hername') ? old('hername') : $settings->her_name }}" placeholder="Enter Her First Name" />
 							
 							<label for="hername" class="">Her Name</label>
+
+							@if($errors->has('hername'))
+								<span class="red-text">{{ $errors->first('hername') }}</span>
+							@endif
 						</div>
 						
 						<div class="md-form col-4">
@@ -75,6 +79,10 @@
 							<input id="lastname" class="form-control" type="text" name="lastname" value="{{ old('lastname') ? old('lastname') : $settings->lastname}}" placeholder="Enter Last Name" />
 							
 							<label for="lastname" class="">Last Name</label>
+
+							@if($errors->has('lastname'))
+								<span class="red-text">{{ $errors->first('lastname') }}</span>
+							@endif
 						</div>
 						
 					</div>
@@ -95,12 +103,24 @@
 						
 						<div class="md-form col-12">
 						
-							<input id="wedding_date" class="form-control datepicker" type="text" name="wedding_date" value="" placeholder="Enter The Wedding Date" data-value="{{ old('wedding_date') ? old('wedding_date') : $settings->wedding_date->format('d F, Y') }}" />
+							<input id="wedding_date" class="form-control datepicker" type="text" name="wedding_date" value="" placeholder="Enter The Wedding Date" data-value="{{ $settings->wedding_date->format('Y/m/d') }}" />
 							
 							<label for="wedding_date" class="">Wedding Date</label>
 							
 						</div>
 						
+					</div>
+
+					<div class="form-row">
+
+						<div class="md-form col-12">
+
+							<input id="rsvp_date" class="form-control datepicker" type="text" name="rsvp_date" value="" placeholder="Enter The Date Guest Have to RSVP By" data-value="{{ $settings->rsvp_date->format('Y/m/d') }}" />
+
+							<label for="wedding_date" class="">RSVP By Date</label>
+
+						</div>
+
 					</div>
 					
 					<div class="form-row">

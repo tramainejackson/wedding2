@@ -12,7 +12,9 @@ $(document).ready(function() {
 	new WOW().init();
 
 	// Data Picker Initialization
-	$('.datepicker').pickadate();
+	$('.datepicker').pickadate({
+        formatSubmit: 'yyyy/mm/dd',
+	});
 
 	// SideNav Button Initialization
 	$(".button-collapse").sideNav();
@@ -73,6 +75,13 @@ $(document).ready(function() {
 		}
 	});
 
+	// Add image ID to remove image modal
+    $('body').on('click', 'button.removeImgBtn', function() {
+        var imageVal = $(this).children().val();
+
+        $('.pictureDeleteForm').attr('action', window.location.protocol + '//' + window.location.hostname + '/photos/' + imageVal);
+    });
+
 	// Make home page image the same size as the parent div
 	$('.view.bgimg img').css({minHeight:$('.view.bgimg').height() + 'px'});
 	
@@ -130,7 +139,7 @@ $(document).ready(function() {
 	});
 	
 	// Add countdown plugin
-	$("#getting-started #countdownClock, #side_nav_countdown #countdownClock, #home_countdown").countdown("2018/08/26", function(event) {
+	$("#getting-started #countdownClock, #side_nav_countdown #countdownClock, #home_countdown").countdown($('p.weddingDateHide').text(), function(event) {
 		$(this).text(event.strftime('%D days %H:%M:%S'));
 	});
 	

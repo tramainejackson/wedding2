@@ -26,12 +26,12 @@
 					<p><a href="http://www.luciensmanor.com" target="_blank">luciensmanor.com</a></p>
 				</div>
 			</div>
-			
-			@if($settings->wedding_date > $now)
+
+			@if($settings->rsvp_date > $now)
 				<!-- RSVP section -->
 				<div class="col-12">
 					<h1>HOPE YOU CAN MAKE IT!</h1>
-					<p class="">Kindly Respond By May 1, 2018</p>
+					<p class="">Kindly Respond By {{ $settings->rsvp_date->format('l F n, Y') }}</p>
 					
 					<button type="button" data-toggle="modal" data-target="#reservationModal" class="btn btn-lg rgba-red-strong" style="font-size:175% !important;">RSVP</button>
 				</div>

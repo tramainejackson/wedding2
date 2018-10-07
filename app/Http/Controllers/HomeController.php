@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->only(['index', 'settings', 'update_settings']);
+        $this->middleware('auth')->only(['index', 'settings', 'update_settings', 'edit_party', 'update_party']);
     }
 
     /**
@@ -31,7 +31,7 @@ class HomeController extends Controller
     }
 	
     /**
-     * Show the application dashboard.
+     * Show the application edit settings page.
      *
      * @return \Illuminate\Http\Response
      */
@@ -49,18 +49,18 @@ class HomeController extends Controller
      */
     public function update_settings(Request $request)
     {
-		$this->validate(request(), [
+        $this->validate(request(), [
 			'hisname' => 'required',
 			'hername' => 'required',
 			'lastname' => 'required',
 			'email' => 'nullable',
 			'wedding_date' => 'required',
 		]);
-		
-		$settings = Setting::first();
-		$wedding_date = new Carbon($request->wedding_date);
-		
-		$settings->his_name = $request->hisname;
+
+        $settings = Setting::first();
+        $wedding_date = new Carbon($request->wedding_date_submit);
+
+        $settings->his_name = $request->hisname;
 		$settings->her_name = $request->hername;
 		$settings->lastname = $request->lastname;
 		$settings->email = $request->email;
@@ -84,9 +84,32 @@ class HomeController extends Controller
         $bridalParty = BridalParty::orderBy('order', 'asc')->get();
         // $img = \Image::make('images/anissa.jpg')->resize(450, 400)->save('images/anissa2.jpg');
         // $img = \Image::canvas(100, 100, '#ff0000');
-	
+
 		// echo $img;
 		return view('party', compact('bridalParty'));
+    }
+
+	/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit_party()
+    {
+        $bridalParty = BridalParty::groupBy('order')->having('id', '>', 0)->get()->count();
+
+		return view('admin.edit_bridal_party', compact('bridalParty'));
+    }
+
+	/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update_party(Request $request)
+    {
+        dd($request);
+//		return view('party', compact('bridalParty'));
     }
 	
     /**

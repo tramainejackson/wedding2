@@ -59,11 +59,13 @@
 					<a href="/guest_list" class="btn nav-link">Guest List</a>
 					
 					<a href="/guest_list_food" class="btn nav-link">Food Selections</a>
-					
+
 					<a href="/photos/create" class="btn nav-link">Photos</a>
 					
+					<a href="{{ route('bridal_party.create') }}" class="btn nav-link">Bridal Party</a>
+
 					<a href="{{ route('settings') }}" class="btn nav-link">Settings</a>
-					
+
 					<a href="{{ route('logout') }}"	onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn nav-link">Logout</a>
 					
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -108,6 +110,9 @@
 					</li>
 					<li>
 						<a href="/guest_list_food" class="btn nav-link">Food Selections</a>
+					</li>
+					<li>
+						<a href="/guest_list_food" class="btn nav-link">Bridal Party</a>
 					</li>
 					<li>
 						<a href="/photos/create" class="btn nav-link">Photos</a>
@@ -157,7 +162,12 @@
 		@yield('rsvp_information')
 		
 		@yield('footer')
-		
+
+		<!-- Wedding date hidden string for jquery -->
+		<div class="hidden">
+			<p class="weddingDateHide">{{ $settings->wedding_date->format('Y/m/d') }}</p>
+		</div>
+
 		<!-- Footer -->
 		<footer class="black white-text pt-5">
 			<div class="container">

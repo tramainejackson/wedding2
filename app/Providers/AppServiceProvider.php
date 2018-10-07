@@ -39,7 +39,13 @@ class AppServiceProvider extends ServiceProvider
 			
 			$view->with('settings', Setting::first());
 
-		});			
+		});
+
+		view()->composer('admin.edit_bridal_party', function($view) {
+
+			$view->with('settings', Setting::first());
+
+		});
 		
 		view()->composer('welcome_header', function($view) {
 			

@@ -28,14 +28,18 @@
 
 	<div class="mask flex-center text-center">
 		<div class="headerContent">
-			<h1 class="display-2">{{ $settings->her_name }} & {{ $settings->his_name }}</h1>
-			<h2>Are getting married</h2>
-			<h2><b>{{ $settings->wedding_date->format('m.d.y') }}</b></h2>
-			
 			@if($settings->wedding_date > $now)
+				<h1 class="display-2">{{ $settings->her_name }} & {{ $settings->his_name }}</h1>
+				<h2>Are getting married</h2>
+				<h2><b>{{ $settings->wedding_date->format('m.d.y') }}</b></h2>
+
 				<div id="home_countdown" class="d-none d-md-block text-center">
 					<span id="countdownClock"></span>
 				</div>
+			@else
+				<h1 class="display-2">{{ $settings->her_name }} & {{ $settings->his_name }}</h1>
+				<h2>Got Married!!!!!</h2>
+				<h2><b>{{ $settings->wedding_date->format('m.d.y') }}</b></h2>
 			@endif
 		</div>
 	</div>
