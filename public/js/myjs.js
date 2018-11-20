@@ -82,6 +82,11 @@ $(document).ready(function() {
         $('.pictureDeleteForm').attr('action', window.location.protocol + '//' + window.location.hostname + '/photos/' + imageVal);
     });
 
+    // Add new couple row
+    $('body').on('click', 'button.addBridalPartyMember', function() {
+    	addNewCouple();
+    });
+
 	// Make home page image the same size as the parent div
 	$('.view.bgimg img').css({minHeight:$('.view.bgimg').height() + 'px'});
 	
@@ -207,7 +212,26 @@ $(document).ready(function() {
 	});
 });
 
-// Get confirmed RSVP from the 
+// Get a new row for adding a couple
+function addNewCouple() {
+    $.ajax({
+        method: "GET",
+        url: "/new_bridal_couple_row",
+    })
+
+	.fail(function() {
+		alert("Fail");
+	})
+
+	.done(function(data) {
+		var newData = $(data);
+
+		$(newData).insertBefore('.updateBridalPartyBtn').fadeIn()
+        $(newData).find('input, textarea').focus();
+	});
+}
+
+// Get confirmed RSVP from the database
 function getRSVP(firstname, lastname, email) {
 	$.ajax({
 		method: "GET",

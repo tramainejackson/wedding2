@@ -19,6 +19,10 @@ Auth::routes();
     // return view('test');
 // })->name('test');
 
+Route::get('/new_bridal_couple_row', function() {
+	return view('new_bridal_couple_row');
+});
+
 Route::get('/', 'HomeController@welcome')->name('welcome');
 
 Route::get('/home', 'HomeController@index')->name('home');

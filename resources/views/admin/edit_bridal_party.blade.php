@@ -41,7 +41,7 @@
 
 				<div class="align-self-start">
 
-					<button class="btn blue-grey">Add New Bridal Member(s)</button>
+					<button class="btn blue-grey addBridalPartyMember">Add New Bridal Member(s)</button>
 
 				</div>
 
@@ -57,6 +57,12 @@
 				{!! Form::open(['action' => ['BridalPartyController@store'], 'method' => 'POST', 'class' => '']) !!}
 
 					@for($x=1; $x <= $bridalParty; $x++)
+
+						<div class="row" id="">
+							<div class="col-3" id="">
+								<button class='btn btn-red lighten-1' type='button'>Remove Couple</button>
+							</div>
+						</div>
 
 						@php $couples = \App\BridalParty::getBridalOrder($x); @endphp
 
@@ -139,7 +145,6 @@
 
 								</div>
 
-
 							@endforeach
 
 							<div class="md-form hidden" hidden>
@@ -150,6 +155,7 @@
 
 						</div>
 
+						{{-- If not last row, add a horizontal row --}}
 						@if($x != $bridalParty)
 
 							<hr class="mb-5"/>
@@ -158,7 +164,7 @@
 
 					@endfor
 
-					<div class="form-row">
+					<div class="form-row updateBridalPartyBtn">
 
 						<div class="md-form">
 

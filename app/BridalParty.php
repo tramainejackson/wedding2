@@ -14,6 +14,11 @@ class BridalParty extends Model
      * @return \Illuminate\Database\Eloquent\Builder
     */
 
+    public function scopeTotalCouples($query)
+    {
+        return $query->max('order') + 1;
+    }
+
     public function scopeGetBridalOrder($query, $order)
     {
         return $query->where('order', $order)->get();
