@@ -87,6 +87,27 @@ $(document).ready(function() {
     	addNewCouple();
     });
 
+    // Remove new couple row
+    $('body').on('click', 'button.removeNewCoupleRow', function() {
+    	var rowToRemove = $(this).parent().parent().parent().parent();
+
+        rowToRemove.prev().remove();
+        rowToRemove.remove();
+    });
+
+    // Bring up remove modal for current bridal
+	// party couple
+    $('body').on('click', 'button[id*="remove_couple"]', function() {
+    	$('.removeCoupleBtn').val($(this).attr('id').slice(14));
+    });
+
+    // Bring up remove modal for current bridal
+	// party couple
+    $('body').on('click', '.removeCoupleConfirm', function() {
+    	event.preventDefault();
+    	removeCouple($('.removeCoupleBtn').val());
+    });
+
 	// Make home page image the same size as the parent div
 	$('.view.bgimg img').css({minHeight:$('.view.bgimg').height() + 'px'});
 	
@@ -226,8 +247,44 @@ function addNewCouple() {
 	.done(function(data) {
 		var newData = $(data);
 
-		$(newData).insertBefore('.updateBridalPartyBtn').fadeIn()
+		$(newData).insertBefore('.updateBridalPartyBtn').fadeIn();
         $(newData).find('input, textarea').focus();
+	});
+}
+
+// Get a new row for adding a couple
+function removeCouple(couple) {
+    $.ajax({
+        method: "DELETE",
+        url: "/remove_couple",
+		data: {couple:couple}
+    })
+
+	.fail(function() {
+		alert("Fail");
+	})
+
+	.done(function(data) {
+		var newData = $(data);
+
+        toastr.success('Couple Removed Successfully', 'Remove Couple')
+
+		$('input[name="order_num[]"][value="'+ couple +'"]')
+			.parent()
+			.parent()
+			.parent()
+			.addClass('animated')
+			.addClass('bounceOutLeft')
+            .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+				$(this).remove();
+            });
+
+        $(newData).find('form.edit_bridal_party_form')
+			.insertBefore('form.edit_bridal_party_form')
+			.find('input, textarea').focus();
+        $('form.edit_bridal_party_form:last-of-type').remove();
+
+        $('.modal').modal('toggle');
 	});
 }
 

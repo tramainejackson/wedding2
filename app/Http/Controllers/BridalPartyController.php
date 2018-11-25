@@ -123,4 +123,33 @@ class BridalPartyController extends Controller
 //		return view('party', compact('bridalParty'));
     }
 
+	/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function remove_couple(Request $request)
+    {
+    	$orderNum = $request->couple;
+    	$remove_couple = BridalParty::getBridalOrder($request->couple);
+		$total_couples = BridalParty::totalCouples() - 1;
+
+    	foreach($remove_couple as $key => $couple) {
+    		if($couple->delete()) {}
+	    }
+
+	    for($x=1; $x <= $total_couples - $orderNum; $x++) {
+		    $adjust_couple = BridalParty::getBridalOrder($orderNum + $x);
+
+		    foreach($adjust_couple as $key => $couple) {
+			    $couple->order= $couple->order - 1;
+			    $couple->save();
+		    }
+	    }
+
+	    $bridalParty = BridalParty::groupBy('order')->having('id', '>', 0)->get()->count();
+
+		return view('admin.edit_bridal_party', compact('bridalParty'));
+    }
+
 }

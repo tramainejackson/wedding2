@@ -76,7 +76,7 @@
 					<a href="/" class="btn nav-link">Home</a>
 					<a href="/#us" class="btn nav-link">Our Story</a>
 					<a href="/#wedding" class="btn nav-link">Wedding</a>
-					<a href="/party" class="btn nav-link">Dream Team</a>
+					<a href="/bridal_party" class="btn nav-link">Dream Team</a>
 					<a href="/photos" class="btn nav-link">Photos</a>
 					<a href="/registry" class="btn nav-link">Registry</a>
 					<a href="/accommodations" class="btn nav-link">Accommodations</a>
@@ -135,7 +135,7 @@
 						<a href="/#wedding" class="btn nav-link">Wedding</a>
 					</li>
 					<li>
-						<a href="/party" class="btn nav-link">Dream Team</a>
+						<a href="/bridal_party" class="btn nav-link">Dream Team</a>
 					</li>
 					<li>
 						<a href="/photos" class="btn nav-link">Photos</a>

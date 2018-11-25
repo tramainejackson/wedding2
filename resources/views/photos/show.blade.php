@@ -31,6 +31,9 @@
 				<!-- <a class="btn btn-lg orange darken-2 removePhotos" href="#">Remove Photos</a>
 				<p class="">Check box to delete</p> -->
 			</div>
+			<div class="col-12" id="">
+				<h2 class="">Total Pictures: {{ $photos->count() }}</h2>
+			</div>
 		</div>
 		
 		<div class="row">

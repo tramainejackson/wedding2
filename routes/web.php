@@ -87,3 +87,5 @@ Route::post('/photos/remove_photos', 'PhotoController@remove_photos');
 Route::resource('/photos', 'PhotoController');
 
 Route::resource('/bridal_party', 'BridalPartyController');
+
+Route::delete('/remove_couple', 'BridalPartyController@remove_couple')->middleware('auth');
